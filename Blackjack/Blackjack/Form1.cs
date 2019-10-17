@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Blackjack
 {
-    public partial class Form1 : Form
+    public partial class Blackjack : Form
     {
-        public Form1()
+        public Blackjack()
         {
             InitializeComponent();
+        }
+
+        private void Blackjack_Load(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Maximized;
         }
     }
 }

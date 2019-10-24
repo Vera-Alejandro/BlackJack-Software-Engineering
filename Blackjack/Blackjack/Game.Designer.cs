@@ -103,12 +103,16 @@
             // 
             // StartButton
             // 
-            this.StartButton.Location = new System.Drawing.Point(110, 114);
+            this.StartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartButton.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.StartButton.Location = new System.Drawing.Point(361, 219);
             this.StartButton.Name = "StartButton";
-            this.StartButton.Size = new System.Drawing.Size(75, 23);
+            this.StartButton.Size = new System.Drawing.Size(72, 44);
             this.StartButton.TabIndex = 4;
-            this.StartButton.Text = "button1";
+            this.StartButton.Text = "Play!";
             this.StartButton.UseVisualStyleBackColor = true;
+            this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
             // Blackjack
             // 

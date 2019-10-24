@@ -68,7 +68,14 @@ namespace Blackjack
 
         private void Blackjack_SizeChanged(object sender, EventArgs e)
         {
-            TitleImage.Location = new Point((Width / 2) - 109, (Height / 2) - 36);
+            TitleImage.Location = new Point((Width / 2) - (TitleImage.Width / 2), (Height / 2) - (TitleImage.Height / 2));
+            StartButton.Location = new Point((Width /2) - (StartButton.Width / 2), (Height / 2) - (StartButton.Height / 2) + ((StartButton.Height / 2) + (TitleImage.Height / 2) + 12));
+        }
+
+        private void StartButton_Click(object sender, EventArgs e)
+        {
+            TitleImage.Location = new Point(12, 12);
+            StartButton.Visible = false;
         }
     }
 }

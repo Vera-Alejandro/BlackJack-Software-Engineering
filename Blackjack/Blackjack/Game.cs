@@ -65,5 +65,10 @@ namespace Blackjack
         {
             WindowState = FormWindowState.Minimized;
         }
+
+        private void Blackjack_SizeChanged(object sender, EventArgs e)
+        {
+            TitleImage.Location = new Point((Width / 2) - 109, (Height / 2) - 36);
+        }
     }
 }

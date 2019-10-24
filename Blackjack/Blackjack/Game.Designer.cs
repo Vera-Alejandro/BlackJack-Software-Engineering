@@ -30,10 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Blackjack));
             this.Close = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.TitleImage = new System.Windows.Forms.PictureBox();
             this.Resize = new System.Windows.Forms.Button();
             this.Minimize = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.StartButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.TitleImage)).BeginInit();
             this.SuspendLayout();
             // 
             // Close
@@ -54,15 +55,15 @@
             this.Close.UseVisualStyleBackColor = false;
             this.Close.Click += new System.EventHandler(this.Close_Click);
             // 
-            // pictureBox1
+            // TitleImage
             // 
-            this.pictureBox1.Image = global::Blackjack.Properties.Resources.GameTitle;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(218, 71);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.TitleImage.Image = global::Blackjack.Properties.Resources.GameTitle;
+            this.TitleImage.Location = new System.Drawing.Point(12, 12);
+            this.TitleImage.Name = "TitleImage";
+            this.TitleImage.Size = new System.Drawing.Size(218, 72);
+            this.TitleImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.TitleImage.TabIndex = 1;
+            this.TitleImage.TabStop = false;
             // 
             // Resize
             // 
@@ -100,15 +101,25 @@
             this.Minimize.UseVisualStyleBackColor = false;
             this.Minimize.Click += new System.EventHandler(this.Minimize_Click);
             // 
+            // StartButton
+            // 
+            this.StartButton.Location = new System.Drawing.Point(110, 114);
+            this.StartButton.Name = "StartButton";
+            this.StartButton.Size = new System.Drawing.Size(75, 23);
+            this.StartButton.TabIndex = 4;
+            this.StartButton.Text = "button1";
+            this.StartButton.UseVisualStyleBackColor = true;
+            // 
             // Blackjack
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.StartButton);
             this.Controls.Add(this.Minimize);
             this.Controls.Add(this.Resize);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.TitleImage);
             this.Controls.Add(this.Close);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -116,8 +127,9 @@
             this.Name = "Blackjack";
             this.Text = "Blackjack";
             this.Load += new System.EventHandler(this.Blackjack_Load);
+            this.SizeChanged += new System.EventHandler(this.Blackjack_SizeChanged);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Blackjack_MouseDown);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TitleImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -125,9 +137,10 @@
         #endregion
 
         private System.Windows.Forms.Button Close;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox TitleImage;
         private System.Windows.Forms.Button Resize;
         private System.Windows.Forms.Button Minimize;
+        private System.Windows.Forms.Button StartButton;
     }
 }
 

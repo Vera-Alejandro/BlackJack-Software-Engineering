@@ -32,7 +32,7 @@
             this.Close = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Resize = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Minimize = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,23 +82,23 @@
             this.Resize.UseVisualStyleBackColor = false;
             this.Resize.Click += new System.EventHandler(this.Resize_Click);
             // 
-            // button2
+            // Minimize
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.SystemColors.Desktop;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.button2.Location = new System.Drawing.Point(713, 0);
-            this.button2.Margin = new System.Windows.Forms.Padding(0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(25, 34);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "—";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Minimize.BackColor = System.Drawing.SystemColors.Desktop;
+            this.Minimize.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.Minimize.FlatAppearance.BorderSize = 0;
+            this.Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Minimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Minimize.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.Minimize.Location = new System.Drawing.Point(713, 0);
+            this.Minimize.Margin = new System.Windows.Forms.Padding(0);
+            this.Minimize.Name = "Minimize";
+            this.Minimize.Size = new System.Drawing.Size(25, 34);
+            this.Minimize.TabIndex = 3;
+            this.Minimize.Text = "—";
+            this.Minimize.UseVisualStyleBackColor = false;
+            this.Minimize.Click += new System.EventHandler(this.Minimize_Click);
             // 
             // Blackjack
             // 
@@ -106,7 +106,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.Minimize);
             this.Controls.Add(this.Resize);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Close);
@@ -127,7 +127,7 @@
         private System.Windows.Forms.Button Close;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button Resize;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Minimize;
     }
 }
 

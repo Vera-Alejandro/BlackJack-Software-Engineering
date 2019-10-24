@@ -41,7 +41,6 @@ namespace Blackjack
 
         private void Blackjack_Load(object sender, EventArgs e)
         {
-            //WindowState = FormWindowState.Maximized;
             CenterToScreen();
         }
 
@@ -62,7 +61,7 @@ namespace Blackjack
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Minimize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }

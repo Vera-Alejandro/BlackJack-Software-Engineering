@@ -112,9 +112,11 @@
             this.Controls.Add(this.Close);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(800, 450);
             this.Name = "Blackjack";
             this.Text = "Blackjack";
             this.Load += new System.EventHandler(this.Blackjack_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Blackjack_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

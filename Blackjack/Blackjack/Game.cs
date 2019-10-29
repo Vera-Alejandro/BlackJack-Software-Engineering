@@ -42,6 +42,8 @@ namespace Blackjack
         private void Blackjack_Load(object sender, EventArgs e)
         {
             CenterToScreen();
+            TitleImage.Visible = true;
+            StartButton.Visible = true;
         }
 
         private void Close_Click(object sender, EventArgs e)

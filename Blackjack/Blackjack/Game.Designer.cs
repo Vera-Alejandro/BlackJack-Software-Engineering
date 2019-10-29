@@ -46,7 +46,7 @@
             this.Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Close.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.Close.Location = new System.Drawing.Point(773, 0);
+            this.Close.Location = new System.Drawing.Point(1096, 0);
             this.Close.Margin = new System.Windows.Forms.Padding(0);
             this.Close.Name = "Close";
             this.Close.Size = new System.Drawing.Size(25, 34);
@@ -74,7 +74,7 @@
             this.Resize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Resize.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Resize.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.Resize.Location = new System.Drawing.Point(743, 0);
+            this.Resize.Location = new System.Drawing.Point(1066, 0);
             this.Resize.Margin = new System.Windows.Forms.Padding(0);
             this.Resize.Name = "Resize";
             this.Resize.Size = new System.Drawing.Size(25, 34);
@@ -92,7 +92,7 @@
             this.Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Minimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Minimize.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.Minimize.Location = new System.Drawing.Point(713, 0);
+            this.Minimize.Location = new System.Drawing.Point(1036, 0);
             this.Minimize.Margin = new System.Windows.Forms.Padding(0);
             this.Minimize.Name = "Minimize";
             this.Minimize.Size = new System.Drawing.Size(25, 34);
@@ -106,12 +106,13 @@
             this.StartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StartButton.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.StartButton.Location = new System.Drawing.Point(361, 219);
+            this.StartButton.Location = new System.Drawing.Point(29, 27);
             this.StartButton.Name = "StartButton";
             this.StartButton.Size = new System.Drawing.Size(72, 44);
             this.StartButton.TabIndex = 4;
             this.StartButton.Text = "Play!";
             this.StartButton.UseVisualStyleBackColor = true;
+            this.StartButton.Visible = false;
             this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
             // Blackjack
@@ -119,12 +120,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.StartButton);
+            this.ClientSize = new System.Drawing.Size(1123, 717);
             this.Controls.Add(this.Minimize);
             this.Controls.Add(this.Resize);
             this.Controls.Add(this.TitleImage);
             this.Controls.Add(this.Close);
+            this.Controls.Add(this.StartButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(800, 450);

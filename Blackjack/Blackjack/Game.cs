@@ -34,6 +34,8 @@ namespace Blackjack
 
         #endregion
 
+        private bool gameStarted = false;
+
         public Blackjack()
         {
             InitializeComponent();
@@ -70,14 +72,31 @@ namespace Blackjack
 
         private void Blackjack_SizeChanged(object sender, EventArgs e)
         {
-            TitleImage.Location = new Point((Width / 2) - (TitleImage.Width / 2), (Height / 2) - (TitleImage.Height / 2));
-            StartButton.Location = new Point((Width /2) - (StartButton.Width / 2), (Height / 2) - (StartButton.Height / 2) + ((StartButton.Height / 2) + (TitleImage.Height / 2) + 12));
+            if (gameStarted == false)
+            {
+                TitleImage.Location = new Point((Width / 2) - (TitleImage.Width / 2), (Height / 2) - (TitleImage.Height / 2));
+                StartButton.Location = new Point((Width / 2) - (StartButton.Width / 2), (Height / 2) - (StartButton.Height / 2) + ((StartButton.Height / 2) + (TitleImage.Height / 2) + 12));
+            }
+            else
+            {
+                TitleImage.Location = new Point(12, 12);
+            }
         }
 
         private void StartButton_Click(object sender, EventArgs e)
         {
             TitleImage.Location = new Point(12, 12);
             StartButton.Visible = false;
+
+            DealeHand.Visible = true;
+            PlayerHand.Visible = true;
+
+            gameStarted = true;
+
+            //deal first card out
+            Deck deckDealer = new Deck();
+            Deck deckPlayer = new Deck();
+
         }
     }
 }

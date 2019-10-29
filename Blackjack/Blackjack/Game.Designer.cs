@@ -34,7 +34,13 @@
             this.Resize = new System.Windows.Forms.Button();
             this.Minimize = new System.Windows.Forms.Button();
             this.StartButton = new System.Windows.Forms.Button();
+            this.DealeHand = new System.Windows.Forms.Panel();
+            this.PlayerHand = new System.Windows.Forms.Panel();
+            this.DealerCount = new System.Windows.Forms.Label();
+            this.PlayerCount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.TitleImage)).BeginInit();
+            this.DealeHand.SuspendLayout();
+            this.PlayerHand.SuspendLayout();
             this.SuspendLayout();
             // 
             // Close
@@ -115,12 +121,54 @@
             this.StartButton.Visible = false;
             this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
+            // DealeHand
+            // 
+            this.DealeHand.Controls.Add(this.DealerCount);
+            this.DealeHand.Location = new System.Drawing.Point(98, 163);
+            this.DealeHand.Name = "DealeHand";
+            this.DealeHand.Size = new System.Drawing.Size(450, 500);
+            this.DealeHand.TabIndex = 5;
+            this.DealeHand.Visible = false;
+            // 
+            // PlayerHand
+            // 
+            this.PlayerHand.Controls.Add(this.PlayerCount);
+            this.PlayerHand.Location = new System.Drawing.Point(611, 163);
+            this.PlayerHand.Name = "PlayerHand";
+            this.PlayerHand.Size = new System.Drawing.Size(450, 500);
+            this.PlayerHand.TabIndex = 6;
+            this.PlayerHand.Visible = false;
+            // 
+            // DealerCount
+            // 
+            this.DealerCount.AutoSize = true;
+            this.DealerCount.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.DealerCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DealerCount.Location = new System.Drawing.Point(0, 0);
+            this.DealerCount.Name = "DealerCount";
+            this.DealerCount.Size = new System.Drawing.Size(166, 29);
+            this.DealerCount.TabIndex = 0;
+            this.DealerCount.Text = "Dealer Count: ";
+            // 
+            // PlayerCount
+            // 
+            this.PlayerCount.AutoSize = true;
+            this.PlayerCount.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.PlayerCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlayerCount.Location = new System.Drawing.Point(0, 0);
+            this.PlayerCount.Name = "PlayerCount";
+            this.PlayerCount.Size = new System.Drawing.Size(150, 29);
+            this.PlayerCount.TabIndex = 0;
+            this.PlayerCount.Text = "Player Count";
+            // 
             // Blackjack
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.ClientSize = new System.Drawing.Size(1123, 717);
+            this.Controls.Add(this.PlayerHand);
+            this.Controls.Add(this.DealeHand);
             this.Controls.Add(this.Minimize);
             this.Controls.Add(this.Resize);
             this.Controls.Add(this.TitleImage);
@@ -135,6 +183,10 @@
             this.SizeChanged += new System.EventHandler(this.Blackjack_SizeChanged);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Blackjack_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.TitleImage)).EndInit();
+            this.DealeHand.ResumeLayout(false);
+            this.DealeHand.PerformLayout();
+            this.PlayerHand.ResumeLayout(false);
+            this.PlayerHand.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -146,6 +198,10 @@
         private System.Windows.Forms.Button Resize;
         private System.Windows.Forms.Button Minimize;
         private System.Windows.Forms.Button StartButton;
+        private System.Windows.Forms.Panel DealeHand;
+        private System.Windows.Forms.Panel PlayerHand;
+        private System.Windows.Forms.Label DealerCount;
+        private System.Windows.Forms.Label PlayerCount;
     }
 }
 

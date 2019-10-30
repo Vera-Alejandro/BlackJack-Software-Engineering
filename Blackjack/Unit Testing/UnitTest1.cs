@@ -15,8 +15,8 @@ namespace Unit_Testing
 
             shuffleDeck.Shuffle();
 
-            Card regTest = regularDeck.GetFirstCard();
-            Card shuffTest = shuffleDeck.GetFirstCard();
+            Card regTest = regularDeck.GetCard();
+            Card shuffTest = shuffleDeck.GetCard();
 
             Assert.AreNotEqual(shuffTest.GetSuiteType(), regTest.GetSuiteType());
             Assert.AreNotEqual(shuffTest.GetCardValue(), regTest.GetCardValue());

@@ -40,7 +40,7 @@ namespace BlackjackGame
             }
         }
 
-        public Card GetFirstCard()
+        public Card GetCard()
         {
             foreach (Card card in _cards)
             {
@@ -56,6 +56,7 @@ namespace BlackjackGame
             _cards[0].SetUsedValue(true);
             return _cards[0];
         }
+
 
 
         

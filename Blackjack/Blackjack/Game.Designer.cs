@@ -30,17 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Blackjack));
             this.Close = new System.Windows.Forms.Button();
-            this.TitleImage = new System.Windows.Forms.PictureBox();
             this.Resize = new System.Windows.Forms.Button();
             this.Minimize = new System.Windows.Forms.Button();
             this.StartButton = new System.Windows.Forms.Button();
             this.DealeHand = new System.Windows.Forms.Panel();
-            this.DealerCount = new System.Windows.Forms.Label();
+            this.DCName = new System.Windows.Forms.Label();
             this.PlayerHand = new System.Windows.Forms.Panel();
+            this.PCName = new System.Windows.Forms.Label();
+            this.TitleImage = new System.Windows.Forms.PictureBox();
+            this.DealerCount = new System.Windows.Forms.Label();
             this.PlayerCount = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.TitleImage)).BeginInit();
+            this.Output = new System.Windows.Forms.TextBox();
             this.DealeHand.SuspendLayout();
             this.PlayerHand.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TitleImage)).BeginInit();
             this.SuspendLayout();
             // 
             // Close
@@ -60,16 +63,6 @@
             this.Close.Text = "X";
             this.Close.UseVisualStyleBackColor = false;
             this.Close.Click += new System.EventHandler(this.Close_Click);
-            // 
-            // TitleImage
-            // 
-            this.TitleImage.Image = global::Blackjack.Properties.Resources.BackJack_Title;
-            this.TitleImage.Location = new System.Drawing.Point(12, 12);
-            this.TitleImage.Name = "TitleImage";
-            this.TitleImage.Size = new System.Drawing.Size(218, 72);
-            this.TitleImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.TitleImage.TabIndex = 1;
-            this.TitleImage.TabStop = false;
             // 
             // Resize
             // 
@@ -124,42 +117,86 @@
             // DealeHand
             // 
             this.DealeHand.Controls.Add(this.DealerCount);
+            this.DealeHand.Controls.Add(this.DCName);
             this.DealeHand.Location = new System.Drawing.Point(98, 163);
             this.DealeHand.Name = "DealeHand";
             this.DealeHand.Size = new System.Drawing.Size(450, 500);
             this.DealeHand.TabIndex = 5;
             this.DealeHand.Visible = false;
             // 
-            // DealerCount
+            // DCName
             // 
-            this.DealerCount.AutoSize = true;
-            this.DealerCount.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.DealerCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DealerCount.Location = new System.Drawing.Point(0, 0);
-            this.DealerCount.Name = "DealerCount";
-            this.DealerCount.Size = new System.Drawing.Size(166, 29);
-            this.DealerCount.TabIndex = 0;
-            this.DealerCount.Text = "Dealer Count: ";
+            this.DCName.AutoSize = true;
+            this.DCName.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.DCName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DCName.Location = new System.Drawing.Point(0, 0);
+            this.DCName.Name = "DCName";
+            this.DCName.Size = new System.Drawing.Size(166, 29);
+            this.DCName.TabIndex = 0;
+            this.DCName.Text = "Dealer Count: ";
             // 
             // PlayerHand
             // 
             this.PlayerHand.Controls.Add(this.PlayerCount);
+            this.PlayerHand.Controls.Add(this.PCName);
             this.PlayerHand.Location = new System.Drawing.Point(611, 163);
             this.PlayerHand.Name = "PlayerHand";
             this.PlayerHand.Size = new System.Drawing.Size(450, 500);
             this.PlayerHand.TabIndex = 6;
             this.PlayerHand.Visible = false;
             // 
+            // PCName
+            // 
+            this.PCName.AutoSize = true;
+            this.PCName.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.PCName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PCName.Location = new System.Drawing.Point(0, 0);
+            this.PCName.Name = "PCName";
+            this.PCName.Size = new System.Drawing.Size(150, 29);
+            this.PCName.TabIndex = 0;
+            this.PCName.Text = "Player Count";
+            // 
+            // TitleImage
+            // 
+            this.TitleImage.Image = global::Blackjack.Properties.Resources.BackJack_Title;
+            this.TitleImage.Location = new System.Drawing.Point(12, 12);
+            this.TitleImage.Name = "TitleImage";
+            this.TitleImage.Size = new System.Drawing.Size(218, 72);
+            this.TitleImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.TitleImage.TabIndex = 1;
+            this.TitleImage.TabStop = false;
+            // 
+            // DealerCount
+            // 
+            this.DealerCount.AutoSize = true;
+            this.DealerCount.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.DealerCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DealerCount.Location = new System.Drawing.Point(172, 0);
+            this.DealerCount.Name = "DealerCount";
+            this.DealerCount.Size = new System.Drawing.Size(26, 29);
+            this.DealerCount.TabIndex = 1;
+            this.DealerCount.Text = "0";
+            // 
             // PlayerCount
             // 
             this.PlayerCount.AutoSize = true;
             this.PlayerCount.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.PlayerCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlayerCount.Location = new System.Drawing.Point(0, 0);
+            this.PlayerCount.Location = new System.Drawing.Point(156, 0);
             this.PlayerCount.Name = "PlayerCount";
-            this.PlayerCount.Size = new System.Drawing.Size(150, 29);
-            this.PlayerCount.TabIndex = 0;
-            this.PlayerCount.Text = "Player Count";
+            this.PlayerCount.Size = new System.Drawing.Size(26, 29);
+            this.PlayerCount.TabIndex = 1;
+            this.PlayerCount.Text = "0";
+            // 
+            // Output
+            // 
+            this.Output.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.Output.Location = new System.Drawing.Point(669, 50);
+            this.Output.Name = "Output";
+            this.Output.ReadOnly = true;
+            this.Output.Size = new System.Drawing.Size(330, 23);
+            this.Output.TabIndex = 7;
+            this.Output.Visible = false;
             // 
             // Blackjack
             // 
@@ -167,6 +204,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.ClientSize = new System.Drawing.Size(1123, 717);
+            this.Controls.Add(this.Output);
             this.Controls.Add(this.PlayerHand);
             this.Controls.Add(this.DealeHand);
             this.Controls.Add(this.Minimize);
@@ -182,12 +220,13 @@
             this.Load += new System.EventHandler(this.Blackjack_Load);
             this.SizeChanged += new System.EventHandler(this.Blackjack_SizeChanged);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Blackjack_MouseDown);
-            ((System.ComponentModel.ISupportInitialize)(this.TitleImage)).EndInit();
             this.DealeHand.ResumeLayout(false);
             this.DealeHand.PerformLayout();
             this.PlayerHand.ResumeLayout(false);
             this.PlayerHand.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TitleImage)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -200,8 +239,11 @@
         private System.Windows.Forms.Button StartButton;
         private System.Windows.Forms.Panel DealeHand;
         private System.Windows.Forms.Panel PlayerHand;
+        private System.Windows.Forms.Label DCName;
+        private System.Windows.Forms.Label PCName;
         private System.Windows.Forms.Label DealerCount;
         private System.Windows.Forms.Label PlayerCount;
+        private System.Windows.Forms.TextBox Output;
     }
 }
 

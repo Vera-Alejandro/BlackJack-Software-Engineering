@@ -90,12 +90,17 @@ namespace BlackjackGame
 
             DealeHand.Visible = true;
             PlayerHand.Visible = true;
+            Output.Visible = true;
+
 
             gameStarted = true;
 
             //deal first card out
-            Deck deckDealer = new Deck();
-            Deck deckPlayer = new Deck();
+            Deck dealingDeck = new Deck();
+
+            dealingDeck.Shuffle();
+
+            dealingDeck.GetCard();
 
         }
     }

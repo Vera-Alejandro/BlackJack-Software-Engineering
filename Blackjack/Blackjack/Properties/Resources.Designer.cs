@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BlackjackGame.Properties {
+namespace Blackjack.Properties {
     using System;
     
     
@@ -63,9 +63,19 @@ namespace BlackjackGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap GameTitle {
+        internal static System.Drawing.Bitmap Ace_of_Clubs {
             get {
-                object obj = ResourceManager.GetObject("GameTitle", resourceCulture);
+                object obj = ResourceManager.GetObject("Ace of Clubs", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BackJack_Title {
+            get {
+                object obj = ResourceManager.GetObject("BackJack Title", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

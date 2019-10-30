@@ -19,6 +19,184 @@ namespace BlackjackGame
             _value = Value;
             _suit = Suit;
             _beenUsed = false;
+
+            #region Set Card Image
+
+            switch (Value)
+            {
+                case CardValue.Ace:
+                    switch (Suit)
+                    {
+                        case SuiteType.Hearts:
+                            break;
+                        case SuiteType.Clubs:
+                            _cardImg = global::Blackjack.Properties.Resources.Ace_of_Clubs;
+                            break;
+                        case SuiteType.Spades:
+                            break;
+                        case SuiteType.Diamonds:
+                            break;
+                    }
+                    break;
+                case CardValue.Two:
+                    switch (Suit)
+                    {
+                        case SuiteType.Hearts:
+                            break;
+                        case SuiteType.Clubs:
+                            break;
+                        case SuiteType.Spades:
+                            break;
+                        case SuiteType.Diamonds:
+                            break;
+                    }
+                    break;
+                case CardValue.Three:
+                    switch (Suit)
+                    {
+                        case SuiteType.Hearts:
+                            break;
+                        case SuiteType.Clubs:
+                            break;
+                        case SuiteType.Spades:
+                            break;
+                        case SuiteType.Diamonds:
+                            break;
+                    }
+                    break;
+                case CardValue.Four:
+                    switch (Suit)
+                    {
+                        case SuiteType.Hearts:
+                            break;
+                        case SuiteType.Clubs:
+                            break;
+                        case SuiteType.Spades:
+                            break;
+                        case SuiteType.Diamonds:
+                            break;
+                    }
+                    break;
+                case CardValue.Five:
+                    switch (Suit)
+                    {
+                        case SuiteType.Hearts:
+                            break;
+                        case SuiteType.Clubs:
+                            break;
+                        case SuiteType.Spades:
+                            break;
+                        case SuiteType.Diamonds:
+                            break;
+                    }
+                    break;
+                case CardValue.Six:
+                    switch (Suit)
+                    {
+                        case SuiteType.Hearts:
+                            break;
+                        case SuiteType.Clubs:
+                            break;
+                        case SuiteType.Spades:
+                            break;
+                        case SuiteType.Diamonds:
+                            break;
+                    }
+                    break;
+                case CardValue.Seven:
+                    switch (Suit)
+                    {
+                        case SuiteType.Hearts:
+                            break;
+                        case SuiteType.Clubs:
+                            break;
+                        case SuiteType.Spades:
+                            break;
+                        case SuiteType.Diamonds:
+                            break;
+                    }
+                    break;
+                case CardValue.Eight:
+                    switch (Suit)
+                    {
+                        case SuiteType.Hearts:
+                            break;
+                        case SuiteType.Clubs:
+                            break;
+                        case SuiteType.Spades:
+                            break;
+                        case SuiteType.Diamonds:
+                            break;
+                    }
+                    break;
+                case CardValue.Nine:
+                    switch (Suit)
+                    {
+                        case SuiteType.Hearts:
+                            break;
+                        case SuiteType.Clubs:
+                            break;
+                        case SuiteType.Spades:
+                            break;
+                        case SuiteType.Diamonds:
+                            break;
+                    }
+                    break;
+                case CardValue.Ten:
+                    switch (Suit)
+                    {
+                        case SuiteType.Hearts:
+                            break;
+                        case SuiteType.Clubs:
+                            break;
+                        case SuiteType.Spades:
+                            break;
+                        case SuiteType.Diamonds:
+                            break;
+                    }
+                    break;
+                case CardValue.Jack:
+                    switch (Suit)
+                    {
+                        case SuiteType.Hearts:
+                            break;
+                        case SuiteType.Clubs:
+                            break;
+                        case SuiteType.Spades:
+                            break;
+                        case SuiteType.Diamonds:
+                            break;
+                    }
+                    break;
+                case CardValue.Queen:
+                    switch (Suit)
+                    {
+                        case SuiteType.Hearts:
+                            break;
+                        case SuiteType.Clubs:
+                            break;
+                        case SuiteType.Spades:
+                            break;
+                        case SuiteType.Diamonds:
+                            break;
+                    }
+                    break;
+                case CardValue.King:
+                    switch (Suit)
+                    {
+                        case SuiteType.Hearts:
+                            break;
+                        case SuiteType.Clubs:
+                            break;
+                        case SuiteType.Spades:
+                            break;
+                        case SuiteType.Diamonds:
+                            break;
+                    }
+                    break;
+            }
+
+            #endregion
         }
 
         public CardValue GetCardValue()
@@ -61,18 +239,18 @@ namespace BlackjackGame
         public enum CardValue
         { 
             Ace,
-            Two = 2,
-            Three = 3,
-            Four = 4,
-            Five = 5,
-            Six = 6,
-            Seven = 7,
-            Eight = 8,
-            Nine = 9,
-            Ten = 10,
-            Jack = 10,
-            Queen = 10,
-            King = 10         
+            Two,
+            Three,
+            Four, 
+            Five, 
+            Six,
+            Seven,
+            Eight,
+            Nine, 
+            Ten, 
+            Jack, 
+            Queen,
+            King        
         }
 
     }

@@ -35,8 +35,8 @@
             this.Minimize = new System.Windows.Forms.Button();
             this.StartButton = new System.Windows.Forms.Button();
             this.DealeHand = new System.Windows.Forms.Panel();
-            this.PlayerHand = new System.Windows.Forms.Panel();
             this.DealerCount = new System.Windows.Forms.Label();
+            this.PlayerHand = new System.Windows.Forms.Panel();
             this.PlayerCount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.TitleImage)).BeginInit();
             this.DealeHand.SuspendLayout();
@@ -63,7 +63,7 @@
             // 
             // TitleImage
             // 
-            this.TitleImage.Image = global::BlackjackGame.Properties.Resources.GameTitle;
+            this.TitleImage.Image = global::Blackjack.Properties.Resources.BackJack_Title;
             this.TitleImage.Location = new System.Drawing.Point(12, 12);
             this.TitleImage.Name = "TitleImage";
             this.TitleImage.Size = new System.Drawing.Size(218, 72);
@@ -130,15 +130,6 @@
             this.DealeHand.TabIndex = 5;
             this.DealeHand.Visible = false;
             // 
-            // PlayerHand
-            // 
-            this.PlayerHand.Controls.Add(this.PlayerCount);
-            this.PlayerHand.Location = new System.Drawing.Point(611, 163);
-            this.PlayerHand.Name = "PlayerHand";
-            this.PlayerHand.Size = new System.Drawing.Size(450, 500);
-            this.PlayerHand.TabIndex = 6;
-            this.PlayerHand.Visible = false;
-            // 
             // DealerCount
             // 
             this.DealerCount.AutoSize = true;
@@ -149,6 +140,15 @@
             this.DealerCount.Size = new System.Drawing.Size(166, 29);
             this.DealerCount.TabIndex = 0;
             this.DealerCount.Text = "Dealer Count: ";
+            // 
+            // PlayerHand
+            // 
+            this.PlayerHand.Controls.Add(this.PlayerCount);
+            this.PlayerHand.Location = new System.Drawing.Point(611, 163);
+            this.PlayerHand.Name = "PlayerHand";
+            this.PlayerHand.Size = new System.Drawing.Size(450, 500);
+            this.PlayerHand.TabIndex = 6;
+            this.PlayerHand.Visible = false;
             // 
             // PlayerCount
             // 

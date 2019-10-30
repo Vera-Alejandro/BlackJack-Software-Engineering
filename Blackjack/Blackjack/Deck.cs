@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Blackjack.Card;
+using static BlackjackGame.Card;
 
-namespace Blackjack
+namespace BlackjackGame
 {
     public class Deck
     {
-        Stack<Card> _cards { get; set; }
+        List<Card> _cards { get; set; }
 
         public Deck()
         {
-            _cards = new Stack<Card>();
+            _cards = new List<Card>();
 
             //create deck
             foreach (SuiteType suit in (SuiteType[])Enum.GetValues(typeof(SuiteType)))
@@ -21,7 +21,7 @@ namespace Blackjack
                 foreach (CardValue value in (CardValue[])Enum.GetValues(typeof(CardValue)))
                 {
                     Card newCard = new Card(value, suit);
-                    _cards.Push(newCard);
+                    _cards.Add(newCard);
                 }
             }
         }
@@ -35,9 +35,31 @@ namespace Blackjack
 
             foreach (Card value in temp.OrderBy(x => rnd.Next()))
             {
-                _cards.Push(value);
+                value.SetUsedValue(true);   
+                _cards.Add(value);
             }
         }
+
+        public Card GetFirstCard()
+        {
+            foreach (Card card in _cards)
+            {
+                if(!card.GetUsedValue())
+                {
+                    card.SetUsedValue(true);
+                    return card;
+                }
+            }
+
+            Shuffle();
+
+            _cards[0].SetUsedValue(true);
+            return _cards[0];
+        }
+
+
+        
+
 
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Blackjack
+﻿namespace BlackjackGame
 {
     partial class Blackjack
     {
@@ -63,7 +63,7 @@
             // 
             // TitleImage
             // 
-            this.TitleImage.Image = global::Blackjack.Properties.Resources.GameTitle;
+            this.TitleImage.Image = global::BlackjackGame.Properties.Resources.GameTitle;
             this.TitleImage.Location = new System.Drawing.Point(12, 12);
             this.TitleImage.Name = "TitleImage";
             this.TitleImage.Size = new System.Drawing.Size(218, 72);

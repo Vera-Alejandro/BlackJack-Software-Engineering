@@ -5,20 +5,51 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace Blackjack
+namespace BlackjackGame
 {
-    class Card
+    public class Card
     {
-        public CardValue _value { get; set; }
-        public SuiteType _suit {get; private set;}
-        public Bitmap _cardImg { get; set; }
+        private CardValue _value { get; set; }
+        private SuiteType _suit {get; set;}
+        private Bitmap _cardImg { get; set; }
+        private bool _beenUsed { get; set; }
 
         public Card(CardValue Value, SuiteType Suit)
         {
             _value = Value;
             _suit = Suit;
+            _beenUsed = false;
         }
 
+        public CardValue GetCardValue()
+        {
+            return _value;
+        }
+
+        public void SetCardValue(CardValue Value)
+        {
+            _value = Value;
+        }
+
+        public SuiteType GetSuiteType()
+        {
+            return _suit;
+        }
+
+        public void SetSuitType(SuiteType Suit)
+        {
+            _suit = Suit;
+        }
+
+        public bool GetUsedValue()
+        {
+            return _beenUsed;
+        }
+
+        public void SetUsedValue(bool SetCase)
+        {
+            _beenUsed = SetCase;
+        }
         public enum SuiteType
         {
             Hearts,

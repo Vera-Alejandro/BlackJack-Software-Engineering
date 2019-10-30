@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace Blackjack
+namespace BlackjackGame
 {
     public partial class Blackjack : Form
     {

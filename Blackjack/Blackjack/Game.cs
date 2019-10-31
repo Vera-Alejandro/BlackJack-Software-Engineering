@@ -91,7 +91,7 @@ namespace BlackjackGame
 
             DealerHand.Visible = true;
             PlayerHand.Visible = true;
-            //Output.Visible = true;
+            Output.Visible = true;
 
 
             gameStarted = true;
@@ -124,8 +124,8 @@ namespace BlackjackGame
 
             DealerHand.Controls.Add(d1Picture);
             DealerHand.Controls.Add(d2Picture);
-            d1Picture.Location = new Point(100, 150);
-            d2Picture.Location = new Point(200, 150);
+            d1Picture.Location = new Point(100, 100);
+            d2Picture.Location = new Point(150, 150);
             d1Picture.SizeMode = PictureBoxSizeMode.AutoSize;
             d2Picture.SizeMode = PictureBoxSizeMode.AutoSize;
             DealerCount.Text = dealerHand.GetTotal().ToString();
@@ -138,8 +138,8 @@ namespace BlackjackGame
 
             PlayerHand.Controls.Add(p1Picture);
             PlayerHand.Controls.Add(p2Picture);
-            p1Picture.Location = new Point(100, 150);
-            p2Picture.Location = new Point(200, 150);
+            p1Picture.Location = new Point(100, 100);
+            p2Picture.Location = new Point(150, 150);
             p1Picture.SizeMode = PictureBoxSizeMode.AutoSize;
             p2Picture.SizeMode = PictureBoxSizeMode.AutoSize;
             PlayerCount.Text = playerHand.GetTotal().ToString();
@@ -147,12 +147,12 @@ namespace BlackjackGame
 
         private void Stay_Click(object sender, EventArgs e)
         {
-
+            Output.Text = "Player choose to stay";
         }
 
         private void Hit_Click(object sender, EventArgs e)
         {
-
+            Output.Text = "Player choose to hit.";
         }
     }
 }

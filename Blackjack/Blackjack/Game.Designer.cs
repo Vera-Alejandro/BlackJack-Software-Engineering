@@ -33,7 +33,7 @@
             this.Resize = new System.Windows.Forms.Button();
             this.Minimize = new System.Windows.Forms.Button();
             this.StartButton = new System.Windows.Forms.Button();
-            this.DealeHand = new System.Windows.Forms.Panel();
+            this.DealerHand = new System.Windows.Forms.Panel();
             this.DCName = new System.Windows.Forms.Label();
             this.PlayerHand = new System.Windows.Forms.Panel();
             this.PCName = new System.Windows.Forms.Label();
@@ -41,7 +41,7 @@
             this.DealerCount = new System.Windows.Forms.Label();
             this.PlayerCount = new System.Windows.Forms.Label();
             this.Output = new System.Windows.Forms.TextBox();
-            this.DealeHand.SuspendLayout();
+            this.DealerHand.SuspendLayout();
             this.PlayerHand.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitleImage)).BeginInit();
             this.SuspendLayout();
@@ -114,15 +114,15 @@
             this.StartButton.Visible = false;
             this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
-            // DealeHand
+            // DealerHand
             // 
-            this.DealeHand.Controls.Add(this.DealerCount);
-            this.DealeHand.Controls.Add(this.DCName);
-            this.DealeHand.Location = new System.Drawing.Point(98, 163);
-            this.DealeHand.Name = "DealeHand";
-            this.DealeHand.Size = new System.Drawing.Size(450, 500);
-            this.DealeHand.TabIndex = 5;
-            this.DealeHand.Visible = false;
+            this.DealerHand.Controls.Add(this.DealerCount);
+            this.DealerHand.Controls.Add(this.DCName);
+            this.DealerHand.Location = new System.Drawing.Point(98, 163);
+            this.DealerHand.Name = "DealerHand";
+            this.DealerHand.Size = new System.Drawing.Size(450, 500);
+            this.DealerHand.TabIndex = 5;
+            this.DealerHand.Visible = false;
             // 
             // DCName
             // 
@@ -206,7 +206,7 @@
             this.ClientSize = new System.Drawing.Size(1123, 717);
             this.Controls.Add(this.Output);
             this.Controls.Add(this.PlayerHand);
-            this.Controls.Add(this.DealeHand);
+            this.Controls.Add(this.DealerHand);
             this.Controls.Add(this.Minimize);
             this.Controls.Add(this.Resize);
             this.Controls.Add(this.TitleImage);
@@ -220,8 +220,8 @@
             this.Load += new System.EventHandler(this.Blackjack_Load);
             this.SizeChanged += new System.EventHandler(this.Blackjack_SizeChanged);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Blackjack_MouseDown);
-            this.DealeHand.ResumeLayout(false);
-            this.DealeHand.PerformLayout();
+            this.DealerHand.ResumeLayout(false);
+            this.DealerHand.PerformLayout();
             this.PlayerHand.ResumeLayout(false);
             this.PlayerHand.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitleImage)).EndInit();
@@ -237,7 +237,7 @@
         private System.Windows.Forms.Button Resize;
         private System.Windows.Forms.Button Minimize;
         private System.Windows.Forms.Button StartButton;
-        private System.Windows.Forms.Panel DealeHand;
+        private System.Windows.Forms.Panel DealerHand;
         private System.Windows.Forms.Panel PlayerHand;
         private System.Windows.Forms.Label DCName;
         private System.Windows.Forms.Label PCName;

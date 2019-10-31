@@ -11,7 +11,7 @@ namespace BlackjackGame
     {
         private CardValue _value { get; set; }
         private SuiteType _suit {get; set;}
-        private Bitmap _cardImg { get; set; }
+        private Image _cardImg { get; set; }
         private bool _beenUsed { get; set; }
 
         public Card(CardValue Value, SuiteType Suit)
@@ -279,6 +279,17 @@ namespace BlackjackGame
         {
             _beenUsed = SetCase;
         }
+
+        public Image GetImage()
+        {
+            return _cardImg;
+        }
+
+        public void SetImage(Image CardImage)
+        {
+            _cardImg = CardImage;
+        }
+
         public enum SuiteType
         {
             Hearts,

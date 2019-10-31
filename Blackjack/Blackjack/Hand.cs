@@ -27,6 +27,12 @@ namespace Blackjack
         {
             return _handTotal;
         }
+        
+        public void ClearHand()
+        {
+            _handTotal = 0;
+            _currentHand.Clear();
+        }
 
         public void AddCard(Card NewCard)
         {
@@ -81,6 +87,21 @@ namespace Blackjack
                     _handTotal += 10;
                     break;
             }
+        }
+
+        public Card GetCard()
+        {
+            foreach (Card card in _currentHand)
+            {
+                if (!card.GetUsedValue())
+                {
+                    card.SetUsedValue(true);
+                    return card;
+                }
+            }
+
+            _currentHand[0].SetUsedValue(true);
+            return _currentHand[0];
         }
     }
 }

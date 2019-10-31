@@ -41,6 +41,8 @@
             this.PCName = new System.Windows.Forms.Label();
             this.Output = new System.Windows.Forms.TextBox();
             this.TitleImage = new System.Windows.Forms.PictureBox();
+            this.Hit = new System.Windows.Forms.Button();
+            this.Stay = new System.Windows.Forms.Button();
             this.DealerHand.SuspendLayout();
             this.PlayerHand.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitleImage)).BeginInit();
@@ -152,6 +154,8 @@
             // 
             // PlayerHand
             // 
+            this.PlayerHand.Controls.Add(this.Stay);
+            this.PlayerHand.Controls.Add(this.Hit);
             this.PlayerHand.Controls.Add(this.PlayerCount);
             this.PlayerHand.Controls.Add(this.PCName);
             this.PlayerHand.Location = new System.Drawing.Point(611, 163);
@@ -206,6 +210,35 @@
             this.TitleImage.TabIndex = 1;
             this.TitleImage.TabStop = false;
             // 
+            // Hit
+            // 
+            this.Hit.BackColor = System.Drawing.Color.Black;
+            this.Hit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Hit.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Hit.ForeColor = System.Drawing.Color.White;
+            this.Hit.Location = new System.Drawing.Point(84, 58);
+            this.Hit.Name = "Hit";
+            this.Hit.Size = new System.Drawing.Size(100, 50);
+            this.Hit.TabIndex = 2;
+            this.Hit.Text = "HIT";
+            this.Hit.UseVisualStyleBackColor = false;
+            this.Hit.Click += new System.EventHandler(this.Hit_Click);
+            // 
+            // Stay
+            // 
+            this.Stay.BackColor = System.Drawing.Color.Black;
+            this.Stay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Stay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Stay.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Stay.ForeColor = System.Drawing.Color.White;
+            this.Stay.Location = new System.Drawing.Point(265, 58);
+            this.Stay.Name = "Stay";
+            this.Stay.Size = new System.Drawing.Size(100, 50);
+            this.Stay.TabIndex = 3;
+            this.Stay.Text = "STAY";
+            this.Stay.UseVisualStyleBackColor = false;
+            this.Stay.Click += new System.EventHandler(this.Stay_Click);
+            // 
             // Blackjack
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -252,6 +285,8 @@
         private System.Windows.Forms.Label DealerCount;
         private System.Windows.Forms.Label PlayerCount;
         private System.Windows.Forms.TextBox Output;
+        private System.Windows.Forms.Button Stay;
+        private System.Windows.Forms.Button Hit;
     }
 }
 

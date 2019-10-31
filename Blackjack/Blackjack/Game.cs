@@ -144,5 +144,15 @@ namespace BlackjackGame
             p2Picture.SizeMode = PictureBoxSizeMode.AutoSize;
             PlayerCount.Text = playerHand.GetTotal().ToString();
         }
+
+        private void Stay_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Hit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

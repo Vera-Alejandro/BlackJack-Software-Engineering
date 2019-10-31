@@ -91,7 +91,7 @@ namespace BlackjackGame
 
             DealerHand.Visible = true;
             PlayerHand.Visible = true;
-            Output.Visible = true;
+            //Output.Visible = true;
 
 
             gameStarted = true;

@@ -118,7 +118,46 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="GameTitle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\download.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BackJack Title" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BackJack Title.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Four of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Four of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Two of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Two of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Eight of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Eight of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="King of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\King of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Three of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Three of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Jack of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Jack of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Six of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Six of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Five of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Five of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ten of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Ten of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Seven of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Seven of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Nine of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Nine of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Queen of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Queen of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ace of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Ace of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

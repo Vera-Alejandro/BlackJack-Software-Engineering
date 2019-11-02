@@ -92,6 +92,8 @@ namespace BlackjackGame
             DealerHand.Visible = true;
             PlayerHand.Visible = true;
             Output.Visible = true;
+            BettingPanel.Visible = true;
+            
 
 
             gameStarted = true;
@@ -153,6 +155,56 @@ namespace BlackjackGame
         private void Hit_Click(object sender, EventArgs e)
         {
             Output.Text = "Player choose to hit.";
+        }
+
+        private void BetThousand_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BetAll_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BetFiveHundred_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BetTwoFifty_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BetHundred_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BetFifty_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BetTwentyFive_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BetTen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BetFive_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BetOne_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

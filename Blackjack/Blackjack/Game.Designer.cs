@@ -37,12 +37,13 @@
             this.DealerCount = new System.Windows.Forms.Label();
             this.DCName = new System.Windows.Forms.Label();
             this.PlayerHand = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Cash = new System.Windows.Forms.Label();
             this.Stay = new System.Windows.Forms.Button();
             this.Hit = new System.Windows.Forms.Button();
             this.PlayerCount = new System.Windows.Forms.Label();
             this.PCName = new System.Windows.Forms.Label();
             this.Output = new System.Windows.Forms.TextBox();
-            this.TitleImage = new System.Windows.Forms.PictureBox();
             this.BetLabel = new System.Windows.Forms.Label();
             this.BetOne = new System.Windows.Forms.Button();
             this.BetFive = new System.Windows.Forms.Button();
@@ -55,12 +56,11 @@
             this.BetThousand = new System.Windows.Forms.Button();
             this.BetAll = new System.Windows.Forms.Button();
             this.BettingPanel = new System.Windows.Forms.Panel();
-            this.Cash = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.TitleImage = new System.Windows.Forms.PictureBox();
             this.DealerHand.SuspendLayout();
             this.PlayerHand.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TitleImage)).BeginInit();
             this.BettingPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TitleImage)).BeginInit();
             this.SuspendLayout();
             // 
             // Close
@@ -181,6 +181,33 @@
             this.PlayerHand.TabIndex = 6;
             this.PlayerHand.Visible = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(365, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 29);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "$500";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Cash
+            // 
+            this.Cash.AutoSize = true;
+            this.Cash.BackColor = System.Drawing.Color.Black;
+            this.Cash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Cash.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cash.ForeColor = System.Drawing.Color.White;
+            this.Cash.Location = new System.Drawing.Point(285, 0);
+            this.Cash.Name = "Cash";
+            this.Cash.Size = new System.Drawing.Size(74, 29);
+            this.Cash.TabIndex = 4;
+            this.Cash.Text = "Cash:";
+            this.Cash.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // Stay
             // 
             this.Stay.BackColor = System.Drawing.Color.Black;
@@ -248,16 +275,6 @@
             this.Output.Size = new System.Drawing.Size(330, 23);
             this.Output.TabIndex = 7;
             this.Output.Visible = false;
-            // 
-            // TitleImage
-            // 
-            this.TitleImage.Image = global::Blackjack.Properties.Resources.BackJack_Title;
-            this.TitleImage.Location = new System.Drawing.Point(12, 12);
-            this.TitleImage.Name = "TitleImage";
-            this.TitleImage.Size = new System.Drawing.Size(218, 72);
-            this.TitleImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.TitleImage.TabIndex = 1;
-            this.TitleImage.TabStop = false;
             // 
             // BetLabel
             // 
@@ -431,32 +448,15 @@
             this.BettingPanel.TabIndex = 19;
             this.BettingPanel.Visible = false;
             // 
-            // Cash
+            // TitleImage
             // 
-            this.Cash.AutoSize = true;
-            this.Cash.BackColor = System.Drawing.Color.Black;
-            this.Cash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Cash.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cash.ForeColor = System.Drawing.Color.White;
-            this.Cash.Location = new System.Drawing.Point(285, 0);
-            this.Cash.Name = "Cash";
-            this.Cash.Size = new System.Drawing.Size(74, 29);
-            this.Cash.TabIndex = 4;
-            this.Cash.Text = "Cash:";
-            this.Cash.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(365, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 29);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "$500";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.TitleImage.Image = global::Blackjack.Properties.Resources.BackJack_Title;
+            this.TitleImage.Location = new System.Drawing.Point(12, 12);
+            this.TitleImage.Name = "TitleImage";
+            this.TitleImage.Size = new System.Drawing.Size(218, 72);
+            this.TitleImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.TitleImage.TabIndex = 1;
+            this.TitleImage.TabStop = false;
             // 
             // Blackjack
             // 
@@ -485,9 +485,9 @@
             this.DealerHand.PerformLayout();
             this.PlayerHand.ResumeLayout(false);
             this.PlayerHand.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TitleImage)).EndInit();
             this.BettingPanel.ResumeLayout(false);
             this.BettingPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TitleImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

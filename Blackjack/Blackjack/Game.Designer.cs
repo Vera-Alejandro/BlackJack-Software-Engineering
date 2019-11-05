@@ -37,7 +37,7 @@
             this.DealerCount = new System.Windows.Forms.Label();
             this.DCName = new System.Windows.Forms.Label();
             this.PlayerHand = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.PlayerCash = new System.Windows.Forms.Label();
             this.Cash = new System.Windows.Forms.Label();
             this.Stay = new System.Windows.Forms.Button();
             this.Hit = new System.Windows.Forms.Button();
@@ -135,9 +135,9 @@
             // 
             this.DealerHand.Controls.Add(this.DealerCount);
             this.DealerHand.Controls.Add(this.DCName);
-            this.DealerHand.Location = new System.Drawing.Point(98, 163);
+            this.DealerHand.Location = new System.Drawing.Point(98, 123);
             this.DealerHand.Name = "DealerHand";
-            this.DealerHand.Size = new System.Drawing.Size(450, 500);
+            this.DealerHand.Size = new System.Drawing.Size(450, 540);
             this.DealerHand.TabIndex = 5;
             this.DealerHand.Visible = false;
             // 
@@ -169,30 +169,31 @@
             // 
             // PlayerHand
             // 
-            this.PlayerHand.Controls.Add(this.label1);
+            this.PlayerHand.Controls.Add(this.PlayerCash);
             this.PlayerHand.Controls.Add(this.Cash);
             this.PlayerHand.Controls.Add(this.Stay);
             this.PlayerHand.Controls.Add(this.Hit);
             this.PlayerHand.Controls.Add(this.PlayerCount);
             this.PlayerHand.Controls.Add(this.PCName);
-            this.PlayerHand.Location = new System.Drawing.Point(611, 163);
+            this.PlayerHand.Location = new System.Drawing.Point(611, 123);
             this.PlayerHand.Name = "PlayerHand";
-            this.PlayerHand.Size = new System.Drawing.Size(450, 500);
+            this.PlayerHand.Size = new System.Drawing.Size(450, 540);
             this.PlayerHand.TabIndex = 6;
             this.PlayerHand.Visible = false;
             // 
-            // label1
+            // PlayerCash
             // 
-            this.label1.AutoSize = true;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(365, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 29);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "$500";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PlayerCash.AutoSize = true;
+            this.PlayerCash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PlayerCash.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlayerCash.ForeColor = System.Drawing.Color.White;
+            this.PlayerCash.Location = new System.Drawing.Point(365, 0);
+            this.PlayerCash.Name = "PlayerCash";
+            this.PlayerCash.Size = new System.Drawing.Size(65, 29);
+            this.PlayerCash.TabIndex = 5;
+            this.PlayerCash.Text = "$500";
+            this.PlayerCash.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PlayerCash.TextChanged += new System.EventHandler(this.PlayerCash_TextChanged);
             // 
             // Cash
             // 
@@ -215,7 +216,7 @@
             this.Stay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Stay.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Stay.ForeColor = System.Drawing.Color.White;
-            this.Stay.Location = new System.Drawing.Point(265, 58);
+            this.Stay.Location = new System.Drawing.Point(265, 470);
             this.Stay.Name = "Stay";
             this.Stay.Size = new System.Drawing.Size(100, 50);
             this.Stay.TabIndex = 3;
@@ -229,7 +230,7 @@
             this.Hit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Hit.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Hit.ForeColor = System.Drawing.Color.White;
-            this.Hit.Location = new System.Drawing.Point(84, 58);
+            this.Hit.Location = new System.Drawing.Point(84, 470);
             this.Hit.Name = "Hit";
             this.Hit.Size = new System.Drawing.Size(100, 50);
             this.Hit.TabIndex = 2;
@@ -521,7 +522,7 @@
         private System.Windows.Forms.Button BetThousand;
         private System.Windows.Forms.Button BetAll;
         private System.Windows.Forms.Panel BettingPanel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label PlayerCash;
         private System.Windows.Forms.Label Cash;
     }
 }

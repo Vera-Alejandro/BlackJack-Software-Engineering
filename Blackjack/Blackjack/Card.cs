@@ -62,7 +62,7 @@ namespace BlackjackGame
                     switch (Suit)
                     {
                         case SuiteType.Hearts:
-                            _cardImg = global::Blackjack.Properties.Resources.Three_of_Hearts
+                            _cardImg = global::Blackjack.Properties.Resources.Three_of_Hearts;
                             break;
                         case SuiteType.Clubs:
                             _cardImg = global::Blackjack.Properties.Resources.Three_of_Clubs;

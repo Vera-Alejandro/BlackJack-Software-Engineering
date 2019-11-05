@@ -125,5 +125,161 @@
   <ItemGroup>
     <None Include="Resources\card_images\Two of Clubs.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Clubs\Ace of Clubs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Clubs\Eight of Clubs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Clubs\Five of Clubs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Clubs\Four of Clubs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Clubs\Jack of Clubs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Clubs\King of Clubs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Clubs\Nine of Clubs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Clubs\Queen of Clubs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Clubs\Seven of Clubs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Clubs\Six of Clubs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Clubs\Ten of Clubs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Clubs\Three of Clubs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Clubs\Two of Clubs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Diamonds\Ace of Diamonds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Diamonds\Eight of Diamonds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Diamonds\Five of Diamonds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Diamonds\Four of Diamonds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Diamonds\Jack of Diamonds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Diamonds\King of Diamonds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Diamonds\Nine of Diamonds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Diamonds\Queen of Diamonds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Diamonds\Seven of Diamonds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Diamonds\Six of Diamonds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Diamonds\Ten of Diamonds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Diamonds\Three of Diamonds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Diamonds\Two of Diamonds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Hearts\Ace of Hearts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Hearts\Eight of Hearts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Hearts\Five of Hearts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Hearts\Four of Hearts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Hearts\Jack of Hearts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Hearts\King of Hearts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Hearts\Nine of Hearts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Hearts\Queen of Hearts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Hearts\Seven of Hearts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Hearts\Six of Hearts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Hearts\Ten of Hearts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Hearts\Three of Hearts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Hearts\Two of Hearts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Spades\Ace of Spades.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Spades\Eight of Spades.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Spades\Five of Spades.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Spades\Four of Spades.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Spades\Jack of Spades.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Spades\King of Spades.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Spades\Nine of Spades.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Spades\Queen of Spades.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Spades\Seven of Spades.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Spades\Six of Spades.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Spades\Ten of Spades.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Spades\Three of Spades.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_images\Spades\Two of Spades.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

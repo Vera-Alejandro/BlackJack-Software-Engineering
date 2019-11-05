@@ -219,7 +219,6 @@ namespace BlackjackGame
                 BetOne.Visible = true;
                 BetFive.Visible = true;
                 BetTen.Visible = true;
-                BetTwentyFive.
 
             }
         }

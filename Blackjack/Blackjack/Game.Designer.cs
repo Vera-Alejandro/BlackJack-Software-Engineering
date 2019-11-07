@@ -57,6 +57,8 @@
             this.BetAll = new System.Windows.Forms.Button();
             this.BettingPanel = new System.Windows.Forms.Panel();
             this.TitleImage = new System.Windows.Forms.PictureBox();
+            this.ProfileButton = new System.Windows.Forms.Button();
+            this.SaveButton = new System.Windows.Forms.Button();
             this.DealerHand.SuspendLayout();
             this.PlayerHand.SuspendLayout();
             this.BettingPanel.SuspendLayout();
@@ -459,12 +461,42 @@
             this.TitleImage.TabIndex = 1;
             this.TitleImage.TabStop = false;
             // 
+            // ProfileButton
+            // 
+            this.ProfileButton.BackColor = System.Drawing.Color.Black;
+            this.ProfileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ProfileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.ProfileButton.ForeColor = System.Drawing.Color.White;
+            this.ProfileButton.Location = new System.Drawing.Point(236, 12);
+            this.ProfileButton.Name = "ProfileButton";
+            this.ProfileButton.Size = new System.Drawing.Size(72, 33);
+            this.ProfileButton.TabIndex = 6;
+            this.ProfileButton.Text = "Profile";
+            this.ProfileButton.UseVisualStyleBackColor = false;
+            this.ProfileButton.Visible = false;
+            // 
+            // SaveButton
+            // 
+            this.SaveButton.BackColor = System.Drawing.Color.Black;
+            this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.SaveButton.ForeColor = System.Drawing.Color.White;
+            this.SaveButton.Location = new System.Drawing.Point(236, 51);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(72, 33);
+            this.SaveButton.TabIndex = 20;
+            this.SaveButton.Text = "Save";
+            this.SaveButton.UseVisualStyleBackColor = false;
+            this.SaveButton.Visible = false;
+            // 
             // Blackjack
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.ClientSize = new System.Drawing.Size(1131, 806);
+            this.Controls.Add(this.SaveButton);
+            this.Controls.Add(this.ProfileButton);
             this.Controls.Add(this.BettingPanel);
             this.Controls.Add(this.Output);
             this.Controls.Add(this.PlayerHand);
@@ -524,6 +556,8 @@
         private System.Windows.Forms.Panel BettingPanel;
         private System.Windows.Forms.Label PlayerCash;
         private System.Windows.Forms.Label Cash;
+        private System.Windows.Forms.Button ProfileButton;
+        private System.Windows.Forms.Button SaveButton;
     }
 }
 

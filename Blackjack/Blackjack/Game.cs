@@ -86,6 +86,8 @@ namespace BlackjackGame
 
         private void StartButton_Click(object sender, EventArgs e)
         {
+            #region Relocating Title and Making Game Visible
+
             TitleImage.Location = new Point(12, 12);
             StartButton.Visible = false;
 
@@ -93,8 +95,10 @@ namespace BlackjackGame
             PlayerHand.Visible = true;
             Output.Visible = true;
             BettingPanel.Visible = true;
-            
+            ProfileButton.Visible = true;
+            SaveButton.Visible = true;
 
+            #endregion
 
             gameStarted = true;
 

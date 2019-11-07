@@ -6,13 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Runtime.Serialization;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Blackjack;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
-using Blackjack.Storage;
 
 namespace BlackjackGame
 {
@@ -40,7 +36,6 @@ namespace BlackjackGame
         #endregion
 
         private bool gameStarted = false;
-        private GameData _gameData;
 
         public Blackjack()
         {
@@ -91,16 +86,6 @@ namespace BlackjackGame
 
         private void StartButton_Click(object sender, EventArgs e)
         {
-            string path = Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory()));
-            path = Path.Combine(path, "GameStats.gstat");
-
-            //get the serialized object
-            IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
-            //formatter.Serialize(stream, _gameData);
-            //stream.Close();
-            _gameData = (GameData)formatter.Deserialize(stream);
-
             TitleImage.Location = new Point(12, 12);
             StartButton.Visible = false;
 

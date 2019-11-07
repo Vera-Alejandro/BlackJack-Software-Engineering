@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Blackjack.Storage
 {
     [Serializable]
-    public class DataStorage
+    public class GameData
     {
         private int _moneyBet { get; set; }
         private int _moneyWon { get; set; }
@@ -16,7 +16,7 @@ namespace Blackjack.Storage
         private int _mostMoneymade { get; set; }
         private int _mostMoneyLost { get; set; }
 
-        public DataStorage()
+        public GameData()
         {
             _moneyBet = 0;
             _moneyWon = 0;
@@ -26,7 +26,7 @@ namespace Blackjack.Storage
             _mostMoneymade = 0;
         }
 
-        public DataStorage(int MoneyBet, int MoneyWon, int MoneyLost, int MoneyLeftOver)
+        public GameData(int MoneyBet, int MoneyWon, int MoneyLost, int MoneyLeftOver)
         {
             _moneyBet = MoneyBet;
             _moneyWon = MoneyWon;

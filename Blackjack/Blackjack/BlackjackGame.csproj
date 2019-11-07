@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,6 +45,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Card.cs" />
@@ -280,6 +282,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\card_images\Spades\Two of Spades.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\sounds\card_placed_down.wav" />
+    <Content Include="Resources\sounds\card_riffle.wav" />
+    <Content Include="Resources\sounds\card_slap.wav" />
+    <Content Include="Resources\sounds\dealing_one_card.wav" />
+    <Content Include="Resources\sounds\dealing_several_cards.wav" />
+    <Content Include="Resources\sounds\jazz.mp3" />
+    <Content Include="Resources\sounds\overhand_shuffle.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Blackjack;
+using System.IO;
 
 namespace BlackjackGame
 {
@@ -37,6 +38,8 @@ namespace BlackjackGame
 
         private bool gameStarted = false;
 
+        private string RunningPath = AppDomain.CurrentDomain.BaseDirectory;
+
         public Blackjack()
         {
             InitializeComponent();
@@ -47,6 +50,11 @@ namespace BlackjackGame
             CenterToScreen();
             TitleImage.Visible = true;
             StartButton.Visible = true;
+
+            string FileName = string.Format("{0}Resources\\sound_assets\\jazz.mp3", Path.GetFullPath(Path.Combine(RunningPath, @"..\..\")));
+            var backgroundMusic = new System.Windows.Media.MediaPlayer();
+            backgroundMusic.Open(new System.Uri(FileName));
+            backgroundMusic.Play();
         }
 
         private void Close_Click(object sender, EventArgs e)
@@ -162,6 +170,11 @@ namespace BlackjackGame
         private void Hit_Click(object sender, EventArgs e)
         {
             Output.Text = "Player choose to hit.";
+
+            string FileName = string.Format("{0}Resources\\sound_assets\\card_slap.wav", Path.GetFullPath(Path.Combine(RunningPath, @"..\..\")));
+            var placeCardSound = new System.Windows.Media.MediaPlayer();
+            placeCardSound.Open(new System.Uri(FileName));
+            placeCardSound.Play();
         }
 
         private void BetThousand_Click(object sender, EventArgs e)

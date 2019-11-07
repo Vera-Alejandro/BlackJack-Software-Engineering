@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Blackjack;
-using System.IO;
 
 namespace BlackjackGame
 {
+
     public partial class Blackjack : Form
     {
         #region Move Form
@@ -27,7 +27,7 @@ namespace BlackjackGame
 
         private void Blackjack_MouseDown(Object sender, MouseEventArgs e)
         {
-            if(e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
@@ -40,21 +40,25 @@ namespace BlackjackGame
 
         private string RunningPath = AppDomain.CurrentDomain.BaseDirectory;
 
+
         public Blackjack()
         {
             InitializeComponent();
         }
 
+        [DllImport("winmm.dll")] //TODO: make this functionality its own class
+        static extern Int32 mciSendString(string command, StringBuilder buffer, int bufferSize, IntPtr hwndCallback);
         private void Blackjack_Load(object sender, EventArgs e)
         {
             CenterToScreen();
             TitleImage.Visible = true;
             StartButton.Visible = true;
 
-            string FileName = string.Format("{0}Resources\\sound_assets\\jazz.mp3", Path.GetFullPath(Path.Combine(RunningPath, @"..\..\")));
-            var backgroundMusic = new System.Windows.Media.MediaPlayer();
-            backgroundMusic.Open(new System.Uri(FileName));
-            backgroundMusic.Play();
+            //PUT IN PLAY SOUND CLASS
+            string FileName = string.Format("open {0}Resources\\sound_assets\\jazz.mp3 type MPEGVideo alias jazz", System.IO.Path.GetFullPath(System.IO.Path.Combine(RunningPath, @"..\..\")));
+            Console.WriteLine(FileName);
+            mciSendString(@FileName, null, 0, IntPtr.Zero);
+            mciSendString(@"play jazz", null, 0, IntPtr.Zero); ;
         }
 
         private void Close_Click(object sender, EventArgs e)
@@ -64,7 +68,7 @@ namespace BlackjackGame
 
         private void Resize_Click(object sender, EventArgs e)
         {
-            if(WindowState == FormWindowState.Maximized)
+            if (WindowState == FormWindowState.Maximized)
             {
                 WindowState = FormWindowState.Normal;
             }
@@ -105,8 +109,8 @@ namespace BlackjackGame
             BettingPanel.Visible = true;
             ProfileButton.Visible = true;
             SaveButton.Visible = true;
-
             #endregion
+
 
             gameStarted = true;
 
@@ -114,7 +118,7 @@ namespace BlackjackGame
             Deck dealingDeck = new Deck();
             Hand dealerHand = new Hand();
             Hand playerHand = new Hand();
-            
+
 
             dealingDeck.Shuffle();
 
@@ -170,11 +174,6 @@ namespace BlackjackGame
         private void Hit_Click(object sender, EventArgs e)
         {
             Output.Text = "Player choose to hit.";
-
-            string FileName = string.Format("{0}Resources\\sound_assets\\card_slap.wav", Path.GetFullPath(Path.Combine(RunningPath, @"..\..\")));
-            var placeCardSound = new System.Windows.Media.MediaPlayer();
-            placeCardSound.Open(new System.Uri(FileName));
-            placeCardSound.Play();
         }
 
         private void BetThousand_Click(object sender, EventArgs e)
@@ -231,7 +230,7 @@ namespace BlackjackGame
         {
             int money = Convert.ToInt32(PlayerCash.Text);
 
-            if(money > 1)
+            if (money > 1)
             {
                 BetOne.Visible = true;
                 BetFive.Visible = true;

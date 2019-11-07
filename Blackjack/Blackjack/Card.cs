@@ -28,16 +28,16 @@ namespace BlackjackGame
                     switch (Suit)
                     {
                         case SuiteType.Hearts:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Ace_of_Hearts;
                             break;
                         case SuiteType.Clubs:
                             _cardImg = global::Blackjack.Properties.Resources.Ace_of_Clubs;
                             break;
                         case SuiteType.Spades:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Ace_of_Spades;
                             break;
                         case SuiteType.Diamonds:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Ace_of_Diamonds;
                             break;
                     }
                     break;
@@ -45,16 +45,16 @@ namespace BlackjackGame
                     switch (Suit)
                     {
                         case SuiteType.Hearts:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Two_of_Hearts;
                             break;
                         case SuiteType.Clubs:
                             _cardImg = global::Blackjack.Properties.Resources.Two_of_Clubs;
                             break;
                         case SuiteType.Spades:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Two_of_Spades;
                             break;
                         case SuiteType.Diamonds:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Two_of_Diamonds;
                             break;
                     }
                     break;
@@ -62,16 +62,16 @@ namespace BlackjackGame
                     switch (Suit)
                     {
                         case SuiteType.Hearts:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Three_of_Hearts;
                             break;
                         case SuiteType.Clubs:
                             _cardImg = global::Blackjack.Properties.Resources.Three_of_Clubs;
                             break;
                         case SuiteType.Spades:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Three_of_Spades;
                             break;
                         case SuiteType.Diamonds:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Three_of_Diamonds;
                             break;
                     }
                     break;
@@ -79,16 +79,16 @@ namespace BlackjackGame
                     switch (Suit)
                     {
                         case SuiteType.Hearts:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Four_of_Hearts;
                             break;
                         case SuiteType.Clubs:
                             _cardImg = global::Blackjack.Properties.Resources.Four_of_Clubs;
                             break;
                         case SuiteType.Spades:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Four_of_Spades;
                             break;
                         case SuiteType.Diamonds:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Four_of_Diamonds;
                             break;
                     }
                     break;
@@ -96,16 +96,16 @@ namespace BlackjackGame
                     switch (Suit)
                     {
                         case SuiteType.Hearts:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Five_of_Hearts;
                             break;
                         case SuiteType.Clubs:
                             _cardImg = global::Blackjack.Properties.Resources.Five_of_Clubs;
                             break;
                         case SuiteType.Spades:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Five_of_Spades;
                             break;
                         case SuiteType.Diamonds:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Five_of_Diamonds;
                             break;
                     }
                     break;
@@ -113,16 +113,16 @@ namespace BlackjackGame
                     switch (Suit)
                     {
                         case SuiteType.Hearts:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Six_of_Hearts;
                             break;
                         case SuiteType.Clubs:
                             _cardImg = global::Blackjack.Properties.Resources.Six_of_Clubs;
                             break;
                         case SuiteType.Spades:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Six_of_Spades;
                             break;
                         case SuiteType.Diamonds:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Six_of_Diamonds;
                             break;
                     }
                     break;
@@ -130,16 +130,16 @@ namespace BlackjackGame
                     switch (Suit)
                     {
                         case SuiteType.Hearts:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Seven_of_Hearts;
                             break;
                         case SuiteType.Clubs:
                             _cardImg = global::Blackjack.Properties.Resources.Seven_of_Clubs;
                             break;
                         case SuiteType.Spades:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Seven_of_Spades;
                             break;
                         case SuiteType.Diamonds:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Seven_of_Diamonds;
                             break;
                     }
                     break;
@@ -147,16 +147,16 @@ namespace BlackjackGame
                     switch (Suit)
                     {
                         case SuiteType.Hearts:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Eight_of_Hearts;
                             break;
                         case SuiteType.Clubs:
                             _cardImg = global::Blackjack.Properties.Resources.Eight_of_Clubs;
                             break;
                         case SuiteType.Spades:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Eight_of_Spades;
                             break;
                         case SuiteType.Diamonds:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Eight_of_Diamonds;
                             break;
                     }
                     break;
@@ -164,16 +164,16 @@ namespace BlackjackGame
                     switch (Suit)
                     {
                         case SuiteType.Hearts:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Nine_of_Hearts;
                             break;
                         case SuiteType.Clubs:
                             _cardImg = global::Blackjack.Properties.Resources.Nine_of_Clubs;
                             break;
                         case SuiteType.Spades:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Nine_of_Spades;
                             break;
                         case SuiteType.Diamonds:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Nine_of_Diamonds;
                             break;
                     }
                     break;
@@ -181,16 +181,16 @@ namespace BlackjackGame
                     switch (Suit)
                     {
                         case SuiteType.Hearts:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Ten_of_Hearts;
                             break;
                         case SuiteType.Clubs:
                             _cardImg = global::Blackjack.Properties.Resources.Ten_of_Clubs;
                             break;
                         case SuiteType.Spades:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Ten_of_Spades;
                             break;
                         case SuiteType.Diamonds:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Ten_of_Diamonds;
                             break;
                     }
                     break;
@@ -198,16 +198,16 @@ namespace BlackjackGame
                     switch (Suit)
                     {
                         case SuiteType.Hearts:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Jack_of_Hearts;
                             break;
                         case SuiteType.Clubs:
                             _cardImg = global::Blackjack.Properties.Resources.Jack_of_Clubs;
                             break;
                         case SuiteType.Spades:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Jack_of_Spades;
                             break;
                         case SuiteType.Diamonds:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Jack_of_Diamonds;
                             break;
                     }
                     break;
@@ -215,16 +215,16 @@ namespace BlackjackGame
                     switch (Suit)
                     {
                         case SuiteType.Hearts:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Queen_of_Hearts;
                             break;
                         case SuiteType.Clubs:
                             _cardImg = global::Blackjack.Properties.Resources.Queen_of_Clubs;
                             break;
                         case SuiteType.Spades:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Queen_of_Spades;
                             break;
                         case SuiteType.Diamonds:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.Queen_of_Diamonds;
                             break;
                     }
                     break;
@@ -232,16 +232,16 @@ namespace BlackjackGame
                     switch (Suit)
                     {
                         case SuiteType.Hearts:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.King_of_Hearts;
                             break;
                         case SuiteType.Clubs:
                             _cardImg = global::Blackjack.Properties.Resources.King_of_Clubs;
                             break;
                         case SuiteType.Spades:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.King_of_Spades;
                             break;
                         case SuiteType.Diamonds:
-							//_cardImg = global::Blackjack.Properties.Resources.
+                            _cardImg = global::Blackjack.Properties.Resources.King_of_Clubs;
                             break;
                     }
                     break;

@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Blackjack;
-using System.IO;
 
 namespace BlackjackGame
 {
@@ -27,7 +26,7 @@ namespace BlackjackGame
 
         private void Blackjack_MouseDown(Object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            if(e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
@@ -37,7 +36,7 @@ namespace BlackjackGame
         #endregion
 
         private bool gameStarted = false;
-        private string RunningPath = AppDomain.CurrentDomain.BaseDirectory;
+
         public Blackjack()
         {
             InitializeComponent();
@@ -48,11 +47,6 @@ namespace BlackjackGame
             CenterToScreen();
             TitleImage.Visible = true;
             StartButton.Visible = true;
-            string FileName = string.Format("{0}Resources\\sound_assets\\jazz.mp3", Path.GetFullPath(Path.Combine(RunningPath, @"..\..\")));
-            var backgroundMusic = new System.Windows.Media.MediaPlayer();
-            backgroundMusic.Open(new System.Uri(FileName));
-            backgroundMusic.Play();
-
         }
 
         private void Close_Click(object sender, EventArgs e)
@@ -62,7 +56,7 @@ namespace BlackjackGame
 
         private void Resize_Click(object sender, EventArgs e)
         {
-            if (WindowState == FormWindowState.Maximized)
+            if(WindowState == FormWindowState.Maximized)
             {
                 WindowState = FormWindowState.Normal;
             }
@@ -98,6 +92,8 @@ namespace BlackjackGame
             DealerHand.Visible = true;
             PlayerHand.Visible = true;
             Output.Visible = true;
+            BettingPanel.Visible = true;
+            
 
 
             gameStarted = true;
@@ -106,7 +102,7 @@ namespace BlackjackGame
             Deck dealingDeck = new Deck();
             Hand dealerHand = new Hand();
             Hand playerHand = new Hand();
-
+            
 
             dealingDeck.Shuffle();
 
@@ -130,8 +126,8 @@ namespace BlackjackGame
 
             DealerHand.Controls.Add(d1Picture);
             DealerHand.Controls.Add(d2Picture);
-            d1Picture.Location = new Point(100, 100);
-            d2Picture.Location = new Point(150, 150);
+            d1Picture.Location = new Point(100, 75);
+            d2Picture.Location = new Point(150, 125);
             d1Picture.SizeMode = PictureBoxSizeMode.AutoSize;
             d2Picture.SizeMode = PictureBoxSizeMode.AutoSize;
             DealerCount.Text = dealerHand.GetTotal().ToString();
@@ -144,11 +140,14 @@ namespace BlackjackGame
 
             PlayerHand.Controls.Add(p1Picture);
             PlayerHand.Controls.Add(p2Picture);
-            p1Picture.Location = new Point(100, 100);
-            p2Picture.Location = new Point(150, 150);
+            p1Picture.Location = new Point(100, 75);
+            p2Picture.Location = new Point(150, 125);
             p1Picture.SizeMode = PictureBoxSizeMode.AutoSize;
             p2Picture.SizeMode = PictureBoxSizeMode.AutoSize;
             PlayerCount.Text = playerHand.GetTotal().ToString();
+
+            BetThousand.Visible = false;
+
         }
 
         private void Stay_Click(object sender, EventArgs e)
@@ -159,12 +158,69 @@ namespace BlackjackGame
         private void Hit_Click(object sender, EventArgs e)
         {
             Output.Text = "Player choose to hit.";
-            string FileName = string.Format("{0}Resources\\sound_assets\\card_slap.wav", Path.GetFullPath(Path.Combine(RunningPath, @"..\..\")));
-            var placeCardSound = new System.Windows.Media.MediaPlayer();
-            placeCardSound.Open(new System.Uri(FileName));
-            placeCardSound.Play();
+        }
+
+        private void BetThousand_Click(object sender, EventArgs e)
+        {
 
         }
 
+        private void BetAll_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BetFiveHundred_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BetTwoFifty_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BetHundred_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BetFifty_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BetTwentyFive_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BetTen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BetFive_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BetOne_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PlayerCash_TextChanged(object sender, EventArgs e)
+        {
+            int money = Convert.ToInt32(PlayerCash.Text);
+
+            if(money > 1)
+            {
+                BetOne.Visible = true;
+                BetFive.Visible = true;
+                BetTen.Visible = true;
+
+            }
+        }
     }
 }

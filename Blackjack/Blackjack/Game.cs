@@ -45,9 +45,7 @@ namespace BlackjackGame
         {
             InitializeComponent();
         }
-       
-       // [DllImport("winmm.dll")] //TODO: make this functionality its own class
-        //static extern Int32 mciSendString(string command, StringBuilder buffer, int bufferSize, IntPtr hwndCallback);
+ 
         private void Blackjack_Load(object sender, EventArgs e)
         {
             CenterToScreen();

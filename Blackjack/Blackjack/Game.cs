@@ -45,20 +45,17 @@ namespace BlackjackGame
         {
             InitializeComponent();
         }
-
-        [DllImport("winmm.dll")] //TODO: make this functionality its own class
-        static extern Int32 mciSendString(string command, StringBuilder buffer, int bufferSize, IntPtr hwndCallback);
+       
+       // [DllImport("winmm.dll")] //TODO: make this functionality its own class
+        //static extern Int32 mciSendString(string command, StringBuilder buffer, int bufferSize, IntPtr hwndCallback);
         private void Blackjack_Load(object sender, EventArgs e)
         {
             CenterToScreen();
             TitleImage.Visible = true;
             StartButton.Visible = true;
 
-            //PUT IN PLAY SOUND CLASS
-            string FileName = string.Format("open {0}Resources\\sound_assets\\jazz.mp3 type MPEGVideo alias jazz", System.IO.Path.GetFullPath(System.IO.Path.Combine(RunningPath, @"..\..\")));
-            Console.WriteLine(FileName);
-            mciSendString(@FileName, null, 0, IntPtr.Zero);
-            mciSendString(@"play jazz", null, 0, IntPtr.Zero); ;
+            Sound jazzSound = new Sound("jazz.mp3");
+            jazzSound.Play();
         }
 
         private void Close_Click(object sender, EventArgs e)

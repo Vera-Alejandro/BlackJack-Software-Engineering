@@ -133,36 +133,27 @@ namespace BlackjackGame
             Card p1Card = playerHand.GetCard();
             Card p2Card = playerHand.GetCard();
 
-            PictureBox d1Picture = new PictureBox();
-            d1Picture.Image = d1Card.GetImage();
+            PlayerCardOne.Image = d1Card.GetImage();
+            PlayerCardOne.Location = new Point(100, 75);
+            PlayerCardOne.SizeMode = PictureBoxSizeMode.AutoSize;
 
-            PictureBox d2Picture = new PictureBox();
-            d2Picture.Image = d2Card.GetImage();
+            //d2Picture.Image = d2Card.GetImage();
+            //d2Picture.Location = new Point(150, 125);
+            //d2Picture.SizeMode = PictureBoxSizeMode.AutoSize;
 
-            DealerHand.Controls.Add(d1Picture);
-            DealerHand.Controls.Add(d2Picture);
-            d1Picture.Location = new Point(100, 75);
-            d2Picture.Location = new Point(150, 125);
-            d1Picture.SizeMode = PictureBoxSizeMode.AutoSize;
-            d2Picture.SizeMode = PictureBoxSizeMode.AutoSize;
-            DealerCount.Text = dealerHand.GetTotal().ToString();
+            //DealerCount.Text = dealerHand.GetTotal().ToString();
 
-            PictureBox p1Picture = new PictureBox();
-            p1Picture.Image = p1Card.GetImage();
+            //p1Picture.Image = p1Card.GetImage();
+            //p1Picture.Location = new Point(100, 75);
+            //p1Picture.SizeMode = PictureBoxSizeMode.AutoSize;
 
-            PictureBox p2Picture = new PictureBox();
-            p2Picture.Image = p2Card.GetImage();
+            //p2Picture.Image = p2Card.GetImage();
+            //p2Picture.Location = new Point(150, 125);
+            //p2Picture.SizeMode = PictureBoxSizeMode.AutoSize;
 
-            PlayerHand.Controls.Add(p1Picture);
-            PlayerHand.Controls.Add(p2Picture);
-            p1Picture.Location = new Point(100, 75);
-            p2Picture.Location = new Point(150, 125);
-            p1Picture.SizeMode = PictureBoxSizeMode.AutoSize;
-            p2Picture.SizeMode = PictureBoxSizeMode.AutoSize;
             PlayerCount.Text = playerHand.GetTotal().ToString();
 
             BetThousand.Visible = false;
-
         }
 
         private void Stay_Click(object sender, EventArgs e)

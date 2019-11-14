@@ -123,6 +123,7 @@ namespace BlackjackGame
             playerHand.AddCard(dealingDeck.GetCard());
             playerHand.AddCard(dealingDeck.GetCard());
 
+            
             Card d1Card = dealerHand.GetCard();
             Card d2Card = dealerHand.GetCard();
 

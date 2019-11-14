@@ -36,11 +36,6 @@
             this.DealerHand = new System.Windows.Forms.Panel();
             this.DealerCount = new System.Windows.Forms.Label();
             this.DCName = new System.Windows.Forms.Label();
-            this.DealerCardOne = new System.Windows.Forms.PictureBox();
-            this.DealerCardTwo = new System.Windows.Forms.PictureBox();
-            this.DealerCardThree = new System.Windows.Forms.PictureBox();
-            this.DealerCardFour = new System.Windows.Forms.PictureBox();
-            this.DealerCardFive = new System.Windows.Forms.PictureBox();
             this.PlayerHand = new System.Windows.Forms.Panel();
             this.PlayerCash = new System.Windows.Forms.Label();
             this.Cash = new System.Windows.Forms.Label();
@@ -48,11 +43,6 @@
             this.Hit = new System.Windows.Forms.Button();
             this.PlayerCount = new System.Windows.Forms.Label();
             this.PCName = new System.Windows.Forms.Label();
-            this.PlayerCardFive = new System.Windows.Forms.PictureBox();
-            this.PlayerCardFour = new System.Windows.Forms.PictureBox();
-            this.PlayerCardThree = new System.Windows.Forms.PictureBox();
-            this.PlayerCardTwo = new System.Windows.Forms.PictureBox();
-            this.PlayerCardOne = new System.Windows.Forms.PictureBox();
             this.Output = new System.Windows.Forms.TextBox();
             this.BetLabel = new System.Windows.Forms.Label();
             this.BetOne = new System.Windows.Forms.Button();
@@ -67,18 +57,10 @@
             this.BetAll = new System.Windows.Forms.Button();
             this.BettingPanel = new System.Windows.Forms.Panel();
             this.TitleImage = new System.Windows.Forms.PictureBox();
+            this.ProfileButton = new System.Windows.Forms.Button();
+            this.SaveButton = new System.Windows.Forms.Button();
             this.DealerHand.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DealerCardOne)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DealerCardTwo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DealerCardThree)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DealerCardFour)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DealerCardFive)).BeginInit();
             this.PlayerHand.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PlayerCardFive)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PlayerCardFour)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PlayerCardThree)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PlayerCardTwo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PlayerCardOne)).BeginInit();
             this.BettingPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitleImage)).BeginInit();
             this.SuspendLayout();
@@ -86,7 +68,7 @@
             // Close
             // 
             this.Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Close.BackColor = System.Drawing.Color.Black;
+            this.Close.BackColor = System.Drawing.SystemColors.Desktop;
             this.Close.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.Close.FlatAppearance.BorderSize = 0;
             this.Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -104,7 +86,7 @@
             // Resize
             // 
             this.Resize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Resize.BackColor = System.Drawing.Color.Black;
+            this.Resize.BackColor = System.Drawing.SystemColors.Desktop;
             this.Resize.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.Resize.FlatAppearance.BorderSize = 0;
             this.Resize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -122,7 +104,7 @@
             // Minimize
             // 
             this.Minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Minimize.BackColor = System.Drawing.Color.Black;
+            this.Minimize.BackColor = System.Drawing.SystemColors.Desktop;
             this.Minimize.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.Minimize.FlatAppearance.BorderSize = 0;
             this.Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -153,14 +135,8 @@
             // 
             // DealerHand
             // 
-            this.DealerHand.BackColor = System.Drawing.Color.Black;
-            this.DealerHand.Controls.Add(this.DealerCardFive);
-            this.DealerHand.Controls.Add(this.DealerCardFour);
-            this.DealerHand.Controls.Add(this.DealerCardThree);
-            this.DealerHand.Controls.Add(this.DealerCardTwo);
             this.DealerHand.Controls.Add(this.DealerCount);
             this.DealerHand.Controls.Add(this.DCName);
-            this.DealerHand.Controls.Add(this.DealerCardOne);
             this.DealerHand.Location = new System.Drawing.Point(98, 123);
             this.DealerHand.Name = "DealerHand";
             this.DealerHand.Size = new System.Drawing.Size(450, 540);
@@ -193,70 +169,14 @@
             this.DCName.TabIndex = 0;
             this.DCName.Text = "Dealer Count: ";
             // 
-            // DealerCardOne
-            // 
-            this.DealerCardOne.Location = new System.Drawing.Point(30, 55);
-            this.DealerCardOne.Name = "DealerCardOne";
-            this.DealerCardOne.Size = new System.Drawing.Size(221, 322);
-            this.DealerCardOne.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.DealerCardOne.TabIndex = 30;
-            this.DealerCardOne.TabStop = false;
-            this.DealerCardOne.Visible = false;
-            // 
-            // DealerCardTwo
-            // 
-            this.DealerCardTwo.Location = new System.Drawing.Point(70, 95);
-            this.DealerCardTwo.Name = "DealerCardTwo";
-            this.DealerCardTwo.Size = new System.Drawing.Size(221, 322);
-            this.DealerCardTwo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.DealerCardTwo.TabIndex = 29;
-            this.DealerCardTwo.TabStop = false;
-            this.DealerCardTwo.Visible = false;
-            // 
-            // DealerCardThree
-            // 
-            this.DealerCardThree.Location = new System.Drawing.Point(110, 135);
-            this.DealerCardThree.Name = "DealerCardThree";
-            this.DealerCardThree.Size = new System.Drawing.Size(221, 322);
-            this.DealerCardThree.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.DealerCardThree.TabIndex = 28;
-            this.DealerCardThree.TabStop = false;
-            this.DealerCardThree.Visible = false;
-            // 
-            // DealerCardFour
-            // 
-            this.DealerCardFour.Location = new System.Drawing.Point(150, 175);
-            this.DealerCardFour.Name = "DealerCardFour";
-            this.DealerCardFour.Size = new System.Drawing.Size(221, 322);
-            this.DealerCardFour.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.DealerCardFour.TabIndex = 27;
-            this.DealerCardFour.TabStop = false;
-            this.DealerCardFour.Visible = false;
-            // 
-            // DealerCardFive
-            // 
-            this.DealerCardFive.Location = new System.Drawing.Point(190, 215);
-            this.DealerCardFive.Name = "DealerCardFive";
-            this.DealerCardFive.Size = new System.Drawing.Size(221, 322);
-            this.DealerCardFive.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.DealerCardFive.TabIndex = 26;
-            this.DealerCardFive.TabStop = false;
-            this.DealerCardFive.Visible = false;
-            // 
             // PlayerHand
             // 
-            this.PlayerHand.BackColor = System.Drawing.Color.Black;
             this.PlayerHand.Controls.Add(this.PlayerCash);
             this.PlayerHand.Controls.Add(this.Cash);
             this.PlayerHand.Controls.Add(this.Stay);
             this.PlayerHand.Controls.Add(this.Hit);
             this.PlayerHand.Controls.Add(this.PlayerCount);
             this.PlayerHand.Controls.Add(this.PCName);
-            this.PlayerHand.Controls.Add(this.PlayerCardFive);
-            this.PlayerHand.Controls.Add(this.PlayerCardFour);
-            this.PlayerHand.Controls.Add(this.PlayerCardThree);
-            this.PlayerHand.Controls.Add(this.PlayerCardTwo);
-            this.PlayerHand.Controls.Add(this.PlayerCardOne);
             this.PlayerHand.Location = new System.Drawing.Point(611, 123);
             this.PlayerHand.Name = "PlayerHand";
             this.PlayerHand.Size = new System.Drawing.Size(450, 540);
@@ -298,7 +218,7 @@
             this.Stay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Stay.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Stay.ForeColor = System.Drawing.Color.White;
-            this.Stay.Location = new System.Drawing.Point(0, 434);
+            this.Stay.Location = new System.Drawing.Point(265, 470);
             this.Stay.Name = "Stay";
             this.Stay.Size = new System.Drawing.Size(100, 50);
             this.Stay.TabIndex = 3;
@@ -312,7 +232,7 @@
             this.Hit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Hit.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Hit.ForeColor = System.Drawing.Color.White;
-            this.Hit.Location = new System.Drawing.Point(0, 490);
+            this.Hit.Location = new System.Drawing.Point(84, 470);
             this.Hit.Name = "Hit";
             this.Hit.Size = new System.Drawing.Size(100, 50);
             this.Hit.TabIndex = 2;
@@ -345,56 +265,6 @@
             this.PCName.Size = new System.Drawing.Size(152, 31);
             this.PCName.TabIndex = 0;
             this.PCName.Text = "Player Count";
-            // 
-            // PlayerCardFive
-            // 
-            this.PlayerCardFive.Location = new System.Drawing.Point(190, 215);
-            this.PlayerCardFive.Name = "PlayerCardFive";
-            this.PlayerCardFive.Size = new System.Drawing.Size(221, 322);
-            this.PlayerCardFive.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PlayerCardFive.TabIndex = 25;
-            this.PlayerCardFive.TabStop = false;
-            this.PlayerCardFive.Visible = false;
-            // 
-            // PlayerCardFour
-            // 
-            this.PlayerCardFour.Location = new System.Drawing.Point(150, 175);
-            this.PlayerCardFour.Name = "PlayerCardFour";
-            this.PlayerCardFour.Size = new System.Drawing.Size(221, 322);
-            this.PlayerCardFour.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PlayerCardFour.TabIndex = 24;
-            this.PlayerCardFour.TabStop = false;
-            this.PlayerCardFour.Visible = false;
-            // 
-            // PlayerCardThree
-            // 
-            this.PlayerCardThree.Location = new System.Drawing.Point(110, 135);
-            this.PlayerCardThree.Name = "PlayerCardThree";
-            this.PlayerCardThree.Size = new System.Drawing.Size(221, 322);
-            this.PlayerCardThree.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PlayerCardThree.TabIndex = 23;
-            this.PlayerCardThree.TabStop = false;
-            this.PlayerCardThree.Visible = false;
-            // 
-            // PlayerCardTwo
-            // 
-            this.PlayerCardTwo.Location = new System.Drawing.Point(70, 95);
-            this.PlayerCardTwo.Name = "PlayerCardTwo";
-            this.PlayerCardTwo.Size = new System.Drawing.Size(221, 322);
-            this.PlayerCardTwo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PlayerCardTwo.TabIndex = 22;
-            this.PlayerCardTwo.TabStop = false;
-            this.PlayerCardTwo.Visible = false;
-            // 
-            // PlayerCardOne
-            // 
-            this.PlayerCardOne.Location = new System.Drawing.Point(30, 55);
-            this.PlayerCardOne.Name = "PlayerCardOne";
-            this.PlayerCardOne.Size = new System.Drawing.Size(221, 322);
-            this.PlayerCardOne.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PlayerCardOne.TabIndex = 21;
-            this.PlayerCardOne.TabStop = false;
-            this.PlayerCardOne.Visible = false;
             // 
             // Output
             // 
@@ -591,12 +461,42 @@
             this.TitleImage.TabIndex = 1;
             this.TitleImage.TabStop = false;
             // 
+            // ProfileButton
+            // 
+            this.ProfileButton.BackColor = System.Drawing.Color.Black;
+            this.ProfileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ProfileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.ProfileButton.ForeColor = System.Drawing.Color.White;
+            this.ProfileButton.Location = new System.Drawing.Point(236, 12);
+            this.ProfileButton.Name = "ProfileButton";
+            this.ProfileButton.Size = new System.Drawing.Size(72, 33);
+            this.ProfileButton.TabIndex = 6;
+            this.ProfileButton.Text = "Profile";
+            this.ProfileButton.UseVisualStyleBackColor = false;
+            this.ProfileButton.Visible = false;
+            // 
+            // SaveButton
+            // 
+            this.SaveButton.BackColor = System.Drawing.Color.Black;
+            this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.SaveButton.ForeColor = System.Drawing.Color.White;
+            this.SaveButton.Location = new System.Drawing.Point(236, 51);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(72, 33);
+            this.SaveButton.TabIndex = 20;
+            this.SaveButton.Text = "Save";
+            this.SaveButton.UseVisualStyleBackColor = false;
+            this.SaveButton.Visible = false;
+            // 
             // Blackjack
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
+            this.BackColor = System.Drawing.SystemColors.Desktop;
             this.ClientSize = new System.Drawing.Size(1131, 806);
+            this.Controls.Add(this.SaveButton);
+            this.Controls.Add(this.ProfileButton);
             this.Controls.Add(this.BettingPanel);
             this.Controls.Add(this.Output);
             this.Controls.Add(this.PlayerHand);
@@ -616,18 +516,8 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Blackjack_MouseDown);
             this.DealerHand.ResumeLayout(false);
             this.DealerHand.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DealerCardOne)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DealerCardTwo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DealerCardThree)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DealerCardFour)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DealerCardFive)).EndInit();
             this.PlayerHand.ResumeLayout(false);
             this.PlayerHand.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PlayerCardFive)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PlayerCardFour)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PlayerCardThree)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PlayerCardTwo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PlayerCardOne)).EndInit();
             this.BettingPanel.ResumeLayout(false);
             this.BettingPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitleImage)).EndInit();
@@ -666,16 +556,8 @@
         private System.Windows.Forms.Panel BettingPanel;
         private System.Windows.Forms.Label PlayerCash;
         private System.Windows.Forms.Label Cash;
-        private System.Windows.Forms.PictureBox DealerCardOne;
-        private System.Windows.Forms.PictureBox DealerCardTwo;
-        private System.Windows.Forms.PictureBox DealerCardThree;
-        private System.Windows.Forms.PictureBox DealerCardFour;
-        private System.Windows.Forms.PictureBox DealerCardFive;
-        private System.Windows.Forms.PictureBox PlayerCardFive;
-        private System.Windows.Forms.PictureBox PlayerCardFour;
-        private System.Windows.Forms.PictureBox PlayerCardThree;
-        private System.Windows.Forms.PictureBox PlayerCardTwo;
-        private System.Windows.Forms.PictureBox PlayerCardOne;
+        private System.Windows.Forms.Button ProfileButton;
+        private System.Windows.Forms.Button SaveButton;
     }
 }
 

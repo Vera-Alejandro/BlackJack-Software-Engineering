@@ -6,16 +6,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Runtime.Serialization;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Blackjack;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
-using Blackjack.Storage;
 
 namespace BlackjackGame
 {
+
     public partial class Blackjack : Form
     {
         #region Move Form
@@ -30,7 +27,7 @@ namespace BlackjackGame
 
         private void Blackjack_MouseDown(Object sender, MouseEventArgs e)
         {
-            if(e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
@@ -40,18 +37,23 @@ namespace BlackjackGame
         #endregion
 
         private bool gameStarted = false;
-        private GameData _gameData;
+
+        private string RunningPath = AppDomain.CurrentDomain.BaseDirectory;
+
 
         public Blackjack()
         {
             InitializeComponent();
         }
-
+ 
         private void Blackjack_Load(object sender, EventArgs e)
         {
             CenterToScreen();
             TitleImage.Visible = true;
             StartButton.Visible = true;
+
+            Sound jazzSound = new Sound("jazz.mp3");
+            jazzSound.Play();
         }
 
         private void Close_Click(object sender, EventArgs e)
@@ -61,7 +63,7 @@ namespace BlackjackGame
 
         private void Resize_Click(object sender, EventArgs e)
         {
-            if(WindowState == FormWindowState.Maximized)
+            if (WindowState == FormWindowState.Maximized)
             {
                 WindowState = FormWindowState.Normal;
             }
@@ -91,15 +93,7 @@ namespace BlackjackGame
 
         private void StartButton_Click(object sender, EventArgs e)
         {
-            string path = Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory()));
-            path = Path.Combine(path, "GameStats.gstat");
-
-            //get the serialized object
-            IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
-            //formatter.Serialize(stream, _gameData);
-            //stream.Close();
-            _gameData = (GameData)formatter.Deserialize(stream);
+            #region Relocating Title and Making Game Visible
 
             TitleImage.Location = new Point(12, 12);
             StartButton.Visible = false;
@@ -108,7 +102,9 @@ namespace BlackjackGame
             PlayerHand.Visible = true;
             Output.Visible = true;
             BettingPanel.Visible = true;
-            
+            ProfileButton.Visible = true;
+            SaveButton.Visible = true;
+            #endregion
 
 
             gameStarted = true;
@@ -117,7 +113,7 @@ namespace BlackjackGame
             Deck dealingDeck = new Deck();
             Hand dealerHand = new Hand();
             Hand playerHand = new Hand();
-            
+
 
             dealingDeck.Shuffle();
 
@@ -220,7 +216,7 @@ namespace BlackjackGame
         {
             int money = Convert.ToInt32(PlayerCash.Text);
 
-            if(money > 1)
+            if (money > 1)
             {
                 BetOne.Visible = true;
                 BetFive.Visible = true;

@@ -40,6 +40,8 @@ namespace BlackjackGame
 
         private string RunningPath = AppDomain.CurrentDomain.BaseDirectory;
 
+        private GameInstance thisGame = new GameInstance();
+
 
         public Blackjack()
         {
@@ -109,15 +111,15 @@ namespace BlackjackGame
 
             gameStarted = true;
 
+            thisGame.AddPlayer(); //add a player to the game
+
             //deal first card out
-            Deck dealingDeck = new Deck();
-            Hand dealerHand = new Hand();
-            Hand playerHand = new Hand();
+            Deck dealingDeck = thisGame.GetDeck();
+            Hand dealerHand = thisGame.GetDealerHand();
+            Hand playerHand = thisGame.GetPlayerHand(1);
 
             List<Card> dealerCards = dealerHand.SeeCards();
             List<Card> playerCards = playerHand.SeeCards();
-
-            dealingDeck.Shuffle();
 
             dealerHand.AddCard(dealingDeck.GetCard());
             dealerHand.AddCard(dealingDeck.GetCard());

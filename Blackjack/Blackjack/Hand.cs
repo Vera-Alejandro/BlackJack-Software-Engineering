@@ -11,11 +11,13 @@ namespace Blackjack
     {
         private int _handTotal { get; set; }
         private List<Card> _currentHand { get; set; }
+        private int _numCards;
 
         public Hand()
         {
             _currentHand = new List<Card>();
             _handTotal = 0;
+            _numCards = 0;
         }
 
         public List<Card> SeeCards()
@@ -87,6 +89,11 @@ namespace Blackjack
                     _handTotal += 10;
                     break;
             }
+        }
+
+        public int GetNumberOfCards()
+        {
+            return _numCards;
         }
 
         public Card GetCard()

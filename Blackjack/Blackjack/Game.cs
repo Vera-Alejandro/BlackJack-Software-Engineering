@@ -135,34 +135,35 @@ namespace BlackjackGame
             Card p2Card = playerHand.GetCard();
 
 
-            PictureBox d1Picture = new PictureBox();
-            d1Picture.Image = dealerCards[0].GetImage();
+            /* PictureBox d1Picture = new PictureBox();
+             d1Picture.Image = dealerCards[0].GetImage();
 
-            PictureBox d2Picture = new PictureBox();
-            d2Picture.Image = dealerCards[1].GetImage();
+             PictureBox d2Picture = new PictureBox();
+             d2Picture.Image = dealerCards[1].GetImage();
 
-            DealerHand.Controls.Add(d1Picture);
-            DealerHand.Controls.Add(d2Picture);
+             DealerHand.Controls.Add(d1Picture);
+             DealerHand.Controls.Add(d2Picture);
 
-            d1Picture.Location = new Point(100, 75);
-            d2Picture.Location = new Point(150, 125);
-            d1Picture.SizeMode = PictureBoxSizeMode.AutoSize;
-            d2Picture.SizeMode = PictureBoxSizeMode.AutoSize;
-            DealerCount.Text = dealerHand.GetTotal().ToString();
+             d1Picture.Location = new Point(100, 75);
+             d2Picture.Location = new Point(140, 75);
+             d1Picture.SizeMode = PictureBoxSizeMode.AutoSize;
+             d2Picture.SizeMode = PictureBoxSizeMode.AutoSize;
+             DealerCount.Text = dealerHand.GetTotal().ToString();
 
-            PictureBox p1Picture = new PictureBox();
-            p1Picture.Image = playerCards[0].GetImage();
+             PictureBox p1Picture = new PictureBox();
+             p1Picture.Image = playerCards[0].GetImage();
 
-            PictureBox p2Picture = new PictureBox();
-            p2Picture.Image = playerCards[1].GetImage();
+             PictureBox p2Picture = new PictureBox();
+             p2Picture.Image = playerCards[1].GetImage();
 
-            PlayerHand.Controls.Add(p1Picture);
-            PlayerHand.Controls.Add(p2Picture);
-            p1Picture.Location = new Point(100, 75);
-            p2Picture.Location = new Point(150, 125);
-            p1Picture.SizeMode = PictureBoxSizeMode.AutoSize;
-            p2Picture.SizeMode = PictureBoxSizeMode.AutoSize;
-            PlayerCount.Text = playerHand.GetTotal().ToString();
+             PlayerHand.Controls.Add(p1Picture);
+             PlayerHand.Controls.Add(p2Picture);
+             p1Picture.Location = new Point(100, 75);
+             p2Picture.Location = new Point(140, 75);
+             p1Picture.SizeMode = PictureBoxSizeMode.AutoSize;
+             p2Picture.SizeMode = PictureBoxSizeMode.AutoSize;*/
+             DisplayCards();
+
 
             BetThousand.Visible = false;
 
@@ -176,6 +177,22 @@ namespace BlackjackGame
         private void Hit_Click(object sender, EventArgs e)
         {
             Output.Text = "Player choose to hit.";
+
+            Card hitCard = thisGame.GetDeck().GetCard();
+            Hand hand = thisGame.GetPlayerHand(1);
+            hand.AddCard(hitCard);
+
+            /*PictureBox hitPicture = new PictureBox();
+            hitPicture.Image = hand.GetCard().GetImage();
+            PlayerHand.Controls.Add(hitPicture);
+            hitPicture.Location = new Point(75, 50);
+            hitPicture.SizeMode = PictureBoxSizeMode.AutoSize;
+            hitPicture.BringToFront();*/
+            DisplayCards();
+
+            PlayerCount.Text = hand.GetTotal().ToString();
+
+
         }
 
         private void BetThousand_Click(object sender, EventArgs e)
@@ -239,6 +256,46 @@ namespace BlackjackGame
                 BetTen.Visible = true;
 
             }
+        }
+
+        private void DisplayCards()
+        {
+            Hand p1Hand = thisGame.GetPlayerHand(1);
+            Hand dealerHand = thisGame.GetDealerHand();
+
+            List<Card> dealerCards = dealerHand.SeeCards();
+            List<Card> p1Cards = p1Hand.SeeCards();
+
+            int i = 0;
+            foreach(Card card in dealerCards)
+            {
+                PictureBox cardPicture = new PictureBox();
+                cardPicture.Image = card.GetImage();
+                cardPicture.Location = new Point( (0 + (i * 40)), 75 );
+                cardPicture.SizeMode = PictureBoxSizeMode.AutoSize;
+                DealerHand.Controls.Add(cardPicture);
+                cardPicture.BringToFront();
+
+                i++;
+
+            }
+
+            i = 0;
+            foreach (Card card in p1Cards)
+            {
+                PictureBox cardPicture = new PictureBox();
+                cardPicture.Image = card.GetImage();
+                cardPicture.Location = new Point( (0 + (i * 40)), 75 );
+                cardPicture.SizeMode = PictureBoxSizeMode.AutoSize;
+                PlayerHand.Controls.Add(cardPicture);
+                cardPicture.BringToFront();
+
+                i++;
+            }
+
+            DealerCount.Text = dealerHand.GetTotal().ToString();
+            PlayerCount.Text = p1Hand.GetTotal().ToString();
+
         }
     }
 }

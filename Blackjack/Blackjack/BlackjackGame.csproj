@@ -92,45 +92,6 @@
     <None Include="Resources\BackJack Title.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\card_images\Ace of Clubs.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\card_images\Eight of Clubs.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\card_images\Five of Clubs.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\card_images\Four of Clubs.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\card_images\Jack of Clubs.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\card_images\King of Clubs.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\card_images\Nine of Clubs.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\card_images\Queen of Clubs.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\card_images\Seven of Clubs.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\card_images\Six of Clubs.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\card_images\Ten of Clubs.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\card_images\Three of Clubs.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\card_images\Two of Clubs.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\card_images\Clubs\Ace of Clubs.png" />
   </ItemGroup>
   <ItemGroup>
@@ -287,6 +248,7 @@
     <None Include="Resources\card_images\Spades\Two of Spades.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Card Back.png" />
     <Content Include="Resources\sounds\card_placed_down.wav" />
     <Content Include="Resources\sounds\card_riffle.wav" />
     <Content Include="Resources\sounds\card_slap.wav" />

@@ -56,8 +56,6 @@ namespace Blackjack
 
             mciSendString(@callString, null, 0, IntPtr.Zero);
             mciSendString(@playString, null, 0, IntPtr.Zero);
-            Console.WriteLine(callString);
-            Console.WriteLine(playString);
         }
 
 

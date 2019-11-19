@@ -40,6 +40,8 @@ namespace BlackjackGame
 
         private string RunningPath = AppDomain.CurrentDomain.BaseDirectory;
 
+        private GameInstance thisGame = new GameInstance();
+
 
         public Blackjack()
         {
@@ -109,13 +111,15 @@ namespace BlackjackGame
 
             gameStarted = true;
 
+            thisGame.AddPlayer(); //add a player to the game
+
             //deal first card out
-            Deck dealingDeck = new Deck();
-            Hand dealerHand = new Hand();
-            Hand playerHand = new Hand();
+            Deck dealingDeck = thisGame.GetDeck();
+            Hand dealerHand = thisGame.GetDealerHand();
+            Hand playerHand = thisGame.GetPlayerHand(1);
 
-
-            dealingDeck.Shuffle();
+            List<Card> dealerCards = dealerHand.SeeCards();
+            List<Card> playerCards = playerHand.SeeCards();
 
             dealerHand.AddCard(dealingDeck.GetCard());
             dealerHand.AddCard(dealingDeck.GetCard());
@@ -123,32 +127,14 @@ namespace BlackjackGame
             playerHand.AddCard(dealingDeck.GetCard());
             playerHand.AddCard(dealingDeck.GetCard());
 
+            
             Card d1Card = dealerHand.GetCard();
             Card d2Card = dealerHand.GetCard();
 
             Card p1Card = playerHand.GetCard();
             Card p2Card = playerHand.GetCard();
 
-            PlayerCardOne.Image = d1Card.GetImage();
-            PlayerCardOne.Location = new Point(100, 75);
-            PlayerCardOne.SizeMode = PictureBoxSizeMode.AutoSize;
-
-            //d2Picture.Image = d2Card.GetImage();
-            //d2Picture.Location = new Point(150, 125);
-            //d2Picture.SizeMode = PictureBoxSizeMode.AutoSize;
-
-            //DealerCount.Text = dealerHand.GetTotal().ToString();
-
-            //p1Picture.Image = p1Card.GetImage();
-            //p1Picture.Location = new Point(100, 75);
-            //p1Picture.SizeMode = PictureBoxSizeMode.AutoSize;
-
-            //p2Picture.Image = p2Card.GetImage();
-            //p2Picture.Location = new Point(150, 125);
-            //p2Picture.SizeMode = PictureBoxSizeMode.AutoSize;
-
-            PlayerCount.Text = playerHand.GetTotal().ToString();
-
+            DisplayCards();
             BetThousand.Visible = false;
         }
 
@@ -160,6 +146,18 @@ namespace BlackjackGame
         private void Hit_Click(object sender, EventArgs e)
         {
             Output.Text = "Player choose to hit.";
+
+            Card hitCard = thisGame.GetDeck().GetCard();
+            Hand hand = thisGame.GetPlayerHand(1);
+            hand.AddCard(hitCard);
+
+
+            DisplayCards();
+            PlayerCount.Text = hand.GetTotal().ToString();
+            if(hand.HasBusted())
+            {
+                Output.Text = "Player busted!";
+            }
         }
 
         private void BetThousand_Click(object sender, EventArgs e)
@@ -223,6 +221,46 @@ namespace BlackjackGame
                 BetTen.Visible = true;
 
             }
+        }
+
+        private void DisplayCards()
+        {
+            Hand p1Hand = thisGame.GetPlayerHand(1);
+            Hand dealerHand = thisGame.GetDealerHand();
+
+            List<Card> dealerCards = dealerHand.SeeCards();
+            List<Card> p1Cards = p1Hand.SeeCards();
+
+            int i = 0;
+            foreach(Card card in dealerCards)
+            {
+                PictureBox cardPicture = new PictureBox();
+                cardPicture.Image = card.GetImage();
+                cardPicture.Location = new Point( (0 + (i * 40)), 75 );
+                cardPicture.SizeMode = PictureBoxSizeMode.AutoSize;
+                DealerHand.Controls.Add(cardPicture);
+                cardPicture.BringToFront();
+
+                i++;
+
+            }
+
+            i = 0;
+            foreach (Card card in p1Cards)
+            {
+                PictureBox cardPicture = new PictureBox();
+                cardPicture.Image = card.GetImage();
+                cardPicture.Location = new Point( (0 + (i * 40)), 75 );
+                cardPicture.SizeMode = PictureBoxSizeMode.AutoSize;
+                PlayerHand.Controls.Add(cardPicture);
+                cardPicture.BringToFront();
+
+                i++;
+            }
+
+            DealerCount.Text = dealerHand.GetTotal().ToString();
+            PlayerCount.Text = p1Hand.GetTotal().ToString();
+
         }
     }
 }

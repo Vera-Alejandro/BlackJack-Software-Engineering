@@ -135,10 +135,7 @@ namespace BlackjackGame
             Card p2Card = playerHand.GetCard();
 
             DisplayCards();
-
-
             BetThousand.Visible = false;
-
         }
 
         private void Stay_Click(object sender, EventArgs e)

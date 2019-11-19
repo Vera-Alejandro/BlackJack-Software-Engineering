@@ -54,6 +54,13 @@ namespace Blackjack
             return _deck;
         }
             
+        public bool HasBusted(int playerNumber)
+        {
+            if (_players[playerNumber - 1].GetTotal() < 22)
+                return false;
+            else
+                return true;
+        }
 
     }
 }

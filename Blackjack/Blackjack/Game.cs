@@ -134,35 +134,7 @@ namespace BlackjackGame
             Card p1Card = playerHand.GetCard();
             Card p2Card = playerHand.GetCard();
 
-
-            /* PictureBox d1Picture = new PictureBox();
-             d1Picture.Image = dealerCards[0].GetImage();
-
-             PictureBox d2Picture = new PictureBox();
-             d2Picture.Image = dealerCards[1].GetImage();
-
-             DealerHand.Controls.Add(d1Picture);
-             DealerHand.Controls.Add(d2Picture);
-
-             d1Picture.Location = new Point(100, 75);
-             d2Picture.Location = new Point(140, 75);
-             d1Picture.SizeMode = PictureBoxSizeMode.AutoSize;
-             d2Picture.SizeMode = PictureBoxSizeMode.AutoSize;
-             DealerCount.Text = dealerHand.GetTotal().ToString();
-
-             PictureBox p1Picture = new PictureBox();
-             p1Picture.Image = playerCards[0].GetImage();
-
-             PictureBox p2Picture = new PictureBox();
-             p2Picture.Image = playerCards[1].GetImage();
-
-             PlayerHand.Controls.Add(p1Picture);
-             PlayerHand.Controls.Add(p2Picture);
-             p1Picture.Location = new Point(100, 75);
-             p2Picture.Location = new Point(140, 75);
-             p1Picture.SizeMode = PictureBoxSizeMode.AutoSize;
-             p2Picture.SizeMode = PictureBoxSizeMode.AutoSize;*/
-             DisplayCards();
+            DisplayCards();
 
 
             BetThousand.Visible = false;
@@ -182,17 +154,13 @@ namespace BlackjackGame
             Hand hand = thisGame.GetPlayerHand(1);
             hand.AddCard(hitCard);
 
-            /*PictureBox hitPicture = new PictureBox();
-            hitPicture.Image = hand.GetCard().GetImage();
-            PlayerHand.Controls.Add(hitPicture);
-            hitPicture.Location = new Point(75, 50);
-            hitPicture.SizeMode = PictureBoxSizeMode.AutoSize;
-            hitPicture.BringToFront();*/
+
             DisplayCards();
-
             PlayerCount.Text = hand.GetTotal().ToString();
-
-
+            if(hand.HasBusted())
+            {
+                Output.Text = "Player busted!";
+            }
         }
 
         private void BetThousand_Click(object sender, EventArgs e)

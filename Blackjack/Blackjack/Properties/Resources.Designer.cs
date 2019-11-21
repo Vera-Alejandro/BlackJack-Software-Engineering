@@ -113,6 +113,16 @@ namespace Blackjack.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Card_Back {
+            get {
+                object obj = ResourceManager.GetObject("Card Back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Eight_of_Clubs {
             get {
                 object obj = ResourceManager.GetObject("Eight of Clubs", resourceCulture);

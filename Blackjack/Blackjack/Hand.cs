@@ -11,11 +11,13 @@ namespace Blackjack
     {
         private int _handTotal { get; set; }
         private List<Card> _currentHand { get; set; }
+        private int _numCards;
 
         public Hand()
         {
             _currentHand = new List<Card>();
             _handTotal = 0;
+            _numCards = 0;
         }
 
         public List<Card> SeeCards()
@@ -34,59 +36,73 @@ namespace Blackjack
             _currentHand.Clear();
         }
 
+        private void AddCardValues()
+        {
+            _handTotal = 0;
+            int aceCount = 0;
+            foreach (Card item in _currentHand)
+            {
+                switch (item.GetCardValue())
+                {
+                    case Card.CardValue.Ace:
+                        _handTotal += 11;
+                        aceCount++;
+                        break;
+                    case Card.CardValue.Two:
+                        _handTotal += 2;
+                        break;
+                    case Card.CardValue.Three:
+                        _handTotal += 3;
+                        break;
+                    case Card.CardValue.Four:
+                        _handTotal += 4;
+                        break;
+                    case Card.CardValue.Five:
+                        _handTotal += 5;
+                        break;
+                    case Card.CardValue.Six:
+                        _handTotal += 6;
+                        break;
+                    case Card.CardValue.Seven:
+                        _handTotal += 7;
+                        break;
+                    case Card.CardValue.Eight:
+                        _handTotal += 8;
+                        break;
+                    case Card.CardValue.Nine:
+                        _handTotal += 9;
+                        break;
+                    case Card.CardValue.Ten:
+                        _handTotal += 10;
+                        break;
+                    case Card.CardValue.Jack:
+                        _handTotal += 10;
+                        break;
+                    case Card.CardValue.Queen:
+                        _handTotal += 10;
+                        break;
+                    case Card.CardValue.King:
+                        _handTotal += 10;
+                        break;
+                }
+            }
+            for(int i = 0; i < aceCount; i++)
+            {
+                if (_handTotal > 21)
+                    _handTotal -= 10;
+            }
+        }
+            
+
         public void AddCard(Card NewCard)
         {
             _currentHand.Add(NewCard);
+            AddCardValues();
+        }
 
-            switch (NewCard.GetCardValue())
-            {
-                case Card.CardValue.Ace:
-                    if(_handTotal < 11)
-                    {
-                        _handTotal += 11;
-                    }
-                    else
-                    {
-                        _handTotal += 1;
-                    }
-                    break;
-                case Card.CardValue.Two:
-                    _handTotal += 2;
-                    break;
-                case Card.CardValue.Three:
-                    _handTotal += 3;
-                    break;
-                case Card.CardValue.Four:
-                    _handTotal += 4;
-                    break;
-                case Card.CardValue.Five:
-                    _handTotal += 5;
-                    break;
-                case Card.CardValue.Six:
-                    _handTotal += 6;
-                    break;
-                case Card.CardValue.Seven:
-                    _handTotal += 7;
-                    break;
-                case Card.CardValue.Eight:
-                    _handTotal += 8;
-                    break;
-                case Card.CardValue.Nine:
-                    _handTotal += 9;
-                    break;
-                case Card.CardValue.Ten:
-                    _handTotal += 10;
-                    break;
-                case Card.CardValue.Jack:
-                    _handTotal += 10;
-                    break;
-                case Card.CardValue.Queen:
-                    _handTotal += 10;
-                    break;
-                case Card.CardValue.King:
-                    _handTotal += 10;
-                    break;
-            }
+        public int GetNumberOfCards()
+        {
+            return _numCards;
         }
 
         public Card GetCard()
@@ -102,6 +118,14 @@ namespace Blackjack
 
             _currentHand[0].SetUsedValue(true);
             return _currentHand[0];
+        }
+
+        public bool HasBusted()
+        {
+            if (_handTotal < 22)
+                return false;
+            else
+                return true;
         }
     }
 }

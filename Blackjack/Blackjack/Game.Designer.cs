@@ -59,6 +59,7 @@
             this.TitleImage = new System.Windows.Forms.PictureBox();
             this.ProfileButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
+            this.ResetButton = new System.Windows.Forms.Button();
             this.DealerHand.SuspendLayout();
             this.PlayerHand.SuspendLayout();
             this.BettingPanel.SuspendLayout();
@@ -125,7 +126,7 @@
             this.StartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StartButton.ForeColor = System.Drawing.Color.DodgerBlue;
             this.StartButton.Location = new System.Drawing.Point(39, 33);
-            this.StartButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.StartButton.Margin = new System.Windows.Forms.Padding(4);
             this.StartButton.Name = "StartButton";
             this.StartButton.Size = new System.Drawing.Size(96, 54);
             this.StartButton.TabIndex = 4;
@@ -139,7 +140,7 @@
             this.DealerHand.Controls.Add(this.DealerCount);
             this.DealerHand.Controls.Add(this.DCName);
             this.DealerHand.Location = new System.Drawing.Point(131, 151);
-            this.DealerHand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DealerHand.Margin = new System.Windows.Forms.Padding(4);
             this.DealerHand.Name = "DealerHand";
             this.DealerHand.Size = new System.Drawing.Size(600, 665);
             this.DealerHand.TabIndex = 5;
@@ -182,7 +183,7 @@
             this.PlayerHand.Controls.Add(this.PlayerCount);
             this.PlayerHand.Controls.Add(this.PCName);
             this.PlayerHand.Location = new System.Drawing.Point(815, 151);
-            this.PlayerHand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PlayerHand.Margin = new System.Windows.Forms.Padding(4);
             this.PlayerHand.Name = "PlayerHand";
             this.PlayerHand.Size = new System.Drawing.Size(600, 665);
             this.PlayerHand.TabIndex = 6;
@@ -226,7 +227,7 @@
             this.Stay.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Stay.ForeColor = System.Drawing.Color.White;
             this.Stay.Location = new System.Drawing.Point(353, 578);
-            this.Stay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Stay.Margin = new System.Windows.Forms.Padding(4);
             this.Stay.Name = "Stay";
             this.Stay.Size = new System.Drawing.Size(133, 62);
             this.Stay.TabIndex = 3;
@@ -241,7 +242,7 @@
             this.Hit.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Hit.ForeColor = System.Drawing.Color.White;
             this.Hit.Location = new System.Drawing.Point(112, 578);
-            this.Hit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Hit.Margin = new System.Windows.Forms.Padding(4);
             this.Hit.Name = "Hit";
             this.Hit.Size = new System.Drawing.Size(133, 62);
             this.Hit.TabIndex = 2;
@@ -284,7 +285,7 @@
             this.Output.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Output.ForeColor = System.Drawing.Color.White;
             this.Output.Location = new System.Drawing.Point(892, 62);
-            this.Output.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Output.Margin = new System.Windows.Forms.Padding(4);
             this.Output.Name = "Output";
             this.Output.ReadOnly = true;
             this.Output.Size = new System.Drawing.Size(439, 26);
@@ -312,7 +313,7 @@
             this.BetOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BetOne.ForeColor = System.Drawing.Color.White;
             this.BetOne.Location = new System.Drawing.Point(213, 70);
-            this.BetOne.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BetOne.Margin = new System.Windows.Forms.Padding(4);
             this.BetOne.Name = "BetOne";
             this.BetOne.Size = new System.Drawing.Size(113, 49);
             this.BetOne.TabIndex = 9;
@@ -327,7 +328,7 @@
             this.BetFive.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BetFive.ForeColor = System.Drawing.Color.White;
             this.BetFive.Location = new System.Drawing.Point(347, 70);
-            this.BetFive.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BetFive.Margin = new System.Windows.Forms.Padding(4);
             this.BetFive.Name = "BetFive";
             this.BetFive.Size = new System.Drawing.Size(113, 49);
             this.BetFive.TabIndex = 10;
@@ -342,7 +343,7 @@
             this.BetTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BetTen.ForeColor = System.Drawing.Color.White;
             this.BetTen.Location = new System.Drawing.Point(480, 70);
-            this.BetTen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BetTen.Margin = new System.Windows.Forms.Padding(4);
             this.BetTen.Name = "BetTen";
             this.BetTen.Size = new System.Drawing.Size(113, 49);
             this.BetTen.TabIndex = 11;
@@ -357,7 +358,7 @@
             this.BetTwentyFive.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BetTwentyFive.ForeColor = System.Drawing.Color.White;
             this.BetTwentyFive.Location = new System.Drawing.Point(613, 70);
-            this.BetTwentyFive.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BetTwentyFive.Margin = new System.Windows.Forms.Padding(4);
             this.BetTwentyFive.Name = "BetTwentyFive";
             this.BetTwentyFive.Size = new System.Drawing.Size(113, 49);
             this.BetTwentyFive.TabIndex = 12;
@@ -372,7 +373,7 @@
             this.BetFifty.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BetFifty.ForeColor = System.Drawing.Color.White;
             this.BetFifty.Location = new System.Drawing.Point(747, 70);
-            this.BetFifty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BetFifty.Margin = new System.Windows.Forms.Padding(4);
             this.BetFifty.Name = "BetFifty";
             this.BetFifty.Size = new System.Drawing.Size(113, 49);
             this.BetFifty.TabIndex = 13;
@@ -387,7 +388,7 @@
             this.BetHundred.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BetHundred.ForeColor = System.Drawing.Color.White;
             this.BetHundred.Location = new System.Drawing.Point(880, 70);
-            this.BetHundred.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BetHundred.Margin = new System.Windows.Forms.Padding(4);
             this.BetHundred.Name = "BetHundred";
             this.BetHundred.Size = new System.Drawing.Size(113, 49);
             this.BetHundred.TabIndex = 14;
@@ -402,7 +403,7 @@
             this.BetTwoFifty.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BetTwoFifty.ForeColor = System.Drawing.Color.White;
             this.BetTwoFifty.Location = new System.Drawing.Point(1013, 70);
-            this.BetTwoFifty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BetTwoFifty.Margin = new System.Windows.Forms.Padding(4);
             this.BetTwoFifty.Name = "BetTwoFifty";
             this.BetTwoFifty.Size = new System.Drawing.Size(113, 49);
             this.BetTwoFifty.TabIndex = 15;
@@ -417,7 +418,7 @@
             this.BetFiveHundred.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BetFiveHundred.ForeColor = System.Drawing.Color.White;
             this.BetFiveHundred.Location = new System.Drawing.Point(1147, 70);
-            this.BetFiveHundred.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BetFiveHundred.Margin = new System.Windows.Forms.Padding(4);
             this.BetFiveHundred.Name = "BetFiveHundred";
             this.BetFiveHundred.Size = new System.Drawing.Size(113, 49);
             this.BetFiveHundred.TabIndex = 16;
@@ -432,7 +433,7 @@
             this.BetThousand.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BetThousand.ForeColor = System.Drawing.Color.White;
             this.BetThousand.Location = new System.Drawing.Point(1280, 70);
-            this.BetThousand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BetThousand.Margin = new System.Windows.Forms.Padding(4);
             this.BetThousand.Name = "BetThousand";
             this.BetThousand.Size = new System.Drawing.Size(113, 49);
             this.BetThousand.TabIndex = 17;
@@ -447,7 +448,7 @@
             this.BetAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BetAll.ForeColor = System.Drawing.Color.White;
             this.BetAll.Location = new System.Drawing.Point(27, 70);
-            this.BetAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BetAll.Margin = new System.Windows.Forms.Padding(4);
             this.BetAll.Name = "BetAll";
             this.BetAll.Size = new System.Drawing.Size(113, 49);
             this.BetAll.TabIndex = 18;
@@ -469,7 +470,7 @@
             this.BettingPanel.Controls.Add(this.BetHundred);
             this.BettingPanel.Controls.Add(this.BetFifty);
             this.BettingPanel.Location = new System.Drawing.Point(39, 823);
-            this.BettingPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BettingPanel.Margin = new System.Windows.Forms.Padding(4);
             this.BettingPanel.Name = "BettingPanel";
             this.BettingPanel.Size = new System.Drawing.Size(1411, 154);
             this.BettingPanel.TabIndex = 19;
@@ -479,7 +480,7 @@
             // 
             this.TitleImage.Image = global::Blackjack.Properties.Resources.BackJack_Title;
             this.TitleImage.Location = new System.Drawing.Point(16, 15);
-            this.TitleImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TitleImage.Margin = new System.Windows.Forms.Padding(4);
             this.TitleImage.Name = "TitleImage";
             this.TitleImage.Size = new System.Drawing.Size(291, 89);
             this.TitleImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -493,7 +494,7 @@
             this.ProfileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.ProfileButton.ForeColor = System.Drawing.Color.White;
             this.ProfileButton.Location = new System.Drawing.Point(315, 15);
-            this.ProfileButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ProfileButton.Margin = new System.Windows.Forms.Padding(4);
             this.ProfileButton.Name = "ProfileButton";
             this.ProfileButton.Size = new System.Drawing.Size(96, 41);
             this.ProfileButton.TabIndex = 6;
@@ -508,7 +509,7 @@
             this.SaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.SaveButton.ForeColor = System.Drawing.Color.White;
             this.SaveButton.Location = new System.Drawing.Point(315, 63);
-            this.SaveButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SaveButton.Margin = new System.Windows.Forms.Padding(4);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(96, 41);
             this.SaveButton.TabIndex = 20;
@@ -516,12 +517,29 @@
             this.SaveButton.UseVisualStyleBackColor = false;
             this.SaveButton.Visible = false;
             // 
+            // ResetButton
+            // 
+            this.ResetButton.BackColor = System.Drawing.Color.Black;
+            this.ResetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ResetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResetButton.ForeColor = System.Drawing.Color.White;
+            this.ResetButton.Location = new System.Drawing.Point(440, 28);
+            this.ResetButton.Margin = new System.Windows.Forms.Padding(4);
+            this.ResetButton.Name = "ResetButton";
+            this.ResetButton.Size = new System.Drawing.Size(192, 62);
+            this.ResetButton.TabIndex = 21;
+            this.ResetButton.Text = "RESTART";
+            this.ResetButton.UseVisualStyleBackColor = false;
+            this.ResetButton.Visible = false;
+            this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
+            // 
             // Blackjack
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.ClientSize = new System.Drawing.Size(1508, 992);
+            this.Controls.Add(this.ResetButton);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.ProfileButton);
             this.Controls.Add(this.BettingPanel);
@@ -535,7 +553,7 @@
             this.Controls.Add(this.StartButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(1067, 554);
             this.Name = "Blackjack";
             this.Text = "z";
@@ -586,6 +604,7 @@
         private System.Windows.Forms.Label Cash;
         private System.Windows.Forms.Button ProfileButton;
         private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.Button ResetButton;
     }
 }
 

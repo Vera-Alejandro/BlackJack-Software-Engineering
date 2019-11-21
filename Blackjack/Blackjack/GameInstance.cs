@@ -62,5 +62,16 @@ namespace Blackjack
                 return true;
         }
 
+        public void ResetGame()
+        {
+            int i = 0;
+            foreach(Hand player in _players)
+            {
+                player.ClearHand();
+            }
+            _dealerHand.ClearHand();
+
+        }
+
     }
 }

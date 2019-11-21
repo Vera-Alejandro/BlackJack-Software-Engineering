@@ -9,39 +9,59 @@ namespace Blackjack.Storage
     [Serializable]
     public class GameData
     {
-        private int _moneyBet { get; set; }
+        public int MoneyBet { get; private set; }
         private int _moneyWon { get; set; }
         private int _moneyLost { get; set; }
-        private int _moneyleftover { get; set; }
-        private int _mostMoneymade { get; set; }
-        private int _mostMoneyLost { get; set; }
+        private int _moneyLeftOver { get; set; }
+        public int MostMoneymade { get; private set; }
+        public int MostMoneyLost { get; private set; }
 
         public GameData()
         {
-            _moneyBet = 0;
+            MoneyBet = 0;
             _moneyWon = 0;
             _moneyLost = 0;
-            _moneyleftover = 0;
-            _mostMoneyLost = 0;
-            _mostMoneymade = 0;
+            _moneyLeftOver = 0;
+            MostMoneyLost = 0;
+            MostMoneymade = 0;
         }
 
         public GameData(int MoneyBet, int MoneyWon, int MoneyLost, int MoneyLeftOver)
         {
-            _moneyBet = MoneyBet;
+            this.MoneyBet = MoneyBet;
             _moneyWon = MoneyWon;
             _moneyLost = MoneyLost;
-            _moneyleftover = MoneyLeftOver;
+            _moneyLeftOver = MoneyLeftOver;
 
-            if(_moneyWon > _mostMoneymade)
+            if(_moneyWon > MostMoneymade)
             {
-                _mostMoneymade = _moneyWon;
+                MostMoneymade = _moneyWon;
             }
 
-            if(_moneyLost > _mostMoneyLost)
+            if(_moneyLost > MostMoneyLost)
             {
-                _mostMoneyLost = _moneyLost;
+                MostMoneyLost = _moneyLost;
             }
+        }
+
+        public int GetMoneyLeftOver()
+        {
+            return _moneyLeftOver;
+        }
+
+        public int GetMoneyBet()
+        {
+            return MoneyBet;
+        }
+
+        public int GetMoneyWon()
+        {
+            return _moneyWon;
+        }
+
+        public int GetMoneyLost()
+        {
+            return _moneyLost;
         }
     }
 }

@@ -12,6 +12,8 @@ namespace BlackjackGame
         private CardValue _value { get; set; }
         private SuiteType _suit {get; set;}
         private Image _cardImg { get; set; }
+
+        private Image _cardBack { get; set; }
         private bool _beenUsed { get; set; }
 
         public Card(CardValue Value, SuiteType Suit)
@@ -246,7 +248,7 @@ namespace BlackjackGame
                     }
                     break;
             }
-
+            _cardBack = global::Blackjack.Properties.Resources.Card_Back;
             #endregion
         }
 
@@ -283,6 +285,11 @@ namespace BlackjackGame
         public Image GetImage()
         {
             return _cardImg;
+        }
+
+        public Image GetBackImage()
+        {
+            return _cardBack;
         }
 
         public void SetImage(Image CardImage)

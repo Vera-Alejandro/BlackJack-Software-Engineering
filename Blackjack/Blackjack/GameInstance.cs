@@ -108,6 +108,7 @@ namespace Blackjack
 
         public void ResetGame()
         {
+            
             foreach(Hand player in _players)
             {
                 player.ClearHand();
@@ -123,6 +124,7 @@ namespace Blackjack
             {
                 _playerBets[i] = 0;
             }
+
         }
 
         public enum GameResult

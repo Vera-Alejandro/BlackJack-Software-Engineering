@@ -156,6 +156,7 @@
             this.DealerCount.Size = new System.Drawing.Size(28, 31);
             this.DealerCount.TabIndex = 1;
             this.DealerCount.Text = "0";
+            this.DealerCount.Visible = false;
             this.DealerCount.TextChanged += new System.EventHandler(this.DealerCount_TextChanged);
 
             // 
@@ -192,7 +193,7 @@
             this.PlayerCash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PlayerCash.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PlayerCash.ForeColor = System.Drawing.Color.White;
-            this.PlayerCash.Location = new System.Drawing.Point(416, 2);
+            this.PlayerCash.Location = new System.Drawing.Point(454, 2);
             this.PlayerCash.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PlayerCash.Name = "PlayerCash";
             this.PlayerCash.Size = new System.Drawing.Size(97, 29);

@@ -531,6 +531,8 @@ namespace BlackjackGame
             {
                 this.Hit.Visible = true;
                 this.Stay.Visible = true;
+                PlayerCount.Text = 0.ToString();
+                DealerCount.Text = 0.ToString();
                 thisGame.ResetGame();
                 foreach (PictureBox cardPic in dealerCardPictures)
                 {

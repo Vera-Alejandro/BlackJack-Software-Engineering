@@ -195,14 +195,13 @@
             this.PlayerCash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PlayerCash.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PlayerCash.ForeColor = System.Drawing.Color.White;
-            this.PlayerCash.Location = new System.Drawing.Point(487, 0);
+            this.PlayerCash.Location = new System.Drawing.Point(454, 2);
             this.PlayerCash.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PlayerCash.Name = "PlayerCash";
-            this.PlayerCash.Size = new System.Drawing.Size(83, 36);
+            this.PlayerCash.Size = new System.Drawing.Size(125, 36);
             this.PlayerCash.TabIndex = 5;
-            this.PlayerCash.Text = "$500";
+            this.PlayerCash.Text = "$500.00";
             this.PlayerCash.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            //this.PlayerCash.TextChanged += new System.EventHandler(this.PlayerCash_TextChanged);
             // 
             // Cash
             // 
@@ -211,7 +210,7 @@
             this.Cash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Cash.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cash.ForeColor = System.Drawing.Color.White;
-            this.Cash.Location = new System.Drawing.Point(380, 0);
+            this.Cash.Location = new System.Drawing.Point(347, 2);
             this.Cash.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Cash.Name = "Cash";
             this.Cash.Size = new System.Drawing.Size(92, 36);

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Blackjack;
+using System.Globalization;
 
 namespace BlackjackGame
 {
@@ -19,7 +20,7 @@ namespace BlackjackGame
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
-        private const int START_CASH = 500;
+        private const double START_CASH = 500.00;
 
         [DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
@@ -48,7 +49,7 @@ namespace BlackjackGame
         private List<PictureBox> dealerCardPictures = new List<PictureBox>();
         private List<PictureBox> playerCardPictures = new List<PictureBox>();
 
-        private int playerCash = START_CASH;
+        private double playerCash = START_CASH;
 
         public Blackjack()
         {
@@ -210,29 +211,40 @@ namespace BlackjackGame
             if ( playerHand.HasBusted())
             {
                 MessageBox.Show("Player Busted, Computer Wins");
-                thisGame.SetPlayerResult(1, 1);
-                //return;
+                thisGame.SetPlayerResult(1, GameInstance.GameResult.Loss);
+
             }
             else if ( dealerHand.HasBusted())
             {
                 MessageBox.Show("Dealer Busted, Player 1 Wins");
-                thisGame.SetPlayerResult(1, 2);
-                //return;
+                thisGame.SetPlayerResult(1, GameInstance.GameResult.Win);
+
+            }
+            else if (playerHand.GetTotal() == 21 && dealerHand.GetTotal() != 21 && playerHand.GetNumberOfCards() == 2)
+            {
+                MessageBox.Show("Player 1 got a natural blackjack!");
+                thisGame.SetPlayerResult(1, GameInstance.GameResult.PlayerBlackjack);
+
             }
             else if ( playerHand.GetTotal() > dealerHand.GetTotal())
             {
                 MessageBox.Show("Player 1 Wins");
-                thisGame.SetPlayerResult(1, 2);
-                //return;
+                thisGame.SetPlayerResult(1, GameInstance.GameResult.Win);
+
+            }
+            else if ( playerHand.GetTotal() == dealerHand.GetTotal())
+            {
+                MessageBox.Show("Player and dealer tied. No payouts awarded.");
+                thisGame.SetPlayerResult(1, GameInstance.GameResult.Standoff);
             }
             else
             {
                 MessageBox.Show("Computer Wins");
-                thisGame.SetPlayerResult(1, 1);
-                //return;
+                thisGame.SetPlayerResult(1, GameInstance.GameResult.Loss);
+
             }
             playerCash += thisGame.GetPayout(1);
-            PlayerCash.Text = "$" + playerCash.ToString();
+            PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
             restartAvailable = true;
         }
 
@@ -470,7 +482,6 @@ namespace BlackjackGame
                 }
                 else
                 {
-                    Console.WriteLine("i = " + i);
                     dealerCardPictures[i].Image = card.GetImage();
                 }
               //  dealerCardPictures.Location = new Point( (0 + (i * 40)), 75 );
@@ -561,7 +572,7 @@ namespace BlackjackGame
             Card p2Card = playerHand.GetCard();
 
             DisplayCards(true);
-            if(dealerHand.GetTotal() == 21)
+            if(dealerHand.GetTotal() == 21 || playerHand.GetTotal() == 21)
             {
                 this.Hit.Visible = false;
                 this.Stay.Visible = false;

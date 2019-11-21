@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Blackjack
 {
-    class GameInstance
+    public class GameInstance
     {
         private Deck _deck;
         private Hand _dealerHand;

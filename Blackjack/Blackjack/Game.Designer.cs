@@ -500,6 +500,7 @@
             this.ProfileButton.Text = "Profile";
             this.ProfileButton.UseVisualStyleBackColor = false;
             this.ProfileButton.Visible = false;
+            this.ProfileButton.Click += new System.EventHandler(this.ProfileButton_Click);
             // 
             // SaveButton
             // 

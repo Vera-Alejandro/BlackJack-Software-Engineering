@@ -295,7 +295,7 @@ namespace BlackjackGame
                 if (i == 1 && dealerFaceDown)
                 {
                     dealerCardPictures[i].Image = card.GetBackImage();
-  
+
                     switch (card.GetCardValue())
                     {
                         case Card.CardValue.Ace:
@@ -340,7 +340,10 @@ namespace BlackjackGame
                     }
                 }
                 else
+                {
+                    Console.WriteLine("i = " + i);
                     dealerCardPictures[i].Image = card.GetImage();
+                }
               //  dealerCardPictures.Location = new Point( (0 + (i * 40)), 75 );
                 //dealerCardPicture.SizeMode = PictureBoxSizeMode.AutoSize;
                // DealerHand.Controls.Add(cardPicture);
@@ -362,7 +365,6 @@ namespace BlackjackGame
             {
                 dealerCardPictures[1].Image = dealerCards[1].GetImage();
                 DealerCount.Text = dealerHand.GetTotal().ToString();
-                Who_Won();
             }
             else
             {
@@ -416,7 +418,10 @@ namespace BlackjackGame
             Card p2Card = playerHand.GetCard();
 
             DisplayCards(true);
-
+            if(dealerHand.GetTotal() == 21)
+            {
+                Who_Won();
+            }
 
             BetThousand.Visible = false;
         }

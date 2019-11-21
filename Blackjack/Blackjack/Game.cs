@@ -19,6 +19,7 @@ namespace BlackjackGame
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
+        private const int START_CASH = 500;
 
         [DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
@@ -37,6 +38,8 @@ namespace BlackjackGame
         #endregion
 
         private bool gameStarted = false;
+        private bool roundStarted = false;
+        private bool restartAvailable = false;
 
         private string RunningPath = AppDomain.CurrentDomain.BaseDirectory;
 
@@ -44,6 +47,8 @@ namespace BlackjackGame
 
         private List<PictureBox> dealerCardPictures = new List<PictureBox>();
         private List<PictureBox> playerCardPictures = new List<PictureBox>();
+
+        private int playerCash = START_CASH;
 
         public Blackjack()
         {
@@ -138,12 +143,15 @@ namespace BlackjackGame
                 dealerCardPictures[i].BringToFront();
             }
 
-            StartRound();
-
         }
 
         private void Stay_Click(object sender, EventArgs e)
         {
+            if (thisGame.GetBet(1) <= 0)
+            {
+                Output.Text = "Must bet to play!";
+                return;
+            }
             Output.Text = "Player choose to stay";
             this.Hit.Visible = false;
             this.Stay.Visible = false;
@@ -152,6 +160,12 @@ namespace BlackjackGame
 
         private void Hit_Click(object sender, EventArgs e)
         {
+            if(thisGame.GetBet(1) <= 0)
+            {
+                Output.Text = "Must bet to play!";
+                return;
+            }
+
             Output.Text = "Player choose to hit.";
 
             Card hitCard = thisGame.GetDeck().GetCard();
@@ -192,80 +206,195 @@ namespace BlackjackGame
             Hand dealerHand = thisGame.GetDealerHand();
             Hand playerHand = thisGame.GetPlayerHand(1);
             DisplayCards(false);
+            
             if ( playerHand.HasBusted())
             {
                 MessageBox.Show("Player Busted, Computer Wins");
-                return;
+                thisGame.SetPlayerResult(1, 1);
+                //return;
             }
             else if ( dealerHand.HasBusted())
             {
                 MessageBox.Show("Dealer Busted, Player 1 Wins");
-                return;
+                thisGame.SetPlayerResult(1, 2);
+                //return;
             }
             else if ( playerHand.GetTotal() > dealerHand.GetTotal())
             {
                 MessageBox.Show("Player 1 Wins");
-                return;
+                thisGame.SetPlayerResult(1, 2);
+                //return;
             }
             else
             {
                 MessageBox.Show("Computer Wins");
-                return;
+                thisGame.SetPlayerResult(1, 1);
+                //return;
             }
-
+            playerCash += thisGame.GetPayout(1);
+            PlayerCash.Text = "$" + playerCash.ToString();
+            restartAvailable = true;
         }
 
         private void BetThousand_Click(object sender, EventArgs e)
         {
-
+            if(roundStarted)
+            {
+                Output.Text = "Cards already dealt!";
+            }
+            else if (CanBet(1000))
+            {
+                thisGame.SetBet(1, 1000);
+                Output.Text = "Player bet:  $" + thisGame.GetBet(1).ToString() + ".";
+                StartRound();
+            }
+            else
+                Output.Text = "Not enough money to bet!";
         }
 
         private void BetAll_Click(object sender, EventArgs e)
         {
-
+            if (roundStarted)
+            {
+                Output.Text = "Cards already dealt!";
+            }
+            else
+            {
+                thisGame.SetBet(1, playerCash);
+                Output.Text = "Player went all in!";
+                StartRound();
+            }
         }
 
         private void BetFiveHundred_Click(object sender, EventArgs e)
         {
-
+            if (roundStarted)
+            {
+                Output.Text = "Cards already dealt!";
+            }
+            else if (CanBet(500))
+            {
+                thisGame.SetBet(1, 500);
+                Output.Text = "Player bet:  $" + thisGame.GetBet(1).ToString() + ".";
+                StartRound();
+            }
+            else
+                Output.Text = "Not enough money to bet!";
         }
 
         private void BetTwoFifty_Click(object sender, EventArgs e)
         {
-
+            if (roundStarted)
+            {
+                Output.Text = "Cards already dealt!";
+            }
+            else if (CanBet(250))
+            {
+                thisGame.SetBet(1, 250);
+                Output.Text = "Player bet:  $" + thisGame.GetBet(1).ToString() + ".";
+                StartRound();
+            }
+            else
+                Output.Text = "Not enough money to bet!";
         }
 
         private void BetHundred_Click(object sender, EventArgs e)
         {
-
+            if (roundStarted)
+            {
+                Output.Text = "Cards already dealt!";
+            }
+            else if (CanBet(100))
+            {                
+                thisGame.SetBet(1, 100);
+                Output.Text = "Player bet:  $" + thisGame.GetBet(1).ToString() + ".";
+                StartRound();
+            }
+            else
+                Output.Text = "Not enough money to bet!";
         }
 
         private void BetFifty_Click(object sender, EventArgs e)
         {
-
+            if (roundStarted)
+            {
+                Output.Text = "Cards already dealt!";
+            }
+            else if (CanBet(50))
+            {
+                thisGame.SetBet(1, 50);
+                Output.Text = "Player bet:  $" + thisGame.GetBet(1).ToString() + ".";
+                StartRound();
+            }
+            else
+                Output.Text = "Not enough money to bet!";
         }
 
         private void BetTwentyFive_Click(object sender, EventArgs e)
         {
-
+            if (roundStarted)
+            {
+                Output.Text = "Cards already dealt!";
+            }
+            else if (CanBet(25))
+            {
+                thisGame.SetBet(1, 25);
+                Output.Text = "Player bet:  $" + thisGame.GetBet(1).ToString() + ".";
+                StartRound();
+            }
+            else
+                Output.Text = "Not enough money to bet!";
         }
 
         private void BetTen_Click(object sender, EventArgs e)
         {
-
+            if (roundStarted)
+            {
+                Output.Text = "Cards already dealt!";
+            }
+            else if (CanBet(10))
+            {
+                thisGame.SetBet(1, 10);
+                Output.Text = "Player bet:  $" + thisGame.GetBet(1).ToString() + ".";
+                StartRound();
+            }
+            else
+                Output.Text = "Not enough money to bet!";
         }
 
         private void BetFive_Click(object sender, EventArgs e)
         {
-
+            if (roundStarted)
+            {
+                Output.Text = "Cards already dealt!";
+            }
+            else if (CanBet(5))
+            {
+                thisGame.SetBet(1, 5);
+                Output.Text = "Player bet:  $" + thisGame.GetBet(1).ToString() + ".";
+                StartRound();
+            }
+            else
+                Output.Text = "Not enough money to bet!";
         }
 
         private void BetOne_Click(object sender, EventArgs e)
         {
-
+            if (roundStarted)
+            {
+                Output.Text = "Cards already dealt!";
+            }
+            else if (CanBet(1))
+            {
+                thisGame.SetBet(1, 1);
+                Output.Text = "Player bet:  $" + thisGame.GetBet(1).ToString() + ".";
+                StartRound();
+            }
+            else
+                Output.Text = "Not enough money to bet!";
         }
 
-        private void PlayerCash_TextChanged(object sender, EventArgs e)
+        /*private void PlayerCash_TextChanged(object sender, EventArgs e)
         {
             int money = Convert.ToInt32(PlayerCash.Text);
 
@@ -276,7 +405,7 @@ namespace BlackjackGame
                 BetTen.Visible = true;
 
             }
-        }
+        }*/
 
         private void DisplayCards(bool dealerFaceDown)
         {
@@ -378,24 +507,38 @@ namespace BlackjackGame
 
         private void ResetButton_Click(object sender, EventArgs e)
         {
-            this.Hit.Visible = true;
-            this.Stay.Visible = true;
-            thisGame.ResetGame();
-            foreach(PictureBox cardPic in dealerCardPictures)
+            if (!restartAvailable)
             {
-                cardPic.Image = null;
+                Output.Text = "Restart not available.";
+                return;
             }
-            foreach (PictureBox cardPic in playerCardPictures)
+            else
             {
-                cardPic.Image = null;
+                this.Hit.Visible = true;
+                this.Stay.Visible = true;
+                thisGame.ResetGame();
+                foreach (PictureBox cardPic in dealerCardPictures)
+                {
+                    cardPic.Image = null;
+                }
+                foreach (PictureBox cardPic in playerCardPictures)
+                {
+                    cardPic.Image = null;
+                }
+                restartAvailable = false;
+                roundStarted = false;
             }
 
-            StartRound();
+        }
 
+        private bool CanBet(int bet)
+        {
+            return (bet <= playerCash);
         }
 
         private void StartRound()
         {
+            roundStarted = true;
             //deal first card out
             Deck dealingDeck = thisGame.GetDeck();
             Hand dealerHand = thisGame.GetDealerHand();
@@ -424,8 +567,6 @@ namespace BlackjackGame
                 this.Stay.Visible = false;
                 Who_Won();
             }
-
-            BetThousand.Visible = false;
         }
     }
 }

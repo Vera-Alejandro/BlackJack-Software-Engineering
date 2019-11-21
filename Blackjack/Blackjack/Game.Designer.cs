@@ -202,7 +202,7 @@
             this.PlayerCash.TabIndex = 5;
             this.PlayerCash.Text = "$500";
             this.PlayerCash.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PlayerCash.TextChanged += new System.EventHandler(this.PlayerCash_TextChanged);
+            //this.PlayerCash.TextChanged += new System.EventHandler(this.PlayerCash_TextChanged);
             // 
             // Cash
             // 

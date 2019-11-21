@@ -121,7 +121,7 @@ namespace BlackjackGame
 
             thisGame.AddPlayer(); //add a player to the game
 
-            for(int i = 0; i < 7; i ++)
+            for(int i = 0; i < 10; i ++)
             {
                 PictureBox card = new PictureBox();
                 playerCardPictures.Add(card);
@@ -133,7 +133,7 @@ namespace BlackjackGame
             }
 
  
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 10; i++)
             {
                 PictureBox card = new PictureBox();
                 dealerCardPictures.Add(card);
@@ -269,6 +269,10 @@ namespace BlackjackGame
             if (roundStarted)
             {
                 Output.Text = "Cards already dealt!";
+            }
+            else if(playerCash <= 0)
+            {
+                Output.Text = "No money to bet!";
             }
             else
             {

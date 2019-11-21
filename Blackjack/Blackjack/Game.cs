@@ -197,20 +197,17 @@ namespace BlackjackGame
             {
                 if (playerHand.GetTotal() > dealerHand.GetTotal())
                 {
-                    DealerCount.ForeColor = Color.White;
                     thisGame.SetPlayerResult(1, GameInstance.GameResult.Win);
                     MessageBox.Show("Player 1 Wins");
 
                 }
                 else if (playerHand.GetTotal() == dealerHand.GetTotal())
                 {
-                    DealerCount.ForeColor = Color.White;
                     thisGame.SetPlayerResult(1, GameInstance.GameResult.Standoff);
                     MessageBox.Show("Player and dealer tied. No payouts awarded.");
                 }
                 else
                 {
-                    DealerCount.ForeColor = Color.White;
                     thisGame.SetPlayerResult(1, GameInstance.GameResult.Loss);
                     MessageBox.Show("Computer Wins");
 
@@ -399,7 +396,6 @@ namespace BlackjackGame
                 PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
                 restartAvailable = true;
                 MessageBox.Show("Dealer Busted, Player 1 Wins", "Player Wins!!");
-                DealerCount.ForeColor = Color.White;
 
             }
             else if (dealerCount == 21)
@@ -409,7 +405,6 @@ namespace BlackjackGame
                 PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
                 restartAvailable = true;
                 MessageBox.Show("Dealer got a Blackjack", "Player Lost!");
-                DealerCount.ForeColor = Color.White;
             }
         }
 
@@ -428,7 +423,6 @@ namespace BlackjackGame
                 PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
                 restartAvailable = true;
                 MessageBox.Show("Player Busted, Computer Wins", "Player Lost!");
-                DealerCount.ForeColor = Color.White;
                 DisplayCards(false);
 
             }
@@ -442,7 +436,6 @@ namespace BlackjackGame
                 PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
                 restartAvailable = true;
                 MessageBox.Show("Player got a natural Blackjack", "Player Wins!!");
-                DealerCount.ForeColor = Color.White;
                 DisplayCards(false);
             }
         }
@@ -464,7 +457,6 @@ namespace BlackjackGame
             {
                 if (i == 1 && dealerFaceDown)   //what if we changed this to if (i >= 1) then we can't see the other cards if the dealer were to hit again
                 {
-                    DealerCount.ForeColor = Color.Black;
                     dealerCardPictures[i].Image = card.GetBackImage();
 
                     switch (card.GetCardValue())
@@ -519,14 +511,6 @@ namespace BlackjackGame
 
                 i++;
 
-                if(dealerFaceDown)
-                {
-                    DealerCount.ForeColor = Color.Black;
-                }
-                else
-                {
-                    DealerCount.ForeColor = Color.White;
-                }
             }
 
             i = 0;
@@ -540,27 +524,25 @@ namespace BlackjackGame
 
             if(dealerHand.GetTotal() == 21)
             {
-                DealerCount.ForeColor = Color.Black;
                 dealerCardPictures[1].Image = dealerCards[1].GetImage();
                 DealerCount.Text = dealerHand.GetTotal().ToString();
             }
             else
             {
-                if(dealerHand.GetTotal() > 21)
-                {
-                    DealerCount.ForeColor = Color.White;
-                }
-                else
-                {
-                    DealerCount.ForeColor = Color.Black;
-                }
-
                 int dealerDisplayTotal = (dealerHand.GetTotal() - downValue);
                 DealerCount.Text = dealerDisplayTotal.ToString();
             }
 
-            PlayerCount.Text = p1Hand.GetTotal().ToString();
+            if(dealerFaceDown)
+            {
+                DealerCount.ForeColor = Color.Black;
+            }
+            else
+            {
+                DealerCount.ForeColor = Color.White;
+            }
 
+            PlayerCount.Text = p1Hand.GetTotal().ToString();
         }
 
         private void ResetButton_Click(object sender, EventArgs e)
@@ -585,8 +567,8 @@ namespace BlackjackGame
                 }
                 restartAvailable = false;
                 roundStarted = false;
-                DealerCount.ForeColor = Color.Black;
                 PlayerCount.Text = "0";
+                DealerCount.Text = "0";
             }
 
         }

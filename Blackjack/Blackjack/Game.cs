@@ -106,6 +106,7 @@ namespace BlackjackGame
             BettingPanel.Visible = true;
             ProfileButton.Visible = true;
             SaveButton.Visible = true;
+            ResetButton.Visible = true;
             #endregion
 
 
@@ -144,6 +145,9 @@ namespace BlackjackGame
         private void Stay_Click(object sender, EventArgs e)
         {
             Output.Text = "Player choose to stay";
+            this.Hit.Visible = false;
+            this.Stay.Visible = false;
+            Computer_Turn();
         }
 
         private void Hit_Click(object sender, EventArgs e)
@@ -154,13 +158,61 @@ namespace BlackjackGame
             Hand hand = thisGame.GetPlayerHand(1);
             hand.AddCard(hitCard);
 
-
             DisplayCards();
             PlayerCount.Text = hand.GetTotal().ToString();
             if(hand.HasBusted())
             {
                 Output.Text = "Player busted!";
+                this.Hit.Visible = false;
+                this.Stay.Visible = false;
+                Who_Won();
             }
+        }
+
+        private void Computer_Turn()
+        {
+            int dealerStayValue = 17;
+            Hand dealerHand = thisGame.GetDealerHand();
+
+            if ( dealerHand.GetTotal() < dealerStayValue )
+            {
+                while ( dealerHand.GetTotal() < dealerStayValue )
+                {
+                    Card hitCard = thisGame.GetDeck().GetCard();
+                    dealerHand.AddCard(hitCard);
+                    DisplayCards();
+                }
+            }
+
+            Who_Won();
+        }
+
+        private void Who_Won()
+        {
+            Hand dealerHand = thisGame.GetDealerHand();
+            Hand playerHand = thisGame.GetPlayerHand(1);
+
+            if ( playerHand.HasBusted())
+            {
+                MessageBox.Show("Player Busted, Computer Wins");
+                return;
+            }
+            else if ( dealerHand.HasBusted())
+            {
+                MessageBox.Show("Dealer Busted, Player 1 Wins");
+                return;
+            }
+            else if ( playerHand.GetTotal() > dealerHand.GetTotal())
+            {
+                MessageBox.Show("Player 1 Wins");
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Computer Wins");
+                return;
+            }
+
         }
 
         private void BetThousand_Click(object sender, EventArgs e)
@@ -263,6 +315,12 @@ namespace BlackjackGame
 
             DealerCount.Text = dealerHand.GetTotal().ToString();
             PlayerCount.Text = p1Hand.GetTotal().ToString();
+
+        }
+
+        private void ResetButton_Click(object sender, EventArgs e)
+        {
+            
 
         }
     }

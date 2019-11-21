@@ -60,27 +60,12 @@ namespace BlackjackGame
             jazzSound.Play();
         }
 
-        private void Close_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        private void Close_Click(object sender, EventArgs e) { Close(); }
 
-        private void Resize_Click(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Maximized)
-            {
-                WindowState = FormWindowState.Normal;
-            }
-            else
-            {
-                WindowState = FormWindowState.Maximized;
-            }
-        }
+        private void Resize_Click(object sender, EventArgs e) 
+            { WindowState = (WindowState == FormWindowState.Maximized) ? FormWindowState.Normal : FormWindowState.Maximized; }
 
-        private void Minimize_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
+        private void Minimize_Click(object sender, EventArgs e) { WindowState = FormWindowState.Minimized; }
 
         private void Blackjack_SizeChanged(object sender, EventArgs e)
         {
@@ -160,18 +145,14 @@ namespace BlackjackGame
 
             DisplayCards(true);
             PlayerCount.Text = hand.GetTotal().ToString();
-            if(hand.HasBusted())
-            {
-                Output.Text = "Player busted!";
-                this.Hit.Visible = false;
-                this.Stay.Visible = false;
-                Who_Won();
-            }
         }
 
         private void Computer_Turn()
         {
+            int.TryParse(DealerCount.Text, out int dealerCount);
+            int.TryParse(PlayerCount.Text, out int playerCount);
             int dealerStayValue = 17;
+
             Hand dealerHand = thisGame.GetDealerHand();
 
             if ( dealerHand.GetTotal() < dealerStayValue )
@@ -184,33 +165,30 @@ namespace BlackjackGame
                 }
             }
 
-            Who_Won();
+            if(dealerCount < 21 && playerCount < 21)
+            {
+                Who_Won();
+            }
         }
 
         private void Who_Won()
         {
             Hand dealerHand = thisGame.GetDealerHand();
             Hand playerHand = thisGame.GetPlayerHand(1);
+
             DisplayCards(false);
-            if ( playerHand.HasBusted())
+            
+            if ( playerHand.GetTotal() > dealerHand.GetTotal())
             {
-                MessageBox.Show("Player Busted, Computer Wins");
-                return;
+                MessageBox.Show("Player Wins", "Player Wins!!");
             }
-            else if ( dealerHand.HasBusted())
+            else if (playerHand.GetTotal() == dealerHand.GetTotal())
             {
-                MessageBox.Show("Dealer Busted, Player 1 Wins");
-                return;
-            }
-            else if ( playerHand.GetTotal() > dealerHand.GetTotal())
-            {
-                MessageBox.Show("Player 1 Wins");
-                return;
+                MessageBox.Show("It is a tie, Player gets money back", "Tie");
             }
             else
             {
-                MessageBox.Show("Computer Wins");
-                return;
+                MessageBox.Show("Computer Wins", "Player Lost");
             }
 
         }
@@ -265,17 +243,122 @@ namespace BlackjackGame
 
         }
 
+        private void DealerCount_TextChanged(object sender, EventArgs e)
+        {
+            int.TryParse(DealerCount.Text, out int dealerCount);
+
+            if (dealerCount > 21)
+            {
+                MessageBox.Show("Dealer Busted, Player 1 Wins", "Player Wins!!");
+            }
+            else if (dealerCount == 21)
+            {
+                MessageBox.Show("Dealer got a Blackjack", "Player Lost!");
+            }
+
+        }
+        private void PlayerCount_TextChanged(object sender, EventArgs e)
+        {
+            int.TryParse(PlayerCount.Text, out int playerCount);
+
+            DisplayCards(false);
+
+            if (playerCount > 21)
+            {
+                MessageBox.Show("Player Busted, Computer Wins", "Player Lost!");
+                Output.Text = "Player busted!";
+                this.Hit.Visible = false;
+                this.Stay.Visible = false;
+
+            }
+            else if (playerCount == 21)
+            {
+                MessageBox.Show("Player got a Blackjack", "Player Wins!!");
+                Output.Text = "Player got a Blackjack!!";
+                this.Hit.Visible = false;
+                this.Stay.Visible = false;
+            }
+        }
+
         private void PlayerCash_TextChanged(object sender, EventArgs e)
         {
-            int money = Convert.ToInt32(PlayerCash.Text);
+            int.TryParse(PlayerCash.Text, out int money);
 
-            if (money > 1)
+            #region Show bet buttons based on player cash
+            if (money >= 1000)
             {
                 BetOne.Visible = true;
                 BetFive.Visible = true;
                 BetTen.Visible = true;
+                BetTwentyFive.Visible = true;
+                BetFifty.Visible = true;
+                BetHundred.Visible = true;
+                BetTwoFifty.Visible = true;
+                BetFiveHundred.Visible = true;
+                BetThousand.Visible = true;
 
             }
+            else if (money >= 500)
+            {
+                BetOne.Visible = true;
+                BetFive.Visible = true;
+                BetTen.Visible = true;
+                BetTwentyFive.Visible = true;
+                BetFifty.Visible = true;
+                BetHundred.Visible = true;
+                BetTwoFifty.Visible = true;
+                BetFiveHundred.Visible = true;
+            }
+            else if (money >= 250)
+            {
+                BetOne.Visible = true;
+                BetFive.Visible = true;
+                BetTen.Visible = true;
+                BetTwentyFive.Visible = true;
+                BetFifty.Visible = true;
+                BetHundred.Visible = true;
+                BetTwoFifty.Visible = true;
+            }
+            else if (money >= 100)
+            {
+                BetOne.Visible = true;
+                BetFive.Visible = true;
+                BetTen.Visible = true;
+                BetTwentyFive.Visible = true;
+                BetFifty.Visible = true;
+                BetHundred.Visible = true;
+            }
+            else if (money >= 50)
+            {
+                BetOne.Visible = true;
+                BetFive.Visible = true;
+                BetTen.Visible = true;
+                BetTwentyFive.Visible = true;
+                BetFifty.Visible = true;
+            }
+            else if (money >= 25)
+            {
+                BetOne.Visible = true;
+                BetFive.Visible = true;
+                BetTen.Visible = true;
+                BetTwentyFive.Visible = true;
+            }
+            else if (money >= 10)
+            {
+                BetOne.Visible = true;
+                BetFive.Visible = true;
+                BetTen.Visible = true;
+            }
+            else if (money >= 5)
+            {
+                BetOne.Visible = true;
+                BetFive.Visible = true;
+            }
+            else if (money >= 1)
+            {
+                BetOne.Visible = true;
+            }
+            #endregion
         }
 
         private void DisplayCards(bool dealerFaceDown)
@@ -289,10 +372,13 @@ namespace BlackjackGame
 
             int downValue = 0;
             int i = 0;
+
+            _ = (!dealerFaceDown) ? DealerCount.Visible = true : DealerCount.Visible = false;
+
             foreach(Card card in dealerCards)
             {
                 //PictureBox cardPicture = new PictureBox();
-                if (i == 1 && dealerFaceDown)
+                if (i == 1 && dealerFaceDown)   //what if we changed this to if (i >= 1) then we can't see the other cards if the dealer were to hit again
                 {
                     dealerCardPictures[i].Image = card.GetBackImage();
 
@@ -344,13 +430,12 @@ namespace BlackjackGame
                     Console.WriteLine("i = " + i);
                     dealerCardPictures[i].Image = card.GetImage();
                 }
-              //  dealerCardPictures.Location = new Point( (0 + (i * 40)), 75 );
+                //dealerCardPictures.Location = new Point((0 + (i * 40)), 75);
                 //dealerCardPicture.SizeMode = PictureBoxSizeMode.AutoSize;
-               // DealerHand.Controls.Add(cardPicture);
+                //DealerHand.Controls.Add(cardPicture);
                 dealerCardPictures[i].BringToFront();
 
                 i++;
-
             }
 
             i = 0;
@@ -361,6 +446,7 @@ namespace BlackjackGame
 
                 i++;
             }
+
             if(dealerHand.GetTotal() == 21)
             {
                 dealerCardPictures[1].Image = dealerCards[1].GetImage();
@@ -418,10 +504,6 @@ namespace BlackjackGame
             Card p2Card = playerHand.GetCard();
 
             DisplayCards(true);
-            if(dealerHand.GetTotal() == 21)
-            {
-                Who_Won();
-            }
 
             BetThousand.Visible = false;
         }

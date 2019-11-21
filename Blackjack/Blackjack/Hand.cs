@@ -123,9 +123,13 @@ namespace Blackjack
         public bool HasBusted()
         {
             if (_handTotal < 22)
+            {
                 return false;
+            }
             else
+            {
                 return true;
+            }
         }
     }
 }

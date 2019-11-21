@@ -135,7 +135,7 @@ namespace BlackjackGame
             Card p1Card = playerHand.GetCard();
             Card p2Card = playerHand.GetCard();
 
-            DisplayCards();
+            DisplayCards(true);
 
 
             BetThousand.Visible = false;
@@ -158,7 +158,7 @@ namespace BlackjackGame
             Hand hand = thisGame.GetPlayerHand(1);
             hand.AddCard(hitCard);
 
-            DisplayCards();
+            DisplayCards(true);
             PlayerCount.Text = hand.GetTotal().ToString();
             if(hand.HasBusted())
             {
@@ -180,7 +180,7 @@ namespace BlackjackGame
                 {
                     Card hitCard = thisGame.GetDeck().GetCard();
                     dealerHand.AddCard(hitCard);
-                    DisplayCards();
+                    DisplayCards(false);
                 }
             }
 
@@ -278,7 +278,7 @@ namespace BlackjackGame
             }
         }
 
-        private void DisplayCards()
+        private void DisplayCards(bool dealerFaceDown)
         {
             Hand p1Hand = thisGame.GetPlayerHand(1);
             Hand dealerHand = thisGame.GetDealerHand();
@@ -290,7 +290,10 @@ namespace BlackjackGame
             foreach(Card card in dealerCards)
             {
                 PictureBox cardPicture = new PictureBox();
-                cardPicture.Image = card.GetImage();
+                if (i == 0 && dealerFaceDown)
+                    cardPicture.Image = card.GetImage();
+                else
+                    cardPicture.Image = card.GetBackImage();
                 cardPicture.Location = new Point( (0 + (i * 40)), 75 );
                 cardPicture.SizeMode = PictureBoxSizeMode.AutoSize;
                 DealerHand.Controls.Add(cardPicture);

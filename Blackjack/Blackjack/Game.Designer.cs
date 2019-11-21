@@ -140,7 +140,7 @@
             this.DealerHand.Controls.Add(this.DCName);
             this.DealerHand.Location = new System.Drawing.Point(98, 123);
             this.DealerHand.Name = "DealerHand";
-            this.DealerHand.Size = new System.Drawing.Size(450, 540);
+            this.DealerHand.Size = new System.Drawing.Size(600, 504);
             this.DealerHand.TabIndex = 5;
             this.DealerHand.Visible = false;
             // 
@@ -182,7 +182,8 @@
             this.PlayerHand.Controls.Add(this.PCName);
             this.PlayerHand.Location = new System.Drawing.Point(611, 123);
             this.PlayerHand.Name = "PlayerHand";
-            this.PlayerHand.Size = new System.Drawing.Size(450, 540);
+
+            this.PlayerHand.Size = new System.Drawing.Size(600, 586);
             this.PlayerHand.TabIndex = 6;
             this.PlayerHand.Visible = false;
             // 
@@ -192,13 +193,13 @@
             this.PlayerCash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PlayerCash.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PlayerCash.ForeColor = System.Drawing.Color.White;
-            this.PlayerCash.Location = new System.Drawing.Point(365, 0);
+            this.PlayerCash.Location = new System.Drawing.Point(454, 2);
+            this.PlayerCash.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PlayerCash.Name = "PlayerCash";
-            this.PlayerCash.Size = new System.Drawing.Size(65, 29);
+            this.PlayerCash.Size = new System.Drawing.Size(125, 36);
             this.PlayerCash.TabIndex = 5;
-            this.PlayerCash.Text = "$500";
+            this.PlayerCash.Text = "$500.00";
             this.PlayerCash.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PlayerCash.TextChanged += new System.EventHandler(this.PlayerCash_TextChanged);
             // 
             // Cash
             // 
@@ -207,7 +208,8 @@
             this.Cash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Cash.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cash.ForeColor = System.Drawing.Color.White;
-            this.Cash.Location = new System.Drawing.Point(285, 0);
+            this.Cash.Location = new System.Drawing.Point(347, 2);
+            this.Cash.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Cash.Name = "Cash";
             this.Cash.Size = new System.Drawing.Size(74, 29);
             this.Cash.TabIndex = 4;
@@ -221,7 +223,8 @@
             this.Stay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Stay.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Stay.ForeColor = System.Drawing.Color.White;
-            this.Stay.Location = new System.Drawing.Point(265, 470);
+            this.Stay.Location = new System.Drawing.Point(300, 507);
+            this.Stay.Margin = new System.Windows.Forms.Padding(4);
             this.Stay.Name = "Stay";
             this.Stay.Size = new System.Drawing.Size(100, 50);
             this.Stay.TabIndex = 3;
@@ -235,7 +238,8 @@
             this.Hit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Hit.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Hit.ForeColor = System.Drawing.Color.White;
-            this.Hit.Location = new System.Drawing.Point(84, 470);
+            this.Hit.Location = new System.Drawing.Point(56, 507);
+            this.Hit.Margin = new System.Windows.Forms.Padding(4);
             this.Hit.Name = "Hit";
             this.Hit.Size = new System.Drawing.Size(100, 50);
             this.Hit.TabIndex = 2;
@@ -290,7 +294,8 @@
             this.BetLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BetLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BetLabel.ForeColor = System.Drawing.Color.White;
-            this.BetLabel.Location = new System.Drawing.Point(82, 0);
+            this.BetLabel.Location = new System.Drawing.Point(48, 13);
+            this.BetLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.BetLabel.Name = "BetLabel";
             this.BetLabel.Size = new System.Drawing.Size(55, 31);
             this.BetLabel.TabIndex = 8;
@@ -449,7 +454,8 @@
             this.BettingPanel.Controls.Add(this.BetTwentyFive);
             this.BettingPanel.Controls.Add(this.BetHundred);
             this.BettingPanel.Controls.Add(this.BetFifty);
-            this.BettingPanel.Location = new System.Drawing.Point(29, 669);
+            this.BettingPanel.Location = new System.Drawing.Point(39, 700);
+            this.BettingPanel.Margin = new System.Windows.Forms.Padding(4);
             this.BettingPanel.Name = "BettingPanel";
             this.BettingPanel.Size = new System.Drawing.Size(1058, 125);
             this.BettingPanel.TabIndex = 19;

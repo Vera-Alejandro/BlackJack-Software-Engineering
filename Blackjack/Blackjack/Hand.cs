@@ -102,7 +102,7 @@ namespace Blackjack
 
         public int GetNumberOfCards()
         {
-            return _numCards;
+            return _currentHand.Count;
         }
 
         public Card GetCard()

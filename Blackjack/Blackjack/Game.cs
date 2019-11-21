@@ -206,6 +206,29 @@ namespace BlackjackGame
             Who_Won();
         }
 
+        private void DealerCount_TextChanged(object sender, EventArgs e)
+        {
+            int.TryParse(DealerCount.Text, out int dealerCount);
+
+            if (dealerCount > 21)
+            {
+                thisGame.SetPlayerResult(1, GameInstance.GameResult.Win);
+                playerCash += thisGame.GetPayout(1);
+                PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
+                restartAvailable = true;
+                MessageBox.Show("Dealer Busted, Player 1 Wins", "Player Wins!!");
+
+            }
+            else if (dealerCount == 21)
+            {
+                thisGame.SetPlayerResult(1, GameInstance.GameResult.Loss);
+                playerCash += thisGame.GetPayout(1);
+                PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
+                restartAvailable = true;
+                MessageBox.Show("Dealer got a Blackjack", "Player Lost!");
+            }
+        }
+
         private void Who_Won()
         {
             Hand dealerHand = thisGame.GetDealerHand();

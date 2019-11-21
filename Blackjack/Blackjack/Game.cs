@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Blackjack;
-using System.IO;
 
 namespace BlackjackGame
 {
+
     public partial class Blackjack : Form
     {
 
@@ -30,7 +30,7 @@ namespace BlackjackGame
 
         private void Blackjack_MouseDown(Object sender, MouseEventArgs e)
         {
-            if(e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
@@ -43,21 +43,22 @@ namespace BlackjackGame
 
         private string RunningPath = AppDomain.CurrentDomain.BaseDirectory;
 
+        private GameInstance thisGame = new GameInstance();
+
+
         public Blackjack()
         {
             InitializeComponent();
         }
-
+ 
         private void Blackjack_Load(object sender, EventArgs e)
         {
             CenterToScreen();
             TitleImage.Visible = true;
             StartButton.Visible = true;
 
-            string FileName = string.Format("{0}Resources\\sound_assets\\jazz.mp3", Path.GetFullPath(Path.Combine(RunningPath, @"..\..\")));
-            var backgroundMusic = new System.Windows.Media.MediaPlayer();
-            backgroundMusic.Open(new System.Uri(FileName));
-            backgroundMusic.Play();
+            Sound jazzSound = new Sound("jazz.mp3");
+            jazzSound.Play();
         }
 
         private void Close_Click(object sender, EventArgs e)
@@ -67,7 +68,7 @@ namespace BlackjackGame
 
         private void Resize_Click(object sender, EventArgs e)
         {
-            if(WindowState == FormWindowState.Maximized)
+            if (WindowState == FormWindowState.Maximized)
             {
                 WindowState = FormWindowState.Normal;
             }
@@ -108,58 +109,37 @@ namespace BlackjackGame
             BettingPanel.Visible = true;
             ProfileButton.Visible = true;
             SaveButton.Visible = true;
-
+            ResetButton.Visible = true;
             #endregion
+
 
             gameStarted = true;
 
+            thisGame.AddPlayer(); //add a player to the game
+
             //deal first card out
-            Deck dealingDeck = new Deck();
-            Hand dealerHand = new Hand();
-            Hand playerHand = new Hand();
+            Deck dealingDeck = thisGame.GetDeck();
+            Hand dealerHand = thisGame.GetDealerHand();
+            Hand playerHand = thisGame.GetPlayerHand(1);
+
+            List<Card> dealerCards = dealerHand.SeeCards();
+            List<Card> playerCards = playerHand.SeeCards();
+
+            dealerHand.AddCard(dealingDeck.GetCard());
+            dealerHand.AddCard(dealingDeck.GetCard());
+
+            playerHand.AddCard(dealingDeck.GetCard());
+            playerHand.AddCard(dealingDeck.GetCard());
+
             
-
-            dealingDeck.Shuffle();
-
-            dealerHand.AddCard(dealingDeck.GetCard());
-            dealerHand.AddCard(dealingDeck.GetCard());
-
-            playerHand.AddCard(dealingDeck.GetCard());
-            playerHand.AddCard(dealingDeck.GetCard());
-
             Card d1Card = dealerHand.GetCard();
             Card d2Card = dealerHand.GetCard();
 
             Card p1Card = playerHand.GetCard();
             Card p2Card = playerHand.GetCard();
 
-            PictureBox d1Picture = new PictureBox();
-            d1Picture.Image = d1Card.GetImage();
+            DisplayCards();
 
-            PictureBox d2Picture = new PictureBox();
-            d2Picture.Image = d2Card.GetImage();
-
-            DealerHand.Controls.Add(d1Picture);
-            DealerHand.Controls.Add(d2Picture);
-            d1Picture.Location = new Point(100, 75);
-            d2Picture.Location = new Point(150, 125);
-            d1Picture.SizeMode = PictureBoxSizeMode.AutoSize;
-            d2Picture.SizeMode = PictureBoxSizeMode.AutoSize;
-            DealerCount.Text = dealerHand.GetTotal().ToString();
-
-            PictureBox p1Picture = new PictureBox();
-            p1Picture.Image = p1Card.GetImage();
-
-            PictureBox p2Picture = new PictureBox();
-            p2Picture.Image = p2Card.GetImage();
-
-            PlayerHand.Controls.Add(p1Picture);
-            PlayerHand.Controls.Add(p2Picture);
-            p1Picture.Location = new Point(100, 75);
-            p2Picture.Location = new Point(150, 125);
-            p1Picture.SizeMode = PictureBoxSizeMode.AutoSize;
-            p2Picture.SizeMode = PictureBoxSizeMode.AutoSize;
-            PlayerCount.Text = playerHand.GetTotal().ToString();
 
             BetThousand.Visible = false;
 
@@ -168,16 +148,74 @@ namespace BlackjackGame
         private void Stay_Click(object sender, EventArgs e)
         {
             Output.Text = "Player choose to stay";
+            this.Hit.Visible = false;
+            this.Stay.Visible = false;
+            Computer_Turn();
         }
 
         private void Hit_Click(object sender, EventArgs e)
         {
             Output.Text = "Player choose to hit.";
 
-            string FileName = string.Format("{0}Resources\\sound_assets\\card_slap.wav", Path.GetFullPath(Path.Combine(RunningPath, @"..\..\")));
-            var placeCardSound = new System.Windows.Media.MediaPlayer();
-            placeCardSound.Open(new System.Uri(FileName));
-            placeCardSound.Play();
+            Card hitCard = thisGame.GetDeck().GetCard();
+            Hand hand = thisGame.GetPlayerHand(1);
+            hand.AddCard(hitCard);
+
+            DisplayCards();
+            PlayerCount.Text = hand.GetTotal().ToString();
+            if(hand.HasBusted())
+            {
+                Output.Text = "Player busted!";
+                this.Hit.Visible = false;
+                this.Stay.Visible = false;
+                Who_Won();
+            }
+        }
+
+        private void Computer_Turn()
+        {
+            int dealerStayValue = 17;
+            Hand dealerHand = thisGame.GetDealerHand();
+
+            if ( dealerHand.GetTotal() < dealerStayValue )
+            {
+                while ( dealerHand.GetTotal() < dealerStayValue )
+                {
+                    Card hitCard = thisGame.GetDeck().GetCard();
+                    dealerHand.AddCard(hitCard);
+                    DisplayCards();
+                }
+            }
+
+            Who_Won();
+        }
+
+        private void Who_Won()
+        {
+            Hand dealerHand = thisGame.GetDealerHand();
+            Hand playerHand = thisGame.GetPlayerHand(1);
+
+            if ( playerHand.HasBusted())
+            {
+                MessageBox.Show("Player Busted, Computer Wins");
+                return;
+            }
+            else if ( dealerHand.HasBusted())
+            {
+                MessageBox.Show("Dealer Busted, Player 1 Wins");
+                return;
+            }
+            else if ( playerHand.GetTotal() > dealerHand.GetTotal())
+            {
+                MessageBox.Show("Player 1 Wins");
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Computer Wins");
+                return;
+            }
+
         }
 
         private void BetThousand_Click(object sender, EventArgs e)
@@ -234,13 +272,59 @@ namespace BlackjackGame
         {
             int money = Convert.ToInt32(PlayerCash.Text);
 
-            if(money > 1)
+            if (money > 1)
             {
                 BetOne.Visible = true;
                 BetFive.Visible = true;
                 BetTen.Visible = true;
 
             }
+        }
+
+        private void DisplayCards()
+        {
+            Hand p1Hand = thisGame.GetPlayerHand(1);
+            Hand dealerHand = thisGame.GetDealerHand();
+
+            List<Card> dealerCards = dealerHand.SeeCards();
+            List<Card> p1Cards = p1Hand.SeeCards();
+
+            int i = 0;
+            foreach(Card card in dealerCards)
+            {
+                PictureBox cardPicture = new PictureBox();
+                cardPicture.Image = card.GetImage();
+                cardPicture.Location = new Point( (0 + (i * 40)), 75 );
+                cardPicture.SizeMode = PictureBoxSizeMode.AutoSize;
+                DealerHand.Controls.Add(cardPicture);
+                cardPicture.BringToFront();
+
+                i++;
+
+            }
+
+            i = 0;
+            foreach (Card card in p1Cards)
+            {
+                PictureBox cardPicture = new PictureBox();
+                cardPicture.Image = card.GetImage();
+                cardPicture.Location = new Point( (0 + (i * 40)), 75 );
+                cardPicture.SizeMode = PictureBoxSizeMode.AutoSize;
+                PlayerHand.Controls.Add(cardPicture);
+                cardPicture.BringToFront();
+
+                i++;
+            }
+
+            DealerCount.Text = dealerHand.GetTotal().ToString();
+            PlayerCount.Text = p1Hand.GetTotal().ToString();
+
+        }
+
+        private void ResetButton_Click(object sender, EventArgs e)
+        {
+            
+
         }
 
 		private void ProfileButton_Click(object sender, EventArgs e)

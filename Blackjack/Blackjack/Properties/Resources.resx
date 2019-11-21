@@ -118,163 +118,166 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="BackJack Title" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BackJack Title.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Ace of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Clubs\Ace of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Eight of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Clubs\Eight of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Five of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Clubs\Five of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Four of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Clubs\Four of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Jack of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Clubs\Jack of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="King of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Clubs\King of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Nine of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Clubs\Nine of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Queen of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Clubs\Queen of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Seven of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Clubs\Seven of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Six of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Clubs\Six of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Ten of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Clubs\Ten of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Three of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Clubs\Three of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Two of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Clubs\Two of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Ace of Diamonds" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Diamonds\Ace of Diamonds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Eight of Diamonds" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Diamonds\Eight of Diamonds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Five of Diamonds" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Diamonds\Five of Diamonds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Four of Diamonds" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Diamonds\Four of Diamonds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Jack of Diamonds" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Diamonds\Jack of Diamonds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="King of Diamonds" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Diamonds\King of Diamonds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Nine of Diamonds" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Diamonds\Nine of Diamonds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Queen of Diamonds" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Diamonds\Queen of Diamonds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Seven of Diamonds" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Diamonds\Seven of Diamonds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Six of Diamonds" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Diamonds\Six of Diamonds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Ten of Diamonds" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Diamonds\Ten of Diamonds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Three of Diamonds" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Diamonds\Three of Diamonds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Two of Diamonds" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Diamonds\Two of Diamonds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Ace of Hearts" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Hearts\Ace of Hearts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Eight of Hearts" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Hearts\Eight of Hearts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Five of Hearts" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Hearts\Five of Hearts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Four of Hearts" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Hearts\Four of Hearts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Jack of Hearts" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Hearts\Jack of Hearts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="King of Hearts" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Hearts\King of Hearts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Nine of Hearts" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Hearts\Nine of Hearts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Three of Spades" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Spades\Three of Spades.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Queen of Hearts" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\card_images\Hearts\Queen of Hearts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Seven of Hearts" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Hearts\Seven of Hearts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Nine of Diamonds" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Diamonds\Nine of Diamonds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Six of Hearts" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Hearts\Six of Hearts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Eight of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Clubs\Eight of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Jack of Hearts" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Hearts\Jack of Hearts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Four of Diamonds" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Diamonds\Four of Diamonds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Nine of Hearts" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Hearts\Nine of Hearts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Five of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Clubs\Five of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="King of Diamonds" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Diamonds\King of Diamonds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Eight of Hearts" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Hearts\Eight of Hearts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Ten of Hearts" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\card_images\Hearts\Ten of Hearts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Three of Hearts" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Hearts\Three of Hearts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Queen of Spades" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Spades\Queen of Spades.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Two of Hearts" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Hearts\Two of Hearts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="King of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Clubs\King of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Two of Diamonds" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Diamonds\Two of Diamonds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Five of Diamonds" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Diamonds\Five of Diamonds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Five of Hearts" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Hearts\Five of Hearts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Two of Spades" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Spades\Two of Spades.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Four of Hearts" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Hearts\Four of Hearts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="King of Hearts" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Hearts\King of Hearts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Ace of Spades" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\card_images\Spades\Ace of Spades.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Eight of Spades" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Spades\Eight of Spades.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Nine of Spades" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Spades\Nine of Spades.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Five of Spades" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Spades\Five of Spades.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Three of Diamonds" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Diamonds\Three of Diamonds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Four of Spades" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Spades\Four of Spades.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Jack of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Clubs\Jack of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Queen of Diamonds" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Diamonds\Queen of Diamonds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Jack of Spades" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\card_images\Spades\Jack of Spades.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="King of Spades" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Spades\King of Spades.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Ten of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Clubs\Ten of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Nine of Spades" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Spades\Nine of Spades.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Eight of Spades" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Spades\Eight of Spades.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Queen of Spades" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Spades\Queen of Spades.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Seven of Diamonds" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Diamonds\Seven of Diamonds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Seven of Spades" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Spades\Seven of Spades.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Ten of Diamonds" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Diamonds\Ten of Diamonds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Six of Spades" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Spades\Six of Spades.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Two of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Clubs\Two of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Eight of Diamonds" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Diamonds\Eight of Diamonds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Ten of Spades" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\card_images\Spades\Ten of Spades.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Three of Spades" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Spades\Three of Spades.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Ace of Hearts" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Hearts\Ace of Hearts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Two of Spades" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\card_images\Spades\Two of Spades.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Seven of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Clubs\Seven of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Four of Spades" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Spades\Four of Spades.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Two of Hearts" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Hearts\Two of Hearts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Five of Spades" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Spades\Five of Spades.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Four of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Clubs\Four of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Six of Spades" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Spades\Six of Spades.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Three of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Clubs\Three of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Queen of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Clubs\Queen of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Six of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Clubs\Six of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Nine of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Clubs\Nine of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Six of Hearts" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Hearts\Six of Hearts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ace of Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Clubs\Ace of Clubs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="King of Spades" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Spades\King of Spades.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Three of Hearts" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Hearts\Three of Hearts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BackJack Title" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BackJack Title.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ace of Diamonds" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Diamonds\Ace of Diamonds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Seven of Spades" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Spades\Seven of Spades.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Seven of Hearts" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Hearts\Seven of Hearts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Jack of Diamonds" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Diamonds\Jack of Diamonds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Six of Diamonds" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\card_images\Diamonds\Six of Diamonds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Card Back" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Card Back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

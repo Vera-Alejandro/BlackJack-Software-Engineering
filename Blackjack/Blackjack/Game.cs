@@ -42,6 +42,8 @@ namespace BlackjackGame
 
         private GameInstance thisGame = new GameInstance();
 
+        private List<PictureBox> dealerCardPictures = new List<PictureBox>();
+        private List<PictureBox> playerCardPictures = new List<PictureBox>();
 
         public Blackjack()
         {
@@ -109,36 +111,34 @@ namespace BlackjackGame
             ResetButton.Visible = true;
             #endregion
 
-
             gameStarted = true;
 
             thisGame.AddPlayer(); //add a player to the game
 
-            //deal first card out
-            Deck dealingDeck = thisGame.GetDeck();
-            Hand dealerHand = thisGame.GetDealerHand();
-            Hand playerHand = thisGame.GetPlayerHand(1);
+            for(int i = 0; i < 7; i ++)
+            {
+                PictureBox card = new PictureBox();
+                playerCardPictures.Add(card);
+                playerCardPictures[i].Image = null;
+                playerCardPictures[i].Location = new Point((0 + (i * 40)), 75);
+                playerCardPictures[i].SizeMode = PictureBoxSizeMode.AutoSize;
+                PlayerHand.Controls.Add(playerCardPictures[i]);
+                playerCardPictures[i].BringToFront();
+            }
 
-            List<Card> dealerCards = dealerHand.SeeCards();
-            List<Card> playerCards = playerHand.SeeCards();
+ 
+            for (int i = 0; i < 7; i++)
+            {
+                PictureBox card = new PictureBox();
+                dealerCardPictures.Add(card);
+                dealerCardPictures[i].Image = null;
+                dealerCardPictures[i].Location = new Point((0 + (i * 40)), 75);
+                dealerCardPictures[i].SizeMode = PictureBoxSizeMode.AutoSize;
+                DealerHand.Controls.Add(dealerCardPictures[i]);
+                dealerCardPictures[i].BringToFront();
+            }
 
-            dealerHand.AddCard(dealingDeck.GetCard());
-            dealerHand.AddCard(dealingDeck.GetCard());
-
-            playerHand.AddCard(dealingDeck.GetCard());
-            playerHand.AddCard(dealingDeck.GetCard());
-
-            
-            Card d1Card = dealerHand.GetCard();
-            Card d2Card = dealerHand.GetCard();
-
-            Card p1Card = playerHand.GetCard();
-            Card p2Card = playerHand.GetCard();
-
-            DisplayCards(true);
-
-
-            BetThousand.Visible = false;
+            StartRound();
 
         }
 
@@ -291,10 +291,10 @@ namespace BlackjackGame
             int i = 0;
             foreach(Card card in dealerCards)
             {
-                PictureBox cardPicture = new PictureBox();
+                //PictureBox cardPicture = new PictureBox();
                 if (i == 1 && dealerFaceDown)
                 {
-                    cardPicture.Image = card.GetBackImage();
+                    dealerCardPictures[i].Image = card.GetBackImage();
   
                     switch (card.GetCardValue())
                     {
@@ -340,11 +340,11 @@ namespace BlackjackGame
                     }
                 }
                 else
-                    cardPicture.Image = card.GetImage();
-                cardPicture.Location = new Point( (0 + (i * 40)), 75 );
-                cardPicture.SizeMode = PictureBoxSizeMode.AutoSize;
-                DealerHand.Controls.Add(cardPicture);
-                cardPicture.BringToFront();
+                    dealerCardPictures[i].Image = card.GetImage();
+              //  dealerCardPictures.Location = new Point( (0 + (i * 40)), 75 );
+                //dealerCardPicture.SizeMode = PictureBoxSizeMode.AutoSize;
+               // DealerHand.Controls.Add(cardPicture);
+                dealerCardPictures[i].BringToFront();
 
                 i++;
 
@@ -353,12 +353,12 @@ namespace BlackjackGame
             i = 0;
             foreach (Card card in p1Cards)
             {
-                PictureBox cardPicture = new PictureBox();
-                cardPicture.Image = card.GetImage();
-                cardPicture.Location = new Point( (0 + (i * 40)), 75 );
-                cardPicture.SizeMode = PictureBoxSizeMode.AutoSize;
-                PlayerHand.Controls.Add(cardPicture);
-                cardPicture.BringToFront();
+                //PictureBox cardPicture = new PictureBox();
+                playerCardPictures[i].Image = card.GetImage();
+               // cardPicture.Location = new Point( (0 + (i * 40)), 75 );
+                //cardPicture.SizeMode = PictureBoxSizeMode.AutoSize;
+               // PlayerHand.Controls.Add(cardPicture);
+                playerCardPictures[i].BringToFront();
 
                 i++;
             }
@@ -370,8 +370,49 @@ namespace BlackjackGame
 
         private void ResetButton_Click(object sender, EventArgs e)
         {
-            
+            this.Hit.Visible = true;
+            this.Stay.Visible = true;
+            thisGame.ResetGame();
+            foreach(PictureBox cardPic in dealerCardPictures)
+            {
+                cardPic.Image = null;
+            }
+            foreach (PictureBox cardPic in playerCardPictures)
+            {
+                cardPic.Image = null;
+            }
 
+            StartRound();
+
+        }
+
+        private void StartRound()
+        {
+            //deal first card out
+            Deck dealingDeck = thisGame.GetDeck();
+            Hand dealerHand = thisGame.GetDealerHand();
+            Hand playerHand = thisGame.GetPlayerHand(1);
+
+            List<Card> dealerCards = dealerHand.SeeCards();
+            List<Card> playerCards = playerHand.SeeCards();
+
+            dealerHand.AddCard(dealingDeck.GetCard());
+            dealerHand.AddCard(dealingDeck.GetCard());
+
+            playerHand.AddCard(dealingDeck.GetCard());
+            playerHand.AddCard(dealingDeck.GetCard());
+
+
+            Card d1Card = dealerHand.GetCard();
+            Card d2Card = dealerHand.GetCard();
+
+            Card p1Card = playerHand.GetCard();
+            Card p2Card = playerHand.GetCard();
+
+            DisplayCards(true);
+
+
+            BetThousand.Visible = false;
         }
     }
 }

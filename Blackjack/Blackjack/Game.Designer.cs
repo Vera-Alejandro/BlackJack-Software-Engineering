@@ -138,9 +138,9 @@
             // 
             this.DealerHand.Controls.Add(this.DealerCount);
             this.DealerHand.Controls.Add(this.DCName);
-            this.DealerHand.Location = new System.Drawing.Point(98, 123);
+            this.DealerHand.Location = new System.Drawing.Point(12, 123);
             this.DealerHand.Name = "DealerHand";
-            this.DealerHand.Size = new System.Drawing.Size(600, 504);
+            this.DealerHand.Size = new System.Drawing.Size(550, 569);
             this.DealerHand.TabIndex = 5;
             this.DealerHand.Visible = false;
             // 
@@ -180,10 +180,9 @@
             this.PlayerHand.Controls.Add(this.Hit);
             this.PlayerHand.Controls.Add(this.PlayerCount);
             this.PlayerHand.Controls.Add(this.PCName);
-            this.PlayerHand.Location = new System.Drawing.Point(611, 123);
+            this.PlayerHand.Location = new System.Drawing.Point(568, 123);
             this.PlayerHand.Name = "PlayerHand";
-
-            this.PlayerHand.Size = new System.Drawing.Size(600, 586);
+            this.PlayerHand.Size = new System.Drawing.Size(551, 569);
             this.PlayerHand.TabIndex = 6;
             this.PlayerHand.Visible = false;
             // 
@@ -196,7 +195,7 @@
             this.PlayerCash.Location = new System.Drawing.Point(454, 2);
             this.PlayerCash.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PlayerCash.Name = "PlayerCash";
-            this.PlayerCash.Size = new System.Drawing.Size(125, 36);
+            this.PlayerCash.Size = new System.Drawing.Size(97, 29);
             this.PlayerCash.TabIndex = 5;
             this.PlayerCash.Text = "$500.00";
             this.PlayerCash.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -321,7 +320,7 @@
             this.BetFive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BetFive.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BetFive.ForeColor = System.Drawing.Color.White;
-            this.BetFive.Location = new System.Drawing.Point(260, 57);
+            this.BetFive.Location = new System.Drawing.Point(265, 57);
             this.BetFive.Name = "BetFive";
             this.BetFive.Size = new System.Drawing.Size(85, 40);
             this.BetFive.TabIndex = 10;
@@ -335,7 +334,7 @@
             this.BetTen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BetTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BetTen.ForeColor = System.Drawing.Color.White;
-            this.BetTen.Location = new System.Drawing.Point(360, 57);
+            this.BetTen.Location = new System.Drawing.Point(370, 57);
             this.BetTen.Name = "BetTen";
             this.BetTen.Size = new System.Drawing.Size(85, 40);
             this.BetTen.TabIndex = 11;
@@ -349,7 +348,7 @@
             this.BetTwentyFive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BetTwentyFive.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BetTwentyFive.ForeColor = System.Drawing.Color.White;
-            this.BetTwentyFive.Location = new System.Drawing.Point(460, 57);
+            this.BetTwentyFive.Location = new System.Drawing.Point(475, 57);
             this.BetTwentyFive.Name = "BetTwentyFive";
             this.BetTwentyFive.Size = new System.Drawing.Size(85, 40);
             this.BetTwentyFive.TabIndex = 12;
@@ -363,7 +362,7 @@
             this.BetFifty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BetFifty.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BetFifty.ForeColor = System.Drawing.Color.White;
-            this.BetFifty.Location = new System.Drawing.Point(560, 57);
+            this.BetFifty.Location = new System.Drawing.Point(580, 57);
             this.BetFifty.Name = "BetFifty";
             this.BetFifty.Size = new System.Drawing.Size(85, 40);
             this.BetFifty.TabIndex = 13;
@@ -377,7 +376,7 @@
             this.BetHundred.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BetHundred.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BetHundred.ForeColor = System.Drawing.Color.White;
-            this.BetHundred.Location = new System.Drawing.Point(660, 57);
+            this.BetHundred.Location = new System.Drawing.Point(685, 57);
             this.BetHundred.Name = "BetHundred";
             this.BetHundred.Size = new System.Drawing.Size(85, 40);
             this.BetHundred.TabIndex = 14;
@@ -391,7 +390,7 @@
             this.BetTwoFifty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BetTwoFifty.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BetTwoFifty.ForeColor = System.Drawing.Color.White;
-            this.BetTwoFifty.Location = new System.Drawing.Point(760, 57);
+            this.BetTwoFifty.Location = new System.Drawing.Point(790, 57);
             this.BetTwoFifty.Name = "BetTwoFifty";
             this.BetTwoFifty.Size = new System.Drawing.Size(85, 40);
             this.BetTwoFifty.TabIndex = 15;
@@ -405,7 +404,7 @@
             this.BetFiveHundred.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BetFiveHundred.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BetFiveHundred.ForeColor = System.Drawing.Color.White;
-            this.BetFiveHundred.Location = new System.Drawing.Point(860, 57);
+            this.BetFiveHundred.Location = new System.Drawing.Point(895, 57);
             this.BetFiveHundred.Name = "BetFiveHundred";
             this.BetFiveHundred.Size = new System.Drawing.Size(85, 40);
             this.BetFiveHundred.TabIndex = 16;
@@ -419,7 +418,7 @@
             this.BetThousand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BetThousand.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BetThousand.ForeColor = System.Drawing.Color.White;
-            this.BetThousand.Location = new System.Drawing.Point(960, 57);
+            this.BetThousand.Location = new System.Drawing.Point(1000, 57);
             this.BetThousand.Name = "BetThousand";
             this.BetThousand.Size = new System.Drawing.Size(85, 40);
             this.BetThousand.TabIndex = 17;
@@ -454,10 +453,10 @@
             this.BettingPanel.Controls.Add(this.BetTwentyFive);
             this.BettingPanel.Controls.Add(this.BetHundred);
             this.BettingPanel.Controls.Add(this.BetFifty);
-            this.BettingPanel.Location = new System.Drawing.Point(39, 700);
+            this.BettingPanel.Location = new System.Drawing.Point(12, 699);
             this.BettingPanel.Margin = new System.Windows.Forms.Padding(4);
             this.BettingPanel.Name = "BettingPanel";
-            this.BettingPanel.Size = new System.Drawing.Size(1058, 125);
+            this.BettingPanel.Size = new System.Drawing.Size(1106, 114);
             this.BettingPanel.TabIndex = 19;
             this.BettingPanel.Visible = false;
             // 

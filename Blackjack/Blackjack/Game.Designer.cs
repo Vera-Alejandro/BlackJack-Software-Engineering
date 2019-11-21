@@ -157,7 +157,6 @@
             this.DealerCount.TabIndex = 1;
             this.DealerCount.Text = "0";
             this.DealerCount.TextChanged += new System.EventHandler(this.DealerCount_TextChanged);
-
             // 
             // DCName
             // 
@@ -258,7 +257,7 @@
             this.PlayerCount.Size = new System.Drawing.Size(28, 31);
             this.PlayerCount.TabIndex = 1;
             this.PlayerCount.Text = "0";
-           // this.PlayerCount.TextChanged += new System.EventHandler(this.PlayerCount_TextChanged);
+            this.PlayerCount.TextChanged += new System.EventHandler(this.PlayerCount_TextChanged);
             // 
             // PCName
             // 

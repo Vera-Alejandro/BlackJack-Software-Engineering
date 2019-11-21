@@ -398,18 +398,18 @@ namespace BlackjackGame
                 playerCash += thisGame.GetPayout(1);
                 PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
                 restartAvailable = true;
-                DealerCount.ForeColor = Color.White;
                 MessageBox.Show("Dealer Busted, Player 1 Wins", "Player Wins!!");
+                DealerCount.ForeColor = Color.White;
 
             }
-            else if (CanBet(5))
+            else if (dealerCount == 21)
             {
                 thisGame.SetPlayerResult(1, GameInstance.GameResult.Loss);
                 playerCash += thisGame.GetPayout(1);
                 PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
                 restartAvailable = true;
-                DealerCount.ForeColor = Color.White;
                 MessageBox.Show("Dealer got a Blackjack", "Player Lost!");
+                DealerCount.ForeColor = Color.White;
             }
         }
 
@@ -417,11 +417,8 @@ namespace BlackjackGame
         {
             int.TryParse(PlayerCount.Text, out int playerCount);
 
-            DisplayCards(false);
-
-        private void BetOne_Click(object sender, EventArgs e)
-        {
-            if (roundStarted)
+        
+            if (playerCount > 21)
             {
                 Output.Text = "Player busted!";
                 this.Hit.Visible = false;
@@ -430,11 +427,12 @@ namespace BlackjackGame
                 playerCash += thisGame.GetPayout(1);
                 PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
                 restartAvailable = true;
-                DealerCount.ForeColor = Color.White;
                 MessageBox.Show("Player Busted, Computer Wins", "Player Lost!");
+                DealerCount.ForeColor = Color.White;
+                DisplayCards(false);
 
             }
-            else if (CanBet(1))
+            else if (playerCount == 21)
             {
                 Output.Text = "Player got a Blackjack!!";
                 this.Hit.Visible = false;
@@ -443,32 +441,11 @@ namespace BlackjackGame
                 playerCash += thisGame.GetPayout(1);
                 PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
                 restartAvailable = true;
-                DealerCount.ForeColor = Color.White;
                 MessageBox.Show("Player got a natural Blackjack", "Player Wins!!");
+                DealerCount.ForeColor = Color.White;
+                DisplayCards(false);
             }
-            else
-                Output.Text = "Not enough money to bet!";
         }
-
-        /*private void PlayerCash_TextChanged(object sender, EventArgs e)
-        {
-            int.TryParse(PlayerCash.Text, out int money);
-
-            #region Show bet buttons based on player cash
-            if (money >= 1000)
-            {
-                BetOne.Visible = true;
-                BetFive.Visible = true;
-                BetTen.Visible = true;
-                BetTwentyFive.Visible = true;
-                BetFifty.Visible = true;
-                BetHundred.Visible = true;
-                BetTwoFifty.Visible = true;
-                BetFiveHundred.Visible = true;
-                BetThousand.Visible = true;
-
-            }
-        }*/
 
         private void DisplayCards(bool dealerFaceDown)
         {
@@ -536,12 +513,20 @@ namespace BlackjackGame
                 else
                 {
                     dealerCardPictures[i].Image = card.GetImage();
-                    DealerCount.ForeColor = Color.Black;
                 }
 
                 dealerCardPictures[i].BringToFront();
 
                 i++;
+
+                if(dealerFaceDown)
+                {
+                    DealerCount.ForeColor = Color.Black;
+                }
+                else
+                {
+                    DealerCount.ForeColor = Color.White;
+                }
             }
 
             i = 0;

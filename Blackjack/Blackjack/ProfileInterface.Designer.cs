@@ -58,6 +58,16 @@
 			this.Boarder = new System.Windows.Forms.Label();
 			this.LogStatusLabel = new System.Windows.Forms.Label();
 			this.ProfileInfo = new System.Windows.Forms.Button();
+			this.ProfileInfoLabel = new System.Windows.Forms.Label();
+			this.ProfileInfoUser = new System.Windows.Forms.Label();
+			this.InfoUserLabel = new System.Windows.Forms.Label();
+			this.NameInfoLabel = new System.Windows.Forms.Label();
+			this.ProfileInfoName = new System.Windows.Forms.Label();
+			this.PhoneInfoLabel = new System.Windows.Forms.Label();
+			this.ProfileInfoPhone = new System.Windows.Forms.Label();
+			this.AddressInfoLabel = new System.Windows.Forms.Label();
+			this.ProfileInfoAddress = new System.Windows.Forms.Label();
+			this.ChangeButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// Close
@@ -295,7 +305,7 @@
 			this.SignUpConfirmButton.Name = "SignUpConfirmButton";
 			this.SignUpConfirmButton.Size = new System.Drawing.Size(117, 42);
 			this.SignUpConfirmButton.TabIndex = 52;
-			this.SignUpConfirmButton.Text = "Sign up";
+			this.SignUpConfirmButton.Text = "Submit";
 			this.SignUpConfirmButton.UseVisualStyleBackColor = false;
 			this.SignUpConfirmButton.Visible = false;
 			this.SignUpConfirmButton.Click += new System.EventHandler(this.SignUpConfirmButton_Click);
@@ -392,7 +402,7 @@
 			this.Boarder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.Boarder.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Boarder.ForeColor = System.Drawing.Color.White;
-			this.Boarder.Location = new System.Drawing.Point(1, -1);
+			this.Boarder.Location = new System.Drawing.Point(2, -1);
 			this.Boarder.Name = "Boarder";
 			this.Boarder.Size = new System.Drawing.Size(300, 377);
 			this.Boarder.TabIndex = 8;
@@ -427,12 +437,164 @@
 			this.ProfileInfo.UseVisualStyleBackColor = false;
 			this.ProfileInfo.Click += new System.EventHandler(this.ProfileInfo_Click);
 			// 
+			// ProfileInfoLabel
+			// 
+			this.ProfileInfoLabel.BackColor = System.Drawing.Color.Black;
+			this.ProfileInfoLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.ProfileInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ProfileInfoLabel.ForeColor = System.Drawing.Color.White;
+			this.ProfileInfoLabel.Location = new System.Drawing.Point(12, 26);
+			this.ProfileInfoLabel.Name = "ProfileInfoLabel";
+			this.ProfileInfoLabel.Size = new System.Drawing.Size(186, 24);
+			this.ProfileInfoLabel.TabIndex = 62;
+			this.ProfileInfoLabel.Text = "Profile Information";
+			this.ProfileInfoLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.ProfileInfoLabel.Visible = false;
+			// 
+			// ProfileInfoUser
+			// 
+			this.ProfileInfoUser.BackColor = System.Drawing.Color.Black;
+			this.ProfileInfoUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.ProfileInfoUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ProfileInfoUser.ForeColor = System.Drawing.Color.White;
+			this.ProfileInfoUser.Location = new System.Drawing.Point(96, 74);
+			this.ProfileInfoUser.Name = "ProfileInfoUser";
+			this.ProfileInfoUser.Size = new System.Drawing.Size(160, 24);
+			this.ProfileInfoUser.TabIndex = 63;
+			this.ProfileInfoUser.Text = "Profile Information";
+			this.ProfileInfoUser.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.ProfileInfoUser.Visible = false;
+			// 
+			// InfoUserLabel
+			// 
+			this.InfoUserLabel.BackColor = System.Drawing.Color.Black;
+			this.InfoUserLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.InfoUserLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.InfoUserLabel.ForeColor = System.Drawing.Color.White;
+			this.InfoUserLabel.Location = new System.Drawing.Point(29, 74);
+			this.InfoUserLabel.Name = "InfoUserLabel";
+			this.InfoUserLabel.Size = new System.Drawing.Size(61, 24);
+			this.InfoUserLabel.TabIndex = 64;
+			this.InfoUserLabel.Text = "User";
+			this.InfoUserLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.InfoUserLabel.Visible = false;
+			// 
+			// NameInfoLabel
+			// 
+			this.NameInfoLabel.BackColor = System.Drawing.Color.Black;
+			this.NameInfoLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.NameInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.NameInfoLabel.ForeColor = System.Drawing.Color.White;
+			this.NameInfoLabel.Location = new System.Drawing.Point(29, 121);
+			this.NameInfoLabel.Name = "NameInfoLabel";
+			this.NameInfoLabel.Size = new System.Drawing.Size(61, 24);
+			this.NameInfoLabel.TabIndex = 68;
+			this.NameInfoLabel.Text = "Name";
+			this.NameInfoLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.NameInfoLabel.Visible = false;
+			// 
+			// ProfileInfoName
+			// 
+			this.ProfileInfoName.BackColor = System.Drawing.Color.Black;
+			this.ProfileInfoName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.ProfileInfoName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ProfileInfoName.ForeColor = System.Drawing.Color.White;
+			this.ProfileInfoName.Location = new System.Drawing.Point(96, 121);
+			this.ProfileInfoName.Name = "ProfileInfoName";
+			this.ProfileInfoName.Size = new System.Drawing.Size(160, 24);
+			this.ProfileInfoName.TabIndex = 67;
+			this.ProfileInfoName.Text = "Profile Information";
+			this.ProfileInfoName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.ProfileInfoName.Visible = false;
+			// 
+			// PhoneInfoLabel
+			// 
+			this.PhoneInfoLabel.BackColor = System.Drawing.Color.Black;
+			this.PhoneInfoLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.PhoneInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.PhoneInfoLabel.ForeColor = System.Drawing.Color.White;
+			this.PhoneInfoLabel.Location = new System.Drawing.Point(29, 165);
+			this.PhoneInfoLabel.Name = "PhoneInfoLabel";
+			this.PhoneInfoLabel.Size = new System.Drawing.Size(61, 24);
+			this.PhoneInfoLabel.TabIndex = 70;
+			this.PhoneInfoLabel.Text = "Phone";
+			this.PhoneInfoLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.PhoneInfoLabel.Visible = false;
+			// 
+			// ProfileInfoPhone
+			// 
+			this.ProfileInfoPhone.BackColor = System.Drawing.Color.Black;
+			this.ProfileInfoPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.ProfileInfoPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ProfileInfoPhone.ForeColor = System.Drawing.Color.White;
+			this.ProfileInfoPhone.Location = new System.Drawing.Point(96, 165);
+			this.ProfileInfoPhone.Name = "ProfileInfoPhone";
+			this.ProfileInfoPhone.Size = new System.Drawing.Size(160, 24);
+			this.ProfileInfoPhone.TabIndex = 69;
+			this.ProfileInfoPhone.Text = "Profile Information";
+			this.ProfileInfoPhone.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.ProfileInfoPhone.Visible = false;
+			// 
+			// AddressInfoLabel
+			// 
+			this.AddressInfoLabel.BackColor = System.Drawing.Color.Black;
+			this.AddressInfoLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.AddressInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.AddressInfoLabel.ForeColor = System.Drawing.Color.White;
+			this.AddressInfoLabel.Location = new System.Drawing.Point(29, 208);
+			this.AddressInfoLabel.Name = "AddressInfoLabel";
+			this.AddressInfoLabel.Size = new System.Drawing.Size(61, 24);
+			this.AddressInfoLabel.TabIndex = 72;
+			this.AddressInfoLabel.Text = "Addr";
+			this.AddressInfoLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.AddressInfoLabel.Visible = false;
+			// 
+			// ProfileInfoAddress
+			// 
+			this.ProfileInfoAddress.BackColor = System.Drawing.Color.Black;
+			this.ProfileInfoAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.ProfileInfoAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ProfileInfoAddress.ForeColor = System.Drawing.Color.White;
+			this.ProfileInfoAddress.Location = new System.Drawing.Point(96, 208);
+			this.ProfileInfoAddress.Name = "ProfileInfoAddress";
+			this.ProfileInfoAddress.Size = new System.Drawing.Size(160, 24);
+			this.ProfileInfoAddress.TabIndex = 71;
+			this.ProfileInfoAddress.Text = "Profile Information";
+			this.ProfileInfoAddress.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.ProfileInfoAddress.Visible = false;
+			// 
+			// ChangeButton
+			// 
+			this.ChangeButton.BackColor = System.Drawing.Color.Black;
+			this.ChangeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.ChangeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ChangeButton.ForeColor = System.Drawing.Color.White;
+			this.ChangeButton.Location = new System.Drawing.Point(161, 316);
+			this.ChangeButton.Name = "ChangeButton";
+			this.ChangeButton.Size = new System.Drawing.Size(117, 42);
+			this.ChangeButton.TabIndex = 73;
+			this.ChangeButton.Text = "Change";
+			this.ChangeButton.UseVisualStyleBackColor = false;
+			this.ChangeButton.Visible = false;
+			this.ChangeButton.Click += new System.EventHandler(this.ChangeButton_Click);
+			// 
 			// ProfileInterface
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.InfoText;
 			this.ClientSize = new System.Drawing.Size(300, 375);
+			this.Controls.Add(this.ChangeButton);
+			this.Controls.Add(this.AddressInfoLabel);
+			this.Controls.Add(this.ProfileInfoAddress);
+			this.Controls.Add(this.PhoneInfoLabel);
+			this.Controls.Add(this.ProfileInfoPhone);
+			this.Controls.Add(this.NameInfoLabel);
+			this.Controls.Add(this.ProfileInfoName);
+			this.Controls.Add(this.InfoUserLabel);
+			this.Controls.Add(this.ProfileInfoUser);
+			this.Controls.Add(this.ProfileInfoLabel);
+			this.Controls.Add(this.Boarder);
 			this.Controls.Add(this.ProfileInfo);
 			this.Controls.Add(this.FundsButton);
 			this.Controls.Add(this.Soundoo);
@@ -441,7 +603,6 @@
 			this.Controls.Add(this.ActiveLogin);
 			this.Controls.Add(this.LogLabel);
 			this.Controls.Add(this.Close);
-			this.Controls.Add(this.Boarder);
 			this.Controls.Add(this.PassSignUpLabel);
 			this.Controls.Add(this.UserLabel);
 			this.Controls.Add(this.PassSignUpTextBox);
@@ -503,5 +664,15 @@
 		public System.Windows.Forms.Label Boarder;
 		private System.Windows.Forms.Label LogStatusLabel;
 		private System.Windows.Forms.Button ProfileInfo;
+		private System.Windows.Forms.Label ProfileInfoLabel;
+		private System.Windows.Forms.Label ProfileInfoUser;
+		private System.Windows.Forms.Label InfoUserLabel;
+		private System.Windows.Forms.Label NameInfoLabel;
+		private System.Windows.Forms.Label ProfileInfoName;
+		private System.Windows.Forms.Label PhoneInfoLabel;
+		private System.Windows.Forms.Label ProfileInfoPhone;
+		private System.Windows.Forms.Label AddressInfoLabel;
+		private System.Windows.Forms.Label ProfileInfoAddress;
+		private System.Windows.Forms.Button ChangeButton;
 	}
 }

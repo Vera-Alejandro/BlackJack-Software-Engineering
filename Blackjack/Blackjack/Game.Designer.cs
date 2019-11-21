@@ -1,4 +1,6 @@
-﻿namespace BlackjackGame
+﻿using System.ComponentModel;
+
+namespace BlackjackGame
 {
     partial class Blackjack
     {
@@ -532,6 +534,9 @@
 
         private System.Windows.Forms.Button Close;
         private System.Windows.Forms.PictureBox TitleImage;
+
+        public BackgroundWorker backgroundWorker1 { get; private set; }
+
         private System.Windows.Forms.Button Resize;
         private System.Windows.Forms.Button Minimize;
         private System.Windows.Forms.Button StartButton;
@@ -561,6 +566,7 @@
         private System.Windows.Forms.Button ProfileButton;
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.Button ResetButton;
+       
     }
 }
 

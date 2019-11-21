@@ -420,6 +420,8 @@ namespace BlackjackGame
             DisplayCards(true);
             if(dealerHand.GetTotal() == 21)
             {
+                this.Hit.Visible = false;
+                this.Stay.Visible = false;
                 Who_Won();
             }
 

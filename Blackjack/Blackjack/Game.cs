@@ -65,10 +65,8 @@ namespace BlackjackGame
             TitleImage.Visible = true;
             StartButton.Visible = true;
 
-            string FileName = string.Format("{0}Resources\\sound_assets\\jazz.mp3", Path.GetFullPath(Path.Combine(RunningPath, @"..\..\")));
-            var backgroundMusic = new System.Windows.Media.MediaPlayer();
-            backgroundMusic.Open(new System.Uri(FileName));
-            backgroundMusic.Play();
+            Sound jazzSound = new Sound("jazz.mp3");
+            jazzSound.Play();
         }
 
         private void Close_Click(object sender, EventArgs e)

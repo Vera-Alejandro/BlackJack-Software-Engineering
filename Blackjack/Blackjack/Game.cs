@@ -280,22 +280,65 @@ namespace BlackjackGame
 
         private void DisplayCards(bool dealerFaceDown)
         {
-            if(!dealerFaceDown)
-            {
-                Console.WriteLine("Called false");
-            }
+            
             Hand p1Hand = thisGame.GetPlayerHand(1);
             Hand dealerHand = thisGame.GetDealerHand();
 
             List<Card> dealerCards = dealerHand.SeeCards();
             List<Card> p1Cards = p1Hand.SeeCards();
 
+            int downValue = 0;
             int i = 0;
             foreach(Card card in dealerCards)
             {
                 PictureBox cardPicture = new PictureBox();
                 if (i == 1 && dealerFaceDown)
+                {
                     cardPicture.Image = card.GetBackImage();
+  
+                    switch (card.GetCardValue())
+                    {
+                        case Card.CardValue.Ace:
+                            downValue = 11;
+                            break;
+                        case Card.CardValue.Two:
+                            downValue = 2;
+                            break;
+                        case Card.CardValue.Three:
+                            downValue = 3;
+                            break;
+                        case Card.CardValue.Four:
+                            downValue = 4;
+                            break;
+                        case Card.CardValue.Five:
+                            downValue = 5;
+                            break;
+                        case Card.CardValue.Six:
+                            downValue = 6;
+                            break;
+                        case Card.CardValue.Seven:
+                            downValue = 7;
+                            break;
+                        case Card.CardValue.Eight:
+                            downValue = 8;
+                            break;
+                        case Card.CardValue.Nine:
+                            downValue = 9;
+                            break;
+                        case Card.CardValue.Ten:
+                            downValue = 10;
+                            break;
+                        case Card.CardValue.Jack:
+                            downValue = 10;
+                            break;
+                        case Card.CardValue.Queen:
+                            downValue = 10;
+                            break;
+                        case Card.CardValue.King:
+                            downValue = 10;
+                            break;
+                    }
+                }
                 else
                     cardPicture.Image = card.GetImage();
                 cardPicture.Location = new Point( (0 + (i * 40)), 75 );
@@ -319,8 +362,8 @@ namespace BlackjackGame
 
                 i++;
             }
-
-            DealerCount.Text = dealerHand.GetTotal().ToString();
+            int dealerDisplayTotal = (dealerHand.GetTotal() - downValue);
+            DealerCount.Text = dealerDisplayTotal.ToString();
             PlayerCount.Text = p1Hand.GetTotal().ToString();
 
         }

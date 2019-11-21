@@ -280,6 +280,10 @@ namespace BlackjackGame
 
         private void DisplayCards(bool dealerFaceDown)
         {
+            if(!dealerFaceDown)
+            {
+                Console.WriteLine("Called false");
+            }
             Hand p1Hand = thisGame.GetPlayerHand(1);
             Hand dealerHand = thisGame.GetDealerHand();
 
@@ -290,10 +294,10 @@ namespace BlackjackGame
             foreach(Card card in dealerCards)
             {
                 PictureBox cardPicture = new PictureBox();
-                if (i == 0 && dealerFaceDown)
-                    cardPicture.Image = card.GetImage();
-                else
+                if (i == 1 && dealerFaceDown)
                     cardPicture.Image = card.GetBackImage();
+                else
+                    cardPicture.Image = card.GetImage();
                 cardPicture.Location = new Point( (0 + (i * 40)), 75 );
                 cardPicture.SizeMode = PictureBoxSizeMode.AutoSize;
                 DealerHand.Controls.Add(cardPicture);

@@ -258,6 +258,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Card Back.png" />
+    <Content Include="Profile Information.txt" />
     <Content Include="Resources\sounds\card_placed_down.wav" />
     <Content Include="Resources\sounds\card_riffle.wav" />
     <Content Include="Resources\sounds\card_slap.wav" />

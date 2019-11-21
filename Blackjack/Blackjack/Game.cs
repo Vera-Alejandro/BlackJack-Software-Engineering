@@ -245,9 +245,14 @@ namespace BlackjackGame
 
 		private void ProfileButton_Click(object sender, EventArgs e)
 		{
-			if (profileForm.IsDisposed)
-			profileForm = new ProfileInterface();
+			if(profileForm.IsDisposed)
+				profileForm = new ProfileInterface();
 			profileForm.Show();
+
+		}
+
+		private void ResetButton_Click(object sender, EventArgs e)
+		{
 
 		}
 	}

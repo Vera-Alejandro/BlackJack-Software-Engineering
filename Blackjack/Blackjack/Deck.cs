@@ -35,7 +35,6 @@ namespace BlackjackGame
 
             foreach (Card value in temp.OrderBy(x => rnd.Next()))
             {
-                value.SetUsedValue(true);   
                 _cards.Add(value);
             }
         }
@@ -56,11 +55,5 @@ namespace BlackjackGame
             _cards[0].SetUsedValue(true);
             return _cards[0];
         }
-
-
-
-        
-
-
     }
 }

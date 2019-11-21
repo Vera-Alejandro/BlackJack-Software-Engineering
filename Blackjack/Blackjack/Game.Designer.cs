@@ -61,7 +61,6 @@ namespace BlackjackGame
 			this.ProfileButton = new System.Windows.Forms.Button();
 			this.SaveButton = new System.Windows.Forms.Button();
 			this.TitleImage = new System.Windows.Forms.PictureBox();
-			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
 			this.DealerHand.SuspendLayout();
 			this.PlayerHand.SuspendLayout();
 			this.BettingPanel.SuspendLayout();
@@ -535,7 +534,6 @@ namespace BlackjackGame
         private System.Windows.Forms.Button Close;
         private System.Windows.Forms.PictureBox TitleImage;
 
-        public BackgroundWorker backgroundWorker1 { get; private set; }
 
         private System.Windows.Forms.Button Resize;
         private System.Windows.Forms.Button Minimize;
@@ -566,7 +564,8 @@ namespace BlackjackGame
         private System.Windows.Forms.Button ProfileButton;
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.Button ResetButton;
-       
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+
     }
 }
 

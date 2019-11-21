@@ -15,9 +15,12 @@ namespace BlackjackGame
 {
     public partial class Blackjack : Form
     {
-        #region Move Form
 
-        public const int WM_NCLBUTTONDOWN = 0xA1;
+		ProfileInterface profileForm = new ProfileInterface();
+
+		#region Move Form
+
+		public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
         [DllImport("user32.dll")]
@@ -239,5 +242,13 @@ namespace BlackjackGame
 
             }
         }
-    }
+
+		private void ProfileButton_Click(object sender, EventArgs e)
+		{
+			if (profileForm.IsDisposed)
+			profileForm = new ProfileInterface();
+			profileForm.Show();
+
+		}
+	}
 }

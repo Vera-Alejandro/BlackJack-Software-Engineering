@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Blackjack;
+using System.Diagnostics;
 
 namespace BlackjackGame
 {
@@ -38,10 +39,11 @@ namespace BlackjackGame
 
         private bool gameStarted = false;
 
-        private string RunningPath = AppDomain.CurrentDomain.BaseDirectory;
+        private readonly string RunningPath = AppDomain.CurrentDomain.BaseDirectory;
 
         private GameInstance thisGame = new GameInstance();
 
+        public object Ouput { get; private set; }
 
         public Blackjack()
         {
@@ -113,28 +115,8 @@ namespace BlackjackGame
 
             thisGame.AddPlayer(); //add a player to the game
 
-            //deal first card out
-            Deck dealingDeck = thisGame.GetDeck();
-            Hand dealerHand = thisGame.GetDealerHand();
-            Hand playerHand = thisGame.GetPlayerHand(1);
-
-            List<Card> dealerCards = dealerHand.SeeCards();
-            List<Card> playerCards = playerHand.SeeCards();
-
-            dealerHand.AddCard(dealingDeck.GetCard());
-            dealerHand.AddCard(dealingDeck.GetCard());
-
-            playerHand.AddCard(dealingDeck.GetCard());
-            playerHand.AddCard(dealingDeck.GetCard());
-
-            
-            Card d1Card = dealerHand.GetCard();
-            Card d2Card = dealerHand.GetCard();
-
-            Card p1Card = playerHand.GetCard();
-            Card p2Card = playerHand.GetCard();
-
             DisplayCards();
+
             BetThousand.Visible = false;
         }
 
@@ -242,7 +224,6 @@ namespace BlackjackGame
                 cardPicture.BringToFront();
 
                 i++;
-
             }
 
             i = 0;
@@ -260,6 +241,35 @@ namespace BlackjackGame
 
             DealerCount.Text = dealerHand.GetTotal().ToString();
             PlayerCount.Text = p1Hand.GetTotal().ToString();
+
+        }
+
+        private void PlayerCount_TextChanged(object sender, EventArgs e)
+        {
+            int.TryParse(PlayerCount.Text, out int pCount);
+            DialogResult result = DialogResult.None;
+
+            if (pCount > 21)
+            {
+                result = MessageBox.Show($"Player Count: {PlayerCount.Text}  Player bust! \nWould you like to play again?", "Player Lost", MessageBoxButtons.YesNo , MessageBoxIcon.Exclamation);
+
+            }
+
+            if (pCount == 21)
+            {
+                result = MessageBox.Show("Blackjack! \nCongrats! Would you like to play again?", "Player Won", new MessageBoxButtons(), new MessageBoxIcon());
+            }
+
+            if(result == DialogResult.Yes)
+            {
+                //play again
+                Debug.WriteLine("Player decided to play again");
+            }
+            else if(result == DialogResult.No)
+            {
+                //exit game
+                Debug.WriteLine("Player quit the game..... fucking loser...");
+            }
 
         }
     }

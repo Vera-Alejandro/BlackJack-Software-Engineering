@@ -227,10 +227,11 @@ namespace BlackjackGame
                 MessageBox.Show("Computer Wins");
                 thisGame.SetPlayerResult(1, GameInstance.GameResult.Loss);
 
+                }
+                playerCash += thisGame.GetPayout(1);
+                PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
+                restartAvailable = true;
             }
-            playerCash += thisGame.GetPayout(1);
-            PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
-            restartAvailable = true;
         }
 
         private void BetThousand_Click(object sender, EventArgs e)
@@ -402,8 +403,9 @@ namespace BlackjackGame
             if (dealerCount > 21)
             {
                 MessageBox.Show("Dealer Busted, Player 1 Wins", "Player Wins!!");
+
             }
-            else if (dealerCount == 21)
+            else if (CanBet(5))
             {
                 MessageBox.Show("Dealer got a Blackjack", "Player Lost!");
             }
@@ -417,22 +419,28 @@ namespace BlackjackGame
 
             if (playerCount > 21)
             {
-                MessageBox.Show("Player Busted, Computer Wins", "Player Lost!");
                 Output.Text = "Player busted!";
                 this.Hit.Visible = false;
                 this.Stay.Visible = false;
-
+                thisGame.SetPlayerResult(1, GameInstance.GameResult.Loss);
+                playerCash += thisGame.GetPayout(1);
+                PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
+                restartAvailable = true;
+                DealerCount.ForeColor = Color.White;
+                MessageBox.Show("Player Busted, Computer Wins", "Player Lost!");
             }
-            else if (playerCount == 21)
+            else if (CanBet(1))
             {
                 MessageBox.Show("Player got a Blackjack", "Player Wins!!");
                 Output.Text = "Player got a Blackjack!!";
                 this.Hit.Visible = false;
                 this.Stay.Visible = false;
             }
+            else
+                Output.Text = "Not enough money to bet!";
         }
 
-        private void PlayerCash_TextChanged(object sender, EventArgs e)
+        /*private void PlayerCash_TextChanged(object sender, EventArgs e)
         {
             int.TryParse(PlayerCash.Text, out int money);
 
@@ -450,68 +458,7 @@ namespace BlackjackGame
                 BetThousand.Visible = true;
 
             }
-            else if (money >= 500)
-            {
-                BetOne.Visible = true;
-                BetFive.Visible = true;
-                BetTen.Visible = true;
-                BetTwentyFive.Visible = true;
-                BetFifty.Visible = true;
-                BetHundred.Visible = true;
-                BetTwoFifty.Visible = true;
-                BetFiveHundred.Visible = true;
-            }
-            else if (money >= 250)
-            {
-                BetOne.Visible = true;
-                BetFive.Visible = true;
-                BetTen.Visible = true;
-                BetTwentyFive.Visible = true;
-                BetFifty.Visible = true;
-                BetHundred.Visible = true;
-                BetTwoFifty.Visible = true;
-            }
-            else if (money >= 100)
-            {
-                BetOne.Visible = true;
-                BetFive.Visible = true;
-                BetTen.Visible = true;
-                BetTwentyFive.Visible = true;
-                BetFifty.Visible = true;
-                BetHundred.Visible = true;
-            }
-            else if (money >= 50)
-            {
-                BetOne.Visible = true;
-                BetFive.Visible = true;
-                BetTen.Visible = true;
-                BetTwentyFive.Visible = true;
-                BetFifty.Visible = true;
-            }
-            else if (money >= 25)
-            {
-                BetOne.Visible = true;
-                BetFive.Visible = true;
-                BetTen.Visible = true;
-                BetTwentyFive.Visible = true;
-            }
-            else if (money >= 10)
-            {
-                BetOne.Visible = true;
-                BetFive.Visible = true;
-                BetTen.Visible = true;
-            }
-            else if (money >= 5)
-            {
-                BetOne.Visible = true;
-                BetFive.Visible = true;
-            }
-            else if (money >= 1)
-            {
-                BetOne.Visible = true;
-            }
-            #endregion
-        }
+        }*/
 
         private void DisplayCards(bool dealerFaceDown)
         {
@@ -675,7 +622,6 @@ namespace BlackjackGame
                 this.Stay.Visible = false;
                 Who_Won();
             }
-
         }
     }
 }

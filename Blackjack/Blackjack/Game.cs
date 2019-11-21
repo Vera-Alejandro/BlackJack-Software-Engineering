@@ -424,11 +424,17 @@ namespace BlackjackGame
             {
                 BetOne.Visible = true;
                 BetFive.Visible = true;
-                BetTen.Visible = true;
+                BetTen.Visible = truef;
 
             }
         }*/
+        private void ProfileButton_Click(object sender, EventArgs e)
+        {
+            if (profileForm.IsDisposed)
+                profileForm = new ProfileInterface();
+            profileForm.Show();
 
+        }
         private void DisplayCards(bool dealerFaceDown)
         {
             

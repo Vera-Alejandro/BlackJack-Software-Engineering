@@ -69,7 +69,7 @@
             // Close
             // 
             this.Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Close.BackColor = System.Drawing.SystemColors.Desktop;
+            this.Close.BackColor = System.Drawing.Color.Black;
             this.Close.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.Close.FlatAppearance.BorderSize = 0;
             this.Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -87,7 +87,7 @@
             // Resize
             // 
             this.Resize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Resize.BackColor = System.Drawing.SystemColors.Desktop;
+            this.Resize.BackColor = System.Drawing.Color.Black;
             this.Resize.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.Resize.FlatAppearance.BorderSize = 0;
             this.Resize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -105,7 +105,7 @@
             // Minimize
             // 
             this.Minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Minimize.BackColor = System.Drawing.SystemColors.Desktop;
+            this.Minimize.BackColor = System.Drawing.Color.Black;
             this.Minimize.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.Minimize.FlatAppearance.BorderSize = 0;
             this.Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -518,7 +518,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Desktop;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1131, 806);
             this.Controls.Add(this.ResetButton);
             this.Controls.Add(this.SaveButton);

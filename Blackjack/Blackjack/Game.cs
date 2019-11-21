@@ -198,18 +198,18 @@ namespace BlackjackGame
                 if (playerHand.GetTotal() > dealerHand.GetTotal())
                 {
                     thisGame.SetPlayerResult(1, GameInstance.GameResult.Win);
-                    MessageBox.Show("Player 1 Wins");
+                    MessageBox.Show("Player got a higher score.", "Player Wins!!");
 
                 }
                 else if (playerHand.GetTotal() == dealerHand.GetTotal())
                 {
                     thisGame.SetPlayerResult(1, GameInstance.GameResult.Standoff);
-                    MessageBox.Show("Player and dealer tied. No payouts awarded.");
+                    MessageBox.Show("Player and dealer tied. No payouts awarded.", "It is a tie.");
                 }
                 else
                 {
                     thisGame.SetPlayerResult(1, GameInstance.GameResult.Loss);
-                    MessageBox.Show("Computer Wins");
+                    MessageBox.Show("Computer Wins", "Player Lost");
 
                 }
                 playerCash += thisGame.GetPayout(1);

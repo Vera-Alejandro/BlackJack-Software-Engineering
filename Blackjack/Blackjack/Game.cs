@@ -610,5 +610,136 @@ namespace BlackjackGame
                 Who_Won();
             }
         }
+
+        private void PlayerCash_TextChanged(object sender, EventArgs e)
+        {
+            #region Show bet buttons based on player cash
+
+            if (playerCash >= 1000)
+            {
+                BetOne.Visible = true;
+                BetFive.Visible = true;
+                BetTen.Visible = true;
+                BetTwentyFive.Visible = true;
+                BetFifty.Visible = true;
+                BetHundred.Visible = true;
+                BetTwoFifty.Visible = true;
+                BetFiveHundred.Visible = true;
+                BetThousand.Visible = true;
+
+            }
+            else if (playerCash >= 500)
+            {
+                BetOne.Visible = true;
+                BetFive.Visible = true;
+                BetTen.Visible = true;
+                BetTwentyFive.Visible = true;
+                BetFifty.Visible = true;
+                BetHundred.Visible = true;
+                BetTwoFifty.Visible = true;
+                BetFiveHundred.Visible = true;
+                BetThousand.Visible = false;
+
+            }
+            else if (playerCash >= 250)
+            {
+                BetOne.Visible = true;
+                BetFive.Visible = true;
+                BetTen.Visible = true;
+                BetTwentyFive.Visible = true;
+                BetFifty.Visible = true;
+                BetHundred.Visible = true;
+                BetTwoFifty.Visible = true;
+                BetFiveHundred.Visible = false;
+                BetThousand.Visible = false;
+
+            }
+            else if (playerCash >= 100)
+            {
+                BetOne.Visible = true;
+                BetFive.Visible = true;
+                BetTen.Visible = true;
+                BetTwentyFive.Visible = true;
+                BetFifty.Visible = true;
+                BetHundred.Visible = true;
+                BetTwoFifty.Visible = false;
+                BetFiveHundred.Visible = false;
+                BetThousand.Visible = false;
+            }
+            else if (playerCash >= 50)
+            {
+                BetOne.Visible = true;
+                BetFive.Visible = true;
+                BetTen.Visible = true;
+                BetTwentyFive.Visible = true;
+                BetFifty.Visible = true;
+                BetHundred.Visible = false;
+                BetTwoFifty.Visible = false;
+                BetFiveHundred.Visible = false;
+                BetThousand.Visible = false;
+            }
+            else if (playerCash >= 25)
+            {
+                BetOne.Visible = true;
+                BetFive.Visible = true;
+                BetTen.Visible = true;
+                BetTwentyFive.Visible = true;
+                BetFifty.Visible = false;
+                BetHundred.Visible = false;
+                BetTwoFifty.Visible = false;
+                BetFiveHundred.Visible = false;
+                BetThousand.Visible = false;
+            }
+            else if (playerCash >= 10)
+            {
+                BetOne.Visible = true;
+                BetFive.Visible = true;
+                BetTen.Visible = true;
+                BetTwentyFive.Visible = false;
+                BetFifty.Visible = false;
+                BetHundred.Visible = false;
+                BetTwoFifty.Visible = false;
+                BetFiveHundred.Visible = false;
+                BetThousand.Visible = false;
+            }
+            else if (playerCash >= 5)
+            {
+                BetOne.Visible = true;
+                BetFive.Visible = true;
+                BetTen.Visible = false;
+                BetTwentyFive.Visible = false;
+                BetFifty.Visible = false;
+                BetHundred.Visible = false;
+                BetTwoFifty.Visible = false;
+                BetFiveHundred.Visible = false;
+                BetThousand.Visible = false;
+            }
+            else if (playerCash >= 1)
+            {
+                BetOne.Visible = true;
+                BetFive.Visible = false;
+                BetTen.Visible = false;
+                BetTwentyFive.Visible = false;
+                BetFifty.Visible = false;
+                BetHundred.Visible = false;
+                BetTwoFifty.Visible = false;
+                BetFiveHundred.Visible = false;
+                BetThousand.Visible = false;
+            }
+            else
+            {
+                BetOne.Visible = false;
+                BetFive.Visible = false;
+                BetTen.Visible = false;
+                BetTwentyFive.Visible = false;
+                BetFifty.Visible = false;
+                BetHundred.Visible = false;
+                BetTwoFifty.Visible = false;
+                BetFiveHundred.Visible = false;
+                BetThousand.Visible = false;
+            }
+
+            #endregion
+        }
     }
 }

@@ -198,6 +198,7 @@
             this.PlayerCash.TabIndex = 5;
             this.PlayerCash.Text = "$500.00";
             this.PlayerCash.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PlayerCash.TextChanged += new System.EventHandler(this.PlayerCash_TextChanged);
             // 
             // Cash
             // 
@@ -423,6 +424,7 @@
             this.BetThousand.TabIndex = 17;
             this.BetThousand.Text = "$1,000";
             this.BetThousand.UseVisualStyleBackColor = false;
+            this.BetThousand.Visible = false;
             this.BetThousand.Click += new System.EventHandler(this.BetThousand_Click);
             // 
             // BetAll

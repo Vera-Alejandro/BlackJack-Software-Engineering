@@ -191,7 +191,7 @@ namespace BlackjackGame
         {
             Hand dealerHand = thisGame.GetDealerHand();
             Hand playerHand = thisGame.GetPlayerHand(1);
-
+            DisplayCards(false);
             if ( playerHand.HasBusted())
             {
                 MessageBox.Show("Player Busted, Computer Wins");
@@ -353,17 +353,23 @@ namespace BlackjackGame
             i = 0;
             foreach (Card card in p1Cards)
             {
-                //PictureBox cardPicture = new PictureBox();
                 playerCardPictures[i].Image = card.GetImage();
-               // cardPicture.Location = new Point( (0 + (i * 40)), 75 );
-                //cardPicture.SizeMode = PictureBoxSizeMode.AutoSize;
-               // PlayerHand.Controls.Add(cardPicture);
                 playerCardPictures[i].BringToFront();
 
                 i++;
             }
-            int dealerDisplayTotal = (dealerHand.GetTotal() - downValue);
-            DealerCount.Text = dealerDisplayTotal.ToString();
+            if(dealerHand.GetTotal() == 21)
+            {
+                dealerCardPictures[1].Image = dealerCards[1].GetImage();
+                DealerCount.Text = dealerHand.GetTotal().ToString();
+                Who_Won();
+            }
+            else
+            {
+                int dealerDisplayTotal = (dealerHand.GetTotal() - downValue);
+                DealerCount.Text = dealerDisplayTotal.ToString();
+            }
+
             PlayerCount.Text = p1Hand.GetTotal().ToString();
 
         }

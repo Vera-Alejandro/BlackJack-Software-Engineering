@@ -219,6 +219,7 @@ namespace BlackjackGame
                 PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
                 restartAvailable = true;
             }
+
         }
 
         #region Bet Money Functions
@@ -399,8 +400,9 @@ namespace BlackjackGame
                 restartAvailable = true;
                 DealerCount.ForeColor = Color.White;
                 MessageBox.Show("Dealer Busted, Player 1 Wins", "Player Wins!!");
+
             }
-            else if (dealerCount == 21)
+            else if (CanBet(5))
             {
                 thisGame.SetPlayerResult(1, GameInstance.GameResult.Loss);
                 playerCash += thisGame.GetPayout(1);
@@ -417,7 +419,9 @@ namespace BlackjackGame
 
             DisplayCards(false);
 
-            if (playerCount > 21)
+        private void BetOne_Click(object sender, EventArgs e)
+        {
+            if (roundStarted)
             {
                 Output.Text = "Player busted!";
                 this.Hit.Visible = false;
@@ -428,8 +432,9 @@ namespace BlackjackGame
                 restartAvailable = true;
                 DealerCount.ForeColor = Color.White;
                 MessageBox.Show("Player Busted, Computer Wins", "Player Lost!");
+
             }
-            else if (playerCount == 21)
+            else if (CanBet(1))
             {
                 Output.Text = "Player got a Blackjack!!";
                 this.Hit.Visible = false;
@@ -441,9 +446,11 @@ namespace BlackjackGame
                 DealerCount.ForeColor = Color.White;
                 MessageBox.Show("Player got a natural Blackjack", "Player Wins!!");
             }
+            else
+                Output.Text = "Not enough money to bet!";
         }
 
-        private void PlayerCash_TextChanged(object sender, EventArgs e)
+        /*private void PlayerCash_TextChanged(object sender, EventArgs e)
         {
             int.TryParse(PlayerCash.Text, out int money);
 
@@ -461,68 +468,7 @@ namespace BlackjackGame
                 BetThousand.Visible = true;
 
             }
-            else if (money >= 500)
-            {
-                BetOne.Visible = true;
-                BetFive.Visible = true;
-                BetTen.Visible = true;
-                BetTwentyFive.Visible = true;
-                BetFifty.Visible = true;
-                BetHundred.Visible = true;
-                BetTwoFifty.Visible = true;
-                BetFiveHundred.Visible = true;
-            }
-            else if (money >= 250)
-            {
-                BetOne.Visible = true;
-                BetFive.Visible = true;
-                BetTen.Visible = true;
-                BetTwentyFive.Visible = true;
-                BetFifty.Visible = true;
-                BetHundred.Visible = true;
-                BetTwoFifty.Visible = true;
-            }
-            else if (money >= 100)
-            {
-                BetOne.Visible = true;
-                BetFive.Visible = true;
-                BetTen.Visible = true;
-                BetTwentyFive.Visible = true;
-                BetFifty.Visible = true;
-                BetHundred.Visible = true;
-            }
-            else if (money >= 50)
-            {
-                BetOne.Visible = true;
-                BetFive.Visible = true;
-                BetTen.Visible = true;
-                BetTwentyFive.Visible = true;
-                BetFifty.Visible = true;
-            }
-            else if (money >= 25)
-            {
-                BetOne.Visible = true;
-                BetFive.Visible = true;
-                BetTen.Visible = true;
-                BetTwentyFive.Visible = true;
-            }
-            else if (money >= 10)
-            {
-                BetOne.Visible = true;
-                BetFive.Visible = true;
-                BetTen.Visible = true;
-            }
-            else if (money >= 5)
-            {
-                BetOne.Visible = true;
-                BetFive.Visible = true;
-            }
-            else if (money >= 1)
-            {
-                BetOne.Visible = true;
-            }
-            #endregion
-        }
+        }*/
 
         private void DisplayCards(bool dealerFaceDown)
         {
@@ -696,7 +642,6 @@ namespace BlackjackGame
                 this.Stay.Visible = false;
                 Who_Won();
             }
-
         }
     }
 }

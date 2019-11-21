@@ -119,6 +119,7 @@ namespace BlackjackGame
             BettingPanel.Visible = true;
             ProfileButton.Visible = true;
             SaveButton.Visible = true;
+            ResetButton.Visible = true;
 
             #endregion
 

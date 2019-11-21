@@ -542,6 +542,8 @@ namespace BlackjackGame
                 }
                 restartAvailable = false;
                 roundStarted = false;
+                PlayerCount.Text = 0.ToString();
+                DealerCount.Text = 0.ToString();
             }
 
         }

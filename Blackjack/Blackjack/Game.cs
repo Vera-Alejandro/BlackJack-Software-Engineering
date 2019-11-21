@@ -229,50 +229,69 @@ namespace BlackjackGame
             }
         }
 
+        private void PlayerCount_TextChanged(object sender, EventArgs e)
+        {
+            int.TryParse(PlayerCount.Text, out int playerCount);
+
+
+            if (playerCount > 21)
+            {
+                Output.Text = "Player busted!";
+                this.Hit.Visible = false;
+                this.Stay.Visible = false;
+                thisGame.SetPlayerResult(1, GameInstance.GameResult.Loss);
+                playerCash += thisGame.GetPayout(1);
+                PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
+                restartAvailable = true;
+                MessageBox.Show("Player Busted, Computer Wins", "Player Lost!");
+                DisplayCards(false);
+
+            }
+            else if (playerCount == 21)
+            {
+                Output.Text = "Player got a Blackjack!!";
+                this.Hit.Visible = false;
+                this.Stay.Visible = false;
+                thisGame.SetPlayerResult(1, GameInstance.GameResult.PlayerBlackjack);
+                playerCash += thisGame.GetPayout(1);
+                PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
+                restartAvailable = true;
+                MessageBox.Show("Player got a natural Blackjack", "Player Wins!!");
+                DisplayCards(false);
+            }
+        }
+
         private void Who_Won()
         {
             Hand dealerHand = thisGame.GetDealerHand();
             Hand playerHand = thisGame.GetPlayerHand(1);
+
             DisplayCards(false);
-            
-            if ( playerHand.HasBusted())
-            {
-                MessageBox.Show("Player Busted, Computer Wins");
-                thisGame.SetPlayerResult(1, GameInstance.GameResult.Loss);
 
-            }
-            else if ( dealerHand.HasBusted())
+            if (playerHand.GetTotal() < 21 && dealerHand.GetTotal() < 21)
             {
-                MessageBox.Show("Dealer Busted, Player 1 Wins");
-                thisGame.SetPlayerResult(1, GameInstance.GameResult.Win);
+                if (playerHand.GetTotal() > dealerHand.GetTotal())
+                {
+                    thisGame.SetPlayerResult(1, GameInstance.GameResult.Win);
+                    MessageBox.Show("Player got a higher score.", "Player Wins!!");
 
-            }
-            else if (playerHand.GetTotal() == 21 && dealerHand.GetTotal() != 21 && playerHand.GetNumberOfCards() == 2)
-            {
-                MessageBox.Show("Player 1 got a natural blackjack!");
-                thisGame.SetPlayerResult(1, GameInstance.GameResult.PlayerBlackjack);
+                }
+                else if (playerHand.GetTotal() == dealerHand.GetTotal())
+                {
+                    thisGame.SetPlayerResult(1, GameInstance.GameResult.Standoff);
+                    MessageBox.Show("Player and dealer tied. No payouts awarded.", "It is a tie.");
+                }
+                else
+                {
+                    thisGame.SetPlayerResult(1, GameInstance.GameResult.Loss);
+                    MessageBox.Show("Computer Wins", "Player Lost");
 
+                }
+                playerCash += thisGame.GetPayout(1);
+                PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
+                restartAvailable = true;
             }
-            else if ( playerHand.GetTotal() > dealerHand.GetTotal())
-            {
-                MessageBox.Show("Player 1 Wins");
-                thisGame.SetPlayerResult(1, GameInstance.GameResult.Win);
 
-            }
-            else if ( playerHand.GetTotal() == dealerHand.GetTotal())
-            {
-                MessageBox.Show("Player and dealer tied. No payouts awarded.");
-                thisGame.SetPlayerResult(1, GameInstance.GameResult.Standoff);
-            }
-            else
-            {
-                MessageBox.Show("Computer Wins");
-                thisGame.SetPlayerResult(1, GameInstance.GameResult.Loss);
-
-            }
-            playerCash += thisGame.GetPayout(1);
-            PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
-            restartAvailable = true;
         }
 
         private void BetThousand_Click(object sender, EventArgs e)
@@ -437,18 +456,6 @@ namespace BlackjackGame
                 Output.Text = "Not enough money to bet!";
         }
 
-        /*private void PlayerCash_TextChanged(object sender, EventArgs e)
-        {
-            int money = Convert.ToInt32(PlayerCash.Text);
-
-            if(money > 1)
-            {
-                BetOne.Visible = true;
-                BetFive.Visible = true;
-                BetTen.Visible = truef;
-
-            }
-        }*/
         private void ProfileButton_Click(object sender, EventArgs e)
         {
             if (profileForm.IsDisposed)
@@ -617,6 +624,137 @@ namespace BlackjackGame
                 this.Stay.Visible = false;
                 Who_Won();
             }
+        }
+
+        private void PlayerCash_TextChanged(object sender, EventArgs e)
+        {
+            #region Show bet buttons based on player cash
+
+            if (playerCash >= 1000)
+            {
+                BetOne.Visible = true;
+                BetFive.Visible = true;
+                BetTen.Visible = true;
+                BetTwentyFive.Visible = true;
+                BetFifty.Visible = true;
+                BetHundred.Visible = true;
+                BetTwoFifty.Visible = true;
+                BetFiveHundred.Visible = true;
+                BetThousand.Visible = true;
+
+            }
+            else if (playerCash >= 500)
+            {
+                BetOne.Visible = true;
+                BetFive.Visible = true;
+                BetTen.Visible = true;
+                BetTwentyFive.Visible = true;
+                BetFifty.Visible = true;
+                BetHundred.Visible = true;
+                BetTwoFifty.Visible = true;
+                BetFiveHundred.Visible = true;
+                BetThousand.Visible = false;
+
+            }
+            else if (playerCash >= 250)
+            {
+                BetOne.Visible = true;
+                BetFive.Visible = true;
+                BetTen.Visible = true;
+                BetTwentyFive.Visible = true;
+                BetFifty.Visible = true;
+                BetHundred.Visible = true;
+                BetTwoFifty.Visible = true;
+                BetFiveHundred.Visible = false;
+                BetThousand.Visible = false;
+
+            }
+            else if (playerCash >= 100)
+            {
+                BetOne.Visible = true;
+                BetFive.Visible = true;
+                BetTen.Visible = true;
+                BetTwentyFive.Visible = true;
+                BetFifty.Visible = true;
+                BetHundred.Visible = true;
+                BetTwoFifty.Visible = false;
+                BetFiveHundred.Visible = false;
+                BetThousand.Visible = false;
+            }
+            else if (playerCash >= 50)
+            {
+                BetOne.Visible = true;
+                BetFive.Visible = true;
+                BetTen.Visible = true;
+                BetTwentyFive.Visible = true;
+                BetFifty.Visible = true;
+                BetHundred.Visible = false;
+                BetTwoFifty.Visible = false;
+                BetFiveHundred.Visible = false;
+                BetThousand.Visible = false;
+            }
+            else if (playerCash >= 25)
+            {
+                BetOne.Visible = true;
+                BetFive.Visible = true;
+                BetTen.Visible = true;
+                BetTwentyFive.Visible = true;
+                BetFifty.Visible = false;
+                BetHundred.Visible = false;
+                BetTwoFifty.Visible = false;
+                BetFiveHundred.Visible = false;
+                BetThousand.Visible = false;
+            }
+            else if (playerCash >= 10)
+            {
+                BetOne.Visible = true;
+                BetFive.Visible = true;
+                BetTen.Visible = true;
+                BetTwentyFive.Visible = false;
+                BetFifty.Visible = false;
+                BetHundred.Visible = false;
+                BetTwoFifty.Visible = false;
+                BetFiveHundred.Visible = false;
+                BetThousand.Visible = false;
+            }
+            else if (playerCash >= 5)
+            {
+                BetOne.Visible = true;
+                BetFive.Visible = true;
+                BetTen.Visible = false;
+                BetTwentyFive.Visible = false;
+                BetFifty.Visible = false;
+                BetHundred.Visible = false;
+                BetTwoFifty.Visible = false;
+                BetFiveHundred.Visible = false;
+                BetThousand.Visible = false;
+            }
+            else if (playerCash >= 1)
+            {
+                BetOne.Visible = true;
+                BetFive.Visible = false;
+                BetTen.Visible = false;
+                BetTwentyFive.Visible = false;
+                BetFifty.Visible = false;
+                BetHundred.Visible = false;
+                BetTwoFifty.Visible = false;
+                BetFiveHundred.Visible = false;
+                BetThousand.Visible = false;
+            }
+            else
+            {
+                BetOne.Visible = false;
+                BetFive.Visible = false;
+                BetTen.Visible = false;
+                BetTwentyFive.Visible = false;
+                BetFifty.Visible = false;
+                BetHundred.Visible = false;
+                BetTwoFifty.Visible = false;
+                BetFiveHundred.Visible = false;
+                BetThousand.Visible = false;
+            }
+
+            #endregion
         }
     }
 }

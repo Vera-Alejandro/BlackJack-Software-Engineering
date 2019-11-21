@@ -61,7 +61,8 @@ namespace BlackjackGame
 			this.ProfileButton = new System.Windows.Forms.Button();
 			this.SaveButton = new System.Windows.Forms.Button();
 			this.TitleImage = new System.Windows.Forms.PictureBox();
-			this.DealerHand.SuspendLayout();
+            this.ResetButton = new System.Windows.Forms.Button();
+            this.DealerHand.SuspendLayout();
 			this.PlayerHand.SuspendLayout();
 			this.BettingPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.TitleImage)).BeginInit();

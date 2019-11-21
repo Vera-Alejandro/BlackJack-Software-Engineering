@@ -160,6 +160,9 @@ namespace BlackjackGame
                 return;
             }
             Output.Text = "Player choose to stay";
+            this.Hit.Visible = false;
+            this.Stay.Visible = false;
+            Computer_Turn();
         }
 
         private void Hit_Click(object sender, EventArgs e)

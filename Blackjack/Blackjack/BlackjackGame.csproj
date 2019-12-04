@@ -60,7 +60,6 @@
     <Compile Include="Game.Designer.cs">
       <DependentUpon>Game.cs</DependentUpon>
     </Compile>
-    <Compile Include="GameData.cs" />
     <Compile Include="Deck.cs" />
     <Compile Include="GameInstance.cs" />
     <Compile Include="Hand.cs" />
@@ -277,9 +276,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SQLite.DataBase\SQLite.csproj">
+    <ProjectReference Include="..\SQLite.DataBase\Storage.csproj">
       <Project>{D7CD3057-8550-4106-AB62-08676392D622}</Project>
-      <Name>SQLite</Name>
+      <Name>Storage</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

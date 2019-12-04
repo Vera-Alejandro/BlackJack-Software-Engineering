@@ -156,8 +156,6 @@ namespace Blackjack
 				{
 					LogStatusLabel.Visible = true;
 				}
-
-
 			}
 			else
 			{
@@ -169,10 +167,10 @@ namespace Blackjack
 		{
 			if (UserSignUpTextBox.Text != "" && PassSignUpTextBox.Text != "" && NameSignUpTextBox.Text != "" && PhoneSignUpTextBox.Text != "" && AddressSignUpTextBox.Text != "" && CardInfoSignUpTextBox.Text != "") {
 
-				bool exists = System.IO.Directory.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BlackJackGame"));
+				bool exists = Directory.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BlackJackGame"));
 
 				if (!exists)
-					System.IO.Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BlackJackGame"));
+					Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BlackJackGame"));
 
 				Fullname = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BlackJackGame/") + UserSignUpTextBox.Text + NameSignUpTextBox.Text + "info.txt";
 

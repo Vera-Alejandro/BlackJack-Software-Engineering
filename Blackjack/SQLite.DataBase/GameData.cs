@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Blackjack.Storage
+namespace SQLite.Storage
 {
     [Serializable]
     public class GameData

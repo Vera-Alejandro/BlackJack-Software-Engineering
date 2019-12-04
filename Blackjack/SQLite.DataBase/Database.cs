@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite.Storage;
+using System;
 using System.Data;
 using System.Data.SQLite;
 using System.Diagnostics;
@@ -6,24 +7,16 @@ using System.IO;
 
 namespace SQLite
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Database db = new Database("C:\\file.sqlite3");
-
-            db.Connect();
-            db.Disconnect();
-        }
-    }
-        
-
     public class Database
     {
         private SQLiteConnection _fileConnection { get; set; }
         private string constr { get; set; }
         private readonly string _sqlitePath;
 
+        /// <summary>
+        /// Creates a connection to the SQLite file that is passed in as a parameter.
+        /// </summary>
+        /// <param name="FilePath"></param>
         public Database(string FilePath)
         {
            _sqlitePath = FilePath;
@@ -102,6 +95,15 @@ namespace SQLite
                 Debug.WriteLine("~File closure was not made due to unknown error");
                 return false;
             }
+        }
+
+        /// <summary>
+        /// Saves the game state data as entry in te profile table in SQLite
+        /// </summary>
+        /// <param name="gameData"></param>
+        public void SaveGameState(GameData gameData, string profile)
+        {
+
         }
     }
 }

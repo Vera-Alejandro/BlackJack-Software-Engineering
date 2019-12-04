@@ -741,5 +741,14 @@ namespace BlackjackGame
 
             #endregion
         }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            Database StorageDB = new Database(SQLiteFile);
+            StorageDB.Connect();
+
+
+            StorageDB.Disconnect();
+        }
     }
 }

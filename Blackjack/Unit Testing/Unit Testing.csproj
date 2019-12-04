@@ -63,9 +63,9 @@
       <Project>{2320c7de-5ff6-4f67-9453-d8e3fd93a2fe}</Project>
       <Name>BlackjackGame</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SQLite.DataBase\SQLite.csproj">
+    <ProjectReference Include="..\SQLite.DataBase\Storage.csproj">
       <Project>{d7cd3057-8550-4106-ab62-08676392d622}</Project>
-      <Name>SQLite</Name>
+      <Name>Storage</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

@@ -1,27 +1,21 @@
-﻿using System;
+﻿using Blackjack;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using Blackjack;
-using System.Globalization;
-using System.IO;
 
 namespace BlackjackGame
 {
     public partial class Blackjack : Form
     {
 
-		ProfileInterface profileForm = new ProfileInterface();
+        ProfileInterface profileForm = new ProfileInterface();
 
-		#region Move Form
+        #region Move Form
 
-		public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
         private const double START_CASH = 500.00;
 
@@ -32,7 +26,7 @@ namespace BlackjackGame
 
         private void Blackjack_MouseDown(Object sender, MouseEventArgs e)
         {
-            if(e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
@@ -76,7 +70,7 @@ namespace BlackjackGame
 
         private void Resize_Click(object sender, EventArgs e)
         {
-            if(WindowState == FormWindowState.Maximized)
+            if (WindowState == FormWindowState.Maximized)
             {
                 WindowState = FormWindowState.Normal;
             }
@@ -125,7 +119,7 @@ namespace BlackjackGame
 
             thisGame.AddPlayer(); //add a player to the game
 
-            for(int i = 0; i < 10; i ++)
+            for (int i = 0; i < 10; i++)
             {
                 PictureBox card = new PictureBox();
                 playerCardPictures.Add(card);
@@ -136,7 +130,7 @@ namespace BlackjackGame
                 playerCardPictures[i].BringToFront();
             }
 
- 
+
             for (int i = 0; i < 10; i++)
             {
                 PictureBox card = new PictureBox();
@@ -165,7 +159,7 @@ namespace BlackjackGame
 
         private void Hit_Click(object sender, EventArgs e)
         {
-            if(thisGame.GetBet(1) <= 0)
+            if (thisGame.GetBet(1) <= 0)
             {
                 Output.Text = "Must bet to play!";
                 return;
@@ -179,7 +173,7 @@ namespace BlackjackGame
 
             DisplayCards(true);
             PlayerCount.Text = hand.GetTotal().ToString();
-            if(hand.HasBusted())
+            if (hand.HasBusted())
             {
                 Output.Text = "Player busted!";
                 this.Hit.Visible = false;
@@ -193,9 +187,9 @@ namespace BlackjackGame
             int dealerStayValue = 17;
             Hand dealerHand = thisGame.GetDealerHand();
 
-            if ( dealerHand.GetTotal() < dealerStayValue )
+            if (dealerHand.GetTotal() < dealerStayValue)
             {
-                while ( dealerHand.GetTotal() < dealerStayValue )
+                while (dealerHand.GetTotal() < dealerStayValue)
                 {
                     Card hitCard = thisGame.GetDeck().GetCard();
                     dealerHand.AddCard(hitCard);
@@ -296,7 +290,7 @@ namespace BlackjackGame
 
         private void BetThousand_Click(object sender, EventArgs e)
         {
-            if(roundStarted)
+            if (roundStarted)
             {
                 Output.Text = "Cards already dealt!";
             }
@@ -316,7 +310,7 @@ namespace BlackjackGame
             {
                 Output.Text = "Cards already dealt!";
             }
-            else if(playerCash <= 0)
+            else if (playerCash <= 0)
             {
                 Output.Text = "No money to bet!";
             }
@@ -367,7 +361,7 @@ namespace BlackjackGame
                 Output.Text = "Cards already dealt!";
             }
             else if (CanBet(100))
-            {                
+            {
                 thisGame.SetBet(1, 100);
                 Output.Text = "Player bet:  $" + thisGame.GetBet(1).ToString() + ".";
                 StartRound();
@@ -465,7 +459,7 @@ namespace BlackjackGame
         }
         private void DisplayCards(bool dealerFaceDown)
         {
-            
+
             Hand p1Hand = thisGame.GetPlayerHand(1);
             Hand dealerHand = thisGame.GetDealerHand();
 
@@ -474,9 +468,8 @@ namespace BlackjackGame
 
             int downValue = 0;
             int i = 0;
-            foreach(Card card in dealerCards)
+            foreach (Card card in dealerCards)
             {
-                //PictureBox cardPicture = new PictureBox();
                 if (i == 1 && dealerFaceDown)
                 {
                     dealerCardPictures[i].Image = card.GetBackImage();
@@ -528,9 +521,6 @@ namespace BlackjackGame
                 {
                     dealerCardPictures[i].Image = card.GetImage();
                 }
-              //  dealerCardPictures.Location = new Point( (0 + (i * 40)), 75 );
-                //dealerCardPicture.SizeMode = PictureBoxSizeMode.AutoSize;
-               // DealerHand.Controls.Add(cardPicture);
                 dealerCardPictures[i].BringToFront();
 
                 i++;
@@ -545,7 +535,7 @@ namespace BlackjackGame
 
                 i++;
             }
-            if(dealerHand.GetTotal() == 21)
+            if (dealerHand.GetTotal() == 21)
             {
                 dealerCardPictures[1].Image = dealerCards[1].GetImage();
                 DealerCount.Text = dealerHand.GetTotal().ToString();
@@ -558,7 +548,7 @@ namespace BlackjackGame
 
             PlayerCount.Text = p1Hand.GetTotal().ToString();
 
-		}
+        }
 
         private void ResetButton_Click(object sender, EventArgs e)
         {
@@ -618,7 +608,7 @@ namespace BlackjackGame
             Card p2Card = playerHand.GetCard();
 
             DisplayCards(true);
-            if(dealerHand.GetTotal() == 21 || playerHand.GetTotal() == 21)
+            if (dealerHand.GetTotal() == 21 || playerHand.GetTotal() == 21)
             {
                 this.Hit.Visible = false;
                 this.Stay.Visible = false;

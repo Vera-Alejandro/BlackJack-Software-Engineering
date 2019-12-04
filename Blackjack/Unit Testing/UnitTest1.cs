@@ -2,6 +2,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BlackjackGame;
 using Blackjack;
+using SQLite;
+using System.IO;
+using System.Diagnostics;
 
 namespace Unit_Testing
 {
@@ -139,6 +142,29 @@ namespace Unit_Testing
             Assert.AreEqual(testGame.GetPayout(2), CORRECT_WIN);
             Assert.AreEqual(testGame.GetPayout(3), CORRECT_TIE);
             Assert.AreEqual(testGame.GetPayout(4), CORRECT_BLACKJACK);
+        }
+        
+        [TestMethod]
+        public void DatabaseCreationTest()
+        {
+            string SQLiteFile = Directory.GetParent(Directory.GetCurrentDirectory()).ToString();
+            SQLiteFile = Directory.GetParent(SQLiteFile).ToString();
+            SQLiteFile = Directory.GetParent(SQLiteFile).ToString();
+            SQLiteFile = Path.Combine(SQLiteFile, "GameData.sqlite3");
+
+            try
+            {
+                Database testdb = new Database(SQLiteFile);
+
+                testdb.Connect();
+
+                testdb.Disconnect();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                Assert.Fail();
+            }
         }
     }
 }

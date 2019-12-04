@@ -6,6 +6,18 @@ using System.IO;
 
 namespace SQLite
 {
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Database db = new Database("C:\\file.sqlite3");
+
+            db.Connect();
+            db.Disconnect();
+        }
+    }
+        
+
     public class Database
     {
         private SQLiteConnection _fileConnection { get; set; }
@@ -14,13 +26,13 @@ namespace SQLite
 
         public Database(string FilePath)
         {
-            _sqlitePath = FilePath;
+           _sqlitePath = FilePath;
             constr = $"Data Source={_sqlitePath};Version=3;";
 
             if (!File.Exists(_sqlitePath))
             {
                 SQLiteConnection.CreateFile(_sqlitePath);
-                Debug.WriteLine("~SQLite file created.");
+                Debug.WriteLine("SQLite File Created.");
             }
 
             _fileConnection = new SQLiteConnection(constr);

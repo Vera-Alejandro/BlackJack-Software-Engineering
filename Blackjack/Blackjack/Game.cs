@@ -1,18 +1,18 @@
 ﻿using Blackjack;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+
 
 namespace BlackjackGame
 {
     public partial class Blackjack : Form
-    {
-
-        ProfileInterface profileForm = new ProfileInterface();
-
+    {    
         #region Move Form
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -35,6 +35,9 @@ namespace BlackjackGame
 
         #endregion
 
+        ProfileInterface profileForm = new ProfileInterface();
+        private string SQLiteFile = 
+            Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3");
         private bool gameStarted = false;
         private bool roundStarted = false;
         private bool restartAvailable = false;
@@ -70,20 +73,13 @@ namespace BlackjackGame
 
         private void Resize_Click(object sender, EventArgs e)
         {
-            if (WindowState == FormWindowState.Maximized)
-            {
-                WindowState = FormWindowState.Normal;
-            }
+            if (WindowState == FormWindowState.Maximized) 
+            { WindowState = FormWindowState.Normal; }
             else
-            {
-                WindowState = FormWindowState.Maximized;
-            }
+            { WindowState = FormWindowState.Maximized; }
         }
 
-        private void Minimize_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
+        private void Minimize_Click(object sender, EventArgs e) { WindowState = FormWindowState.Minimized; }
 
         private void Blackjack_SizeChanged(object sender, EventArgs e)
         {
@@ -141,7 +137,6 @@ namespace BlackjackGame
                 DealerHand.Controls.Add(dealerCardPictures[i]);
                 dealerCardPictures[i].BringToFront();
             }
-
         }
 
         private void Stay_Click(object sender, EventArgs e)

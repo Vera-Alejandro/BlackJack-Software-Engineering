@@ -42,13 +42,13 @@ namespace SQLite
             }
             else
             {
-                if(!File.Exists(_sqlitePath))
+                if (!File.Exists(_sqlitePath))
                 {
                     Debug.WriteLine("~File connection was not made. File not found.");
                     return false;
                 }
 
-                if(_fileConnection.State == ConnectionState.Open)
+                if (_fileConnection.State == ConnectionState.Open)
                 {
                     Debug.WriteLine("~File connection was not made. File connection is already open");
                     return false;
@@ -67,7 +67,7 @@ namespace SQLite
         /// </returns>
         public bool Disconnect()
         {
-            if(File.Exists(_sqlitePath) && _fileConnection.State != ConnectionState.Closed)
+            if (File.Exists(_sqlitePath) && _fileConnection.State != ConnectionState.Closed)
             {
                 _fileConnection.Close();
                 Debug.WriteLine("~Sqlite db connection closed successfully.");

@@ -267,5 +267,14 @@
     <Content Include="Resources\sounds\jazz.mp3" />
     <Content Include="Resources\sounds\overhand_shuffle.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SQLite.DataBase\SQLite.DataBase.csproj">
+      <Project>{d7cd3057-8550-4106-ab62-08676392d622}</Project>
+      <Name>SQLite.DataBase</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

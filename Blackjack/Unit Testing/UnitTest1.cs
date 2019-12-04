@@ -109,5 +109,36 @@ namespace Unit_Testing
 
 
         }
+
+
+        [TestMethod]
+        public void CorrectPayoutsTest()
+        {
+            GameInstance testGame = new GameInstance();
+            testGame.AddPlayer();
+            testGame.AddPlayer();
+            testGame.AddPlayer();
+            testGame.AddPlayer();
+
+            testGame.SetBet(1, 10);
+            testGame.SetBet(2, 10);
+            testGame.SetBet(3, 10);
+            testGame.SetBet(4, 10);
+
+            testGame.SetPlayerResult(1, GameInstance.GameResult.Loss);
+            testGame.SetPlayerResult(2, GameInstance.GameResult.Win);
+            testGame.SetPlayerResult(3, GameInstance.GameResult.Standoff);
+            testGame.SetPlayerResult(4, GameInstance.GameResult.PlayerBlackjack);
+
+            const double CORRECT_LOSS = -10;
+            const double CORRECT_WIN = 10;
+            const double CORRECT_TIE = 0;
+            const double CORRECT_BLACKJACK = 15;
+
+            Assert.AreEqual(testGame.GetPayout(1), CORRECT_LOSS);
+            Assert.AreEqual(testGame.GetPayout(2), CORRECT_WIN);
+            Assert.AreEqual(testGame.GetPayout(3), CORRECT_TIE);
+            Assert.AreEqual(testGame.GetPayout(4), CORRECT_BLACKJACK);
+        }
     }
 }

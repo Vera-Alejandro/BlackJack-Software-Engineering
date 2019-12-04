@@ -35,23 +35,37 @@ namespace BlackjackGame
 
             foreach (Card value in temp.OrderBy(x => rnd.Next()))
             {
-                _cards.Add(value);
+                value.SetUsedValue(true);   
+                _cards.Add(value);   
+            }
+            foreach (Card card in _cards)
+            {
+                card.SetUsedValue(false);
             }
         }
 
         public Card GetCard()
         {
-            foreach (Card card in _cards)
+           // foreach (Card card in _cards)
+            //{
+             ///   if(!card.GetUsedValue())
+               // {
+                //    card.SetUsedValue(true);
+                 //   return card;
+               // }
+           // }
+
+           // Shuffle();
+           for(int i = 0; i < 52; i++)
             {
-                if(!card.GetUsedValue())
+                if (!_cards[i].GetUsedValue())
                 {
-                    card.SetUsedValue(true);
-                    return card;
+                    _cards[i].SetUsedValue(true);
+                    return _cards[i];
                 }
             }
 
             Shuffle();
-
             _cards[0].SetUsedValue(true);
             return _cards[0];
         }

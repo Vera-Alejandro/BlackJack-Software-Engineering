@@ -10,15 +10,18 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Blackjack;
 using System.Globalization;
+using System.IO;
 
 namespace BlackjackGame
 {
-
     public partial class Blackjack : Form
     {
-        #region Move Form
 
-        public const int WM_NCLBUTTONDOWN = 0xA1;
+		ProfileInterface profileForm = new ProfileInterface();
+
+		#region Move Form
+
+		public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
         private const double START_CASH = 500.00;
 
@@ -29,7 +32,7 @@ namespace BlackjackGame
 
         private void Blackjack_MouseDown(Object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            if(e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
@@ -55,7 +58,7 @@ namespace BlackjackGame
         {
             InitializeComponent();
         }
- 
+
         private void Blackjack_Load(object sender, EventArgs e)
         {
             CenterToScreen();
@@ -100,6 +103,7 @@ namespace BlackjackGame
             ProfileButton.Visible = true;
             SaveButton.Visible = true;
             ResetButton.Visible = true;
+
             #endregion
 
             gameStarted = true;
@@ -183,6 +187,29 @@ namespace BlackjackGame
             if(dealerCount < 21 && playerCount < 21)
             {
                 Who_Won();
+            }
+        }
+
+        private void DealerCount_TextChanged(object sender, EventArgs e)
+        {
+            int.TryParse(DealerCount.Text, out int dealerCount);
+
+            if (dealerCount > 21)
+            {
+                thisGame.SetPlayerResult(1, GameInstance.GameResult.Win);
+                playerCash += thisGame.GetPayout(1);
+                PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
+                restartAvailable = true;
+                MessageBox.Show("Dealer Busted, Player 1 Wins", "Player Wins!!");
+
+            }
+            else if (dealerCount == 21)
+            {
+                thisGame.SetPlayerResult(1, GameInstance.GameResult.Loss);
+                playerCash += thisGame.GetPayout(1);
+                PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
+                restartAvailable = true;
+                MessageBox.Show("Dealer got a Blackjack", "Player Lost!");
             }
         }
 
@@ -459,7 +486,13 @@ namespace BlackjackGame
 
             }
         }*/
+        private void ProfileButton_Click(object sender, EventArgs e)
+        {
+            if (profileForm.IsDisposed)
+                profileForm = new ProfileInterface();
+            profileForm.Show();
 
+        }
         private void DisplayCards(bool dealerFaceDown)
         {
             
@@ -558,7 +591,7 @@ namespace BlackjackGame
 
             PlayerCount.Text = p1Hand.GetTotal().ToString();
 
-        }
+		}
 
         private void ResetButton_Click(object sender, EventArgs e)
         {
@@ -582,6 +615,8 @@ namespace BlackjackGame
                 }
                 restartAvailable = false;
                 roundStarted = false;
+                PlayerCount.Text = 0.ToString();
+                DealerCount.Text = 0.ToString();
             }
 
         }

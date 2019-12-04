@@ -14,7 +14,6 @@ namespace Blackjack
 {
 	public partial class ProfileInterface : Form
 	{
-		string output;
 		string Fullname;
 
 		public ProfileInterface()
@@ -195,15 +194,15 @@ namespace Blackjack
 				StatusLabel.Text = "Confirmed";
 				StatusLabel.Visible = true;
 
-				UserSignUpTextBox.Text = "";
-				PassSignUpTextBox.Text = "";
-				NameSignUpTextBox.Text = "";
-				PhoneSignUpTextBox.Text = "";
-				AddressSignUpTextBox.Text = "";
-				CardInfoSignUpTextBox.Text = "";
-			}
+                UserSignUpTextBox.Text = "";
+                PassSignUpTextBox.Text = "";
+                NameSignUpTextBox.Text = "";
+                PhoneSignUpTextBox.Text = "";
+                AddressSignUpTextBox.Text = "";
+                CardInfoSignUpTextBox.Text = "";
+            }
 
-			else
+            else
 			{
 				StatusLabel.Visible = true;
 			}
@@ -217,8 +216,6 @@ namespace Blackjack
 			string[] info = Directory.GetFiles(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BlackJackGame"));
 
 			string reader = "";
-
-			int x = 1;
 
 			if (ActiveLogin.Text != "Guest"){
 				LoginButton.Visible = false;

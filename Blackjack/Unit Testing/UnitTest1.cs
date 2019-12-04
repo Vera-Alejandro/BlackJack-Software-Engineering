@@ -5,6 +5,8 @@ using Blackjack;
 using SQLite;
 using System.IO;
 using System.Diagnostics;
+using System.Security.Cryptography;
+
 
 namespace Unit_Testing
 {
@@ -163,6 +165,45 @@ namespace Unit_Testing
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
+                Assert.Fail();
+            }
+        }
+
+        [TestMethod]
+        public void TestEncryption()
+        {
+            byte[] _password;
+            string Password = "Merry_Christmas";
+            string pinapple = "who_lives_in_a_pinapple_under_the_sea";
+            byte[] salt1 = new byte[8];
+
+            using (RNGCryptoServiceProvider rNGCrypto = new RNGCryptoServiceProvider())
+            {
+                rNGCrypto.GetBytes(salt1);
+            }
+
+            try
+            {
+                Rfc2898DeriveBytes key1 = new Rfc2898DeriveBytes(pinapple, salt1);
+                Rfc2898DeriveBytes key2 = new Rfc2898DeriveBytes(pinapple, salt1);
+
+                TripleDES tripleDES = TripleDES.Create();
+                tripleDES.Key = key1.GetBytes(16);
+                MemoryStream encryptionStream = new MemoryStream();
+                CryptoStream encrypt = new CryptoStream(encryptionStream, tripleDES.CreateDecryptor(), CryptoStreamMode.Write);
+                byte[] utfD1 = new System.Text.UTF8Encoding(false).GetBytes(Password);
+
+                encrypt.Write(utfD1, 0, utfD1.Length);
+                //encrypt.FlushFinalBlock();
+                encrypt.Close();
+              
+                _password = encryptionStream.ToArray();
+
+                key1.Reset();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
                 Assert.Fail();
             }
         }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackjackGame", "Blackjack\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unit Testing", "Unit Testing\Unit Testing.csproj", "{C136CA96-9072-4BD2-BD96-1A40750ED792}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLite", "SQLite\SQLite.csproj", "{7A5B1C76-770A-4986-B62B-F20E4EBD50E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C136CA96-9072-4BD2-BD96-1A40750ED792}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C136CA96-9072-4BD2-BD96-1A40750ED792}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C136CA96-9072-4BD2-BD96-1A40750ED792}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A5B1C76-770A-4986-B62B-F20E4EBD50E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A5B1C76-770A-4986-B62B-F20E4EBD50E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A5B1C76-770A-4986-B62B-F20E4EBD50E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A5B1C76-770A-4986-B62B-F20E4EBD50E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

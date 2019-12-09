@@ -8,6 +8,7 @@ namespace Storage
 {
     public class ProfileInfo
     {
+        private const string encrypt_pass = "Merry_Christmas";
         private string _user { get; set; }
         private byte[] _password { get; set; }
         private string _name { get; set; }
@@ -25,7 +26,8 @@ namespace Storage
 
         public void SetPassword(string Password)
         {
-            string pinapple = "who_lives_in_a_pinapple_under_the_sea";
+            byte[] _password;
+            string data1 = "who_lives_in_a_pinapple_under_the_sea";
             byte[] salt1 = new byte[8];
 
             using (RNGCryptoServiceProvider rNGCrypto = new RNGCryptoServiceProvider())
@@ -35,27 +37,26 @@ namespace Storage
 
             try
             {
-                Rfc2898DeriveBytes key1 = new Rfc2898DeriveBytes(pinapple, salt1);
-                Rfc2898DeriveBytes key2 = new Rfc2898DeriveBytes(pinapple, salt1);
+                Rfc2898DeriveBytes k1 = new Rfc2898DeriveBytes(encrypt_pass, salt1);
+                Rfc2898DeriveBytes k2 = new Rfc2898DeriveBytes(encrypt_pass, salt1);
 
-                TripleDES tripleDES = TripleDES.Create();
-                tripleDES.Key = key1.GetBytes(16);
+                // Encrypt the data.
+                TripleDES encAlg = TripleDES.Create();
+                encAlg.Key = k1.GetBytes(16);
                 MemoryStream encryptionStream = new MemoryStream();
-                CryptoStream encrypt = new CryptoStream(encryptionStream, tripleDES.CreateDecryptor(), CryptoStreamMode.Write);
-                byte[] encryptedPass = new System.Text.UTF8Encoding(false).GetBytes(Password);
+                CryptoStream encrypt = new CryptoStream(encryptionStream, encAlg.CreateEncryptor(), CryptoStreamMode.Write);
+                byte[] utfD1 = new System.Text.UTF8Encoding(false).GetBytes(data1);
 
-                encrypt.Write(encryptedPass, 0, encryptedPass.Length);
+                encrypt.Write(utfD1, 0, utfD1.Length);
                 encrypt.FlushFinalBlock();
                 encrypt.Close();
+                byte[] edata1 = encryptionStream.ToArray();
+                k1.Reset();
 
-                _password = encryptionStream.ToArray();
-
-                key1.Reset();
             }
             catch (Exception)
             {
                 Debug.WriteLine("failure to encrypt");
-                _password = Encoding.ASCII.GetBytes(Password);
                 //make sure there is a marker that says that something broke with the password because then it will try and decrypt it
             }
         }
@@ -68,7 +69,34 @@ namespace Storage
 
         public void SetCardNumber(string CardNumber) { _cardNumber = CardNumber; }
 
+        public string GetPassword()
+        {
+            byte[] salt1 = new byte[8];
+            byte[] edata = { 0, 1 };
 
+            using (RNGCryptoServiceProvider rNGCrypto = new RNGCryptoServiceProvider())
+            {
+                rNGCrypto.GetBytes(salt1);
+            }
+        
+            Rfc2898DeriveBytes k1 = new Rfc2898DeriveBytes(encrypt_pass, salt1);
+            Rfc2898DeriveBytes k2 = new Rfc2898DeriveBytes(encrypt_pass, salt1);
+            TripleDES encAlg = TripleDES.Create();
+
+            // Try to decrypt, thus showing it can be round-tripped.
+            TripleDES decAlg = TripleDES.Create();
+            decAlg.Key = k2.GetBytes(16);
+            decAlg.IV = encAlg.IV;
+            MemoryStream decryptionStreamBacking = new MemoryStream();
+            CryptoStream decrypt = new CryptoStream(decryptionStreamBacking, decAlg.CreateDecryptor(), CryptoStreamMode.Write);
+            decrypt.Write(edata, 0, edata.Length);
+            decrypt.Flush();
+            decrypt.Close();
+            k2.Reset();
+            string decrypt_pass = new UTF8Encoding(false).GetString(decryptionStreamBacking.ToArray());
+
+            return decrypt_pass;
+        }
 
     }
 }

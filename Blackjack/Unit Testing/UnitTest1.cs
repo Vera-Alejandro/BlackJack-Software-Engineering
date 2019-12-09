@@ -6,7 +6,7 @@ using SQLite;
 using System.IO;
 using System.Diagnostics;
 using System.Security.Cryptography;
-
+using System.Text;
 
 namespace Unit_Testing
 {
@@ -174,7 +174,8 @@ namespace Unit_Testing
         {
             byte[] _password;
             string Password = "Merry_Christmas";
-            string pinapple = "who_lives_in_a_pinapple_under_the_sea";
+            string data1 = "who_lives_in_a_pinapple_under_the_sea";
+            string data2 = "";
             byte[] salt1 = new byte[8];
 
             using (RNGCryptoServiceProvider rNGCrypto = new RNGCryptoServiceProvider())
@@ -184,28 +185,52 @@ namespace Unit_Testing
 
             try
             {
-                Rfc2898DeriveBytes key1 = new Rfc2898DeriveBytes(pinapple, salt1);
-                Rfc2898DeriveBytes key2 = new Rfc2898DeriveBytes(pinapple, salt1);
+                Rfc2898DeriveBytes k1 = new Rfc2898DeriveBytes(Password, salt1);
+                Rfc2898DeriveBytes k2 = new Rfc2898DeriveBytes(Password, salt1);
 
-                TripleDES tripleDES = TripleDES.Create();
-                tripleDES.Key = key1.GetBytes(16);
+                // Encrypt the data.
+                TripleDES encAlg = TripleDES.Create();
+                encAlg.Key = k1.GetBytes(16);
                 MemoryStream encryptionStream = new MemoryStream();
-                CryptoStream encrypt = new CryptoStream(encryptionStream, tripleDES.CreateDecryptor(), CryptoStreamMode.Write);
-                byte[] utfD1 = new System.Text.UTF8Encoding(false).GetBytes(Password);
+                CryptoStream encrypt = new CryptoStream(encryptionStream, encAlg.CreateEncryptor(), CryptoStreamMode.Write);
+                byte[] utfD1 = new System.Text.UTF8Encoding(false).GetBytes(data1);
 
                 encrypt.Write(utfD1, 0, utfD1.Length);
-                //encrypt.FlushFinalBlock();
+                encrypt.FlushFinalBlock();
                 encrypt.Close();
-              
-                _password = encryptionStream.ToArray();
+                byte[] edata1 = encryptionStream.ToArray();
+                k1.Reset();
 
-                key1.Reset();
+                // Try to decrypt, thus showing it can be round-tripped.
+                TripleDES decAlg = TripleDES.Create();
+                decAlg.Key = k2.GetBytes(16);
+                decAlg.IV = encAlg.IV;
+                MemoryStream decryptionStreamBacking = new MemoryStream();
+                CryptoStream decrypt = new CryptoStream(decryptionStreamBacking, decAlg.CreateDecryptor(), CryptoStreamMode.Write);
+                decrypt.Write(edata1, 0, edata1.Length);
+                decrypt.Flush();
+                decrypt.Close();
+                k2.Reset();
+                data2 = new UTF8Encoding(false).GetString(decryptionStreamBacking.ToArray());
+
+                if (!data1.Equals(data2))
+                {
+                    Console.WriteLine("Error: The two values are not equal.");
+                }
+                else
+                {
+                    Console.WriteLine("The two values are equal.");
+                    Console.WriteLine("k1 iterations: {0}", k1.IterationCount);
+                    Console.WriteLine("k2 iterations: {0}", k2.IterationCount);
+                }
             }
             catch (Exception e)
             {
                 Debug.WriteLine(e.Message);
                 Assert.Fail();
             }
+
+            Assert.AreEqual(data1, data2);
         }
     }
 }

@@ -14,7 +14,6 @@ namespace Blackjack
 {
 	public partial class ProfileInterface : Form
 	{
-		string output;
 		string Fullname;
 
 		public ProfileInterface()
@@ -156,8 +155,6 @@ namespace Blackjack
 				{
 					LogStatusLabel.Visible = true;
 				}
-
-
 			}
 			else
 			{
@@ -169,10 +166,10 @@ namespace Blackjack
 		{
 			if (UserSignUpTextBox.Text != "" && PassSignUpTextBox.Text != "" && NameSignUpTextBox.Text != "" && PhoneSignUpTextBox.Text != "" && AddressSignUpTextBox.Text != "" && CardInfoSignUpTextBox.Text != "") {
 
-				bool exists = System.IO.Directory.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BlackJackGame"));
+				bool exists = Directory.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BlackJackGame"));
 
 				if (!exists)
-					System.IO.Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BlackJackGame"));
+					Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BlackJackGame"));
 
 				Fullname = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BlackJackGame/") + UserSignUpTextBox.Text + NameSignUpTextBox.Text + "info.txt";
 
@@ -197,15 +194,15 @@ namespace Blackjack
 				StatusLabel.Text = "Confirmed";
 				StatusLabel.Visible = true;
 
-				UserSignUpTextBox.Text = "";
-				PassSignUpTextBox.Text = "";
-				NameSignUpTextBox.Text = "";
-				PhoneSignUpTextBox.Text = "";
-				AddressSignUpTextBox.Text = "";
-				CardInfoSignUpTextBox.Text = "";
-			}
+                UserSignUpTextBox.Text = "";
+                PassSignUpTextBox.Text = "";
+                NameSignUpTextBox.Text = "";
+                PhoneSignUpTextBox.Text = "";
+                AddressSignUpTextBox.Text = "";
+                CardInfoSignUpTextBox.Text = "";
+            }
 
-			else
+            else
 			{
 				StatusLabel.Visible = true;
 			}
@@ -219,8 +216,6 @@ namespace Blackjack
 			string[] info = Directory.GetFiles(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BlackJackGame"));
 
 			string reader = "";
-
-			int x = 1;
 
 			if (ActiveLogin.Text != "Guest"){
 				LoginButton.Visible = false;

@@ -102,7 +102,7 @@ namespace Blackjack
 
         public int GetNumberOfCards()
         {
-            return _numCards;
+            return _currentHand.Count;
         }
 
         public Card GetCard()
@@ -123,9 +123,13 @@ namespace Blackjack
         public bool HasBusted()
         {
             if (_handTotal < 22)
+            {
                 return false;
+            }
             else
+            {
                 return true;
+            }
         }
     }
 }

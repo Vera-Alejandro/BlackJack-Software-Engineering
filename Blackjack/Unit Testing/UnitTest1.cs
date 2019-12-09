@@ -2,6 +2,11 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BlackjackGame;
 using Blackjack;
+using SQLite;
+using System.IO;
+using System.Diagnostics;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Unit_Testing
 {
@@ -108,6 +113,124 @@ namespace Unit_Testing
             }
 
 
+        }
+
+
+        [TestMethod]
+        public void CorrectPayoutsTest()
+        {
+            GameInstance testGame = new GameInstance();
+            testGame.AddPlayer();
+            testGame.AddPlayer();
+            testGame.AddPlayer();
+            testGame.AddPlayer();
+
+            testGame.SetBet(1, 10);
+            testGame.SetBet(2, 10);
+            testGame.SetBet(3, 10);
+            testGame.SetBet(4, 10);
+
+            testGame.SetPlayerResult(1, GameInstance.GameResult.Loss);
+            testGame.SetPlayerResult(2, GameInstance.GameResult.Win);
+            testGame.SetPlayerResult(3, GameInstance.GameResult.Standoff);
+            testGame.SetPlayerResult(4, GameInstance.GameResult.PlayerBlackjack);
+
+            const double CORRECT_LOSS = -10;
+            const double CORRECT_WIN = 10;
+            const double CORRECT_TIE = 0;
+            const double CORRECT_BLACKJACK = 15;
+
+            Assert.AreEqual(testGame.GetPayout(1), CORRECT_LOSS);
+            Assert.AreEqual(testGame.GetPayout(2), CORRECT_WIN);
+            Assert.AreEqual(testGame.GetPayout(3), CORRECT_TIE);
+            Assert.AreEqual(testGame.GetPayout(4), CORRECT_BLACKJACK);
+        }
+        
+        [TestMethod]
+        public void DatabaseCreationTest()
+        {
+            string SQLiteFile = Directory.GetParent(Directory.GetCurrentDirectory()).ToString();
+            SQLiteFile = Directory.GetParent(SQLiteFile).ToString();
+            SQLiteFile = Directory.GetParent(SQLiteFile).ToString();
+            SQLiteFile = Path.Combine(SQLiteFile, "GameData.sqlite3");
+
+            try
+            {
+                Database testdb = new Database(SQLiteFile);
+
+                testdb.Connect();
+
+                testdb.Disconnect();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                Assert.Fail();
+            }
+        }
+
+        [TestMethod]
+        public void TestEncryption()
+        {
+            byte[] _password;
+            string Password = "Merry_Christmas";
+            string data1 = "who_lives_in_a_pinapple_under_the_sea";
+            string data2 = "";
+            byte[] salt1 = new byte[8];
+
+            using (RNGCryptoServiceProvider rNGCrypto = new RNGCryptoServiceProvider())
+            {
+                rNGCrypto.GetBytes(salt1);
+            }
+
+            try
+            {
+                Rfc2898DeriveBytes k1 = new Rfc2898DeriveBytes(Password, salt1);
+                Rfc2898DeriveBytes k2 = new Rfc2898DeriveBytes(Password, salt1);
+
+                // Encrypt the data.
+                TripleDES encAlg = TripleDES.Create();
+                encAlg.Key = k1.GetBytes(16);
+                MemoryStream encryptionStream = new MemoryStream();
+                CryptoStream encrypt = new CryptoStream(encryptionStream, encAlg.CreateEncryptor(), CryptoStreamMode.Write);
+                byte[] utfD1 = new System.Text.UTF8Encoding(false).GetBytes(data1);
+
+                encrypt.Write(utfD1, 0, utfD1.Length);
+                encrypt.FlushFinalBlock();
+                encrypt.Close();
+                byte[] edata1 = encryptionStream.ToArray();
+                k1.Reset();
+
+                // Try to decrypt, thus showing it can be round-tripped.
+                TripleDES decAlg = TripleDES.Create();
+                decAlg.Key = k2.GetBytes(16);
+                decAlg.IV = encAlg.IV;
+                MemoryStream decryptionStreamBacking = new MemoryStream();
+                CryptoStream decrypt = new CryptoStream(decryptionStreamBacking, decAlg.CreateDecryptor(), CryptoStreamMode.Write);
+                decrypt.Write(edata1, 0, edata1.Length);
+                decrypt.Flush();
+                decrypt.Close();
+                k2.Reset();
+                data2 = new UTF8Encoding(false).GetString(decryptionStreamBacking.ToArray());
+
+                if (!data1.Equals(data2))
+                {
+                    Console.WriteLine("Error: The two values are not equal.");
+                }
+                else
+                {
+                    Console.WriteLine("The two values are equal.");
+                    Console.WriteLine("k1 iterations: {0}", k1.IterationCount);
+                    Console.WriteLine("k2 iterations: {0}", k2.IterationCount);
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                Assert.Fail();
+            }
+
+            Assert.AreEqual(data1, data2);
         }
     }
 }

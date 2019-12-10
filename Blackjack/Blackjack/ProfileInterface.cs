@@ -146,13 +146,17 @@ namespace Blackjack
 		{
 			if (UserTextBox.Text != "" && PassTextBox.Text != "")
 			{
-				bool contains = Directory.EnumerateFiles(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BlackJackGame")).Any(f => f.Contains(UserTextBox.Text));
+				bool contains = Directory.EnumerateFiles(Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3")).Any(f => f.Contains(UserTextBox.Text));
+				
 				if (contains == true)
 				{
-					ActiveLogin.Text = UserTextBox.Text;
-					MenuButton_Click(sender, e);
+					ProfileInfo info = info.GetProfileData(UserTextBox.Text);
+					string pass = info.GetPassword();
 
-					//this needs to read the username and password, it is only reading the username right now
+					if(PassTextBox.Text == pass){//THIS IS WHERE YOU WOULD LOAD THE GAME STATE
+						ActiveLogin.Text = UserTextBox.Text;
+						MenuButton_Click(sender, e);
+					}
 				}
 				else
 				{
@@ -169,20 +173,12 @@ namespace Blackjack
 		{
 			if (UserSignUpTextBox.Text != "" && PassSignUpTextBox.Text != "" && NameSignUpTextBox.Text != "" && PhoneSignUpTextBox.Text != "" && AddressSignUpTextBox.Text != "" && CardInfoSignUpTextBox.Text != "") {
 
-				//bool exists = Directory.Exists(Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3"));
+				fileLoc = Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3");			
+	
+				bool exists = Directory.Exists(Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3"));
 
-				//if (!exists)
-					//Directory.CreateDirectory(Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3"));
-
-				fileLoc = Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3");
-
-				//if (File.Exists(Fullname))
-					//File.Delete(Fullname);
-
-				FileStream fs = File.Create(fileLoc);
-				fs.Close();
-
-				Database saveFile = new Database(fileLoc);
+				if (!exists)
+					Database saveFile = new Database(fileLoc);				
 
 				Storage.ProfileInfo info = new Storage.ProfileInfo();
 
@@ -193,7 +189,7 @@ namespace Blackjack
 				info.SetAddress(AddressSignUpTextBox.Text);
 				info.SetCardNumber(CardInfoSignUpTextBox.Text);
 
-				//saveFile.SaveProfile(info, UserSignUpTextBox.Text);
+				saveFile.SaveProfile(info, UserSignUpTextBox.Text);
 
 				StatusLabel.Text = "Confirmed";
 				StatusLabel.Visible = true;

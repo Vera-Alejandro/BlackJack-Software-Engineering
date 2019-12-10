@@ -9,6 +9,7 @@ namespace Storage
     public class ProfileInfo
     {
         private const string encrypt_pass = "Merry_Christmas";
+        public int ID { get; set; }
         private string _user { get; set; }
         private byte[] _password { get; set; }
         private string _name { get; set; }
@@ -16,10 +17,25 @@ namespace Storage
         private string _address { get; set; }
         private string _cardNumber { get; set; }
 
+        public ProfileInfo() { }
 
-        public ProfileInfo()
+        public ProfileInfo(string Username, string Name, string PhoneNumber, string Address, string CardNumber)
         {
+            _user = Username;
+            _name = Name;
+            _phone = PhoneNumber;
+            _address = Address;
+            _cardNumber = CardNumber;
+        }
 
+        public ProfileInfo(string Username, string password, string Name, string PhoneNumber, string Address, string CardNumber)
+        {
+            _user = Username;
+            _name = Name;
+            _phone = PhoneNumber;
+            _address = Address;
+            _cardNumber = CardNumber;
+            SetPassword(password);
         }
 
         public void SetUser(string User) { _user = User; }
@@ -115,6 +131,8 @@ namespace Storage
         public string GetPhoneNumber() { return _phone; }
         public string GetAddress() { return _address; }
         public string GetCardNumber() { return _cardNumber; }
+
+        public void ServerSetPassword(byte[] flow) { _password = flow; }
 
     }
 }

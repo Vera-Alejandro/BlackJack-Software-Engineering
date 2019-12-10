@@ -6,6 +6,7 @@ using System.Data.SQLite;
 using System.Diagnostics;
 using System.IO;
 using Dapper;
+using System.Linq;
 
 namespace SQLite
 {
@@ -143,10 +144,9 @@ namespace SQLite
         /// <summary>
         /// Saves Profile to SQLite db file 
         /// </summary>
-        /// <param name="profile">
-        /// Profile if with data of user that you want to save
-        /// </param>
-        public void SaveProfile(ProfileInfo profile)
+        /// <param name="profile"></param>
+        /// <returns>returns the rows affected or -69 if user already exists in database</returns>
+        public int SaveProfile(ProfileInfo profile)
         {
             string create_table = $"CREATE TABLE IF NOT EXISTS MasterProfile(" +
                 $"ID INTEGER PRIMARY KEY," +
@@ -160,15 +160,24 @@ namespace SQLite
             SQLiteCommand create = new SQLiteCommand(create_table, _fileConnection);
             create.ExecuteNonQuery();
 
-            string _command = $"INSERT INTO MasterProfile " +
-                $"(UserName, Password, FullName, PhoneNumber, Address, CardNumber) " +
-                $"VALUES " +
-                $"(@UserName, @Password, @FullName, @PhoneNumber, @Address, @CardNumber);";
+            //      *checking if username exists*
+            var rows = _fileConnection.Query(string.Format(
+                        "SELECT COUNT(1) as 'Count' FROM MasterProfile WHERE Username = '{0}'",
+                        profile.GetUser()));
 
-            SQLiteCommand _insertCmd = new SQLiteCommand(_command, _fileConnection);
+            bool userExists = rows.Count() > 0;
 
-            SQLiteParameter[] parameters =
+            if (!userExists)
             {
+                string _command = $"INSERT INTO MasterProfile " +
+                    $"(UserName, Password, FullName, PhoneNumber, Address, CardNumber) " +
+                    $"VALUES " +
+                    $"(@UserName, @Password, @FullName, @PhoneNumber, @Address, @CardNumber);";
+
+                SQLiteCommand _insertCmd = new SQLiteCommand(_command, _fileConnection);
+
+                SQLiteParameter[] parameters =
+                {
                 new SQLiteParameter(@"UserName", profile.GetUser()),
                 new SQLiteParameter(@"Password", profile.StorePassword()),
                 new SQLiteParameter(@"FullName", profile.GetName()),
@@ -176,11 +185,18 @@ namespace SQLite
                 new SQLiteParameter(@"Address", profile.GetAddress()),
                 new SQLiteParameter(@"CardNumber", profile.GetCardNumber()),
             };
-            _insertCmd.Parameters.AddRange(parameters);
+                _insertCmd.Parameters.AddRange(parameters);
 
-            int rows_affected = _insertCmd.ExecuteNonQuery();
+                int rows_affected = _insertCmd.ExecuteNonQuery();
 
-            Debug.WriteLine("rows affected :" + rows_affected);
+                Debug.WriteLine("rows affected :" + rows_affected);
+
+                return rows_affected;
+            }
+            else
+            {
+                return -69;
+            }
         }
 
         /// <summary>
@@ -193,9 +209,30 @@ namespace SQLite
         /// Profile Info class with all data that is stored on that user
         /// Returns null if no data on user found
         /// </returns>
-        public ProfileInfo GetProfileData(string UserName)
+        public ProfileInfo GetProfileData(string Username)
         {
-            
+            var userCollection = _fileConnection.Query<SafeProfileInfo>(
+                "SELECT * FROM MasterProfile WHERE Username = @Username", new { Username });
+
+            SafeProfileInfo temp = userCollection.FirstOrDefault();
+
+            ProfileInfo profileData = new ProfileInfo(temp.UserName, temp.FullName, temp.PhoneNumber, temp.Address, temp.CardNumber);
+            profileData.ServerSetPassword(temp.Password);
+            profileData.ID = temp.ID;
+
+            return profileData;
         }
     }
+
+    internal class SafeProfileInfo
+    {
+        public int ID { get; set; }
+        public string UserName {get; set;}
+        public byte[] Password {get; set;}
+        public string FullName {get; set;}
+        public string PhoneNumber{get; set;}
+        public string Address {get; set;}
+        public string CardNumber {get; set;}
+    }
+
 }

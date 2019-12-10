@@ -1,21 +1,18 @@
-﻿using System;
+﻿using Blackjack;
+using SQLite;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using Blackjack;
-using System.Globalization;
+
 
 namespace BlackjackGame
 {
-
     public partial class Blackjack : Form
-    {
+    {    
         #region Move Form
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -38,6 +35,9 @@ namespace BlackjackGame
 
         #endregion
 
+        ProfileInterface profileForm = new ProfileInterface();
+        private string SQLiteFile = 
+            Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName, "GameData.sqlite3");
         private bool gameStarted = false;
         private bool roundStarted = false;
         private bool restartAvailable = false;
@@ -55,7 +55,7 @@ namespace BlackjackGame
         {
             InitializeComponent();
         }
- 
+
         private void Blackjack_Load(object sender, EventArgs e)
         {
             CenterToScreen();
@@ -66,10 +66,18 @@ namespace BlackjackGame
             jazzSound.Play();
         }
 
-        private void Close_Click(object sender, EventArgs e) { Close(); }
+        private void Close_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
 
-        private void Resize_Click(object sender, EventArgs e) 
-            { WindowState = (WindowState == FormWindowState.Maximized) ? FormWindowState.Normal : FormWindowState.Maximized; }
+        private void Resize_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Maximized) 
+            { WindowState = FormWindowState.Normal; }
+            else
+            { WindowState = FormWindowState.Maximized; }
+        }
 
         private void Minimize_Click(object sender, EventArgs e) { WindowState = FormWindowState.Minimized; }
 
@@ -100,13 +108,14 @@ namespace BlackjackGame
             ProfileButton.Visible = true;
             SaveButton.Visible = true;
             ResetButton.Visible = true;
+
             #endregion
 
             gameStarted = true;
 
             thisGame.AddPlayer(); //add a player to the game
 
-            for(int i = 0; i < 10; i ++)
+            for (int i = 0; i < 10; i++)
             {
                 PictureBox card = new PictureBox();
                 playerCardPictures.Add(card);
@@ -117,7 +126,7 @@ namespace BlackjackGame
                 playerCardPictures[i].BringToFront();
             }
 
- 
+
             for (int i = 0; i < 10; i++)
             {
                 PictureBox card = new PictureBox();
@@ -128,7 +137,6 @@ namespace BlackjackGame
                 DealerHand.Controls.Add(dealerCardPictures[i]);
                 dealerCardPictures[i].BringToFront();
             }
-
         }
 
         private void Stay_Click(object sender, EventArgs e)
@@ -146,7 +154,7 @@ namespace BlackjackGame
 
         private void Hit_Click(object sender, EventArgs e)
         {
-            if(thisGame.GetBet(1) <= 0)
+            if (thisGame.GetBet(1) <= 0)
             {
                 Output.Text = "Must bet to play!";
                 return;
@@ -160,19 +168,23 @@ namespace BlackjackGame
 
             DisplayCards(true);
             PlayerCount.Text = hand.GetTotal().ToString();
+            if (hand.HasBusted())
+            {
+                Output.Text = "Player busted!";
+                this.Hit.Visible = false;
+                this.Stay.Visible = false;
+                Who_Won();
+            }
         }
 
         private void Computer_Turn()
         {
-            int.TryParse(DealerCount.Text, out int dealerCount);
-            int.TryParse(PlayerCount.Text, out int playerCount);
             int dealerStayValue = 17;
-
             Hand dealerHand = thisGame.GetDealerHand();
 
-            if ( dealerHand.GetTotal() < dealerStayValue )
+            if (dealerHand.GetTotal() < dealerStayValue)
             {
-                while ( dealerHand.GetTotal()< dealerStayValue )
+                while (dealerHand.GetTotal() < dealerStayValue)
                 {
                     Card hitCard = thisGame.GetDeck().GetCard();
                     dealerHand.AddCard(hitCard);
@@ -180,9 +192,61 @@ namespace BlackjackGame
                 }
             }
 
-            if(dealerCount < 21 && playerCount < 21)
+            Who_Won();
+        }
+
+        private void DealerCount_TextChanged(object sender, EventArgs e)
+        {
+            int.TryParse(DealerCount.Text, out int dealerCount);
+
+            if (dealerCount > 21)
             {
-                Who_Won();
+                thisGame.SetPlayerResult(1, GameInstance.GameResult.Win);
+                playerCash += thisGame.GetPayout(1);
+                PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
+                restartAvailable = true;
+                MessageBox.Show("Dealer Busted, Player 1 Wins", "Player Wins!!");
+
+            }
+            else if (dealerCount == 21)
+            {
+                thisGame.SetPlayerResult(1, GameInstance.GameResult.Loss);
+                playerCash += thisGame.GetPayout(1);
+                PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
+                restartAvailable = true;
+                MessageBox.Show("Dealer got a Blackjack", "Player Lost!");
+            }
+        }
+
+        private void PlayerCount_TextChanged(object sender, EventArgs e)
+        {
+            int.TryParse(PlayerCount.Text, out int playerCount);
+
+
+            if (playerCount > 21)
+            {
+                Output.Text = "Player busted!";
+                this.Hit.Visible = false;
+                this.Stay.Visible = false;
+                thisGame.SetPlayerResult(1, GameInstance.GameResult.Loss);
+                playerCash += thisGame.GetPayout(1);
+                PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
+                restartAvailable = true;
+                MessageBox.Show("Player Busted, Computer Wins", "Player Lost!");
+                DisplayCards(false);
+
+            }
+            else if (playerCount == 21)
+            {
+                Output.Text = "Player got a Blackjack!!";
+                this.Hit.Visible = false;
+                this.Stay.Visible = false;
+                thisGame.SetPlayerResult(1, GameInstance.GameResult.PlayerBlackjack);
+                playerCash += thisGame.GetPayout(1);
+                PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
+                restartAvailable = true;
+                MessageBox.Show("Player got a natural Blackjack", "Player Wins!!");
+                DisplayCards(false);
             }
         }
 
@@ -219,11 +283,9 @@ namespace BlackjackGame
 
         }
 
-        #region Bet Money Functions
-
         private void BetThousand_Click(object sender, EventArgs e)
         {
-            if(roundStarted)
+            if (roundStarted)
             {
                 Output.Text = "Cards already dealt!";
             }
@@ -243,7 +305,7 @@ namespace BlackjackGame
             {
                 Output.Text = "Cards already dealt!";
             }
-            else if(playerCash <= 0)
+            else if (playerCash <= 0)
             {
                 Output.Text = "No money to bet!";
             }
@@ -294,7 +356,7 @@ namespace BlackjackGame
                 Output.Text = "Cards already dealt!";
             }
             else if (CanBet(100))
-            {                
+            {
                 thisGame.SetBet(1, 100);
                 Output.Text = "Player bet:  $" + thisGame.GetBet(1).ToString() + ".";
                 StartRound();
@@ -383,11 +445,11 @@ namespace BlackjackGame
                 Output.Text = "Not enough money to bet!";
         }
 
-#endregion
-
-        private void DealerCount_TextChanged(object sender, EventArgs e)
+        private void ProfileButton_Click(object sender, EventArgs e)
         {
-            int.TryParse(DealerCount.Text, out int dealerCount);
+            if (profileForm.IsDisposed)
+                profileForm = new ProfileInterface();
+            profileForm.Show();
 
             if (dealerCount > 21)
             {
@@ -442,7 +504,7 @@ namespace BlackjackGame
 
         private void DisplayCards(bool dealerFaceDown)
         {
-            
+
             Hand p1Hand = thisGame.GetPlayerHand(1);
             Hand dealerHand = thisGame.GetDealerHand();
 
@@ -451,11 +513,9 @@ namespace BlackjackGame
 
             int downValue = 0;
             int i = 0;
-
-
-            foreach(Card card in dealerCards)
+            foreach (Card card in dealerCards)
             {
-                if (i == 1 && dealerFaceDown)   //what if we changed this to if (i >= 1) then we can't see the other cards if the dealer were to hit again
+                if (i == 1 && dealerFaceDown)
                 {
                     dealerCardPictures[i].Image = card.GetBackImage();
 
@@ -506,7 +566,6 @@ namespace BlackjackGame
                 {
                     dealerCardPictures[i].Image = card.GetImage();
                 }
-
                 dealerCardPictures[i].BringToFront();
 
                 i++;
@@ -521,8 +580,7 @@ namespace BlackjackGame
 
                 i++;
             }
-
-            if(dealerHand.GetTotal() == 21)
+            if (dealerHand.GetTotal() == 21)
             {
                 dealerCardPictures[1].Image = dealerCards[1].GetImage();
                 DealerCount.Text = dealerHand.GetTotal().ToString();
@@ -603,7 +661,7 @@ namespace BlackjackGame
             Card p2Card = playerHand.GetCard();
 
             DisplayCards(true);
-            if(dealerHand.GetTotal() == 21 || playerHand.GetTotal() == 21)
+            if (dealerHand.GetTotal() == 21 || playerHand.GetTotal() == 21)
             {
                 this.Hit.Visible = false;
                 this.Stay.Visible = false;

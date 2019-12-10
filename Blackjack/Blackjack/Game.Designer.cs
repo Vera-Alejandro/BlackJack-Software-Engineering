@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Blackjack));
             this.Close = new System.Windows.Forms.Button();
             this.Resize = new System.Windows.Forms.Button();
             this.Minimize = new System.Windows.Forms.Button();
@@ -138,9 +137,10 @@
             // 
             this.DealerHand.Controls.Add(this.DealerCount);
             this.DealerHand.Controls.Add(this.DCName);
-            this.DealerHand.Location = new System.Drawing.Point(12, 123);
+            this.DealerHand.Location = new System.Drawing.Point(9, 100);
+            this.DealerHand.Margin = new System.Windows.Forms.Padding(2);
             this.DealerHand.Name = "DealerHand";
-            this.DealerHand.Size = new System.Drawing.Size(550, 569);
+            this.DealerHand.Size = new System.Drawing.Size(553, 564);
             this.DealerHand.TabIndex = 5;
             this.DealerHand.Visible = false;
             // 
@@ -152,6 +152,7 @@
             this.DealerCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DealerCount.ForeColor = System.Drawing.Color.White;
             this.DealerCount.Location = new System.Drawing.Point(172, 0);
+            this.DealerCount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.DealerCount.Name = "DealerCount";
             this.DealerCount.Size = new System.Drawing.Size(28, 31);
             this.DealerCount.TabIndex = 1;
@@ -166,6 +167,7 @@
             this.DCName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DCName.ForeColor = System.Drawing.Color.White;
             this.DCName.Location = new System.Drawing.Point(0, 0);
+            this.DCName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.DCName.Name = "DCName";
             this.DCName.Size = new System.Drawing.Size(168, 31);
             this.DCName.TabIndex = 0;
@@ -179,9 +181,10 @@
             this.PlayerHand.Controls.Add(this.Hit);
             this.PlayerHand.Controls.Add(this.PlayerCount);
             this.PlayerHand.Controls.Add(this.PCName);
-            this.PlayerHand.Location = new System.Drawing.Point(568, 123);
+            this.PlayerHand.Location = new System.Drawing.Point(566, 100);
+            this.PlayerHand.Margin = new System.Windows.Forms.Padding(2);
             this.PlayerHand.Name = "PlayerHand";
-            this.PlayerHand.Size = new System.Drawing.Size(551, 569);
+            this.PlayerHand.Size = new System.Drawing.Size(554, 564);
             this.PlayerHand.TabIndex = 6;
             this.PlayerHand.Visible = false;
             // 
@@ -191,8 +194,7 @@
             this.PlayerCash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PlayerCash.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PlayerCash.ForeColor = System.Drawing.Color.White;
-            this.PlayerCash.Location = new System.Drawing.Point(416, 2);
-            this.PlayerCash.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.PlayerCash.Location = new System.Drawing.Point(336, 2);
             this.PlayerCash.Name = "PlayerCash";
             this.PlayerCash.Size = new System.Drawing.Size(97, 29);
             this.PlayerCash.TabIndex = 5;
@@ -207,8 +209,7 @@
             this.Cash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Cash.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cash.ForeColor = System.Drawing.Color.White;
-            this.Cash.Location = new System.Drawing.Point(347, 2);
-            this.Cash.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Cash.Location = new System.Drawing.Point(260, 2);
             this.Cash.Name = "Cash";
             this.Cash.Size = new System.Drawing.Size(74, 29);
             this.Cash.TabIndex = 4;
@@ -222,8 +223,7 @@
             this.Stay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Stay.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Stay.ForeColor = System.Drawing.Color.White;
-            this.Stay.Location = new System.Drawing.Point(300, 507);
-            this.Stay.Margin = new System.Windows.Forms.Padding(4);
+            this.Stay.Location = new System.Drawing.Point(303, 496);
             this.Stay.Name = "Stay";
             this.Stay.Size = new System.Drawing.Size(100, 50);
             this.Stay.TabIndex = 3;
@@ -237,8 +237,7 @@
             this.Hit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Hit.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Hit.ForeColor = System.Drawing.Color.White;
-            this.Hit.Location = new System.Drawing.Point(56, 507);
-            this.Hit.Margin = new System.Windows.Forms.Padding(4);
+            this.Hit.Location = new System.Drawing.Point(120, 496);
             this.Hit.Name = "Hit";
             this.Hit.Size = new System.Drawing.Size(100, 50);
             this.Hit.TabIndex = 2;
@@ -293,8 +292,7 @@
             this.BetLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BetLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BetLabel.ForeColor = System.Drawing.Color.White;
-            this.BetLabel.Location = new System.Drawing.Point(48, 13);
-            this.BetLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.BetLabel.Location = new System.Drawing.Point(36, 11);
             this.BetLabel.Name = "BetLabel";
             this.BetLabel.Size = new System.Drawing.Size(55, 31);
             this.BetLabel.TabIndex = 8;
@@ -454,10 +452,9 @@
             this.BettingPanel.Controls.Add(this.BetTwentyFive);
             this.BettingPanel.Controls.Add(this.BetHundred);
             this.BettingPanel.Controls.Add(this.BetFifty);
-            this.BettingPanel.Location = new System.Drawing.Point(12, 699);
-            this.BettingPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.BettingPanel.Location = new System.Drawing.Point(9, 669);
             this.BettingPanel.Name = "BettingPanel";
-            this.BettingPanel.Size = new System.Drawing.Size(1106, 114);
+            this.BettingPanel.Size = new System.Drawing.Size(1110, 125);
             this.BettingPanel.TabIndex = 19;
             this.BettingPanel.Visible = false;
             // 
@@ -484,6 +481,7 @@
             this.ProfileButton.Text = "Profile";
             this.ProfileButton.UseVisualStyleBackColor = false;
             this.ProfileButton.Visible = false;
+            this.ProfileButton.Click += new System.EventHandler(this.ProfileButton_Click);
             // 
             // SaveButton
             // 
@@ -498,6 +496,7 @@
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = false;
             this.SaveButton.Visible = false;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // ResetButton
             // 
@@ -520,20 +519,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1131, 806);
+            this.Controls.Add(this.TitleImage);
             this.Controls.Add(this.ResetButton);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.ProfileButton);
             this.Controls.Add(this.BettingPanel);
             this.Controls.Add(this.Output);
-            this.Controls.Add(this.PlayerHand);
-            this.Controls.Add(this.DealerHand);
             this.Controls.Add(this.Minimize);
             this.Controls.Add(this.Resize);
-            this.Controls.Add(this.TitleImage);
             this.Controls.Add(this.Close);
             this.Controls.Add(this.StartButton);
+            this.Controls.Add(this.DealerHand);
+            this.Controls.Add(this.PlayerHand);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(800, 450);
             this.Name = "Blackjack";
             this.Text = "z";

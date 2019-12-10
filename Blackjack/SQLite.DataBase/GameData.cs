@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Blackjack.Storage
+namespace SQLite.Storage
 {
     [Serializable]
     public class GameData
@@ -33,35 +29,20 @@ namespace Blackjack.Storage
             _moneyLost = MoneyLost;
             _moneyLeftOver = MoneyLeftOver;
 
-            if(_moneyWon > MostMoneymade)
-            {
-                MostMoneymade = _moneyWon;
-            }
+            if(_moneyWon > MostMoneymade) { MostMoneymade = _moneyWon; }
 
-            if(_moneyLost > MostMoneyLost)
-            {
-                MostMoneyLost = _moneyLost;
-            }
+            if(_moneyLost > MostMoneyLost) { MostMoneyLost = _moneyLost; }
         }
 
-        public int GetMoneyLeftOver()
-        {
-            return _moneyLeftOver;
-        }
+        public int GetMoneyLeftOver() { return _moneyLeftOver; }
 
-        public int GetMoneyBet()
-        {
-            return MoneyBet;
-        }
+        public int GetMoneyBet() { return MoneyBet; }
 
-        public int GetMoneyWon()
-        {
-            return _moneyWon;
-        }
+        public int GetMoneyWon() { return _moneyWon; }
 
-        public int GetMoneyLost()
-        {
-            return _moneyLost;
-        }
+        public int GetMoneyLost() { return _moneyLost; }
+
+        
+
     }
 }

@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace BlackjackGame
 {
     public partial class Blackjack : Form
-    {    
+    {
         #region Move Form
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -36,7 +36,7 @@ namespace BlackjackGame
         #endregion
 
         ProfileInterface profileForm = new ProfileInterface();
-        private string SQLiteFile = 
+        private string SQLiteFile =
             Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName, "GameData.sqlite3");
         private bool gameStarted = false;
         private bool roundStarted = false;
@@ -73,7 +73,7 @@ namespace BlackjackGame
 
         private void Resize_Click(object sender, EventArgs e)
         {
-            if (WindowState == FormWindowState.Maximized) 
+            if (WindowState == FormWindowState.Maximized)
             { WindowState = FormWindowState.Normal; }
             else
             { WindowState = FormWindowState.Maximized; }
@@ -451,57 +451,7 @@ namespace BlackjackGame
                 profileForm = new ProfileInterface();
             profileForm.Show();
 
-            if (dealerCount > 21)
-            {
-                thisGame.SetPlayerResult(1, GameInstance.GameResult.Win);
-                playerCash += thisGame.GetPayout(1);
-                PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
-                restartAvailable = true;
-                MessageBox.Show("Dealer Busted, Player 1 Wins", "Player Wins!!");
-
-            }
-            else if (dealerCount == 21)
-            {
-                thisGame.SetPlayerResult(1, GameInstance.GameResult.Loss);
-                playerCash += thisGame.GetPayout(1);
-                PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
-                restartAvailable = true;
-                MessageBox.Show("Dealer got a Blackjack", "Player Lost!");
-            }
         }
-
-        private void PlayerCount_TextChanged(object sender, EventArgs e)
-        {
-            int.TryParse(PlayerCount.Text, out int playerCount);
-
-        
-            if (playerCount > 21)
-            {
-                Output.Text = "Player busted!";
-                this.Hit.Visible = false;
-                this.Stay.Visible = false;
-                thisGame.SetPlayerResult(1, GameInstance.GameResult.Loss);
-                playerCash += thisGame.GetPayout(1);
-                PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
-                restartAvailable = true;
-                MessageBox.Show("Player Busted, Computer Wins", "Player Lost!");
-                DisplayCards(false);
-
-            }
-            else if (playerCount == 21)
-            {
-                Output.Text = "Player got a Blackjack!!";
-                this.Hit.Visible = false;
-                this.Stay.Visible = false;
-                thisGame.SetPlayerResult(1, GameInstance.GameResult.PlayerBlackjack);
-                playerCash += thisGame.GetPayout(1);
-                PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
-                restartAvailable = true;
-                MessageBox.Show("Player got a natural Blackjack", "Player Wins!!");
-                DisplayCards(false);
-            }
-        }
-
         private void DisplayCards(bool dealerFaceDown)
         {
 
@@ -591,16 +541,8 @@ namespace BlackjackGame
                 DealerCount.Text = dealerDisplayTotal.ToString();
             }
 
-            if(dealerFaceDown)
-            {
-                DealerCount.ForeColor = Color.Black;
-            }
-            else
-            {
-                DealerCount.ForeColor = Color.White;
-            }
-
             PlayerCount.Text = p1Hand.GetTotal().ToString();
+
         }
 
         private void ResetButton_Click(object sender, EventArgs e)
@@ -625,8 +567,8 @@ namespace BlackjackGame
                 }
                 restartAvailable = false;
                 roundStarted = false;
-                PlayerCount.Text = "0";
-                DealerCount.Text = "0";
+                PlayerCount.Text = 0.ToString();
+                DealerCount.Text = 0.ToString();
             }
 
         }
@@ -798,6 +740,15 @@ namespace BlackjackGame
             }
 
             #endregion
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            Database StorageDB = new Database(SQLiteFile);
+            StorageDB.Connect();
+
+
+            StorageDB.Disconnect();
         }
     }
 }

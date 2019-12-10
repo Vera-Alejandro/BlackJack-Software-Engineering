@@ -15,7 +15,7 @@ namespace Blackjack
 {
 	public partial class ProfileInterface : Form
 	{
-		string fileLoc = Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3");
+		string fileLoc = Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName, "GameData.sqlite3");
 
 		public ProfileInterface()
 		{
@@ -157,7 +157,7 @@ namespace Blackjack
 			if (UserTextBox.Text != "" && PassTextBox.Text != "")
 			{
 				//ANOTHER DA BING DA DING DA DONG ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-				bool contains = Directory.EnumerateFiles(Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3")).Any(f => f.Contains(UserTextBox.Text));
+				//bool contains = Directory.EnumerateFiles(fileLoc).Any(f => f.Contains(UserTextBox.Text));
 
 				if (contains == true)
 				{
@@ -188,7 +188,12 @@ namespace Blackjack
 
 		private void SignUpConfirmButton_Click(object sender, EventArgs e)
 		{
-			if (UserSignUpTextBox.Text != "" && PassSignUpTextBox.Text != "" && NameSignUpTextBox.Text != "" && PhoneSignUpTextBox.Text != "" && AddressSignUpTextBox.Text != "" && CardInfoSignUpTextBox.Text != "")
+			if (UserSignUpTextBox.Text != "" && 
+				PassSignUpTextBox.Text != "" && 
+				NameSignUpTextBox.Text != "" && 
+				PhoneSignUpTextBox.Text != "" && 
+				AddressSignUpTextBox.Text != "" && 
+				CardInfoSignUpTextBox.Text != "")
 			{
 				Database saveFile = new Database(fileLoc);
 				saveFile.Connect();

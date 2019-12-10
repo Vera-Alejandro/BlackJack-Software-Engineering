@@ -222,6 +222,19 @@ namespace SQLite
 
             return profileData;
         }
+
+        public bool DoesUserExist(string UserName)
+        {
+            _fileConnection.Open();
+
+            var rows = _fileConnection.Query(string.Format(
+                        "SELECT COUNT(1) as 'Count' FROM MasterProfile WHERE Username = '{0}'",
+                        UserName));
+
+            _fileConnection.Close();
+
+            return rows.Count() > 0;
+        }
     }
 
     /// <summary>

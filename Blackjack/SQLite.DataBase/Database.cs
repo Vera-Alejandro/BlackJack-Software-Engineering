@@ -1,4 +1,5 @@
 ﻿using SQLite.Storage;
+using Storage;
 using System;
 using System.Data;
 using System.Data.SQLite;
@@ -103,7 +104,49 @@ namespace SQLite
         /// <param name="gameData"></param>
         public void SaveGameState(GameData gameData, string profile)
         {
+            string create_table = $"CREATE TABLE IF NOT EXISTS {profile} (" +
+                $"MoneyBet INT," +
+                $"MoneyWon INT," +
+                $"MoneyLost INT," +
+                $"MoneyLeftOver INT," +
+                $"MostMoneyMade INT," +
+                $"MostMoneyLost INT);";
 
+            SQLiteCommand create = new SQLiteCommand(create_table, _fileConnection);
+            int ret = create.ExecuteNonQuery();
+
+            string _command = $"INSERT INTO {profile} " +
+                $"(MoneyBet, MoneyWon, MoneyLost, MoneyLeftOver, MostMoneyMade, MostMoneyLost) " +
+                $"VALUES " +
+                $"(@MoneyBet, @MoneyWon, @MoneyLost, @MoneyLeftOver, @MostMoneyMade, @MostMoneyLost);";
+
+            SQLiteCommand _insertCmd = new SQLiteCommand(_command, _fileConnection);
+
+            SQLiteParameter[] parameters =
+            {
+                new SQLiteParameter(@"MoneyBet", gameData.GetMoneyBet()),
+                new SQLiteParameter(@"MoneyWon", gameData.GetMoneyWon()),
+                new SQLiteParameter(@"MoneyLost", gameData.GetMoneyLost()),
+                new SQLiteParameter(@"MoneyLeftOver", gameData.GetMoneyLeftOver()),
+                new SQLiteParameter(@"MostMoneyMade", gameData.MostMoneymade),
+                new SQLiteParameter(@"MostMoneyLost", gameData.MostMoneyLost),
+            };
+            _insertCmd.Parameters.AddRange(parameters);
+
+            int rows_affected = _insertCmd.ExecuteNonQuery();
+
+            Debug.WriteLine("rows affected :" + rows_affected);
+
+        }
+
+        public void SaveProfile(ProfileInfo profile, string UserName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ProfileInfo GetProfileData(string UserName)
+        {
+            throw new NotImplementedException();
         }
     }
 }

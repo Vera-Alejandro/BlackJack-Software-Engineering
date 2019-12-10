@@ -156,8 +156,7 @@ namespace Blackjack
 		{
 			if (UserTextBox.Text != "" && PassTextBox.Text != "")
 			{
-				//ANOTHER DA BING DA DING DA DONG ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-				//bool contains = Directory.EnumerateFiles(fileLoc).Any(f => f.Contains(UserTextBox.Text));
+				bool contains = Database.DoesUserExist();
 
 				if (contains == true)
 				{
@@ -170,7 +169,7 @@ namespace Blackjack
 					string pass = info.GetPassword();
 
 					if (PassTextBox.Text == pass)
-					{//THIS IS WHERE YOU WOULD LOAD THE GAME STATE
+					{
 						ActiveLogin.Text = UserTextBox.Text;
 						MenuButton_Click(sender, e);
 					}
@@ -292,8 +291,8 @@ namespace Blackjack
 
 		private void CheckButton_Click(object sender, EventArgs e)
 		{
-			//THIS IS THE BA DING DA DING DONG-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-			bool contains = Directory.EnumerateFiles(Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3")).Any(f => f.Contains(UserTextBox.Text));
+
+			bool contains = Database.DoesUserExist();
 
 			if (contains == true)
 			{
@@ -310,12 +309,12 @@ namespace Blackjack
 			{
 				LogStatusLabel.Visible = true;
 			}
+			//database.Disconnect();
 		}
 
 		private void ForgotPhoneButton_Click(object sender, EventArgs e)
 		{
-			//THIS ONE TOO ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-			bool contains = Directory.EnumerateFiles(Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3")).Any(f => f.Contains(UserTextBox.Text));
+			bool contains = Database.DoesUserExist();
 
 			if (contains == true)
 			{

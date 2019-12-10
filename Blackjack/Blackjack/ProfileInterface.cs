@@ -1,4 +1,6 @@
-﻿using System;
+﻿//test to see if seth is a stupid
+
+using System;
 using System.Collections.Generic;
 using System.Collections;
 using System.ComponentModel;
@@ -150,15 +152,10 @@ namespace Blackjack
 				
 				if (contains == true)
 				{
-					Database database = new Database(fileLoc);
-					database.Connect();
-
-					Storage.ProfileInfo info = database.GetProfileData(UserTextBox.Text);
-					 
-					database.Disconnect();
+					Storage.ProfileInfo info = Storage.ProfileInfo.GetProfileData(UserTextBox.Text);
 					string pass = info.GetPassword();
 
-					if(PassTextBox.Text == pass){//THIS IS WHERE YOU WOULD LOAD THE GAME STATE
+					if(PassTextBox.Text == pass){
 						ActiveLogin.Text = UserTextBox.Text;
 						MenuButton_Click(sender, e);
 					}
@@ -180,8 +177,7 @@ namespace Blackjack
 
 				fileLoc = Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3");			
 	
-				Database saveFile = new Database(fileLoc);
-				saveFile.Connect();
+				Database saveFile = new Database(fileLoc);				
 
 				Storage.ProfileInfo info = new Storage.ProfileInfo();
 
@@ -203,7 +199,6 @@ namespace Blackjack
                 PhoneSignUpTextBox.Text = "";
                 AddressSignUpTextBox.Text = "";
                 CardInfoSignUpTextBox.Text = "";
-				saveFile.Disconnect();
             }
 
             else
@@ -216,12 +211,9 @@ namespace Blackjack
 
 		private void ProfileInfo_Click(object sender, EventArgs e)
 		{
-			Database database = new Database(fileLoc);
-
 			if (ActiveLogin.Text != "Guest"){
-				database.Connect();
-
-				Storage.ProfileInfo info = database.GetProfileData(UserSignUpTextBox.Text);
+				
+				Storage.ProfileInfo info = new Storage.ProfileInfo.GetProfileData(UserSignUpTextBox.Text);
 
 				LoginButton.Visible = false;
 				SignUpButton.Visible = false;
@@ -251,8 +243,6 @@ namespace Blackjack
 				ProfileInfoPhone.Visible = true;
 				AddressInfoLabel.Visible = true;
 				ProfileInfoAddress.Visible = true;
-
-				database.Disconnect();
 			}
 
 		}
@@ -267,6 +257,65 @@ namespace Blackjack
 			CheckButton.Visible = true;
 			ForgotUserTextBox.Visible = true;
 			ForgotUserLabel.Visible = true;
+		}
+
+		private void CheckButton_Click(object sender, EventArgs e)
+		{
+			bool contains = Directory.EnumerateFiles(Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3")).Any(f => f.Contains(UserTextBox.Text));
+
+			if (contains == true)
+			{
+				CheckButton.Visible = false;
+				ForgotUserTextBox.Visible = false;
+				ForgotUserLabel.Visible = false;
+				LogStatusLabel.Visible = false;
+
+				ForgotPhoneLabel.Visible = true;
+				ForgotPhoneTextBox.Visible = true;
+				ForgotPhoneButton.Visible = true;
+			}
+			else
+			{
+				LogStatusLabel.Visible = true;
+			}
+		}
+
+		private void ForgotPhoneButton_Click(object sender, EventArgs e)
+		{
+			bool contains = Directory.EnumerateFiles(Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3")).Any(f => f.Contains(UserTextBox.Text));
+
+			if (contains == true)
+			{
+				Storage.ProfileInfo info = new Storage.ProfileInfo.GetProfileData(UserSignUpTextBox.Text);
+
+				string pphone = info.GetPhone();
+
+				CheckButton.Visible = false;
+				ForgotUserTextBox.Visible = false;
+				ForgotUserLabel.Visible = false;
+				LogStatusLabel.Visible = false;
+
+				ForgotPhoneLabel.Visible = true;
+				ForgotPhoneTextBox.Visible = true;
+				ForgotPhoneButton.Visible = true;
+
+				if (ForgotPhoneTextBox.Text == pphone)
+				{
+					ForgotPhoneLabel.Visible = false;
+					ForgotPhoneTextBox.Visible = false;
+					ForgotPhoneButton.Visible = false;
+
+					//do more here
+				}
+				else
+				{
+					LogStatusLabel.Visible = true;
+				}
+			}
+			else
+			{
+				LogStatusLabel.Visible = true;
+			}
 		}
 	}
 }

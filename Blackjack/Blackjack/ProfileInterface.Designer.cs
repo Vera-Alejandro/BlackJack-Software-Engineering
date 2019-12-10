@@ -627,7 +627,7 @@
 			this.CheckButton.Name = "CheckButton";
 			this.CheckButton.Size = new System.Drawing.Size(117, 42);
 			this.CheckButton.TabIndex = 79;
-			this.CheckButton.Text = "Check";
+			this.CheckButton.Text = "Next";
 			this.CheckButton.UseVisualStyleBackColor = false;
 			// 
 			// ProfileInterface

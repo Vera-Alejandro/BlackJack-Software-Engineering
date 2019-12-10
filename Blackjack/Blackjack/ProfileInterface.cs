@@ -150,7 +150,7 @@ namespace Blackjack
 				
 				if (contains == true)
 				{
-					ProfileInfo info = info.GetProfileData(UserTextBox.Text);
+					Storage.ProfileInfo info = info.GetProfileData(UserTextBox.Text);
 					string pass = info.GetPassword();
 
 					if(PassTextBox.Text == pass){//THIS IS WHERE YOU WOULD LOAD THE GAME STATE
@@ -175,10 +175,7 @@ namespace Blackjack
 
 				fileLoc = Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3");			
 	
-				bool exists = Directory.Exists(Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3"));
-
-				if (!exists)
-					Database saveFile = new Database(fileLoc);				
+				Database saveFile = new Database(fileLoc);				
 
 				Storage.ProfileInfo info = new Storage.ProfileInfo();
 
@@ -212,15 +209,10 @@ namespace Blackjack
 
 		private void ProfileInfo_Click(object sender, EventArgs e)
 		{
-
-			//ProfileInfo info = info.GetProfileData(UserSignUpTextBox.Text);
-			//string username = info.GetUser();
-
-			string[] info = Directory.GetFiles(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BlackJackGame"));
-
-			string reader = "";
-
 			if (ActiveLogin.Text != "Guest"){
+				
+				Storage.ProfileInfo info = info.GetProfileData(UserSignUpTextBox.Text);
+
 				LoginButton.Visible = false;
 				SignUpButton.Visible = false;
 				Soundoo.Visible = false;
@@ -232,30 +224,14 @@ namespace Blackjack
 				MenuButton.Visible = true;
 				ChangeButton.Visible = true;
 
-				foreach (string fileName in info)
-				{
-					if (fileName.Contains(UserTextBox.Text) == true)
-					{
-						reader = fileName;
-					}
-				}
 
-				StreamReader read = new StreamReader(reader);
+				ProfileInfoUser.Text = info.GetUser();
 
-				for(int i = 0; i < 7; i++)
-				{
-					string[] fileInfo = new string[7];
-					fileInfo[i] = read.ReadLine();
-					if (i == 1)
-						ProfileInfoUser.Text = fileInfo[i];
-					if (i == 3)
-						ProfileInfoName.Text = fileInfo[i];
-					if (i == 4)
-						ProfileInfoPhone.Text = fileInfo[i];
-					if (i == 5)
-						ProfileInfoAddress.Text = fileInfo[i];
+				ProfileInfoName.Text = info.GetName();
 
-				}
+				ProfileInfoPhone.Text = info.GetPhone();
+
+				ProfileInfoAddress.Text = info.GetAddress();
 
 				InfoUserLabel.Visible = true;
 				ProfileInfoUser.Visible = true;
@@ -276,7 +252,9 @@ namespace Blackjack
 
 		private void ForgotButton_Click(object sender, EventArgs e)
 		{
-
+			CheckButton.Visible = true;
+			ForgotUserTextBox.Visible = true;
+			ForgotUserLabel.Visible = true;
 		}
 	}
 }

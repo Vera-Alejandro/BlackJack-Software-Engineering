@@ -796,8 +796,8 @@ namespace BlackjackGame
             Card testcard4 = new Card(Card.CardValue.Five, Card.SuiteType.Spades);
             dealerHand.AddCard(dealingDeck.GetCard());
             dealerHand.AddCard(dealingDeck.GetCard());
-            dealerHand.AddCard(testcard1);
-            dealerHand.AddCard(testcard2);
+            //dealerHand.AddCard(testcard1);
+            //dealerHand.AddCard(testcard2);
 
             //playerHand.AddCard(testcard3);
             //playerHand.AddCard(testcard4);

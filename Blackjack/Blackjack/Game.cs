@@ -12,6 +12,7 @@ using Blackjack;
 using System.Globalization;
 using System.IO;
 
+
 namespace BlackjackGame
 {
     public partial class Blackjack : Form
@@ -904,6 +905,15 @@ namespace BlackjackGame
         {
             numPlayers = 3;
             Start_Game(3);
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            Database StorageDB = new Database(SQLiteFile);
+            StorageDB.Connect();
+
+
+            StorageDB.Disconnect();
         }
     }
 }

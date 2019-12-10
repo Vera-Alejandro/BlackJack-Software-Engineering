@@ -20,6 +20,9 @@ namespace Blackjack
         private bool _insuranceAvailiable;
         private List<bool> _insuranceWin;
         private List<bool> _hasSplit;
+        private List<double> _playerCash;
+
+        const double DEFAULT_CASH = 500;
 
         public GameInstance()
         {
@@ -34,6 +37,7 @@ namespace Blackjack
             _splitResults = new List<GameResult>();
             _playerBets = new List<double>();
             _insuranceBets = new List<double>();
+            _playerCash = new List<double>();
             _deck.Shuffle();
         }
 
@@ -61,6 +65,7 @@ namespace Blackjack
             _playerBets.Add(0);
             _insuranceBets.Add(0);
             _insuranceWin.Add(false);
+            _playerCash.Add(DEFAULT_CASH);
         }
 
         public Hand GetPlayerHand(int playerNumber)
@@ -91,6 +96,16 @@ namespace Blackjack
         public Deck GetDeck()
         {
             return _deck;
+        }
+
+        public double GetCash(int playerNumber)
+        {
+            return _playerCash[playerNumber - 1];
+        }
+
+        public void SetCash(int playerNumber, double cash)
+        {
+            _playerCash[playerNumber - 1] = cash;
         }
 
         public bool HasBusted(int playerNumber)

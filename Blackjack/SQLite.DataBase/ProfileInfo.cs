@@ -97,5 +97,11 @@ namespace Storage
             return decrypt_pass;
         }
 
+        public string GetUser() { return _user; }
+        public string GetName() { return _name; }
+        public string GetPhone() { return _phone; }
+        public string GetAddress() { return _address; }
+
+
     }
 }

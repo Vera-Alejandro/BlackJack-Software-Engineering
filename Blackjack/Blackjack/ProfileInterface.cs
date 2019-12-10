@@ -150,7 +150,12 @@ namespace Blackjack
 				
 				if (contains == true)
 				{
-					Storage.ProfileInfo info = info.GetProfileData(UserTextBox.Text);
+					Database database = new Database(fileLoc);
+					database.Connect();
+
+					Storage.ProfileInfo info = database.GetProfileData(UserTextBox.Text);
+					 
+					database.Disconnect();
 					string pass = info.GetPassword();
 
 					if(PassTextBox.Text == pass){//THIS IS WHERE YOU WOULD LOAD THE GAME STATE
@@ -175,7 +180,8 @@ namespace Blackjack
 
 				fileLoc = Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3");			
 	
-				Database saveFile = new Database(fileLoc);				
+				Database saveFile = new Database(fileLoc);
+				saveFile.Connect();
 
 				Storage.ProfileInfo info = new Storage.ProfileInfo();
 
@@ -197,6 +203,7 @@ namespace Blackjack
                 PhoneSignUpTextBox.Text = "";
                 AddressSignUpTextBox.Text = "";
                 CardInfoSignUpTextBox.Text = "";
+				saveFile.Disconnect();
             }
 
             else
@@ -209,9 +216,12 @@ namespace Blackjack
 
 		private void ProfileInfo_Click(object sender, EventArgs e)
 		{
+			Database database = new Database(fileLoc);
+
 			if (ActiveLogin.Text != "Guest"){
-				
-				Storage.ProfileInfo info = info.GetProfileData(UserSignUpTextBox.Text);
+				database.Connect();
+
+				Storage.ProfileInfo info = database.GetProfileData(UserSignUpTextBox.Text);
 
 				LoginButton.Visible = false;
 				SignUpButton.Visible = false;
@@ -241,6 +251,8 @@ namespace Blackjack
 				ProfileInfoPhone.Visible = true;
 				AddressInfoLabel.Visible = true;
 				ProfileInfoAddress.Visible = true;
+
+				database.Disconnect();
 			}
 
 		}

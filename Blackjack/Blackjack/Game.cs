@@ -815,11 +815,8 @@ namespace BlackjackGame
             playerHand.AddCard(dealingDeck.GetCard());
 
 
-            Card d1Card = dealerHand.GetCard();
-            Card d2Card = dealerHand.GetCard();
-
-            Card p1Card = playerHand.GetCard();
-            Card p2Card = playerHand.GetCard();
+            Card p1Card = playerHand.SeeCards()[0];
+            Card p2Card = playerHand.SeeCards()[1];
 
             DisplayCards(true);
             if (thisGame.GetInsuranceAvailaible() == true)

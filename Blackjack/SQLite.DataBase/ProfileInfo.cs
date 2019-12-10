@@ -9,6 +9,7 @@ namespace Storage
     public class ProfileInfo
     {
         private const string encrypt_pass = "Merry_Christmas";
+        public int ID { get; set; }
         private string _user { get; set; }
         private byte[] _password { get; set; }
         private string _name { get; set; }
@@ -16,10 +17,25 @@ namespace Storage
         private string _address { get; set; }
         private string _cardNumber { get; set; }
 
+        public ProfileInfo() { }
 
-        public ProfileInfo()
+        public ProfileInfo(string Username, string Name, string PhoneNumber, string Address, string CardNumber)
         {
+            _user = Username;
+            _name = Name;
+            _phone = PhoneNumber;
+            _address = Address;
+            _cardNumber = CardNumber;
+        }
 
+        public ProfileInfo(string Username, string password, string Name, string PhoneNumber, string Address, string CardNumber)
+        {
+            _user = Username;
+            _name = Name;
+            _phone = PhoneNumber;
+            _address = Address;
+            _cardNumber = CardNumber;
+            SetPassword(password);
         }
 
         public void SetUser(string User) { _user = User; }
@@ -71,16 +87,28 @@ namespace Storage
         public string GetPassword()
         {
             byte[] salt1 = new byte[8];
-            byte[] edata = { 0, 1 };
+            //byte[] edata = { 0, 1 };
 
             using (RNGCryptoServiceProvider rNGCrypto = new RNGCryptoServiceProvider())
             {
                 rNGCrypto.GetBytes(salt1);
             }
-        
+
             Rfc2898DeriveBytes k1 = new Rfc2898DeriveBytes(encrypt_pass, salt1);
             Rfc2898DeriveBytes k2 = new Rfc2898DeriveBytes(encrypt_pass, salt1);
+
+            // Encrypt the data.
             TripleDES encAlg = TripleDES.Create();
+            encAlg.Key = k1.GetBytes(16);
+            MemoryStream encryptionStream = new MemoryStream();
+            CryptoStream encrypt = new CryptoStream(encryptionStream, encAlg.CreateEncryptor(), CryptoStreamMode.Write);
+            byte[] utfD1 = new UTF8Encoding(false).GetBytes("test");
+
+            encrypt.Write(utfD1, 0, utfD1.Length);
+            encrypt.FlushFinalBlock();
+            encrypt.Close();
+            byte[] edata1 = encryptionStream.ToArray();
+            k1.Reset();
 
             // Try to decrypt, thus showing it can be round-tripped.
             TripleDES decAlg = TripleDES.Create();
@@ -88,7 +116,7 @@ namespace Storage
             decAlg.IV = encAlg.IV;
             MemoryStream decryptionStreamBacking = new MemoryStream();
             CryptoStream decrypt = new CryptoStream(decryptionStreamBacking, decAlg.CreateDecryptor(), CryptoStreamMode.Write);
-            decrypt.Write(edata, 0, edata.Length);
+            decrypt.Write(_password, 0, _password.Length);
             decrypt.Flush();
             decrypt.Close();
             k2.Reset();
@@ -98,10 +126,12 @@ namespace Storage
         }
 
         public string GetUser() { return _user; }
+        public byte[] StorePassword() { return _password; }
         public string GetName() { return _name; }
-        public string GetPhone() { return _phone; }
+        public string GetPhoneNumber() { return _phone; }
         public string GetAddress() { return _address; }
+        public string GetCardNumber() { return _cardNumber; }
 
-
+        public void ServerSetPassword(byte[] flow) { _password = flow; }
     }
 }

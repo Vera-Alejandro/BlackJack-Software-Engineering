@@ -6,6 +6,7 @@ using System.Data.SQLite;
 using System.Diagnostics;
 using System.IO;
 using Dapper;
+using System.Linq;
 
 namespace SQLite
 {
@@ -103,9 +104,9 @@ namespace SQLite
         /// Saves the game state data as entry in te profile table in SQLite
         /// </summary>
         /// <param name="gameData"></param>
-        public void SaveGameState(GameData gameData, string profile)
+        public void SaveGameState(GameData gameData, string UserName)
         {
-            string create_table = $"CREATE TABLE IF NOT EXISTS {profile} (" +
+            string create_table = $"CREATE TABLE IF NOT EXISTS {UserName} (" +
                 $"MoneyBet INT," +
                 $"MoneyWon INT," +
                 $"MoneyLost INT," +
@@ -113,11 +114,10 @@ namespace SQLite
                 $"MostMoneyMade INT," +
                 $"MostMoneyLost INT);";
 
-            int dapper_return = _fileConnection.Execute(create_table);
             SQLiteCommand create = new SQLiteCommand(create_table, _fileConnection);
-            int ret = create.ExecuteNonQuery();
+            create.ExecuteNonQuery();
 
-            string _command = $"INSERT INTO {profile} " +
+            string _command = $"INSERT INTO {UserName} " +
                 $"(MoneyBet, MoneyWon, MoneyLost, MoneyLeftOver, MostMoneyMade, MostMoneyLost) " +
                 $"VALUES " +
                 $"(@MoneyBet, @MoneyWon, @MoneyLost, @MoneyLeftOver, @MostMoneyMade, @MostMoneyLost);";
@@ -141,14 +141,100 @@ namespace SQLite
 
         }
 
-        public void SaveProfile(ProfileInfo profile, string UserName)
+        /// <summary>
+        /// Saves Profile to SQLite db file 
+        /// </summary>
+        /// <param name="profile"></param>
+        /// <returns>returns the rows affected or -69 if user already exists in database</returns>
+        public int SaveProfile(ProfileInfo profile)
         {
-            throw new NotImplementedException();
+            string create_table = $"CREATE TABLE IF NOT EXISTS MasterProfile(" +
+                $"ID INTEGER PRIMARY KEY," +
+                $"Username TEXT," +
+                $"Password BLOB," +
+                $"FullName TEXT," +
+                $"PhoneNumber TEXT," +
+                $"Address TEXT," +
+                $"CardNumber TEXT);";
+
+            SQLiteCommand create = new SQLiteCommand(create_table, _fileConnection);
+            create.ExecuteNonQuery();
+
+            //      *checking if username exists*
+            var rows = _fileConnection.Query(string.Format(
+                        "SELECT COUNT(1) as 'Count' FROM MasterProfile WHERE Username = '{0}'",
+                        profile.GetUser()));
+
+            bool userExists = rows.Count() > 0;
+
+            if (!userExists)
+            {
+                string _command = $"INSERT INTO MasterProfile " +
+                    $"(UserName, Password, FullName, PhoneNumber, Address, CardNumber) " +
+                    $"VALUES " +
+                    $"(@UserName, @Password, @FullName, @PhoneNumber, @Address, @CardNumber);";
+
+                SQLiteCommand _insertCmd = new SQLiteCommand(_command, _fileConnection);
+
+                SQLiteParameter[] parameters =
+                {
+                new SQLiteParameter(@"UserName", profile.GetUser()),
+                new SQLiteParameter(@"Password", profile.StorePassword()),
+                new SQLiteParameter(@"FullName", profile.GetName()),
+                new SQLiteParameter(@"PhoneNumber", profile.GetPhoneNumber()),
+                new SQLiteParameter(@"Address", profile.GetAddress()),
+                new SQLiteParameter(@"CardNumber", profile.GetCardNumber()),
+            };
+                _insertCmd.Parameters.AddRange(parameters);
+
+                int rows_affected = _insertCmd.ExecuteNonQuery();
+
+                Debug.WriteLine("rows affected :" + rows_affected);
+
+                return rows_affected;
+            }
+            else
+            {
+                return -69;
+            }
         }
 
-        public ProfileInfo GetProfileData(string UserName)
+        /// <summary>
+        /// this returns the profile data of the User inputed
+        /// </summary>
+        /// <param name="UserName">
+        /// Username of the ProfileInfo that you want
+        /// </param>
+        /// <returns>
+        /// Profile Info class with all data that is stored on that user
+        /// Returns null if no data on user found
+        /// </returns>
+        public ProfileInfo GetProfileData(string Username)
         {
-            throw new NotImplementedException();
+            var userCollection = _fileConnection.Query<SafeProfileInfo>(
+                "SELECT * FROM MasterProfile WHERE Username = @Username", new { Username });
+
+            SafeProfileInfo temp = userCollection.FirstOrDefault();
+
+            ProfileInfo profileData = new ProfileInfo(temp.UserName, temp.FullName, temp.PhoneNumber, temp.Address, temp.CardNumber);
+            profileData.ServerSetPassword(temp.Password);
+            profileData.ID = temp.ID;
+
+            return profileData;
         }
+    }
+
+    /// <summary>
+    /// !!!not to be used!!!
+    /// </summary>
+    internal class SafeProfileInfo
+    {
+        public int ID { get; set; }
+        public string UserName {get; set;}
+        public byte[] Password {get; set;}
+        public string FullName {get; set;}
+        public string PhoneNumber{get; set;}
+        public string Address {get; set;}
+        public string CardNumber {get; set;}
     }
 }

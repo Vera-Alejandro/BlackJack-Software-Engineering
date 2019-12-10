@@ -17,9 +17,6 @@ namespace BlackjackGame
 {
     public partial class Blackjack : Form
     {
-
-       // ProfileInterface profileForm = new ProfileInterface();
-
         #region Move Form
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -94,14 +91,7 @@ namespace BlackjackGame
 
         private void Resize_Click(object sender, EventArgs e)
         {
-            if (WindowState == FormWindowState.Maximized)
-            {
-                WindowState = FormWindowState.Normal;
-            }
-            else
-            {
-                WindowState = FormWindowState.Maximized;
-            }
+            WindowState = (WindowState == FormWindowState.Maximized) ? FormWindowState.Normal : FormWindowState.Maximized;
         }
 
         private void Minimize_Click(object sender, EventArgs e)

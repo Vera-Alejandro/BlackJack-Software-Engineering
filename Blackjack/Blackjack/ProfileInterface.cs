@@ -1,4 +1,6 @@
-﻿using System;
+﻿//test to see if seth is a stupid
+
+using System;
 using System.Collections.Generic;
 using System.Collections;
 using System.ComponentModel;
@@ -153,7 +155,7 @@ namespace Blackjack
 					Storage.ProfileInfo info = Storage.ProfileInfo.GetProfileData(UserTextBox.Text);
 					string pass = info.GetPassword();
 
-					if(PassTextBox.Text == pass){//THIS IS WHERE YOU WOULD LOAD THE GAME STATE
+					if(PassTextBox.Text == pass){
 						ActiveLogin.Text = UserTextBox.Text;
 						MenuButton_Click(sender, e);
 					}
@@ -284,7 +286,9 @@ namespace Blackjack
 
 			if (contains == true)
 			{
-				string pass = Storage.ProfileInfo.GetPassword();
+				Storage.ProfileInfo info = new Storage.ProfileInfo.GetProfileData(UserSignUpTextBox.Text);
+
+				string pphone = info.GetPhone();
 
 				CheckButton.Visible = false;
 				ForgotUserTextBox.Visible = false;
@@ -294,6 +298,19 @@ namespace Blackjack
 				ForgotPhoneLabel.Visible = true;
 				ForgotPhoneTextBox.Visible = true;
 				ForgotPhoneButton.Visible = true;
+
+				if (ForgotPhoneTextBox.Text == pphone)
+				{
+					ForgotPhoneLabel.Visible = false;
+					ForgotPhoneTextBox.Visible = false;
+					ForgotPhoneButton.Visible = false;
+
+
+				}
+				else
+				{
+					LogStatusLabel.Visible = true;
+				}
 			}
 			else
 			{

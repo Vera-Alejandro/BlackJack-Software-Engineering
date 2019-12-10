@@ -37,7 +37,7 @@ namespace BlackjackGame
 
         ProfileInterface profileForm = new ProfileInterface();
         private string SQLiteFile = 
-            Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3");
+            Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName, "GameData.sqlite3");
         private bool gameStarted = false;
         private bool roundStarted = false;
         private bool restartAvailable = false;

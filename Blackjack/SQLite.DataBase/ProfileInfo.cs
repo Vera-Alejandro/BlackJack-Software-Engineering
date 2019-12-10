@@ -45,14 +45,13 @@ namespace Storage
                 encAlg.Key = k1.GetBytes(16);
                 MemoryStream encryptionStream = new MemoryStream();
                 CryptoStream encrypt = new CryptoStream(encryptionStream, encAlg.CreateEncryptor(), CryptoStreamMode.Write);
-                byte[] utfD1 = new System.Text.UTF8Encoding(false).GetBytes(data1);
+                byte[] utfD1 = new UTF8Encoding(false).GetBytes(Password);
 
                 encrypt.Write(utfD1, 0, utfD1.Length);
                 encrypt.FlushFinalBlock();
                 encrypt.Close();
-                byte[] edata1 = encryptionStream.ToArray();
+                _password = encryptionStream.ToArray();
                 k1.Reset();
-
             }
             catch (Exception)
             {

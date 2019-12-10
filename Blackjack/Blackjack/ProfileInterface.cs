@@ -147,10 +147,9 @@ namespace Blackjack
 			if (UserTextBox.Text != "" && PassTextBox.Text != "")
 			{
 				bool contains = Directory.EnumerateFiles(Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3")).Any(f => f.Contains(UserTextBox.Text));
-				
+				Storage.ProfileInfo info = new Storage.ProfileInfo();
 				if (contains == true)
 				{
-					Storage.ProfileInfo info = info.GetProfileData(UserTextBox.Text);
 					string pass = info.GetPassword();
 
 					if(PassTextBox.Text == pass){//THIS IS WHERE YOU WOULD LOAD THE GAME STATE
@@ -211,7 +210,6 @@ namespace Blackjack
 		{
 			if (ActiveLogin.Text != "Guest"){
 				
-				Storage.ProfileInfo info = info.GetProfileData(UserSignUpTextBox.Text);
 
 				LoginButton.Visible = false;
 				SignUpButton.Visible = false;
@@ -225,13 +223,6 @@ namespace Blackjack
 				ChangeButton.Visible = true;
 
 
-				ProfileInfoUser.Text = info.GetUser();
-
-				ProfileInfoName.Text = info.GetName();
-
-				ProfileInfoPhone.Text = info.GetPhone();
-
-				ProfileInfoAddress.Text = info.GetAddress();
 
 				InfoUserLabel.Visible = true;
 				ProfileInfoUser.Visible = true;

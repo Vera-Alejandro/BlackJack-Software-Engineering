@@ -36,12 +36,17 @@
             this.DealerCount = new System.Windows.Forms.Label();
             this.DCName = new System.Windows.Forms.Label();
             this.PlayerHand = new System.Windows.Forms.Panel();
+            this.SplitCount = new System.Windows.Forms.Label();
+            this.SCName = new System.Windows.Forms.Label();
+            this.SplitButton = new System.Windows.Forms.Button();
+            this.InsuranceButton = new System.Windows.Forms.Button();
             this.PlayerCash = new System.Windows.Forms.Label();
             this.Cash = new System.Windows.Forms.Label();
             this.Stay = new System.Windows.Forms.Button();
             this.Hit = new System.Windows.Forms.Button();
             this.PlayerCount = new System.Windows.Forms.Label();
             this.PCName = new System.Windows.Forms.Label();
+            this.TwoPlayerButton = new System.Windows.Forms.Button();
             this.Output = new System.Windows.Forms.TextBox();
             this.BetLabel = new System.Windows.Forms.Label();
             this.BetOne = new System.Windows.Forms.Button();
@@ -59,6 +64,8 @@
             this.ProfileButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
             this.ResetButton = new System.Windows.Forms.Button();
+            this.OnePlayerButton = new System.Windows.Forms.Button();
+            this.ThreePlayerButton = new System.Windows.Forms.Button();
             this.DealerHand.SuspendLayout();
             this.PlayerHand.SuspendLayout();
             this.BettingPanel.SuspendLayout();
@@ -131,7 +138,6 @@
             this.StartButton.Text = "Play!";
             this.StartButton.UseVisualStyleBackColor = true;
             this.StartButton.Visible = false;
-            this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
             // DealerHand
             // 
@@ -175,6 +181,10 @@
             // 
             // PlayerHand
             // 
+            this.PlayerHand.Controls.Add(this.SplitCount);
+            this.PlayerHand.Controls.Add(this.SCName);
+            this.PlayerHand.Controls.Add(this.SplitButton);
+            this.PlayerHand.Controls.Add(this.InsuranceButton);
             this.PlayerHand.Controls.Add(this.PlayerCash);
             this.PlayerHand.Controls.Add(this.Cash);
             this.PlayerHand.Controls.Add(this.Stay);
@@ -184,9 +194,69 @@
             this.PlayerHand.Location = new System.Drawing.Point(566, 100);
             this.PlayerHand.Margin = new System.Windows.Forms.Padding(2);
             this.PlayerHand.Name = "PlayerHand";
-            this.PlayerHand.Size = new System.Drawing.Size(554, 564);
+            this.PlayerHand.Size = new System.Drawing.Size(698, 586);
             this.PlayerHand.TabIndex = 6;
             this.PlayerHand.Visible = false;
+            // 
+            // SplitCount
+            // 
+            this.SplitCount.AutoSize = true;
+            this.SplitCount.BackColor = System.Drawing.Color.Black;
+            this.SplitCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SplitCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SplitCount.ForeColor = System.Drawing.Color.White;
+            this.SplitCount.Location = new System.Drawing.Point(208, 38);
+            this.SplitCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.SplitCount.Name = "SplitCount";
+            this.SplitCount.Size = new System.Drawing.Size(34, 38);
+            this.SplitCount.TabIndex = 9;
+            this.SplitCount.Text = "0";
+            // 
+            // SCName
+            // 
+            this.SCName.AutoSize = true;
+            this.SCName.BackColor = System.Drawing.Color.Black;
+            this.SCName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SCName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SCName.ForeColor = System.Drawing.Color.White;
+            this.SCName.Location = new System.Drawing.Point(0, 38);
+            this.SCName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.SCName.Name = "SCName";
+            this.SCName.Size = new System.Drawing.Size(201, 38);
+            this.SCName.TabIndex = 8;
+            this.SCName.Text = "Hand 2 Count";
+            // 
+            // SplitButton
+            // 
+            this.SplitButton.BackColor = System.Drawing.Color.Black;
+            this.SplitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.SplitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SplitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SplitButton.ForeColor = System.Drawing.Color.White;
+            this.SplitButton.Location = new System.Drawing.Point(371, 428);
+            this.SplitButton.Margin = new System.Windows.Forms.Padding(4);
+            this.SplitButton.Name = "SplitButton";
+            this.SplitButton.Size = new System.Drawing.Size(239, 62);
+            this.SplitButton.TabIndex = 7;
+            this.SplitButton.Text = "SPLIT";
+            this.SplitButton.UseVisualStyleBackColor = false;
+            this.SplitButton.Click += new System.EventHandler(this.SplitButton_Click);
+            // 
+            // InsuranceButton
+            // 
+            this.InsuranceButton.BackColor = System.Drawing.Color.Black;
+            this.InsuranceButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.InsuranceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.InsuranceButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InsuranceButton.ForeColor = System.Drawing.Color.White;
+            this.InsuranceButton.Location = new System.Drawing.Point(371, 507);
+            this.InsuranceButton.Margin = new System.Windows.Forms.Padding(4);
+            this.InsuranceButton.Name = "InsuranceButton";
+            this.InsuranceButton.Size = new System.Drawing.Size(239, 62);
+            this.InsuranceButton.TabIndex = 6;
+            this.InsuranceButton.Text = "INSURANCE";
+            this.InsuranceButton.UseVisualStyleBackColor = false;
+            this.InsuranceButton.Click += new System.EventHandler(this.InsuranceButton_Click);
             // 
             // PlayerCash
             // 
@@ -223,7 +293,8 @@
             this.Stay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Stay.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Stay.ForeColor = System.Drawing.Color.White;
-            this.Stay.Location = new System.Drawing.Point(303, 496);
+            this.Stay.Location = new System.Drawing.Point(217, 507);
+            this.Stay.Margin = new System.Windows.Forms.Padding(4);
             this.Stay.Name = "Stay";
             this.Stay.Size = new System.Drawing.Size(100, 50);
             this.Stay.TabIndex = 3;
@@ -271,6 +342,22 @@
             this.PCName.Size = new System.Drawing.Size(152, 31);
             this.PCName.TabIndex = 0;
             this.PCName.Text = "Player Count";
+            // 
+            // TwoPlayerButton
+            // 
+            this.TwoPlayerButton.BackColor = System.Drawing.Color.Black;
+            this.TwoPlayerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TwoPlayerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TwoPlayerButton.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.TwoPlayerButton.Location = new System.Drawing.Point(13, 26);
+            this.TwoPlayerButton.Margin = new System.Windows.Forms.Padding(4);
+            this.TwoPlayerButton.Name = "TwoPlayerButton";
+            this.TwoPlayerButton.Size = new System.Drawing.Size(275, 62);
+            this.TwoPlayerButton.TabIndex = 22;
+            this.TwoPlayerButton.Text = "Two Players";
+            this.TwoPlayerButton.UseVisualStyleBackColor = false;
+            this.TwoPlayerButton.Visible = false;
+            this.TwoPlayerButton.Click += new System.EventHandler(this.TwoPlayerButton_Click);
             // 
             // Output
             // 
@@ -461,7 +548,8 @@
             // TitleImage
             // 
             this.TitleImage.Image = global::Blackjack.Properties.Resources.BackJack_Title;
-            this.TitleImage.Location = new System.Drawing.Point(12, 12);
+            this.TitleImage.Location = new System.Drawing.Point(10, 14);
+            this.TitleImage.Margin = new System.Windows.Forms.Padding(4);
             this.TitleImage.Name = "TitleImage";
             this.TitleImage.Size = new System.Drawing.Size(218, 72);
             this.TitleImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -506,21 +594,56 @@
             this.ResetButton.ForeColor = System.Drawing.Color.White;
             this.ResetButton.Location = new System.Drawing.Point(330, 23);
             this.ResetButton.Name = "ResetButton";
-            this.ResetButton.Size = new System.Drawing.Size(144, 50);
+            this.ResetButton.Size = new System.Drawing.Size(238, 62);
             this.ResetButton.TabIndex = 21;
-            this.ResetButton.Text = "RESTART";
+            this.ResetButton.Text = "NEXT TURN";
             this.ResetButton.UseVisualStyleBackColor = false;
             this.ResetButton.Visible = false;
             this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
+            // 
+            // OnePlayerButton
+            // 
+            this.OnePlayerButton.BackColor = System.Drawing.Color.Black;
+            this.OnePlayerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OnePlayerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OnePlayerButton.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.OnePlayerButton.Location = new System.Drawing.Point(13, 25);
+            this.OnePlayerButton.Margin = new System.Windows.Forms.Padding(4);
+            this.OnePlayerButton.Name = "OnePlayerButton";
+            this.OnePlayerButton.Size = new System.Drawing.Size(275, 62);
+            this.OnePlayerButton.TabIndex = 23;
+            this.OnePlayerButton.Text = "One Player";
+            this.OnePlayerButton.UseVisualStyleBackColor = false;
+            this.OnePlayerButton.Visible = false;
+            this.OnePlayerButton.Click += new System.EventHandler(this.OnePlayerButton_Click);
+            // 
+            // ThreePlayerButton
+            // 
+            this.ThreePlayerButton.BackColor = System.Drawing.Color.Black;
+            this.ThreePlayerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ThreePlayerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ThreePlayerButton.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.ThreePlayerButton.Location = new System.Drawing.Point(13, 28);
+            this.ThreePlayerButton.Margin = new System.Windows.Forms.Padding(4);
+            this.ThreePlayerButton.Name = "ThreePlayerButton";
+            this.ThreePlayerButton.Size = new System.Drawing.Size(275, 62);
+            this.ThreePlayerButton.TabIndex = 24;
+            this.ThreePlayerButton.Text = "Three Players";
+            this.ThreePlayerButton.UseVisualStyleBackColor = false;
+            this.ThreePlayerButton.Visible = false;
+            this.ThreePlayerButton.Click += new System.EventHandler(this.ThreePlayerButton_Click);
             // 
             // Blackjack
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1131, 806);
+            this.BackColor = System.Drawing.SystemColors.Desktop;
+            this.ClientSize = new System.Drawing.Size(1508, 992);
             this.Controls.Add(this.TitleImage);
+            this.Controls.Add(this.OnePlayerButton);
             this.Controls.Add(this.ResetButton);
+            this.Controls.Add(this.TwoPlayerButton);
+            this.Controls.Add(this.ThreePlayerButton);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.ProfileButton);
             this.Controls.Add(this.BettingPanel);
@@ -583,6 +706,13 @@
         private System.Windows.Forms.Button ProfileButton;
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.Button ResetButton;
+        private System.Windows.Forms.Button InsuranceButton;
+        private System.Windows.Forms.Button SplitButton;
+        private System.Windows.Forms.Label SplitCount;
+        private System.Windows.Forms.Label SCName;
+        private System.Windows.Forms.Button TwoPlayerButton;
+        private System.Windows.Forms.Button ThreePlayerButton;
+        private System.Windows.Forms.Button OnePlayerButton;
     }
 }
 

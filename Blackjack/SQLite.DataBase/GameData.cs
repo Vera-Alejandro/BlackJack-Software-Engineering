@@ -41,5 +41,6 @@ namespace SQLite.Storage
         public int GetMoneyWon() { return _moneyWon; }
 
         public int GetMoneyLost() { return _moneyLost; }
+
     }
 }

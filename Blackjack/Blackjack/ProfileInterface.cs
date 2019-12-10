@@ -9,12 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using SQLite;
 
 namespace Blackjack
 {
 	public partial class ProfileInterface : Form
 	{
-		string Fullname;
+		string fileLoc;
 
 		public ProfileInterface()
 		{
@@ -22,6 +23,7 @@ namespace Blackjack
 		}
 		private void ProfileInterface_Load(object sender, EventArgs e)
 		{
+			BringToFront();
 			CenterToScreen();
 		}
 
@@ -75,6 +77,7 @@ namespace Blackjack
 			FundsButton.Visible = false;
 			ProfileInfo.Visible = false;
 
+			ForgotButton.Visible = true;
 			MenuButton.Visible = true;
 			LoginConfirm.Visible = true;
 			UserLabel.Visible = true;
@@ -166,30 +169,31 @@ namespace Blackjack
 		{
 			if (UserSignUpTextBox.Text != "" && PassSignUpTextBox.Text != "" && NameSignUpTextBox.Text != "" && PhoneSignUpTextBox.Text != "" && AddressSignUpTextBox.Text != "" && CardInfoSignUpTextBox.Text != "") {
 
-				bool exists = Directory.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BlackJackGame"));
+				//bool exists = Directory.Exists(Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3"));
 
-				if (!exists)
-					Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BlackJackGame"));
+				//if (!exists)
+					//Directory.CreateDirectory(Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3"));
 
-				Fullname = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BlackJackGame/") + UserSignUpTextBox.Text + NameSignUpTextBox.Text + "info.txt";
+				fileLoc = Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3");
 
-				if(File.Exists(Fullname))
-					File.Delete(Fullname);
+				//if (File.Exists(Fullname))
+					//File.Delete(Fullname);
 
-				FileStream fs = File.Create(Fullname);
+				FileStream fs = File.Create(fileLoc);
 				fs.Close();
 
-				StreamWriter write = new StreamWriter(Fullname);
+				Database saveFile = new Database(fileLoc);
 
-				write.WriteLine("////////////////////////////////////");
-				write.WriteLine(UserSignUpTextBox.Text);
-				write.WriteLine(PassSignUpTextBox.Text);
-				write.WriteLine(NameSignUpTextBox.Text); 
-				write.WriteLine(PhoneSignUpTextBox.Text);
-				write.WriteLine(AddressSignUpTextBox.Text);
-				write.WriteLine(CardInfoSignUpTextBox.Text);
-				write.WriteLine("////////////////////////////////////");
-				write.Close();
+				Storage.ProfileInfo info = new Storage.ProfileInfo();
+
+				info.SetUser(UserSignUpTextBox.Text);
+				info.SetPassword(PassSignUpTextBox.Text);
+				info.SetName(NameSignUpTextBox.Text); 
+				info.SetPhone(PhoneSignUpTextBox.Text);
+				info.SetAddress(AddressSignUpTextBox.Text);
+				info.SetCardNumber(CardInfoSignUpTextBox.Text);
+
+				//saveFile.SaveProfile(info, UserSignUpTextBox.Text);
 
 				StatusLabel.Text = "Confirmed";
 				StatusLabel.Visible = true;
@@ -212,6 +216,9 @@ namespace Blackjack
 
 		private void ProfileInfo_Click(object sender, EventArgs e)
 		{
+
+			//ProfileInfo info = info.GetProfileData(UserSignUpTextBox.Text);
+			//string username = info.GetUser();
 
 			string[] info = Directory.GetFiles(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BlackJackGame"));
 
@@ -269,6 +276,11 @@ namespace Blackjack
 		private void ChangeButton_Click(object sender, EventArgs e)
 		{
 			SignUpButton_Click(sender, e);
+		}
+
+		private void ForgotButton_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

@@ -176,13 +176,13 @@ namespace Blackjack
             const double BLACKJACK_RATIO = 3.5;
             const int INSURANCE_RATIO = 2;
 
-            if(_insuranceWin[playerNumber - 1])
+            if (_insuranceWin[playerNumber - 1])
             {
                 result += (_insuranceBets[playerNumber - 1] * INSURANCE_RATIO);
 
             }
 
-            if(HasSplit(playerNumber))
+            if (HasSplit(playerNumber))
             {
                 Console.WriteLine("In here yay");
                 if (_splitResults[playerNumber - 1] == GameResult.Loss)
@@ -201,24 +201,24 @@ namespace Blackjack
                 }
             }
 
-        
-            if(_playerResults[playerNumber -1 ] == GameResult.Loss)
+
+            if (_playerResults[playerNumber - 1] == GameResult.Loss)
             {
                 result += LOSS_AMT;
             }
 
-            else if(_playerResults[playerNumber - 1] == GameResult.Win)
+            else if (_playerResults[playerNumber - 1] == GameResult.Win)
             {
                 result += (_playerBets[playerNumber - 1] * WIN_RATIO);
             }
 
-            else if(_playerResults[playerNumber - 1] == GameResult.Standoff)
+            else if (_playerResults[playerNumber - 1] == GameResult.Standoff)
             {
                 result += (_playerBets[playerNumber - 1] * STANDOFF_RATIO);
             }
             else
             {
-                Console.WriteLine("Returning blackjack payout of " + _playerBets[playerNumber-1]);
+                Console.WriteLine("Returning blackjack payout of " + _playerBets[playerNumber - 1]);
                 result += (_playerBets[playerNumber - 1] * BLACKJACK_RATIO);
             }
             Console.WriteLine("Returning total payout of " + result);
@@ -229,17 +229,17 @@ namespace Blackjack
         {
             _insuranceAvailiable = false;
 
-            foreach(Hand player in _players)
+            foreach (Hand player in _players)
             {
                 player.ClearHand();
             }
-            foreach(Hand split in _splitHands)
+            foreach (Hand split in _splitHands)
             {
                 split.ClearHand();
             }
             _dealerHand.ClearHand();
 
-            for(int i = 0; i < _playerResults.Count(); i++)
+            for (int i = 0; i < _playerResults.Count(); i++)
             {
                 _playerResults[i] = 0;
             }

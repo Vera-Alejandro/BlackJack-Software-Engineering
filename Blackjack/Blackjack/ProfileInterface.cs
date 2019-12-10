@@ -169,20 +169,16 @@ namespace Blackjack
 		{
 			if (UserSignUpTextBox.Text != "" && PassSignUpTextBox.Text != "" && NameSignUpTextBox.Text != "" && PhoneSignUpTextBox.Text != "" && AddressSignUpTextBox.Text != "" && CardInfoSignUpTextBox.Text != "") {
 
-				//bool exists = Directory.Exists(Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3"));
-
-				//if (!exists)
-					//Directory.CreateDirectory(Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3"));
-
 				fileLoc = Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3");
 
-				//if (File.Exists(Fullname))
-					//File.Delete(Fullname);
+				bool exists = Directory.Exists(fileLoc);
 
-				FileStream fs = File.Create(fileLoc);
-				fs.Close();
-
-				Database saveFile = new Database(fileLoc);
+				if (exists == false)
+				{
+					Database saveFile = new Database(fileLoc);
+				}
+	
+				//FileStream fs = File.Create(fileLoc);
 
 				Storage.ProfileInfo info = new Storage.ProfileInfo();
 
@@ -217,12 +213,8 @@ namespace Blackjack
 		private void ProfileInfo_Click(object sender, EventArgs e)
 		{
 
-			//ProfileInfo info = info.GetProfileData(UserSignUpTextBox.Text);
+			Storage.ProfileInfo info = info.GetProfileData(UserSignUpTextBox.Text);
 			//string username = info.GetUser();
-
-			string[] info = Directory.GetFiles(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BlackJackGame"));
-
-			string reader = "";
 
 			if (ActiveLogin.Text != "Guest"){
 				LoginButton.Visible = false;
@@ -231,25 +223,14 @@ namespace Blackjack
 				LogLabel.Visible = false;
 				ActiveLogin.Visible = false;
 				FundsButton.Visible = false;
-				ProfileInfo.Visible = false;
+				//ProfileInfo.Visible = false;
 
 				MenuButton.Visible = true;
 				ChangeButton.Visible = true;
 
-				foreach (string fileName in info)
-				{
-					if (fileName.Contains(UserTextBox.Text) == true)
-					{
-						reader = fileName;
-					}
-				}
-
-				StreamReader read = new StreamReader(reader);
-
 				for(int i = 0; i < 7; i++)
 				{
-					string[] fileInfo = new string[7];
-					fileInfo[i] = read.ReadLine();
+
 					if (i == 1)
 						ProfileInfoUser.Text = fileInfo[i];
 					if (i == 3)

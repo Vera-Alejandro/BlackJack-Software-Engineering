@@ -224,6 +224,9 @@ namespace SQLite
         }
     }
 
+    /// <summary>
+    /// !!!not to be used!!!
+    /// </summary>
     internal class SafeProfileInfo
     {
         public int ID { get; set; }
@@ -234,5 +237,4 @@ namespace SQLite
         public string Address {get; set;}
         public string CardNumber {get; set;}
     }
-
 }

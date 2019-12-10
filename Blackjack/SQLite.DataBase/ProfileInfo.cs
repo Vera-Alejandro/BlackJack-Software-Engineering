@@ -133,6 +133,5 @@ namespace Storage
         public string GetCardNumber() { return _cardNumber; }
 
         public void ServerSetPassword(byte[] flow) { _password = flow; }
-
     }
 }

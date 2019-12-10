@@ -150,10 +150,7 @@ namespace Unit_Testing
         [TestMethod]
         public void DatabaseCreationTest()
         {
-            string SQLiteFile = Directory.GetParent(Directory.GetCurrentDirectory()).ToString();
-            SQLiteFile = Directory.GetParent(SQLiteFile).ToString();
-            SQLiteFile = Directory.GetParent(SQLiteFile).ToString();
-            SQLiteFile = Path.Combine(SQLiteFile, "GameData.sqlite3");
+            string SQLiteFile = Path.Combine("C:\\Users\\alejandro.vera\\source\\repos\\Vera-Alejandro\\BlackJack-Software-Engineering\\Blackjack\\Blackjack", "GameData.sqlite3");
 
             try
             {
@@ -237,10 +234,7 @@ namespace Unit_Testing
         [TestMethod]
         public void SQLStorageTesting()
         {
-            string SQLiteFile = Directory.GetParent(Directory.GetCurrentDirectory()).ToString();
-            SQLiteFile = Directory.GetParent(SQLiteFile).ToString();
-            SQLiteFile = Directory.GetParent(SQLiteFile).ToString();
-            SQLiteFile = Path.Combine(SQLiteFile, "GameData.sqlite3");
+            string SQLiteFile = Path.Combine("C:\\Users\\alejandro.vera\\source\\repos\\Vera-Alejandro\\BlackJack-Software-Engineering\\Blackjack\\Blackjack", "GameData.sqlite3");
 
             Database database = new Database(SQLiteFile);
             GameData storage = new GameData(500, 10000, 600, 69420);
@@ -253,8 +247,9 @@ namespace Unit_Testing
 
                 database.Disconnect();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Debug.WriteLine(ex.Message);
                 Assert.Fail();
             }
         }

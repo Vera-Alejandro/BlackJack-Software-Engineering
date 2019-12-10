@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SQLite;
 using System.Diagnostics;
 using System.IO;
+using Dapper;
 
 namespace SQLite
 {
@@ -112,6 +113,7 @@ namespace SQLite
                 $"MostMoneyMade INT," +
                 $"MostMoneyLost INT);";
 
+            int dapper_return = _fileConnection.Execute(create_table);
             SQLiteCommand create = new SQLiteCommand(create_table, _fileConnection);
             int ret = create.ExecuteNonQuery();
 

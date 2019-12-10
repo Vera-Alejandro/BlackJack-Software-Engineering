@@ -163,7 +163,7 @@
             this.DealerCount.Size = new System.Drawing.Size(28, 31);
             this.DealerCount.TabIndex = 1;
             this.DealerCount.Text = "0";
-            this.DealerCount.TextChanged += new System.EventHandler(this.DealerCount_TextChanged);
+            //this.DealerCount.TextChanged += new System.EventHandler(this.DealerCount_TextChanged);
             // 
             // DCName
             // 
@@ -270,7 +270,7 @@
             this.PlayerCash.TabIndex = 5;
             this.PlayerCash.Text = "$500.00";
             this.PlayerCash.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PlayerCash.TextChanged += new System.EventHandler(this.PlayerCash_TextChanged);
+            //this.PlayerCash.TextChanged += new System.EventHandler(this.PlayerCash_TextChanged);
             // 
             // Cash
             // 
@@ -328,7 +328,7 @@
             this.PlayerCount.Size = new System.Drawing.Size(28, 31);
             this.PlayerCount.TabIndex = 1;
             this.PlayerCount.Text = "0";
-            this.PlayerCount.TextChanged += new System.EventHandler(this.PlayerCount_TextChanged);
+            //this.PlayerCount.TextChanged += new System.EventHandler(this.PlayerCount_TextChanged);
             // 
             // PCName
             // 

@@ -1,18 +1,24 @@
-﻿using Blackjack;
-using SQLite;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
-using System.Globalization;
-using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-
+using Blackjack;
+using System.Globalization;
+using System.IO;
 
 namespace BlackjackGame
 {
     public partial class Blackjack : Form
-    {    
+    {
+
+       // ProfileInterface profileForm = new ProfileInterface();
+
         #region Move Form
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -36,8 +42,9 @@ namespace BlackjackGame
         #endregion
 
         ProfileInterface profileForm = new ProfileInterface();
-        private string SQLiteFile = 
+        private string SQLiteFile =
             Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName, "GameData.sqlite3");
+
         private bool gameStarted = false;
         private bool roundStarted = false;
         private bool restartAvailable = false;
@@ -86,13 +93,20 @@ namespace BlackjackGame
 
         private void Resize_Click(object sender, EventArgs e)
         {
-            if (WindowState == FormWindowState.Maximized) 
-            { WindowState = FormWindowState.Normal; }
+            if (WindowState == FormWindowState.Maximized)
+            {
+                WindowState = FormWindowState.Normal;
+            }
             else
-            { WindowState = FormWindowState.Maximized; }
+            {
+                WindowState = FormWindowState.Maximized;
+            }
         }
 
-        private void Minimize_Click(object sender, EventArgs e) { WindowState = FormWindowState.Minimized; }
+        private void Minimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
 
         private void Blackjack_SizeChanged(object sender, EventArgs e)
         {
@@ -134,15 +148,15 @@ namespace BlackjackGame
             currentPlayer = 1;
             Output.Text = "Player 1 turn.";
 
-            for(int i = 0; i < players; i++)
+            for (int i = 0; i < players; i++)
             {
                 thisGame.AddPlayer(); //add a player to the game
             }
 
             playerCash = thisGame.GetCash(currentPlayer);
-            
 
-            for(int i = 0; i < 10; i ++)
+
+            for (int i = 0; i < 10; i++)
             {
                 PictureBox card = new PictureBox();
                 playerCardPictures.Add(card);
@@ -160,7 +174,7 @@ namespace BlackjackGame
                 splitCardPictures1[i].Image = null;
                 splitCardPictures1[i].Location = new Point((0 + (i * 40)), 75);
                 splitCardPictures1[i].SizeMode = PictureBoxSizeMode.Zoom;
-                Size size = new Size(137,200);
+                Size size = new Size(137, 200);
                 splitCardPictures1[i].Size = size;
                 PlayerHand.Controls.Add(splitCardPictures1[i]);
                 //splitCardPictures1[i].BringToFront();
@@ -191,6 +205,7 @@ namespace BlackjackGame
                 DealerHand.Controls.Add(dealerCardPictures[i]);
                 dealerCardPictures[i].BringToFront();
             }
+
         }
 
         private void Stay_Click(object sender, EventArgs e)
@@ -202,7 +217,7 @@ namespace BlackjackGame
                 Output.Text = "Must bet to play!";
                 return;
             }
-            if(thisGame.HasSplit(currentPlayer) && !splitHandDone)
+            if (thisGame.HasSplit(currentPlayer) && !splitHandDone)
             {
                 splitHandDone = true;
                 Output.Text = "Player " + currentPlayer.ToString() + " chose to stay on hand 1.";
@@ -221,7 +236,7 @@ namespace BlackjackGame
             thisGame.SetInsuranceAvailaible(false);
             InsuranceButton.Visible = false;
             SplitButton.Visible = false;
-            if(thisGame.GetBet(currentPlayer) <= 0)
+            if (thisGame.GetBet(currentPlayer) <= 0)
             {
                 Output.Text = "Must bet to play!";
                 return;
@@ -233,7 +248,7 @@ namespace BlackjackGame
             Hand hand = thisGame.GetPlayerHand(currentPlayer);
             Hand splitHand = thisGame.GetSplitHand(currentPlayer);
 
-            if(!thisGame.HasSplit(currentPlayer))
+            if (!thisGame.HasSplit(currentPlayer))
             {
                 hand.AddCard(hitCard);
 
@@ -247,7 +262,7 @@ namespace BlackjackGame
                     Who_Won();
                 }
             }
-            else if(!splitHandDone)
+            else if (!splitHandDone)
             {
                 hand.AddCard(hitCard);
                 DisplayCards(true);
@@ -268,7 +283,7 @@ namespace BlackjackGame
                     Output.Text = "Hand 2 busted!";
                     this.Hit.Visible = false;
                     this.Stay.Visible = false;
-                    if(hand.HasBusted())
+                    if (hand.HasBusted())
                     {
                         Who_Won();
                     }
@@ -276,7 +291,7 @@ namespace BlackjackGame
                     {
                         Computer_Turn();
                     }
-                    
+
                 }
 
             }
@@ -300,7 +315,7 @@ namespace BlackjackGame
             Who_Won();
         }
 
-        private void DealerCount_TextChanged(object sender, EventArgs e)
+        private void Who_Won()
         {
             thisGame.SetInsuranceAvailaible(false);
             Hand dealerHand = thisGame.GetDealerHand();
@@ -310,7 +325,7 @@ namespace BlackjackGame
             Stay.Visible = false;
             InsuranceButton.Visible = false;
             SplitButton.Visible = false;
-            if ( thisGame.HasSplit(currentPlayer))
+            if (thisGame.HasSplit(currentPlayer))
             {
                 Hand splitHand = thisGame.GetSplitHand(currentPlayer);
                 string hand1Result;
@@ -322,12 +337,12 @@ namespace BlackjackGame
                 }
                 else
                 {
-                    if(playerHand.GetTotal() == dealerHand.GetTotal())
+                    if (playerHand.GetTotal() == dealerHand.GetTotal())
                     {
                         thisGame.SetPlayerResult(currentPlayer, GameInstance.GameResult.Standoff);
                         hand1Result = "Standoff";
                     }
-                    else if( (playerHand.GetTotal() < dealerHand.GetTotal()) && !dealerHand.HasBusted() )
+                    else if ((playerHand.GetTotal() < dealerHand.GetTotal()) && !dealerHand.HasBusted())
                     {
                         thisGame.SetPlayerResult(currentPlayer, GameInstance.GameResult.Loss);
                         hand1Result = "Loss";
@@ -350,7 +365,7 @@ namespace BlackjackGame
                         thisGame.SetSplitResult(currentPlayer, GameInstance.GameResult.Standoff);
                         hand2Result = "Standoff";
                     }
-                    else if ( (splitHand.GetTotal() < dealerHand.GetTotal()) && !dealerHand.HasBusted() )
+                    else if ((splitHand.GetTotal() < dealerHand.GetTotal()) && !dealerHand.HasBusted())
                     {
                         thisGame.SetSplitResult(currentPlayer, GameInstance.GameResult.Loss);
                         hand2Result = "Loss";
@@ -364,48 +379,31 @@ namespace BlackjackGame
                 Output.Text = ("Hand 1: " + hand1Result + "    Hand 2: " + hand2Result);
             }
 
-            else if ( playerHand.HasBusted())
+            else if (playerHand.HasBusted())
             {
                 Output.Text = ("Player " + currentPlayer.ToString() + " Busted, Computer Wins.");
                 thisGame.SetPlayerResult(currentPlayer, GameInstance.GameResult.Loss);
 
             }
-            else if (dealerCount == 21)
+            else if (dealerHand.HasBusted())
             {
                 Output.Text = ("Dealer Busted, Player " + currentPlayer.ToString() + " Wins.");
                 thisGame.SetPlayerResult(currentPlayer, GameInstance.GameResult.Win);
 
-        private void PlayerCount_TextChanged(object sender, EventArgs e)
-        {
-            int.TryParse(PlayerCount.Text, out int playerCount);
-
-
-            if (playerCount > 21)
-            {
-                Output.Text = "Player busted!";
-                this.Hit.Visible = false;
-                this.Stay.Visible = false;
-                thisGame.SetPlayerResult(1, GameInstance.GameResult.Loss);
-                playerCash += thisGame.GetPayout(1);
-                PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
-                restartAvailable = true;
-                MessageBox.Show("Player Busted, Computer Wins", "Player Lost!");
-                DisplayCards(false);
-
             }
-            else if (playerCount == 21)
+            else if (playerHand.GetTotal() == 21 && dealerHand.GetTotal() != 21 && playerHand.GetNumberOfCards() == 2)
             {
                 Output.Text = ("Player " + currentPlayer.ToString() + " got a natural blackjack!");
                 thisGame.SetPlayerResult(currentPlayer, GameInstance.GameResult.PlayerBlackjack);
 
             }
-            else if ( playerHand.GetTotal() > dealerHand.GetTotal())
+            else if (playerHand.GetTotal() > dealerHand.GetTotal())
             {
                 Output.Text = ("Player " + currentPlayer.ToString() + " Wins.");
                 thisGame.SetPlayerResult(currentPlayer, GameInstance.GameResult.Win);
 
             }
-            else if ( playerHand.GetTotal() == dealerHand.GetTotal())
+            else if (playerHand.GetTotal() == dealerHand.GetTotal())
             {
                 Output.Text = ("Player " + currentPlayer.ToString() + " and dealer tied. No payouts awarded.");
                 thisGame.SetPlayerResult(currentPlayer, GameInstance.GameResult.Standoff);
@@ -416,7 +414,7 @@ namespace BlackjackGame
                 thisGame.SetPlayerResult(currentPlayer, GameInstance.GameResult.Loss);
             }
 
-            if(thisGame.GetInsuranceWin(currentPlayer))
+            if (thisGame.GetInsuranceWin(currentPlayer))
             {
                 Output.Text += "    Insurance bet won!";
             }
@@ -425,8 +423,6 @@ namespace BlackjackGame
             thisGame.SetCash(currentPlayer, playerCash);
             PlayerCash.Text = playerCash.ToString("C", CultureInfo.CurrentCulture);
             restartAvailable = true;
-        }
-
         }
 
         private void BetThousand_Click(object sender, EventArgs e)
@@ -441,14 +437,14 @@ namespace BlackjackGame
             {
                 if (thisGame.GetInsuranceAvailaible())
                 {
-                   Output.Text = "Must be half or less of original bet.";
+                    Output.Text = "Must be half or less of original bet.";
                 }
                 else
                 {
                     Output.Text = "Cards already dealt!";
                 }
             }
-            else if(playerCash <= 0)
+            else if (playerCash <= 0)
             {
                 Output.Text = "No money to bet!";
             }
@@ -532,12 +528,12 @@ namespace BlackjackGame
                         if (thisGame.GetDealerHand().GetTotal() == 21)
                         {
                             thisGame.SetInsuranceWin(player, true);
-                            if(!thisGame.HasSplit(currentPlayer))
+                            if (!thisGame.HasSplit(currentPlayer))
                             {
                                 Output.Text = "Insurance bet won!";
                                 Who_Won();
                             }
-                            
+
                         }
                         else
                         {
@@ -574,7 +570,7 @@ namespace BlackjackGame
         }
         private void DisplayCards(bool dealerFaceDown)
         {
-            
+
             Hand p1Hand = thisGame.GetPlayerHand(currentPlayer);
             Hand dealerHand = thisGame.GetDealerHand();
 
@@ -588,17 +584,17 @@ namespace BlackjackGame
                 //PictureBox cardPicture = new PictureBox();
                 if (dealerFaceDown)
                 {
-                    if(i == 0)
+                    if (i == 0)
                     {
                         dealerCardPictures[i].Image = card.GetImage();
-                        if(card.GetCardValue() == Card.CardValue.Ace)
+                        if (card.GetCardValue() == Card.CardValue.Ace)
                         {
                             thisGame.SetInsuranceAvailaible(true);
                             Console.WriteLine("Insurance availiable!");
-                        }        
+                        }
                     }
 
-                    else if(i == 1)
+                    else if (i == 1)
                     {
                         dealerCardPictures[i].Image = card.GetBackImage();
 
@@ -696,8 +692,8 @@ namespace BlackjackGame
                 PlayerCount.Text = p1Hand.GetTotal().ToString();
             }
 
-            
-            if(dealerHand.GetTotal() == 21 && !thisGame.GetInsuranceAvailaible())
+
+            if (dealerHand.GetTotal() == 21 && !thisGame.GetInsuranceAvailaible())
             {
                 dealerCardPictures[1].Image = dealerCards[1].GetImage();
                 DealerCount.Text = dealerHand.GetTotal().ToString();
@@ -782,7 +778,7 @@ namespace BlackjackGame
                         Output.Text += "Player " + currentPlayer.ToString() + " turn.";
                     }
                 }
-               
+
             }
 
         }
@@ -809,7 +805,7 @@ namespace BlackjackGame
             Card testcard4 = new Card(Card.CardValue.Five, Card.SuiteType.Spades);
             dealerHand.AddCard(dealingDeck.GetCard());
             dealerHand.AddCard(dealingDeck.GetCard());
-           // dealerHand.AddCard(testcard1);
+            // dealerHand.AddCard(testcard1);
             //dealerHand.AddCard(testcard2);
 
             //playerHand.AddCard(testcard3);
@@ -825,18 +821,18 @@ namespace BlackjackGame
             Card p2Card = playerHand.GetCard();
 
             DisplayCards(true);
-            if(thisGame.GetInsuranceAvailaible() == true)
+            if (thisGame.GetInsuranceAvailaible() == true)
             {
                 InsuranceButton.Visible = true;
             }
 
-            if(p1Card.GetCardValue() == p2Card.GetCardValue())
+            if (p1Card.GetCardValue() == p2Card.GetCardValue())
             {
                 SplitButton.Visible = true;
                 splitAvailable = true;
             }
 
-            if((dealerHand.GetTotal() == 21 || playerHand.GetTotal() == 21) && !thisGame.GetInsuranceAvailaible())
+            if ((dealerHand.GetTotal() == 21 || playerHand.GetTotal() == 21) && !thisGame.GetInsuranceAvailaible())
             {
                 this.Hit.Visible = false;
                 this.Stay.Visible = false;
@@ -865,7 +861,7 @@ namespace BlackjackGame
 
         private void SplitButton_Click(object sender, EventArgs e)
         {
-            if(CanBet(thisGame.GetBet(currentPlayer)))
+            if (CanBet(thisGame.GetBet(currentPlayer)))
             {
                 SCName.Visible = true;
                 PCName.Text = "Hand 1 Count";
@@ -889,7 +885,7 @@ namespace BlackjackGame
             {
                 Output.Text = "Not enough money to split!";
             }
-            
+
         }
 
         private void OnePlayerButton_Click(object sender, EventArgs e)

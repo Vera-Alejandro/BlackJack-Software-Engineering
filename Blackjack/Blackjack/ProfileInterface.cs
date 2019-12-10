@@ -248,7 +248,7 @@ namespace Blackjack
 
 				ProfileInfoUser.Text = info.GetUser();
 				ProfileInfoName.Text = info.GetName();
-				ProfileInfoPhone.Text = info.GetPhone();
+				ProfileInfoPhone.Text = info.GetPhoneNumber();
 				ProfileInfoAddress.Text = info.GetAddress();
 
 				InfoUserLabel.Visible = true;
@@ -319,7 +319,7 @@ namespace Blackjack
 
 				Storage.ProfileInfo info = database.GetProfileData(UserSignUpTextBox.Text);
 
-				string pphone = info.GetPhone();
+				string pphone = info.GetPhoneNumber();
 
 				CheckButton.Visible = false;
 				ForgotUserTextBox.Visible = false;

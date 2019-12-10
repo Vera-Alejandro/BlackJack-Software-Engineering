@@ -9,12 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using SQLite;
 
 namespace Blackjack
 {
 	public partial class ProfileInterface : Form
 	{
-		string Fullname;
+		string fileLoc;
 
 		public ProfileInterface()
 		{
@@ -22,6 +23,7 @@ namespace Blackjack
 		}
 		private void ProfileInterface_Load(object sender, EventArgs e)
 		{
+			BringToFront();
 			CenterToScreen();
 		}
 
@@ -75,6 +77,7 @@ namespace Blackjack
 			FundsButton.Visible = false;
 			ProfileInfo.Visible = false;
 
+			ForgotButton.Visible = true;
 			MenuButton.Visible = true;
 			LoginConfirm.Visible = true;
 			UserLabel.Visible = true;
@@ -143,13 +146,17 @@ namespace Blackjack
 		{
 			if (UserTextBox.Text != "" && PassTextBox.Text != "")
 			{
-				bool contains = Directory.EnumerateFiles(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BlackJackGame")).Any(f => f.Contains(UserTextBox.Text));
+				bool contains = Directory.EnumerateFiles(Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3")).Any(f => f.Contains(UserTextBox.Text));
+				
 				if (contains == true)
 				{
-					ActiveLogin.Text = UserTextBox.Text;
-					MenuButton_Click(sender, e);
+					Storage.ProfileInfo info = info.GetProfileData(UserTextBox.Text);
+					string pass = info.GetPassword();
 
-					//this needs to read the username and password, it is only reading the username right now
+					if(PassTextBox.Text == pass){//THIS IS WHERE YOU WOULD LOAD THE GAME STATE
+						ActiveLogin.Text = UserTextBox.Text;
+						MenuButton_Click(sender, e);
+					}
 				}
 				else
 				{
@@ -166,30 +173,20 @@ namespace Blackjack
 		{
 			if (UserSignUpTextBox.Text != "" && PassSignUpTextBox.Text != "" && NameSignUpTextBox.Text != "" && PhoneSignUpTextBox.Text != "" && AddressSignUpTextBox.Text != "" && CardInfoSignUpTextBox.Text != "") {
 
-				bool exists = Directory.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BlackJackGame"));
+				fileLoc = Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3");			
+	
+				Database saveFile = new Database(fileLoc);				
 
-				if (!exists)
-					Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BlackJackGame"));
+				Storage.ProfileInfo info = new Storage.ProfileInfo();
 
-				Fullname = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BlackJackGame/") + UserSignUpTextBox.Text + NameSignUpTextBox.Text + "info.txt";
+				info.SetUser(UserSignUpTextBox.Text);
+				info.SetPassword(PassSignUpTextBox.Text);
+				info.SetName(NameSignUpTextBox.Text); 
+				info.SetPhone(PhoneSignUpTextBox.Text);
+				info.SetAddress(AddressSignUpTextBox.Text);
+				info.SetCardNumber(CardInfoSignUpTextBox.Text);
 
-				if(File.Exists(Fullname))
-					File.Delete(Fullname);
-
-				FileStream fs = File.Create(Fullname);
-				fs.Close();
-
-				StreamWriter write = new StreamWriter(Fullname);
-
-				write.WriteLine("////////////////////////////////////");
-				write.WriteLine(UserSignUpTextBox.Text);
-				write.WriteLine(PassSignUpTextBox.Text);
-				write.WriteLine(NameSignUpTextBox.Text); 
-				write.WriteLine(PhoneSignUpTextBox.Text);
-				write.WriteLine(AddressSignUpTextBox.Text);
-				write.WriteLine(CardInfoSignUpTextBox.Text);
-				write.WriteLine("////////////////////////////////////");
-				write.Close();
+				saveFile.SaveProfile(info, UserSignUpTextBox.Text);
 
 				StatusLabel.Text = "Confirmed";
 				StatusLabel.Visible = true;
@@ -212,12 +209,10 @@ namespace Blackjack
 
 		private void ProfileInfo_Click(object sender, EventArgs e)
 		{
-
-			string[] info = Directory.GetFiles(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BlackJackGame"));
-
-			string reader = "";
-
 			if (ActiveLogin.Text != "Guest"){
+				
+				Storage.ProfileInfo info = info.GetProfileData(UserSignUpTextBox.Text);
+
 				LoginButton.Visible = false;
 				SignUpButton.Visible = false;
 				Soundoo.Visible = false;
@@ -229,30 +224,14 @@ namespace Blackjack
 				MenuButton.Visible = true;
 				ChangeButton.Visible = true;
 
-				foreach (string fileName in info)
-				{
-					if (fileName.Contains(UserTextBox.Text) == true)
-					{
-						reader = fileName;
-					}
-				}
 
-				StreamReader read = new StreamReader(reader);
+				ProfileInfoUser.Text = info.GetUser();
 
-				for(int i = 0; i < 7; i++)
-				{
-					string[] fileInfo = new string[7];
-					fileInfo[i] = read.ReadLine();
-					if (i == 1)
-						ProfileInfoUser.Text = fileInfo[i];
-					if (i == 3)
-						ProfileInfoName.Text = fileInfo[i];
-					if (i == 4)
-						ProfileInfoPhone.Text = fileInfo[i];
-					if (i == 5)
-						ProfileInfoAddress.Text = fileInfo[i];
+				ProfileInfoName.Text = info.GetName();
 
-				}
+				ProfileInfoPhone.Text = info.GetPhone();
+
+				ProfileInfoAddress.Text = info.GetAddress();
 
 				InfoUserLabel.Visible = true;
 				ProfileInfoUser.Visible = true;
@@ -269,6 +248,13 @@ namespace Blackjack
 		private void ChangeButton_Click(object sender, EventArgs e)
 		{
 			SignUpButton_Click(sender, e);
+		}
+
+		private void ForgotButton_Click(object sender, EventArgs e)
+		{
+			CheckButton.Visible = true;
+			ForgotUserTextBox.Visible = true;
+			ForgotUserLabel.Visible = true;
 		}
 	}
 }

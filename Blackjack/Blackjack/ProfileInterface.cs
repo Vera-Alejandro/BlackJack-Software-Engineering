@@ -185,7 +185,7 @@ namespace Blackjack
 				info.SetAddress(AddressSignUpTextBox.Text);
 				info.SetCardNumber(CardInfoSignUpTextBox.Text);
 
-				saveFile.SaveProfile(info, UserSignUpTextBox.Text);
+				saveFile.SaveProfile(info);
 
 				StatusLabel.Text = "Confirmed";
 				StatusLabel.Visible = true;

@@ -71,16 +71,28 @@ namespace Storage
         public string GetPassword()
         {
             byte[] salt1 = new byte[8];
-            byte[] edata = { 0, 1 };
+            //byte[] edata = { 0, 1 };
 
             using (RNGCryptoServiceProvider rNGCrypto = new RNGCryptoServiceProvider())
             {
                 rNGCrypto.GetBytes(salt1);
             }
-        
+
             Rfc2898DeriveBytes k1 = new Rfc2898DeriveBytes(encrypt_pass, salt1);
             Rfc2898DeriveBytes k2 = new Rfc2898DeriveBytes(encrypt_pass, salt1);
+
+            // Encrypt the data.
             TripleDES encAlg = TripleDES.Create();
+            encAlg.Key = k1.GetBytes(16);
+            MemoryStream encryptionStream = new MemoryStream();
+            CryptoStream encrypt = new CryptoStream(encryptionStream, encAlg.CreateEncryptor(), CryptoStreamMode.Write);
+            byte[] utfD1 = new UTF8Encoding(false).GetBytes("test");
+
+            encrypt.Write(utfD1, 0, utfD1.Length);
+            encrypt.FlushFinalBlock();
+            encrypt.Close();
+            byte[] edata1 = encryptionStream.ToArray();
+            k1.Reset();
 
             // Try to decrypt, thus showing it can be round-tripped.
             TripleDES decAlg = TripleDES.Create();
@@ -88,7 +100,7 @@ namespace Storage
             decAlg.IV = encAlg.IV;
             MemoryStream decryptionStreamBacking = new MemoryStream();
             CryptoStream decrypt = new CryptoStream(decryptionStreamBacking, decAlg.CreateDecryptor(), CryptoStreamMode.Write);
-            decrypt.Write(edata, 0, edata.Length);
+            decrypt.Write(_password, 0, _password.Length);
             decrypt.Flush();
             decrypt.Close();
             k2.Reset();
@@ -96,6 +108,13 @@ namespace Storage
 
             return decrypt_pass;
         }
+
+        public string GetUser() { return _user; }
+        public byte[] StorePassword() { return _password; }
+        public string GetName() { return _name; }
+        public string GetPhoneNumber() { return _phone; }
+        public string GetAddress() { return _address; }
+        public string GetCardNumber() { return _cardNumber; }
 
     }
 }

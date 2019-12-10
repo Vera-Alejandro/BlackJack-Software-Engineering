@@ -253,5 +253,36 @@ namespace Unit_Testing
                 Assert.Fail();
             }
         }
+
+
+        [TestMethod]
+        public void TestingSQLiteProfileSave()
+        {
+            string SQLiteFile = Path.Combine("C:\\Users\\alejandro.vera\\source\\repos\\Vera-Alejandro\\BlackJack-Software-Engineering\\Blackjack\\Blackjack", "GameData.sqlite3");
+            Database database = new Database(SQLiteFile);
+            Storage.ProfileInfo profile = new Storage.ProfileInfo();
+
+            profile.SetAddress("820 N Washington Ave.");
+            profile.SetCardNumber("69694206969");
+            profile.SetName("Barack Obama");
+            profile.SetPassword("Ass'n'Titties");
+            profile.SetPhone("8472525700");
+            profile.SetUser("MoBama");
+
+            try
+            {
+                database.Connect();
+
+                database.SaveProfile(profile);
+
+                database.Disconnect();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                Assert.Fail();
+            }
+            Assert.IsTrue(true);
+        }
     }
 }

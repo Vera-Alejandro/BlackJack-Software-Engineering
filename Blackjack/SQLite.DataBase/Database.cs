@@ -140,34 +140,41 @@ namespace SQLite
 
         }
 
-        public void SaveProfile(ProfileInfo profile, string UserName)
+        /// <summary>
+        /// Saves Profile to SQLite db file 
+        /// </summary>
+        /// <param name="profile">
+        /// Profile if with data of user that you want to save
+        /// </param>
+        public void SaveProfile(ProfileInfo profile)
         {
-            string create_table = $"CREATE TABLE IF NOT EXISTS {UserName} (" +
-                $"MoneyBet INT," +
-                $"MoneyWon INT," +
-                $"MoneyLost INT," +
-                $"MoneyLeftOver INT," +
-                $"MostMoneyMade INT," +
-                $"MostMoneyLost INT);";
+            string create_table = $"CREATE TABLE IF NOT EXISTS MasterProfile(" +
+                $"ID INTEGER PRIMARY KEY," +
+                $"Username TEXT," +
+                $"Password BLOB," +
+                $"FullName TEXT," +
+                $"PhoneNumber TEXT," +
+                $"Address TEXT," +
+                $"CardNumber TEXT);";
 
             SQLiteCommand create = new SQLiteCommand(create_table, _fileConnection);
             create.ExecuteNonQuery();
 
-            string _command = $"INSERT INTO {UserName} " +
-                $"(MoneyBet, MoneyWon, MoneyLost, MoneyLeftOver, MostMoneyMade, MostMoneyLost) " +
+            string _command = $"INSERT INTO MasterProfile " +
+                $"(UserName, Password, FullName, PhoneNumber, Address, CardNumber) " +
                 $"VALUES " +
-                $"(@MoneyBet, @MoneyWon, @MoneyLost, @MoneyLeftOver, @MostMoneyMade, @MostMoneyLost);";
+                $"(@UserName, @Password, @FullName, @PhoneNumber, @Address, @CardNumber);";
 
             SQLiteCommand _insertCmd = new SQLiteCommand(_command, _fileConnection);
 
             SQLiteParameter[] parameters =
             {
-                new SQLiteParameter(@"MoneyBet", gameData.GetMoneyBet()),
-                new SQLiteParameter(@"MoneyWon", gameData.GetMoneyWon()),
-                new SQLiteParameter(@"MoneyLost", gameData.GetMoneyLost()),
-                new SQLiteParameter(@"MoneyLeftOver", gameData.GetMoneyLeftOver()),
-                new SQLiteParameter(@"MostMoneyMade", gameData.MostMoneymade),
-                new SQLiteParameter(@"MostMoneyLost", gameData.MostMoneyLost),
+                new SQLiteParameter(@"UserName", profile.GetUser()),
+                new SQLiteParameter(@"Password", profile.StorePassword()),
+                new SQLiteParameter(@"FullName", profile.GetName()),
+                new SQLiteParameter(@"PhoneNumber", profile.GetPhoneNumber()),
+                new SQLiteParameter(@"Address", profile.GetAddress()),
+                new SQLiteParameter(@"CardNumber", profile.GetCardNumber()),
             };
             _insertCmd.Parameters.AddRange(parameters);
 
@@ -176,9 +183,19 @@ namespace SQLite
             Debug.WriteLine("rows affected :" + rows_affected);
         }
 
+        /// <summary>
+        /// this returns the profile data of the User inputed
+        /// </summary>
+        /// <param name="UserName">
+        /// Username of the ProfileInfo that you want
+        /// </param>
+        /// <returns>
+        /// Profile Info class with all data that is stored on that user
+        /// Returns null if no data on user found
+        /// </returns>
         public ProfileInfo GetProfileData(string UserName)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

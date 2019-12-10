@@ -150,7 +150,7 @@ namespace Blackjack
 				
 				if (contains == true)
 				{
-					Storage.ProfileInfo info = info.GetProfileData(UserTextBox.Text);
+					Storage.ProfileInfo info = Storage.ProfileInfo.GetProfileData(UserTextBox.Text);
 					string pass = info.GetPassword();
 
 					if(PassTextBox.Text == pass){//THIS IS WHERE YOU WOULD LOAD THE GAME STATE
@@ -211,7 +211,7 @@ namespace Blackjack
 		{
 			if (ActiveLogin.Text != "Guest"){
 				
-				Storage.ProfileInfo info = info.GetProfileData(UserSignUpTextBox.Text);
+				Storage.ProfileInfo info = new Storage.ProfileInfo.GetProfileData(UserSignUpTextBox.Text);
 
 				LoginButton.Visible = false;
 				SignUpButton.Visible = false;
@@ -255,6 +255,50 @@ namespace Blackjack
 			CheckButton.Visible = true;
 			ForgotUserTextBox.Visible = true;
 			ForgotUserLabel.Visible = true;
+		}
+
+		private void CheckButton_Click(object sender, EventArgs e)
+		{
+			bool contains = Directory.EnumerateFiles(Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3")).Any(f => f.Contains(UserTextBox.Text));
+
+			if (contains == true)
+			{
+				CheckButton.Visible = false;
+				ForgotUserTextBox.Visible = false;
+				ForgotUserLabel.Visible = false;
+				LogStatusLabel.Visible = false;
+
+				ForgotPhoneLabel.Visible = true;
+				ForgotPhoneTextBox.Visible = true;
+				ForgotPhoneButton.Visible = true;
+			}
+			else
+			{
+				LogStatusLabel.Visible = true;
+			}
+		}
+
+		private void ForgotPhoneButton_Click(object sender, EventArgs e)
+		{
+			bool contains = Directory.EnumerateFiles(Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3")).Any(f => f.Contains(UserTextBox.Text));
+
+			if (contains == true)
+			{
+				string pass = Storage.ProfileInfo.GetPassword();
+
+				CheckButton.Visible = false;
+				ForgotUserTextBox.Visible = false;
+				ForgotUserLabel.Visible = false;
+				LogStatusLabel.Visible = false;
+
+				ForgotPhoneLabel.Visible = true;
+				ForgotPhoneTextBox.Visible = true;
+				ForgotPhoneButton.Visible = true;
+			}
+			else
+			{
+				LogStatusLabel.Visible = true;
+			}
 		}
 	}
 }

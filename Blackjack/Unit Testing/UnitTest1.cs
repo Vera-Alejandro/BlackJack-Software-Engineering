@@ -14,19 +14,31 @@ namespace Unit_Testing
     [TestClass]
     public class UnitTest1
     {
+
+        internal string SQLiteFile = Path.Combine("C:\\Users\\alejandro.vera\\source\\repos\\Vera-Alejandro\\BlackJack-Software-Engineering\\Blackjack\\Blackjack", "GameData.sqlite3");
+
         [TestMethod]
         public void CardShuffleTest()
         {
             Deck regularDeck = new Deck();
             Deck shuffleDeck = new Deck();
+            bool sameSuit;
+            bool sameValue;
+            bool testcase;
 
             shuffleDeck.Shuffle();
 
             Card regTest = regularDeck.GetCard();
             Card shuffTest = shuffleDeck.GetCard();
 
-            Assert.AreNotEqual(shuffTest.GetSuiteType(), regTest.GetSuiteType());
-            Assert.AreNotEqual(shuffTest.GetCardValue(), regTest.GetCardValue());
+            sameSuit = (shuffTest.GetSuiteType() == regTest.GetSuiteType()) ? true : false;
+
+            sameValue = (shuffTest.GetCardValue() == regTest.GetCardValue()) ? true : false;
+
+            testcase = (sameValue || sameSuit) ? true : false;
+
+
+            Assert.IsFalse(testcase);
         }
 
         [TestMethod]
@@ -150,8 +162,6 @@ namespace Unit_Testing
         [TestMethod]
         public void DatabaseCreationTest()
         {
-            string SQLiteFile = Path.Combine("C:\\Users\\alejandro.vera\\source\\repos\\Vera-Alejandro\\BlackJack-Software-Engineering\\Blackjack\\Blackjack", "GameData.sqlite3");
-
             try
             {
                 Database testdb = new Database(SQLiteFile);
@@ -234,8 +244,6 @@ namespace Unit_Testing
         [TestMethod]
         public void SQLStorageTesting()
         {
-            string SQLiteFile = Path.Combine("C:\\Users\\alejandro.vera\\source\\repos\\Vera-Alejandro\\BlackJack-Software-Engineering\\Blackjack\\Blackjack", "GameData.sqlite3");
-
             Database database = new Database(SQLiteFile);
             GameData storage = new GameData(500, 10000, 600, 69420);
 
@@ -252,6 +260,60 @@ namespace Unit_Testing
                 Debug.WriteLine(ex.Message);
                 Assert.Fail();
             }
+        }
+
+
+        [TestMethod]
+        public void TestingSQLiteProfileSave()
+        {
+            string SQLiteFile = Path.Combine("C:\\Users\\alejandro.vera\\source\\repos\\Vera-Alejandro\\BlackJack-Software-Engineering\\Blackjack\\Blackjack", "GameData.sqlite3");
+            Database database = new Database(SQLiteFile);
+            Storage.ProfileInfo profile = new Storage.ProfileInfo();
+
+            profile.SetAddress("820 N Washington Ave.");
+            profile.SetCardNumber("69694206969");
+            profile.SetName("Barack Obama");
+            profile.SetPassword("Ass'n'Titties");
+            profile.SetPhone("8472525700");
+            profile.SetUser("MoBama");
+
+            try
+            {
+                database.Connect();
+
+                database.SaveProfile(profile);
+
+                database.Disconnect();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                Assert.Fail();
+            }
+            Assert.IsTrue(true);
+        }
+
+        [TestMethod]
+        public void TestingProfileInfoQuery()
+        {
+            Database database = new Database(SQLiteFile);
+            Storage.ProfileInfo returned = null;
+
+            try
+            {
+                database.Connect();
+
+                returned = database.GetProfileData("Ale");
+
+                database.Disconnect();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                Assert.Fail();
+            }
+
+            Assert.IsNotNull(returned.GetName());
         }
     }
 }

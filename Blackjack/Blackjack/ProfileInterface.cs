@@ -15,7 +15,7 @@ namespace Blackjack
 {
 	public partial class ProfileInterface : Form
 	{
-		string fileLoc = Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName).FullName, "GameData.sqlite3");
+		string fileLoc = Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName, "GameData.sqlite3");
 
 		public ProfileInterface()
 		{
@@ -187,7 +187,12 @@ namespace Blackjack
 
 		private void SignUpConfirmButton_Click(object sender, EventArgs e)
 		{
-			if (UserSignUpTextBox.Text != "" && PassSignUpTextBox.Text != "" && NameSignUpTextBox.Text != "" && PhoneSignUpTextBox.Text != "" && AddressSignUpTextBox.Text != "" && CardInfoSignUpTextBox.Text != "")
+			if (UserSignUpTextBox.Text != "" && 
+				PassSignUpTextBox.Text != "" && 
+				NameSignUpTextBox.Text != "" && 
+				PhoneSignUpTextBox.Text != "" && 
+				AddressSignUpTextBox.Text != "" && 
+				CardInfoSignUpTextBox.Text != "")
 			{
 				Database saveFile = new Database(fileLoc);
 				saveFile.Connect();
@@ -201,7 +206,7 @@ namespace Blackjack
 				info.SetAddress(AddressSignUpTextBox.Text);
 				info.SetCardNumber(CardInfoSignUpTextBox.Text);
 
-				saveFile.SaveProfile(info, UserSignUpTextBox.Text);
+				saveFile.SaveProfile(info);
 
 				StatusLabel.Text = "Confirmed";
 				StatusLabel.Visible = true;
@@ -247,7 +252,7 @@ namespace Blackjack
 
 				ProfileInfoUser.Text = info.GetUser();
 				ProfileInfoName.Text = info.GetName();
-				ProfileInfoPhone.Text = info.GetPhone();
+				ProfileInfoPhone.Text = info.GetPhoneNumber();
 				ProfileInfoAddress.Text = info.GetAddress();
 
 				InfoUserLabel.Visible = true;
@@ -318,7 +323,7 @@ namespace Blackjack
 
 				Storage.ProfileInfo info = database.GetProfileData(UserSignUpTextBox.Text);
 
-				string pphone = info.GetPhone();
+				string pphone = info.GetPhoneNumber();
 
 				CheckButton.Visible = false;
 				ForgotUserTextBox.Visible = false;

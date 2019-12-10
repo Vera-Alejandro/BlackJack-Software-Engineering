@@ -29,7 +29,7 @@ namespace Blackjack
         {
             return _handTotal;
         }
-        
+
         public void ClearHand()
         {
             _handTotal = 0;
@@ -86,13 +86,13 @@ namespace Blackjack
                         break;
                 }
             }
-            for(int i = 0; i < aceCount; i++)
+            for (int i = 0; i < aceCount; i++)
             {
                 if (_handTotal > 21)
                     _handTotal -= 10;
             }
         }
-            
+
 
         public void AddCard(Card NewCard)
         {
@@ -123,13 +123,9 @@ namespace Blackjack
         public bool HasBusted()
         {
             if (_handTotal < 22)
-            {
                 return false;
-            }
             else
-            {
                 return true;
-            }
         }
     }
 }

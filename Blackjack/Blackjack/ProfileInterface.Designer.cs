@@ -72,6 +72,9 @@
 			this.ForgotUserLabel = new System.Windows.Forms.Label();
 			this.ForgotUserTextBox = new System.Windows.Forms.TextBox();
 			this.CheckButton = new System.Windows.Forms.Button();
+			this.ForgotPhoneButton = new System.Windows.Forms.Button();
+			this.ForgotPhoneLabel = new System.Windows.Forms.Label();
+			this.ForgotPhoneTextBox = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
 			// Close
@@ -629,6 +632,42 @@
 			this.CheckButton.TabIndex = 79;
 			this.CheckButton.Text = "Next";
 			this.CheckButton.UseVisualStyleBackColor = false;
+			this.CheckButton.Click += new System.EventHandler(this.CheckButton_Click);
+			// 
+			// ForgotPhoneButton
+			// 
+			this.ForgotPhoneButton.BackColor = System.Drawing.Color.Black;
+			this.ForgotPhoneButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.ForgotPhoneButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ForgotPhoneButton.ForeColor = System.Drawing.Color.White;
+			this.ForgotPhoneButton.Location = new System.Drawing.Point(97, 216);
+			this.ForgotPhoneButton.Name = "ForgotPhoneButton";
+			this.ForgotPhoneButton.Size = new System.Drawing.Size(117, 42);
+			this.ForgotPhoneButton.TabIndex = 87;
+			this.ForgotPhoneButton.Text = "Confirm";
+			this.ForgotPhoneButton.UseVisualStyleBackColor = false;
+			this.ForgotPhoneButton.Click += new System.EventHandler(this.ForgotPhoneButton_Click);
+			// 
+			// ForgotPhoneLabel
+			// 
+			this.ForgotPhoneLabel.AutoSize = true;
+			this.ForgotPhoneLabel.BackColor = System.Drawing.Color.Black;
+			this.ForgotPhoneLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ForgotPhoneLabel.ForeColor = System.Drawing.Color.White;
+			this.ForgotPhoneLabel.Location = new System.Drawing.Point(39, 117);
+			this.ForgotPhoneLabel.Name = "ForgotPhoneLabel";
+			this.ForgotPhoneLabel.Size = new System.Drawing.Size(56, 20);
+			this.ForgotPhoneLabel.TabIndex = 86;
+			this.ForgotPhoneLabel.Text = "Phone";
+			this.ForgotPhoneLabel.Visible = false;
+			// 
+			// ForgotPhoneTextBox
+			// 
+			this.ForgotPhoneTextBox.Location = new System.Drawing.Point(101, 117);
+			this.ForgotPhoneTextBox.Name = "ForgotPhoneTextBox";
+			this.ForgotPhoneTextBox.Size = new System.Drawing.Size(160, 20);
+			this.ForgotPhoneTextBox.TabIndex = 85;
+			this.ForgotPhoneTextBox.Visible = false;
 			// 
 			// ProfileInterface
 			// 
@@ -636,10 +675,13 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.InfoText;
 			this.ClientSize = new System.Drawing.Size(300, 375);
+			this.Controls.Add(this.ForgotPhoneButton);
+			this.Controls.Add(this.ForgotPhoneLabel);
+			this.Controls.Add(this.ForgotPhoneTextBox);
+			this.Controls.Add(this.Boarder);
 			this.Controls.Add(this.CheckButton);
 			this.Controls.Add(this.ForgotUserLabel);
 			this.Controls.Add(this.ForgotUserTextBox);
-			this.Controls.Add(this.Boarder);
 			this.Controls.Add(this.LoginConfirm);
 			this.Controls.Add(this.ForgotButton);
 			this.Controls.Add(this.ProfileInfoLabel);
@@ -734,5 +776,8 @@
 		private System.Windows.Forms.Label ForgotUserLabel;
 		private System.Windows.Forms.TextBox ForgotUserTextBox;
 		private System.Windows.Forms.Button CheckButton;
+		private System.Windows.Forms.Button ForgotPhoneButton;
+		private System.Windows.Forms.Label ForgotPhoneLabel;
+		private System.Windows.Forms.TextBox ForgotPhoneTextBox;
 	}
 }

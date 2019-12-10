@@ -806,8 +806,8 @@ namespace BlackjackGame
             Card testcard4 = new Card(Card.CardValue.Five, Card.SuiteType.Spades);
             dealerHand.AddCard(dealingDeck.GetCard());
             dealerHand.AddCard(dealingDeck.GetCard());
-            // dealerHand.AddCard(testcard1);
-            //dealerHand.AddCard(testcard2);
+            dealerHand.AddCard(testcard1);
+            dealerHand.AddCard(testcard2);
 
             //playerHand.AddCard(testcard3);
             //playerHand.AddCard(testcard4);
@@ -830,6 +830,8 @@ namespace BlackjackGame
             if (p1Card.GetCardValue() == p2Card.GetCardValue())
             {
                 Console.WriteLine("Making split available");
+                if (p1Card.GetCardValue() == Card.CardValue.Five)
+                    Console.WriteLine("Five");
                 SplitButton.Visible = true;
                 splitAvailable = true;
             }

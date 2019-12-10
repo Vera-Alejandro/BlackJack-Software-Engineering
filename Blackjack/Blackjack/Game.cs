@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using Blackjack;
 using System.Globalization;
 using System.IO;
-
+using SQLite;
 
 namespace BlackjackGame
 {
@@ -829,6 +829,7 @@ namespace BlackjackGame
 
             if (p1Card.GetCardValue() == p2Card.GetCardValue())
             {
+                Console.WriteLine("Making split available");
                 SplitButton.Visible = true;
                 splitAvailable = true;
             }

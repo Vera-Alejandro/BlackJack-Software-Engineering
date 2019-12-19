@@ -165,19 +165,17 @@ namespace SQLite
                         "SELECT COUNT(1) as 'Count' FROM MasterProfile WHERE Username = '{0}'",
                         profile.GetUser()));
 
-            bool userExists = rows.Count() > 0;
+            //bool userExists = rows.First().Count() > 0;
 
-            if (!userExists)
+            string _command = $"INSERT INTO MasterProfile " +
+                $"(UserName, Password, FullName, PhoneNumber, Address, CardNumber) " +
+                $"VALUES " +
+                $"(@UserName, @Password, @FullName, @PhoneNumber, @Address, @CardNumber);";
+
+            SQLiteCommand _insertCmd = new SQLiteCommand(_command, _fileConnection);
+
+            SQLiteParameter[] parameters =
             {
-                string _command = $"INSERT INTO MasterProfile " +
-                    $"(UserName, Password, FullName, PhoneNumber, Address, CardNumber) " +
-                    $"VALUES " +
-                    $"(@UserName, @Password, @FullName, @PhoneNumber, @Address, @CardNumber);";
-
-                SQLiteCommand _insertCmd = new SQLiteCommand(_command, _fileConnection);
-
-                SQLiteParameter[] parameters =
-                {
                 new SQLiteParameter(@"UserName", profile.GetUser()),
                 new SQLiteParameter(@"Password", profile.StorePassword()),
                 new SQLiteParameter(@"FullName", profile.GetName()),
@@ -185,18 +183,13 @@ namespace SQLite
                 new SQLiteParameter(@"Address", profile.GetAddress()),
                 new SQLiteParameter(@"CardNumber", profile.GetCardNumber()),
             };
-                _insertCmd.Parameters.AddRange(parameters);
+            _insertCmd.Parameters.AddRange(parameters);
 
-                int rows_affected = _insertCmd.ExecuteNonQuery();
+            int rows_affected = _insertCmd.ExecuteNonQuery();
 
-                Debug.WriteLine("rows affected :" + rows_affected);
+            Debug.WriteLine("rows affected :" + rows_affected);
 
-                return rows_affected;
-            }
-            else
-            {
-                return -69;
-            }
+            return rows_affected;
         }
 
         /// <summary>
@@ -233,7 +226,7 @@ namespace SQLite
 
             _fileConnection.Close();
 
-            return rows.Count() > 0;
+            return false;//rows.FirstOrDefault<>().Count() > 0;
         }
     }
 

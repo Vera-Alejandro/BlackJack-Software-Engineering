@@ -16,6 +16,7 @@ namespace Blackjack
 	public partial class ProfileInterface : Form
 	{
 		string fileLoc = Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName, "GameData.sqlite3");
+		string TheUsername;
 
 		public ProfileInterface()
 		{
@@ -154,16 +155,16 @@ namespace Blackjack
 
 		private void LoginConfirm_Click(object sender, EventArgs e)
 		{
+			Database database = new Database(fileLoc);
 			if (UserTextBox.Text != "" && PassTextBox.Text != "")
 			{
-				bool contains = Database.DoesUserExist();
+				bool contains = database.DoesUserExist(TheUsername);
 
 				if (contains == true)
 				{
-					Database database = new Database(fileLoc);
 					database.Connect();
 
-					Storage.ProfileInfo info = database.GetProfileData(UserTextBox.Text);
+					Storage.ProfileInfo info = database.GetProfileData(TheUsername);
 
 					database.Disconnect();
 					string pass = info.GetPassword();
@@ -199,6 +200,7 @@ namespace Blackjack
 
 				Storage.ProfileInfo info = new Storage.ProfileInfo();
 
+				TheUsername = UserSignUpTextBox.Text;
 				info.SetUser(UserSignUpTextBox.Text);
 				info.SetPassword(PassSignUpTextBox.Text);
 				info.SetName(NameSignUpTextBox.Text);
@@ -236,7 +238,7 @@ namespace Blackjack
 			{
 				database.Connect();
 
-				Storage.ProfileInfo info = database.GetProfileData(UserSignUpTextBox.Text);
+				Storage.ProfileInfo info = database.GetProfileData(TheUsername);
 
 				LoginButton.Visible = false;
 				SignUpButton.Visible = false;
@@ -291,8 +293,9 @@ namespace Blackjack
 
 		private void CheckButton_Click(object sender, EventArgs e)
 		{
+			Database database = new Database(fileLoc);
 
-			bool contains = Database.DoesUserExist();
+			bool contains = database.DoesUserExist(TheUsername);
 
 			if (contains == true)
 			{
@@ -314,11 +317,11 @@ namespace Blackjack
 
 		private void ForgotPhoneButton_Click(object sender, EventArgs e)
 		{
-			bool contains = Database.DoesUserExist();
+			Database database = new Database(fileLoc);
+			bool contains = database.DoesUserExist(TheUsername);
 
 			if (contains == true)
 			{
-				Database database = new Database(fileLoc);
 				database.Connect();
 
 				Storage.ProfileInfo info = database.GetProfileData(UserSignUpTextBox.Text);
@@ -363,7 +366,7 @@ namespace Blackjack
 			Database database = new Database(fileLoc);
 			database.Connect();
 
-			Storage.ProfileInfo info = database.GetProfileData(UserSignUpTextBox.Text);
+			Storage.ProfileInfo info = database.GetProfileData(TheUsername);
 
 			if (ChangePasswordTextBox.Text == ConfirmNewPasswordTextBox.Text)
 			{

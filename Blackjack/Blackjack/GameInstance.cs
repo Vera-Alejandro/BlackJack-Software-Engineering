@@ -179,7 +179,6 @@ namespace Blackjack
             if (_insuranceWin[playerNumber - 1])
             {
                 result += (_insuranceBets[playerNumber - 1] * INSURANCE_RATIO);
-
             }
 
             if (HasSplit(playerNumber))

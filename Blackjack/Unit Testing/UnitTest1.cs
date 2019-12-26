@@ -320,5 +320,42 @@ namespace Unit_Testing
 
             Assert.IsNotNull(returned.GetName());
         }
+
+
+        [TestMethod]
+        public void TrueDoesUserExist()
+        {
+            Database database = new Database(SQLiteFile);
+            bool exists = false;
+
+            try
+            {
+                exists = database.DoesUserExist("ale");
+            }
+            catch (Exception)
+            {
+                Assert.Fail();
+            }
+
+            Assert.IsTrue(exists);
+        }
+
+        [TestMethod]
+        public void FalseDoesUserExist()
+        {
+            Database database = new Database(SQLiteFile);
+            bool doesExist = true;
+
+            try
+            {
+                doesExist = database.DoesUserExist("juan");
+            }
+            catch (Exception)
+            {
+                Assert.Fail();
+            }
+
+            Assert.IsFalse(doesExist);
+        }
     }
 }

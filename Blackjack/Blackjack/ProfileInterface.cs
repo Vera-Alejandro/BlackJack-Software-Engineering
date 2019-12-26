@@ -17,7 +17,6 @@ namespace Blackjack
 	{
 		string fileLoc = Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName, "GameData.sqlite3");
 		string TheUsername;
-
 		public ProfileInterface()
 		{
 			InitializeComponent();
@@ -378,6 +377,11 @@ namespace Blackjack
 				LogStatusLabel.Visible = true;
 			}
 			database.Disconnect();
+		}
+
+		private void ActiveLogin_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

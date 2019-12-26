@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.IO;
 using Dapper;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace SQLite
 {
@@ -220,13 +221,16 @@ namespace SQLite
         {
             _fileConnection.Open();
 
-            var rows = _fileConnection.Query(string.Format(
+            
+            int count = _fileConnection.ExecuteScalar<int>(string.Format(
                         "SELECT COUNT(1) as 'Count' FROM MasterProfile WHERE Username = '{0}'",
                         UserName));
 
             _fileConnection.Close();
 
-            return false;//rows.FirstOrDefault<>().Count() > 0;
+
+
+            return (count == 1) ? true: false;
         }
     }
 

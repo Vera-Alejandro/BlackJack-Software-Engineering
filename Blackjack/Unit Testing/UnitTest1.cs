@@ -35,7 +35,7 @@ namespace Unit_Testing
 
             sameValue = (shuffTest.GetCardValue() == regTest.GetCardValue()) ? true : false;
 
-            testcase = (sameValue || sameSuit) ? true : false;
+            testcase = (sameValue && sameSuit) ? true : false;
 
 
             Assert.IsFalse(testcase);
@@ -148,15 +148,20 @@ namespace Unit_Testing
             testGame.SetPlayerResult(3, GameInstance.GameResult.Standoff);
             testGame.SetPlayerResult(4, GameInstance.GameResult.PlayerBlackjack);
 
-            const double CORRECT_LOSS = -10;
-            const double CORRECT_WIN = 10;
-            const double CORRECT_TIE = 0;
-            const double CORRECT_BLACKJACK = 15;
+            const double CORRECT_LOSS = 0;
+            const double CORRECT_WIN = 20;
+            const double CORRECT_TIE = 10;
+            const double CORRECT_BLACKJACK = 35;
 
-            Assert.AreEqual(testGame.GetPayout(1), CORRECT_LOSS);
-            Assert.AreEqual(testGame.GetPayout(2), CORRECT_WIN);
-            Assert.AreEqual(testGame.GetPayout(3), CORRECT_TIE);
-            Assert.AreEqual(testGame.GetPayout(4), CORRECT_BLACKJACK);
+            double p1MoneyDiff = testGame.GetPayout(1);
+            double p2MoneyDiff = testGame.GetPayout(2);
+            double p3MoneyDiff = testGame.GetPayout(3);
+            double p4MoneyDiff = testGame.GetPayout(4);
+
+            Assert.AreEqual(CORRECT_LOSS, p1MoneyDiff);
+            Assert.AreEqual(CORRECT_WIN, p2MoneyDiff);
+            Assert.AreEqual(CORRECT_TIE, p3MoneyDiff);
+            Assert.AreEqual(CORRECT_BLACKJACK, p4MoneyDiff);
         }
         
         [TestMethod]
@@ -314,6 +319,43 @@ namespace Unit_Testing
             }
 
             Assert.IsNotNull(returned.GetName());
+        }
+
+
+        [TestMethod]
+        public void TrueDoesUserExist()
+        {
+            Database database = new Database(SQLiteFile);
+            bool exists = false;
+
+            try
+            {
+                exists = database.DoesUserExist("ale");
+            }
+            catch (Exception)
+            {
+                Assert.Fail();
+            }
+
+            Assert.IsTrue(exists);
+        }
+
+        [TestMethod]
+        public void FalseDoesUserExist()
+        {
+            Database database = new Database(SQLiteFile);
+            bool doesExist = true;
+
+            try
+            {
+                doesExist = database.DoesUserExist("juan");
+            }
+            catch (Exception)
+            {
+                Assert.Fail();
+            }
+
+            Assert.IsFalse(doesExist);
         }
     }
 }

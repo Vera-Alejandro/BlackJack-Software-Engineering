@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackjackGame", "Blackjack\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unit Testing", "Unit Testing\Unit Testing.csproj", "{C136CA96-9072-4BD2-BD96-1A40750ED792}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Storage", "SQLite.DataBase\Storage.csproj", "{D7CD3057-8550-4106-AB62-08676392D622}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Storage", "SQLite.DataBase\Storage.csproj", "{D7CD3057-8550-4106-AB62-08676392D622}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

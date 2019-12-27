@@ -48,8 +48,7 @@
             this.AddressSignUpLabel = new System.Windows.Forms.Label();
             this.AddressSignUpTextBox = new System.Windows.Forms.TextBox();
             this.SignUpConfirmButton = new System.Windows.Forms.Button();
-            this.StatusLabel = new System.Windows.Forms.Label();
-            this.MenuButton = new System.Windows.Forms.Button();
+            this.LogIn_Menu = new System.Windows.Forms.Button();
             this.UserTextBox = new System.Windows.Forms.TextBox();
             this.UserLabel = new System.Windows.Forms.Label();
             this.PassTextBox = new System.Windows.Forms.TextBox();
@@ -81,11 +80,19 @@
             this.ConfirmNewPasswordLabel = new System.Windows.Forms.Label();
             this.Main = new System.Windows.Forms.Panel();
             this.LogIn = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.InvalidStatus = new System.Windows.Forms.Label();
+            this.SignUp_Menu = new System.Windows.Forms.Button();
+            this.SignUp = new System.Windows.Forms.Panel();
+            this.StatusLabel = new System.Windows.Forms.Label();
+            this.ForgotPassword = new System.Windows.Forms.Panel();
+            this.Forgot_Menu = new System.Windows.Forms.Button();
+            this.ProfilePanel = new System.Windows.Forms.Panel();
+            this.Profile_Menu = new System.Windows.Forms.Button();
             this.Main.SuspendLayout();
             this.LogIn.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.SignUp.SuspendLayout();
+            this.ForgotPassword.SuspendLayout();
+            this.ProfilePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Close
@@ -97,7 +104,7 @@
             this.Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Close.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.Close.Location = new System.Drawing.Point(1120, 9);
+            this.Close.Location = new System.Drawing.Point(266, 9);
             this.Close.Margin = new System.Windows.Forms.Padding(0);
             this.Close.Name = "Close";
             this.Close.Size = new System.Drawing.Size(25, 34);
@@ -131,7 +138,6 @@
             this.ActiveLogin.Size = new System.Drawing.Size(60, 24);
             this.ActiveLogin.TabIndex = 11;
             this.ActiveLogin.Text = "Guest";
-            this.ActiveLogin.Click += new System.EventHandler(this.ActiveLogin_Click);
             // 
             // LoginButton
             // 
@@ -199,7 +205,6 @@
             this.PassSignUpLabel.Size = new System.Drawing.Size(47, 20);
             this.PassSignUpLabel.TabIndex = 57;
             this.PassSignUpLabel.Text = "Pass";
-            this.PassSignUpLabel.Visible = false;
             // 
             // PassSignUpTextBox
             // 
@@ -207,7 +212,6 @@
             this.PassSignUpTextBox.Name = "PassSignUpTextBox";
             this.PassSignUpTextBox.Size = new System.Drawing.Size(160, 20);
             this.PassSignUpTextBox.TabIndex = 40;
-            this.PassSignUpTextBox.Visible = false;
             // 
             // UserSignUpLabel
             // 
@@ -220,7 +224,6 @@
             this.UserSignUpLabel.Size = new System.Drawing.Size(45, 20);
             this.UserSignUpLabel.TabIndex = 58;
             this.UserSignUpLabel.Text = "User";
-            this.UserSignUpLabel.Visible = false;
             // 
             // UserSignUpTextBox
             // 
@@ -228,7 +231,6 @@
             this.UserSignUpTextBox.Name = "UserSignUpTextBox";
             this.UserSignUpTextBox.Size = new System.Drawing.Size(160, 20);
             this.UserSignUpTextBox.TabIndex = 39;
-            this.UserSignUpTextBox.Visible = false;
             // 
             // PhoneSignUpLabel
             // 
@@ -236,12 +238,11 @@
             this.PhoneSignUpLabel.BackColor = System.Drawing.Color.Black;
             this.PhoneSignUpLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PhoneSignUpLabel.ForeColor = System.Drawing.Color.White;
-            this.PhoneSignUpLabel.Location = new System.Drawing.Point(832, 488);
+            this.PhoneSignUpLabel.Location = new System.Drawing.Point(32, 160);
             this.PhoneSignUpLabel.Name = "PhoneSignUpLabel";
             this.PhoneSignUpLabel.Size = new System.Drawing.Size(56, 20);
             this.PhoneSignUpLabel.TabIndex = 55;
             this.PhoneSignUpLabel.Text = "Phone";
-            this.PhoneSignUpLabel.Visible = false;
             // 
             // PhoneSignUpTextBox
             // 
@@ -249,7 +250,6 @@
             this.PhoneSignUpTextBox.Name = "PhoneSignUpTextBox";
             this.PhoneSignUpTextBox.Size = new System.Drawing.Size(160, 20);
             this.PhoneSignUpTextBox.TabIndex = 43;
-            this.PhoneSignUpTextBox.Visible = false;
             // 
             // CardInfoSignUpLabel
             // 
@@ -262,7 +262,6 @@
             this.CardInfoSignUpLabel.Size = new System.Drawing.Size(45, 20);
             this.CardInfoSignUpLabel.TabIndex = 54;
             this.CardInfoSignUpLabel.Text = "Card";
-            this.CardInfoSignUpLabel.Visible = false;
             // 
             // CardInfoSignUpTextBox
             // 
@@ -270,7 +269,6 @@
             this.CardInfoSignUpTextBox.Name = "CardInfoSignUpTextBox";
             this.CardInfoSignUpTextBox.Size = new System.Drawing.Size(160, 20);
             this.CardInfoSignUpTextBox.TabIndex = 45;
-            this.CardInfoSignUpTextBox.Visible = false;
             // 
             // NameSignUpTextBox
             // 
@@ -278,7 +276,6 @@
             this.NameSignUpTextBox.Name = "NameSignUpTextBox";
             this.NameSignUpTextBox.Size = new System.Drawing.Size(160, 20);
             this.NameSignUpTextBox.TabIndex = 42;
-            this.NameSignUpTextBox.Visible = false;
             // 
             // NameSignUpLabel
             // 
@@ -291,7 +288,6 @@
             this.NameSignUpLabel.Size = new System.Drawing.Size(53, 20);
             this.NameSignUpLabel.TabIndex = 56;
             this.NameSignUpLabel.Text = "Name";
-            this.NameSignUpLabel.Visible = false;
             // 
             // AddressSignUpLabel
             // 
@@ -304,7 +300,6 @@
             this.AddressSignUpLabel.Size = new System.Drawing.Size(71, 20);
             this.AddressSignUpLabel.TabIndex = 53;
             this.AddressSignUpLabel.Text = "Address";
-            this.AddressSignUpLabel.Visible = false;
             // 
             // AddressSignUpTextBox
             // 
@@ -312,7 +307,6 @@
             this.AddressSignUpTextBox.Name = "AddressSignUpTextBox";
             this.AddressSignUpTextBox.Size = new System.Drawing.Size(160, 20);
             this.AddressSignUpTextBox.TabIndex = 44;
-            this.AddressSignUpTextBox.Visible = false;
             // 
             // SignUpConfirmButton
             // 
@@ -320,43 +314,27 @@
             this.SignUpConfirmButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SignUpConfirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SignUpConfirmButton.ForeColor = System.Drawing.Color.White;
-            this.SignUpConfirmButton.Location = new System.Drawing.Point(974, 371);
+            this.SignUpConfirmButton.Location = new System.Drawing.Point(158, 315);
             this.SignUpConfirmButton.Name = "SignUpConfirmButton";
             this.SignUpConfirmButton.Size = new System.Drawing.Size(117, 42);
             this.SignUpConfirmButton.TabIndex = 52;
             this.SignUpConfirmButton.Text = "Submit";
             this.SignUpConfirmButton.UseVisualStyleBackColor = false;
-            this.SignUpConfirmButton.Visible = false;
             this.SignUpConfirmButton.Click += new System.EventHandler(this.SignUpConfirmButton_Click);
             // 
-            // StatusLabel
+            // LogIn_Menu
             // 
-            this.StatusLabel.AutoSize = true;
-            this.StatusLabel.BackColor = System.Drawing.Color.Black;
-            this.StatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StatusLabel.ForeColor = System.Drawing.Color.White;
-            this.StatusLabel.Location = new System.Drawing.Point(663, 497);
-            this.StatusLabel.Name = "StatusLabel";
-            this.StatusLabel.Size = new System.Drawing.Size(38, 13);
-            this.StatusLabel.TabIndex = 59;
-            this.StatusLabel.Text = "Invalid";
-            this.StatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.StatusLabel.Visible = false;
-            // 
-            // MenuButton
-            // 
-            this.MenuButton.BackColor = System.Drawing.Color.Black;
-            this.MenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MenuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MenuButton.ForeColor = System.Drawing.Color.White;
-            this.MenuButton.Location = new System.Drawing.Point(23, 315);
-            this.MenuButton.Name = "MenuButton";
-            this.MenuButton.Size = new System.Drawing.Size(117, 42);
-            this.MenuButton.TabIndex = 32;
-            this.MenuButton.Text = "Menu";
-            this.MenuButton.UseVisualStyleBackColor = false;
-            this.MenuButton.Visible = false;
-            this.MenuButton.Click += new System.EventHandler(this.MenuButton_Click);
+            this.LogIn_Menu.BackColor = System.Drawing.Color.Black;
+            this.LogIn_Menu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LogIn_Menu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogIn_Menu.ForeColor = System.Drawing.Color.White;
+            this.LogIn_Menu.Location = new System.Drawing.Point(23, 315);
+            this.LogIn_Menu.Name = "LogIn_Menu";
+            this.LogIn_Menu.Size = new System.Drawing.Size(117, 42);
+            this.LogIn_Menu.TabIndex = 32;
+            this.LogIn_Menu.Text = "Menu";
+            this.LogIn_Menu.UseVisualStyleBackColor = false;
+            this.LogIn_Menu.Click += new System.EventHandler(this.MenuButton_Click);
             // 
             // UserTextBox
             // 
@@ -364,7 +342,6 @@
             this.UserTextBox.Name = "UserTextBox";
             this.UserTextBox.Size = new System.Drawing.Size(160, 20);
             this.UserTextBox.TabIndex = 33;
-            this.UserTextBox.Visible = false;
             // 
             // UserLabel
             // 
@@ -377,7 +354,6 @@
             this.UserLabel.Size = new System.Drawing.Size(45, 20);
             this.UserLabel.TabIndex = 34;
             this.UserLabel.Text = "User";
-            this.UserLabel.Visible = false;
             // 
             // PassTextBox
             // 
@@ -385,7 +361,6 @@
             this.PassTextBox.Name = "PassTextBox";
             this.PassTextBox.Size = new System.Drawing.Size(160, 20);
             this.PassTextBox.TabIndex = 37;
-            this.PassTextBox.Visible = false;
             // 
             // PassLabel
             // 
@@ -398,7 +373,6 @@
             this.PassLabel.Size = new System.Drawing.Size(47, 20);
             this.PassLabel.TabIndex = 38;
             this.PassLabel.Text = "Pass";
-            this.PassLabel.Visible = false;
             // 
             // LoginConfirm
             // 
@@ -412,7 +386,6 @@
             this.LoginConfirm.TabIndex = 36;
             this.LoginConfirm.Text = "Log in";
             this.LoginConfirm.UseVisualStyleBackColor = false;
-            this.LoginConfirm.Visible = false;
             this.LoginConfirm.Click += new System.EventHandler(this.LoginConfirm_Click);
             // 
             // LogStatusLabel
@@ -421,7 +394,7 @@
             this.LogStatusLabel.BackColor = System.Drawing.Color.Black;
             this.LogStatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogStatusLabel.ForeColor = System.Drawing.Color.White;
-            this.LogStatusLabel.Location = new System.Drawing.Point(131, 156);
+            this.LogStatusLabel.Location = new System.Drawing.Point(131, 264);
             this.LogStatusLabel.Name = "LogStatusLabel";
             this.LogStatusLabel.Size = new System.Drawing.Size(38, 13);
             this.LogStatusLabel.TabIndex = 60;
@@ -449,7 +422,7 @@
             this.ProfileInfoLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ProfileInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProfileInfoLabel.ForeColor = System.Drawing.Color.White;
-            this.ProfileInfoLabel.Location = new System.Drawing.Point(641, 73);
+            this.ProfileInfoLabel.Location = new System.Drawing.Point(57, 21);
             this.ProfileInfoLabel.Name = "ProfileInfoLabel";
             this.ProfileInfoLabel.Size = new System.Drawing.Size(186, 24);
             this.ProfileInfoLabel.TabIndex = 62;
@@ -463,13 +436,12 @@
             this.ProfileInfoUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ProfileInfoUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProfileInfoUser.ForeColor = System.Drawing.Color.White;
-            this.ProfileInfoUser.Location = new System.Drawing.Point(653, 141);
+            this.ProfileInfoUser.Location = new System.Drawing.Point(70, 140);
             this.ProfileInfoUser.Name = "ProfileInfoUser";
             this.ProfileInfoUser.Size = new System.Drawing.Size(160, 24);
             this.ProfileInfoUser.TabIndex = 63;
             this.ProfileInfoUser.Text = "Profile Information";
             this.ProfileInfoUser.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ProfileInfoUser.Visible = false;
             // 
             // InfoUserLabel
             // 
@@ -477,7 +449,7 @@
             this.InfoUserLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.InfoUserLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoUserLabel.ForeColor = System.Drawing.Color.White;
-            this.InfoUserLabel.Location = new System.Drawing.Point(874, 214);
+            this.InfoUserLabel.Location = new System.Drawing.Point(120, 57);
             this.InfoUserLabel.Name = "InfoUserLabel";
             this.InfoUserLabel.Size = new System.Drawing.Size(61, 24);
             this.InfoUserLabel.TabIndex = 64;
@@ -491,13 +463,12 @@
             this.NameInfoLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.NameInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NameInfoLabel.ForeColor = System.Drawing.Color.White;
-            this.NameInfoLabel.Location = new System.Drawing.Point(894, 295);
+            this.NameInfoLabel.Location = new System.Drawing.Point(120, 114);
             this.NameInfoLabel.Name = "NameInfoLabel";
             this.NameInfoLabel.Size = new System.Drawing.Size(61, 24);
             this.NameInfoLabel.TabIndex = 68;
             this.NameInfoLabel.Text = "Name";
             this.NameInfoLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.NameInfoLabel.Visible = false;
             // 
             // ProfileInfoName
             // 
@@ -505,13 +476,12 @@
             this.ProfileInfoName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ProfileInfoName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProfileInfoName.ForeColor = System.Drawing.Color.White;
-            this.ProfileInfoName.Location = new System.Drawing.Point(653, 208);
+            this.ProfileInfoName.Location = new System.Drawing.Point(70, 195);
             this.ProfileInfoName.Name = "ProfileInfoName";
             this.ProfileInfoName.Size = new System.Drawing.Size(160, 24);
             this.ProfileInfoName.TabIndex = 67;
             this.ProfileInfoName.Text = "Profile Information";
             this.ProfileInfoName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ProfileInfoName.Visible = false;
             // 
             // PhoneInfoLabel
             // 
@@ -519,13 +489,12 @@
             this.PhoneInfoLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PhoneInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PhoneInfoLabel.ForeColor = System.Drawing.Color.White;
-            this.PhoneInfoLabel.Location = new System.Drawing.Point(884, 259);
+            this.PhoneInfoLabel.Location = new System.Drawing.Point(120, 171);
             this.PhoneInfoLabel.Name = "PhoneInfoLabel";
             this.PhoneInfoLabel.Size = new System.Drawing.Size(61, 24);
             this.PhoneInfoLabel.TabIndex = 70;
             this.PhoneInfoLabel.Text = "Phone";
             this.PhoneInfoLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.PhoneInfoLabel.Visible = false;
             // 
             // ProfileInfoPhone
             // 
@@ -533,13 +502,12 @@
             this.ProfileInfoPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ProfileInfoPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProfileInfoPhone.ForeColor = System.Drawing.Color.White;
-            this.ProfileInfoPhone.Location = new System.Drawing.Point(667, 271);
+            this.ProfileInfoPhone.Location = new System.Drawing.Point(70, 81);
             this.ProfileInfoPhone.Name = "ProfileInfoPhone";
             this.ProfileInfoPhone.Size = new System.Drawing.Size(160, 24);
             this.ProfileInfoPhone.TabIndex = 69;
             this.ProfileInfoPhone.Text = "Profile Information";
             this.ProfileInfoPhone.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ProfileInfoPhone.Visible = false;
             // 
             // AddressInfoLabel
             // 
@@ -547,13 +515,12 @@
             this.AddressInfoLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.AddressInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddressInfoLabel.ForeColor = System.Drawing.Color.White;
-            this.AddressInfoLabel.Location = new System.Drawing.Point(1012, 320);
+            this.AddressInfoLabel.Location = new System.Drawing.Point(120, 238);
             this.AddressInfoLabel.Name = "AddressInfoLabel";
             this.AddressInfoLabel.Size = new System.Drawing.Size(61, 24);
             this.AddressInfoLabel.TabIndex = 72;
             this.AddressInfoLabel.Text = "Addr";
             this.AddressInfoLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.AddressInfoLabel.Visible = false;
             // 
             // ProfileInfoAddress
             // 
@@ -561,13 +528,12 @@
             this.ProfileInfoAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ProfileInfoAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProfileInfoAddress.ForeColor = System.Drawing.Color.White;
-            this.ProfileInfoAddress.Location = new System.Drawing.Point(653, 232);
+            this.ProfileInfoAddress.Location = new System.Drawing.Point(70, 262);
             this.ProfileInfoAddress.Name = "ProfileInfoAddress";
             this.ProfileInfoAddress.Size = new System.Drawing.Size(160, 24);
             this.ProfileInfoAddress.TabIndex = 71;
             this.ProfileInfoAddress.Text = "Profile Information";
             this.ProfileInfoAddress.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ProfileInfoAddress.Visible = false;
             // 
             // ChangeButton
             // 
@@ -575,7 +541,7 @@
             this.ChangeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ChangeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChangeButton.ForeColor = System.Drawing.Color.White;
-            this.ChangeButton.Location = new System.Drawing.Point(974, 371);
+            this.ChangeButton.Location = new System.Drawing.Point(158, 315);
             this.ChangeButton.Name = "ChangeButton";
             this.ChangeButton.Size = new System.Drawing.Size(117, 42);
             this.ChangeButton.TabIndex = 73;
@@ -590,13 +556,12 @@
             this.ForgotButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ForgotButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForgotButton.ForeColor = System.Drawing.Color.White;
-            this.ForgotButton.Location = new System.Drawing.Point(109, 188);
+            this.ForgotButton.Location = new System.Drawing.Point(109, 195);
             this.ForgotButton.Name = "ForgotButton";
             this.ForgotButton.Size = new System.Drawing.Size(82, 30);
             this.ForgotButton.TabIndex = 74;
             this.ForgotButton.Text = "Forgot";
             this.ForgotButton.UseVisualStyleBackColor = false;
-            this.ForgotButton.Visible = false;
             this.ForgotButton.Click += new System.EventHandler(this.ForgotButton_Click);
             // 
             // ForgotUserLabel
@@ -605,20 +570,18 @@
             this.ForgotUserLabel.BackColor = System.Drawing.Color.Black;
             this.ForgotUserLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForgotUserLabel.ForeColor = System.Drawing.Color.White;
-            this.ForgotUserLabel.Location = new System.Drawing.Point(305, 84);
+            this.ForgotUserLabel.Location = new System.Drawing.Point(43, 80);
             this.ForgotUserLabel.Name = "ForgotUserLabel";
             this.ForgotUserLabel.Size = new System.Drawing.Size(45, 20);
             this.ForgotUserLabel.TabIndex = 78;
             this.ForgotUserLabel.Text = "User";
-            this.ForgotUserLabel.Visible = false;
             // 
             // ForgotUserTextBox
             // 
-            this.ForgotUserTextBox.Location = new System.Drawing.Point(948, 180);
+            this.ForgotUserTextBox.Location = new System.Drawing.Point(94, 80);
             this.ForgotUserTextBox.Name = "ForgotUserTextBox";
             this.ForgotUserTextBox.Size = new System.Drawing.Size(160, 20);
             this.ForgotUserTextBox.TabIndex = 77;
-            this.ForgotUserTextBox.Visible = false;
             // 
             // CheckButton
             // 
@@ -626,7 +589,7 @@
             this.CheckButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CheckButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckButton.ForeColor = System.Drawing.Color.White;
-            this.CheckButton.Location = new System.Drawing.Point(162, 315);
+            this.CheckButton.Location = new System.Drawing.Point(158, 315);
             this.CheckButton.Name = "CheckButton";
             this.CheckButton.Size = new System.Drawing.Size(117, 42);
             this.CheckButton.TabIndex = 79;
@@ -641,13 +604,12 @@
             this.ForgotPhoneButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ForgotPhoneButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForgotPhoneButton.ForeColor = System.Drawing.Color.White;
-            this.ForgotPhoneButton.Location = new System.Drawing.Point(991, 446);
+            this.ForgotPhoneButton.Location = new System.Drawing.Point(158, 314);
             this.ForgotPhoneButton.Name = "ForgotPhoneButton";
             this.ForgotPhoneButton.Size = new System.Drawing.Size(117, 42);
             this.ForgotPhoneButton.TabIndex = 87;
             this.ForgotPhoneButton.Text = "Confirm";
             this.ForgotPhoneButton.UseVisualStyleBackColor = false;
-            this.ForgotPhoneButton.Visible = false;
             this.ForgotPhoneButton.Click += new System.EventHandler(this.ForgotPhoneButton_Click);
             // 
             // ForgotPhoneLabel
@@ -656,20 +618,18 @@
             this.ForgotPhoneLabel.BackColor = System.Drawing.Color.Black;
             this.ForgotPhoneLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForgotPhoneLabel.ForeColor = System.Drawing.Color.White;
-            this.ForgotPhoneLabel.Location = new System.Drawing.Point(32, 160);
+            this.ForgotPhoneLabel.Location = new System.Drawing.Point(32, 125);
             this.ForgotPhoneLabel.Name = "ForgotPhoneLabel";
             this.ForgotPhoneLabel.Size = new System.Drawing.Size(56, 20);
             this.ForgotPhoneLabel.TabIndex = 86;
             this.ForgotPhoneLabel.Text = "Phone";
-            this.ForgotPhoneLabel.Visible = false;
             // 
             // ForgotPhoneTextBox
             // 
-            this.ForgotPhoneTextBox.Location = new System.Drawing.Point(356, 88);
+            this.ForgotPhoneTextBox.Location = new System.Drawing.Point(94, 125);
             this.ForgotPhoneTextBox.Name = "ForgotPhoneTextBox";
             this.ForgotPhoneTextBox.Size = new System.Drawing.Size(160, 20);
             this.ForgotPhoneTextBox.TabIndex = 85;
-            this.ForgotPhoneTextBox.Visible = false;
             // 
             // NewPasswordButton
             // 
@@ -677,7 +637,7 @@
             this.NewPasswordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NewPasswordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NewPasswordButton.ForeColor = System.Drawing.Color.White;
-            this.NewPasswordButton.Location = new System.Drawing.Point(800, 366);
+            this.NewPasswordButton.Location = new System.Drawing.Point(158, 315);
             this.NewPasswordButton.Name = "NewPasswordButton";
             this.NewPasswordButton.Size = new System.Drawing.Size(117, 42);
             this.NewPasswordButton.TabIndex = 90;
@@ -692,16 +652,16 @@
             this.ChangePasswordLabel.BackColor = System.Drawing.Color.Black;
             this.ChangePasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChangePasswordLabel.ForeColor = System.Drawing.Color.White;
-            this.ChangePasswordLabel.Location = new System.Drawing.Point(364, 154);
+            this.ChangePasswordLabel.Location = new System.Drawing.Point(3, 170);
             this.ChangePasswordLabel.Name = "ChangePasswordLabel";
-            this.ChangePasswordLabel.Size = new System.Drawing.Size(121, 20);
+            this.ChangePasswordLabel.Size = new System.Drawing.Size(85, 20);
             this.ChangePasswordLabel.TabIndex = 89;
-            this.ChangePasswordLabel.Text = "New Password";
+            this.ChangePasswordLabel.Text = "New Pass";
             this.ChangePasswordLabel.Visible = false;
             // 
             // ChangePasswordTextBox
             // 
-            this.ChangePasswordTextBox.Location = new System.Drawing.Point(497, 154);
+            this.ChangePasswordTextBox.Location = new System.Drawing.Point(94, 170);
             this.ChangePasswordTextBox.Name = "ChangePasswordTextBox";
             this.ChangePasswordTextBox.Size = new System.Drawing.Size(160, 20);
             this.ChangePasswordTextBox.TabIndex = 88;
@@ -709,7 +669,7 @@
             // 
             // ConfirmNewPasswordTextBox
             // 
-            this.ConfirmNewPasswordTextBox.Location = new System.Drawing.Point(496, 192);
+            this.ConfirmNewPasswordTextBox.Location = new System.Drawing.Point(94, 215);
             this.ConfirmNewPasswordTextBox.Name = "ConfirmNewPasswordTextBox";
             this.ConfirmNewPasswordTextBox.Size = new System.Drawing.Size(160, 20);
             this.ConfirmNewPasswordTextBox.TabIndex = 91;
@@ -721,7 +681,7 @@
             this.ConfirmNewPasswordLabel.BackColor = System.Drawing.Color.Black;
             this.ConfirmNewPasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConfirmNewPasswordLabel.ForeColor = System.Drawing.Color.White;
-            this.ConfirmNewPasswordLabel.Location = new System.Drawing.Point(419, 192);
+            this.ConfirmNewPasswordLabel.Location = new System.Drawing.Point(27, 215);
             this.ConfirmNewPasswordLabel.Name = "ConfirmNewPasswordLabel";
             this.ConfirmNewPasswordLabel.Size = new System.Drawing.Size(61, 20);
             this.ConfirmNewPasswordLabel.TabIndex = 92;
@@ -744,87 +704,165 @@
             // 
             // LogIn
             // 
+            this.LogIn.Controls.Add(this.InvalidStatus);
             this.LogIn.Controls.Add(this.UserLabel);
-            this.LogIn.Controls.Add(this.LogStatusLabel);
             this.LogIn.Controls.Add(this.PassTextBox);
             this.LogIn.Controls.Add(this.PassLabel);
             this.LogIn.Controls.Add(this.UserTextBox);
             this.LogIn.Controls.Add(this.ForgotButton);
             this.LogIn.Controls.Add(this.LoginConfirm);
-            this.LogIn.Controls.Add(this.MenuButton);
-            this.LogIn.Location = new System.Drawing.Point(0, 381);
+            this.LogIn.Controls.Add(this.LogIn_Menu);
+            this.LogIn.Location = new System.Drawing.Point(0, 0);
             this.LogIn.Name = "LogIn";
             this.LogIn.Size = new System.Drawing.Size(300, 375);
             this.LogIn.TabIndex = 94;
+            this.LogIn.Visible = false;
             // 
-            // button1
+            // InvalidStatus
             // 
-            this.button1.BackColor = System.Drawing.Color.Black;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(27, 315);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 42);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "Menu";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.MenuButton_Click);
+            this.InvalidStatus.AutoSize = true;
+            this.InvalidStatus.BackColor = System.Drawing.Color.Black;
+            this.InvalidStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InvalidStatus.ForeColor = System.Drawing.Color.White;
+            this.InvalidStatus.Location = new System.Drawing.Point(131, 156);
+            this.InvalidStatus.Name = "InvalidStatus";
+            this.InvalidStatus.Size = new System.Drawing.Size(38, 13);
+            this.InvalidStatus.TabIndex = 60;
+            this.InvalidStatus.Text = "Invalid";
+            this.InvalidStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.InvalidStatus.Visible = false;
             // 
-            // panel1
+            // SignUp_Menu
             // 
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.CheckButton);
-            this.panel1.Controls.Add(this.UserSignUpTextBox);
-            this.panel1.Controls.Add(this.UserSignUpLabel);
-            this.panel1.Controls.Add(this.PassSignUpTextBox);
-            this.panel1.Controls.Add(this.PassSignUpLabel);
-            this.panel1.Controls.Add(this.NameSignUpTextBox);
-            this.panel1.Controls.Add(this.ForgotPhoneLabel);
-            this.panel1.Controls.Add(this.NameSignUpLabel);
-            this.panel1.Controls.Add(this.PhoneSignUpTextBox);
-            this.panel1.Controls.Add(this.AddressSignUpTextBox);
-            this.panel1.Controls.Add(this.AddressSignUpLabel);
-            this.panel1.Controls.Add(this.CardInfoSignUpTextBox);
-            this.panel1.Controls.Add(this.CardInfoSignUpLabel);
-            this.panel1.Location = new System.Drawing.Point(306, 381);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(300, 375);
-            this.panel1.TabIndex = 95;
+            this.SignUp_Menu.BackColor = System.Drawing.Color.Black;
+            this.SignUp_Menu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SignUp_Menu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SignUp_Menu.ForeColor = System.Drawing.Color.White;
+            this.SignUp_Menu.Location = new System.Drawing.Point(23, 315);
+            this.SignUp_Menu.Name = "SignUp_Menu";
+            this.SignUp_Menu.Size = new System.Drawing.Size(117, 42);
+            this.SignUp_Menu.TabIndex = 32;
+            this.SignUp_Menu.Text = "Menu";
+            this.SignUp_Menu.UseVisualStyleBackColor = false;
+            this.SignUp_Menu.Click += new System.EventHandler(this.MenuButton_Click);
+            // 
+            // SignUp
+            // 
+            this.SignUp.Controls.Add(this.StatusLabel);
+            this.SignUp.Controls.Add(this.SignUp_Menu);
+            this.SignUp.Controls.Add(this.UserSignUpTextBox);
+            this.SignUp.Controls.Add(this.UserSignUpLabel);
+            this.SignUp.Controls.Add(this.PassSignUpTextBox);
+            this.SignUp.Controls.Add(this.PassSignUpLabel);
+            this.SignUp.Controls.Add(this.NameSignUpTextBox);
+            this.SignUp.Controls.Add(this.NameSignUpLabel);
+            this.SignUp.Controls.Add(this.SignUpConfirmButton);
+            this.SignUp.Controls.Add(this.PhoneSignUpLabel);
+            this.SignUp.Controls.Add(this.PhoneSignUpTextBox);
+            this.SignUp.Controls.Add(this.AddressSignUpTextBox);
+            this.SignUp.Controls.Add(this.AddressSignUpLabel);
+            this.SignUp.Controls.Add(this.CardInfoSignUpTextBox);
+            this.SignUp.Controls.Add(this.CardInfoSignUpLabel);
+            this.SignUp.Location = new System.Drawing.Point(0, 0);
+            this.SignUp.Name = "SignUp";
+            this.SignUp.Size = new System.Drawing.Size(300, 375);
+            this.SignUp.TabIndex = 95;
+            this.SignUp.Visible = false;
+            // 
+            // StatusLabel
+            // 
+            this.StatusLabel.AutoSize = true;
+            this.StatusLabel.BackColor = System.Drawing.Color.Black;
+            this.StatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StatusLabel.ForeColor = System.Drawing.Color.White;
+            this.StatusLabel.Location = new System.Drawing.Point(88, 284);
+            this.StatusLabel.Name = "StatusLabel";
+            this.StatusLabel.Size = new System.Drawing.Size(125, 13);
+            this.StatusLabel.TabIndex = 60;
+            this.StatusLabel.Text = "Complete SetUp Process";
+            this.StatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.StatusLabel.Visible = false;
+            // 
+            // ForgotPassword
+            // 
+            this.ForgotPassword.Controls.Add(this.LogStatusLabel);
+            this.ForgotPassword.Controls.Add(this.ForgotPhoneLabel);
+            this.ForgotPassword.Controls.Add(this.ConfirmNewPasswordLabel);
+            this.ForgotPassword.Controls.Add(this.ForgotUserTextBox);
+            this.ForgotPassword.Controls.Add(this.ChangePasswordLabel);
+            this.ForgotPassword.Controls.Add(this.ConfirmNewPasswordTextBox);
+            this.ForgotPassword.Controls.Add(this.ForgotUserLabel);
+            this.ForgotPassword.Controls.Add(this.ForgotPhoneTextBox);
+            this.ForgotPassword.Controls.Add(this.Forgot_Menu);
+            this.ForgotPassword.Controls.Add(this.ChangePasswordTextBox);
+            this.ForgotPassword.Controls.Add(this.CheckButton);
+            this.ForgotPassword.Controls.Add(this.ForgotPhoneButton);
+            this.ForgotPassword.Controls.Add(this.NewPasswordButton);
+            this.ForgotPassword.Location = new System.Drawing.Point(0, 0);
+            this.ForgotPassword.Name = "ForgotPassword";
+            this.ForgotPassword.Size = new System.Drawing.Size(300, 375);
+            this.ForgotPassword.TabIndex = 96;
+            this.ForgotPassword.Visible = false;
+            // 
+            // Forgot_Menu
+            // 
+            this.Forgot_Menu.BackColor = System.Drawing.Color.Black;
+            this.Forgot_Menu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Forgot_Menu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Forgot_Menu.ForeColor = System.Drawing.Color.White;
+            this.Forgot_Menu.Location = new System.Drawing.Point(23, 315);
+            this.Forgot_Menu.Name = "Forgot_Menu";
+            this.Forgot_Menu.Size = new System.Drawing.Size(117, 42);
+            this.Forgot_Menu.TabIndex = 32;
+            this.Forgot_Menu.Text = "Menu";
+            this.Forgot_Menu.UseVisualStyleBackColor = false;
+            this.Forgot_Menu.Click += new System.EventHandler(this.MenuButton_Click);
+            // 
+            // ProfilePanel
+            // 
+            this.ProfilePanel.Controls.Add(this.Profile_Menu);
+            this.ProfilePanel.Controls.Add(this.ChangeButton);
+            this.ProfilePanel.Controls.Add(this.ProfileInfoUser);
+            this.ProfilePanel.Controls.Add(this.ProfileInfoLabel);
+            this.ProfilePanel.Controls.Add(this.ProfileInfoName);
+            this.ProfilePanel.Controls.Add(this.ProfileInfoAddress);
+            this.ProfilePanel.Controls.Add(this.ProfileInfoPhone);
+            this.ProfilePanel.Controls.Add(this.InfoUserLabel);
+            this.ProfilePanel.Controls.Add(this.AddressInfoLabel);
+            this.ProfilePanel.Controls.Add(this.PhoneInfoLabel);
+            this.ProfilePanel.Controls.Add(this.NameInfoLabel);
+            this.ProfilePanel.Location = new System.Drawing.Point(0, 0);
+            this.ProfilePanel.Name = "ProfilePanel";
+            this.ProfilePanel.Size = new System.Drawing.Size(300, 375);
+            this.ProfilePanel.TabIndex = 97;
+            this.ProfilePanel.Visible = false;
+            // 
+            // Profile_Menu
+            // 
+            this.Profile_Menu.BackColor = System.Drawing.Color.Black;
+            this.Profile_Menu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Profile_Menu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Profile_Menu.ForeColor = System.Drawing.Color.White;
+            this.Profile_Menu.Location = new System.Drawing.Point(23, 315);
+            this.Profile_Menu.Name = "Profile_Menu";
+            this.Profile_Menu.Size = new System.Drawing.Size(117, 42);
+            this.Profile_Menu.TabIndex = 32;
+            this.Profile_Menu.Text = "Menu";
+            this.Profile_Menu.UseVisualStyleBackColor = false;
+            this.Profile_Menu.Click += new System.EventHandler(this.MenuButton_Click);
             // 
             // ProfileInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InfoText;
-            this.ClientSize = new System.Drawing.Size(1154, 760);
-            this.Controls.Add(this.LogIn);
-            this.Controls.Add(this.ConfirmNewPasswordLabel);
-            this.Controls.Add(this.ConfirmNewPasswordTextBox);
-            this.Controls.Add(this.NewPasswordButton);
-            this.Controls.Add(this.ChangePasswordLabel);
-            this.Controls.Add(this.ChangePasswordTextBox);
-            this.Controls.Add(this.ForgotPhoneButton);
-            this.Controls.Add(this.ForgotUserTextBox);
-            this.Controls.Add(this.StatusLabel);
-            this.Controls.Add(this.ForgotPhoneTextBox);
-            this.Controls.Add(this.ForgotUserLabel);
-            this.Controls.Add(this.ProfileInfoLabel);
+            this.ClientSize = new System.Drawing.Size(300, 375);
             this.Controls.Add(this.Close);
-            this.Controls.Add(this.PhoneSignUpLabel);
-            this.Controls.Add(this.ChangeButton);
-            this.Controls.Add(this.SignUpConfirmButton);
-            this.Controls.Add(this.AddressInfoLabel);
-            this.Controls.Add(this.ProfileInfoAddress);
-            this.Controls.Add(this.PhoneInfoLabel);
-            this.Controls.Add(this.ProfileInfoPhone);
-            this.Controls.Add(this.NameInfoLabel);
-            this.Controls.Add(this.ProfileInfoName);
-            this.Controls.Add(this.InfoUserLabel);
-            this.Controls.Add(this.ProfileInfoUser);
             this.Controls.Add(this.Main);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.SignUp);
+            this.Controls.Add(this.ForgotPassword);
+            this.Controls.Add(this.LogIn);
+            this.Controls.Add(this.ProfilePanel);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ProfileInterface";
@@ -833,10 +871,12 @@
             this.Main.PerformLayout();
             this.LogIn.ResumeLayout(false);
             this.LogIn.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.SignUp.ResumeLayout(false);
+            this.SignUp.PerformLayout();
+            this.ForgotPassword.ResumeLayout(false);
+            this.ForgotPassword.PerformLayout();
+            this.ProfilePanel.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
 		}
 
@@ -861,8 +901,7 @@
 		private System.Windows.Forms.Label AddressSignUpLabel;
 		private System.Windows.Forms.TextBox AddressSignUpTextBox;
 		private System.Windows.Forms.Button SignUpConfirmButton;
-		private System.Windows.Forms.Label StatusLabel;
-		private System.Windows.Forms.Button MenuButton;
+		private System.Windows.Forms.Button LogIn_Menu;
 		private System.Windows.Forms.TextBox UserTextBox;
 		private System.Windows.Forms.Label UserLabel;
 		private System.Windows.Forms.TextBox PassTextBox;
@@ -894,7 +933,13 @@
 		private System.Windows.Forms.Label ConfirmNewPasswordLabel;
         private System.Windows.Forms.Panel Main;
         private System.Windows.Forms.Panel LogIn;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button SignUp_Menu;
+        private System.Windows.Forms.Panel SignUp;
+        private System.Windows.Forms.Panel ForgotPassword;
+        private System.Windows.Forms.Label InvalidStatus;
+        private System.Windows.Forms.Button Forgot_Menu;
+        private System.Windows.Forms.Label StatusLabel;
+        private System.Windows.Forms.Panel ProfilePanel;
+        private System.Windows.Forms.Button Profile_Menu;
     }
 }

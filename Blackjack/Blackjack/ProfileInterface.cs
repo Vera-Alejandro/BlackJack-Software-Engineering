@@ -43,47 +43,16 @@ namespace Blackjack
 			ProfileInfoAddress.Visible = false;
 			ChangeButton.Visible = false;
 
-			LoginButton.Visible = false;
-			SignUpButton.Visible = false;
-			Soundoo.Visible = false;
-			LogLabel.Visible = false;
-			ActiveLogin.Visible = false;
-			FundsButton.Visible = false;
-			ProfileInfo.Visible = false;
+			Main.Visible = false;
 
-			MenuButton.Visible = true;
-			SignUpConfirmButton.Visible = true;
-			UserSignUpLabel.Visible = true;
-			UserSignUpTextBox.Visible = true;
-			PassSignUpLabel.Visible = true;
-			PassSignUpTextBox.Visible = true;
-			NameSignUpLabel.Visible = true;
-			NameSignUpTextBox.Visible = true;
-			PhoneSignUpLabel.Visible = true;
-			PhoneSignUpTextBox.Visible = true;
-			AddressSignUpLabel.Visible = true;
-			AddressSignUpTextBox.Visible = true;
-			CardInfoSignUpLabel.Visible = true;
-			CardInfoSignUpTextBox.Visible = true;
+			SignUp.Visible = true;
 		}
 
 		private void LoginButton_Click(object sender, EventArgs e)
 		{
-			LoginButton.Visible = false;
-			SignUpButton.Visible = false;
-			Soundoo.Visible = false;
-			LogLabel.Visible = false;
-			ActiveLogin.Visible = false;
-			FundsButton.Visible = false;
-			ProfileInfo.Visible = false;
+			Main.Visible = false;
 
-			ForgotButton.Visible = true;
-			MenuButton.Visible = true;
-			LoginConfirm.Visible = true;
-			UserLabel.Visible = true;
-			UserTextBox.Visible = true;
-			PassLabel.Visible = true;
-			PassTextBox.Visible = true;
+			LogIn.Visible = true;
 		}
 
 		private void Soundoo_Click(object sender, EventArgs e)
@@ -96,60 +65,15 @@ namespace Blackjack
 
 		private void MenuButton_Click(object sender, EventArgs e)
 		{
-			LoginButton.Visible = true;
-			SignUpButton.Visible = true;
-			Soundoo.Visible = true;
-			LogLabel.Visible = true;
-			ActiveLogin.Visible = true;
-			FundsButton.Visible = true;
-			ProfileInfo.Visible = true;
+			Main.Visible = true;
 
+			LogIn.Visible = false;
 
-			MenuButton.Visible = false;
-			LoginConfirm.Visible = false;
-			UserLabel.Visible = false;
-			UserTextBox.Visible = false;
-			PassLabel.Visible = false;
-			PassTextBox.Visible = false;
+			SignUp.Visible = false;
 
-			SignUpConfirmButton.Visible = false;
-			UserSignUpLabel.Visible = false;
-			UserSignUpTextBox.Visible = false;
-			PassSignUpLabel.Visible = false;
-			PassSignUpTextBox.Visible = false;
-			NameSignUpLabel.Visible = false;
-			NameSignUpTextBox.Visible = false;
-			PhoneSignUpLabel.Visible = false;
-			PhoneSignUpTextBox.Visible = false;
-			AddressSignUpLabel.Visible = false;
-			AddressSignUpTextBox.Visible = false;
-			CardInfoSignUpLabel.Visible = false;
-			CardInfoSignUpTextBox.Visible = false;
+			ProfilePanel.Visible = false;
 
-			StatusLabel.Visible = false;
-
-			LogStatusLabel.Visible = false;
-
-			InfoUserLabel.Visible = false;
-			ProfileInfoUser.Visible = false;
-			NameInfoLabel.Visible = false;
-			ProfileInfoName.Visible = false;
-			PhoneInfoLabel.Visible = false;
-			ProfileInfoPhone.Visible = false;
-			AddressInfoLabel.Visible = false;
-			ProfileInfoAddress.Visible = false;
-			ChangeButton.Visible = false;
-
-			CheckButton.Visible = false;
-			ForgotUserTextBox.Visible = false;
-			ForgotUserLabel.Visible = false;
-			ForgotButton.Visible = false;
-			ChangePasswordLabel.Visible = false;
-			ChangePasswordTextBox.Visible = false;
-			ConfirmNewPasswordLabel.Visible = false;
-			ConfirmNewPasswordTextBox.Visible = false;
-			NewPasswordButton.Visible = false;
-
+			ForgotPassword.Visible = false;
 		}
 
 		private void LoginConfirm_Click(object sender, EventArgs e)
@@ -239,31 +163,14 @@ namespace Blackjack
 
 				Storage.ProfileInfo info = database.GetProfileData(TheUsername);
 
-				LoginButton.Visible = false;
-				SignUpButton.Visible = false;
-				Soundoo.Visible = false;
-				LogLabel.Visible = false;
-				ActiveLogin.Visible = false;
-				FundsButton.Visible = false;
-				ProfileInfo.Visible = false;
-
-				MenuButton.Visible = true;
-				ChangeButton.Visible = true;
-
-
+				Main.Visible = false;
+				
 				ProfileInfoUser.Text = info.GetUser();
 				ProfileInfoName.Text = info.GetName();
 				ProfileInfoPhone.Text = info.GetPhoneNumber();
 				ProfileInfoAddress.Text = info.GetAddress();
 
-				InfoUserLabel.Visible = true;
-				ProfileInfoUser.Visible = true;
-				NameInfoLabel.Visible = true;
-				ProfileInfoName.Visible = true;
-				PhoneInfoLabel.Visible = true;
-				ProfileInfoPhone.Visible = true;
-				AddressInfoLabel.Visible = true;
-				ProfileInfoAddress.Visible = true;
+				ProfilePanel.Visible = true;
 
 				database.Disconnect();
 			}
@@ -276,18 +183,10 @@ namespace Blackjack
 		}
 
 		private void ForgotButton_Click(object sender, EventArgs e)
-		{	
-			MenuButton.Visible = true;
-			CheckButton.Visible = true;
-			ForgotUserTextBox.Visible = true;
-			ForgotUserLabel.Visible = true;
+		{
+			ForgotPassword.Visible = true;
 
-			ForgotButton.Visible = false;
-			LoginConfirm.Visible = false;
-			UserLabel.Visible = false;
-			UserTextBox.Visible = false;
-			PassLabel.Visible = false;
-			PassTextBox.Visible = false;
+			LogIn.Visible = false;
 		}
 
 		private void CheckButton_Click(object sender, EventArgs e)
@@ -311,7 +210,6 @@ namespace Blackjack
 			{
 				LogStatusLabel.Visible = true;
 			}
-			//database.Disconnect();
 		}
 
 		private void ForgotPhoneButton_Click(object sender, EventArgs e)
@@ -377,11 +275,6 @@ namespace Blackjack
 				LogStatusLabel.Visible = true;
 			}
 			database.Disconnect();
-		}
-
-		private void ActiveLogin_Click(object sender, EventArgs e)
-		{
-
 		}
 	}
 }

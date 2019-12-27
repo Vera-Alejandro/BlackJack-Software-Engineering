@@ -146,7 +146,9 @@ namespace SQLite
         /// Saves Profile to SQLite db file 
         /// </summary>
         /// <param name="profile"></param>
-        /// <returns>returns the rows affected or -69 if user already exists in database</returns>
+        /// <returns>
+        /// returns the rows affected or -69 if user already exists in database
+        /// </returns>
         public int SaveProfile(ProfileInfo profile)
         {
             string create_table = $"CREATE TABLE IF NOT EXISTS MasterProfile(" +
@@ -161,36 +163,37 @@ namespace SQLite
             SQLiteCommand create = new SQLiteCommand(create_table, _fileConnection);
             create.ExecuteNonQuery();
 
-            //      *checking if username exists*
-            var rows = _fileConnection.Query(string.Format(
-                        "SELECT COUNT(1) as 'Count' FROM MasterProfile WHERE Username = '{0}'",
-                        profile.GetUser()));
-
-            //bool userExists = rows.First().Count() > 0;
-
-            string _command = $"INSERT INTO MasterProfile " +
-                $"(UserName, Password, FullName, PhoneNumber, Address, CardNumber) " +
-                $"VALUES " +
-                $"(@UserName, @Password, @FullName, @PhoneNumber, @Address, @CardNumber);";
-
-            SQLiteCommand _insertCmd = new SQLiteCommand(_command, _fileConnection);
-
-            SQLiteParameter[] parameters =
+            if (!DoesUserExist(profile.GetUser()))
             {
+                string _command = $"INSERT INTO MasterProfile " +
+                    $"(UserName, Password, FullName, PhoneNumber, Address, CardNumber) " +
+                    $"VALUES " +
+                    $"(@UserName, @Password, @FullName, @PhoneNumber, @Address, @CardNumber);";
+
+                SQLiteCommand _insertCmd = new SQLiteCommand(_command, _fileConnection);
+
+                SQLiteParameter[] parameters =
+                {
                 new SQLiteParameter(@"UserName", profile.GetUser()),
                 new SQLiteParameter(@"Password", profile.StorePassword()),
                 new SQLiteParameter(@"FullName", profile.GetName()),
                 new SQLiteParameter(@"PhoneNumber", profile.GetPhoneNumber()),
                 new SQLiteParameter(@"Address", profile.GetAddress()),
                 new SQLiteParameter(@"CardNumber", profile.GetCardNumber()),
-            };
-            _insertCmd.Parameters.AddRange(parameters);
+                };
+                _insertCmd.Parameters.AddRange(parameters);
 
-            int rows_affected = _insertCmd.ExecuteNonQuery();
+                int rows_affected = _insertCmd.ExecuteNonQuery();
 
-            Debug.WriteLine("rows affected :" + rows_affected);
+                Debug.WriteLine("rows affected :" + rows_affected);
 
-            return rows_affected;
+                return rows_affected;
+            }
+            else
+            {
+                return -69;
+            }
+
         }
 
         /// <summary>
@@ -221,7 +224,6 @@ namespace SQLite
         {
             _fileConnection.Open();
 
-            
             int count = _fileConnection.ExecuteScalar<int>(string.Format(
                         "SELECT COUNT(1) as 'Count' FROM MasterProfile WHERE Username = '{0}'",
                         UserName));

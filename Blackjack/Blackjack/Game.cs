@@ -902,6 +902,7 @@ namespace BlackjackGame
             Database StorageDB = new Database(SQLiteFile);
             StorageDB.Connect();
 
+            StorageDB.SaveGameState(thisGame., )
 
             StorageDB.Disconnect();
         }

@@ -83,7 +83,7 @@ namespace Blackjack
 			{
 				bool contains = database.DoesUserExist(TheUsername);
 
-				if (contains == true)
+				if (contains)
 				{
 					database.Connect();
 
@@ -275,6 +275,19 @@ namespace Blackjack
 				LogStatusLabel.Visible = true;
 			}
 			database.Disconnect();
+		}
+
+		private void UserTextBox_TextChanged(object sender, EventArgs e)
+		{
+			TheUsername = UserTextBox.Text;
+		}
+
+		private void PassTextBox_KeyDown(object sender, KeyEventArgs e)
+		{
+			if(e.KeyCode == Keys.Enter)
+			{
+				LoginConfirm_Click(null, null);
+			}
 		}
 	}
 }

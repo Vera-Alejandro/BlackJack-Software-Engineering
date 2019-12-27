@@ -42,6 +42,8 @@ namespace Storage
 
         public void SetPassword(string Password)
         {
+            #region First attempt at encryption
+            /*
             byte[] _password;
             string data1 = "who_lives_in_a_pinapple_under_the_sea";
             byte[] salt1 = new byte[8];
@@ -74,6 +76,14 @@ namespace Storage
                 Debug.WriteLine("failure to encrypt");
                 //make sure there is a marker that says that something broke with the password because then it will try and decrypt it
             }
+
+                    ---first attempt at encryption---
+            */
+
+            #endregion
+
+            _password = ProtectedData.Protect(Encoding.Unicode.GetBytes(Password), null, DataProtectionScope.CurrentUser);
+
         }
 
         public void SetName(string Name) { _name = Name; }
@@ -86,8 +96,10 @@ namespace Storage
 
         public string GetPassword()
         {
+
+            #region first attempt at decryption
+            /*
             byte[] salt1 = new byte[8];
-            //byte[] edata = { 0, 1 };
 
             using (RNGCryptoServiceProvider rNGCrypto = new RNGCryptoServiceProvider())
             {
@@ -123,6 +135,12 @@ namespace Storage
             string decrypt_pass = new UTF8Encoding(false).GetString(decryptionStreamBacking.ToArray());
 
             return decrypt_pass;
+            */
+            #endregion
+
+            return Encoding.Unicode.GetString(
+                ProtectedData.Unprotect(_password, null, DataProtectionScope.CurrentUser)
+            );
         }
 
         public string GetUser() { return _user; }

@@ -230,7 +230,7 @@ namespace SQLite
 
 
 
-            return (count == 1) ? true: false;
+            return (count >= 1) ? true: false;
         }
     }
 

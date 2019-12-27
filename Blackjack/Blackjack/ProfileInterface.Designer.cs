@@ -342,6 +342,7 @@
             this.UserTextBox.Name = "UserTextBox";
             this.UserTextBox.Size = new System.Drawing.Size(160, 20);
             this.UserTextBox.TabIndex = 33;
+            this.UserTextBox.TextChanged += new System.EventHandler(this.UserTextBox_TextChanged);
             // 
             // UserLabel
             // 
@@ -360,7 +361,9 @@
             this.PassTextBox.Location = new System.Drawing.Point(96, 122);
             this.PassTextBox.Name = "PassTextBox";
             this.PassTextBox.Size = new System.Drawing.Size(160, 20);
-            this.PassTextBox.TabIndex = 37;
+            this.PassTextBox.TabIndex = 34;
+            this.PassTextBox.UseSystemPasswordChar = true;
+            this.PassTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PassTextBox_KeyDown);
             // 
             // PassLabel
             // 
@@ -383,7 +386,7 @@
             this.LoginConfirm.Location = new System.Drawing.Point(158, 315);
             this.LoginConfirm.Name = "LoginConfirm";
             this.LoginConfirm.Size = new System.Drawing.Size(117, 42);
-            this.LoginConfirm.TabIndex = 36;
+            this.LoginConfirm.TabIndex = 35;
             this.LoginConfirm.Text = "Log in";
             this.LoginConfirm.UseVisualStyleBackColor = false;
             this.LoginConfirm.Click += new System.EventHandler(this.LoginConfirm_Click);
@@ -559,7 +562,7 @@
             this.ForgotButton.Location = new System.Drawing.Point(109, 195);
             this.ForgotButton.Name = "ForgotButton";
             this.ForgotButton.Size = new System.Drawing.Size(82, 30);
-            this.ForgotButton.TabIndex = 74;
+            this.ForgotButton.TabIndex = 36;
             this.ForgotButton.Text = "Forgot";
             this.ForgotButton.UseVisualStyleBackColor = false;
             this.ForgotButton.Click += new System.EventHandler(this.ForgotButton_Click);
@@ -858,11 +861,11 @@
             this.BackColor = System.Drawing.SystemColors.InfoText;
             this.ClientSize = new System.Drawing.Size(300, 375);
             this.Controls.Add(this.Close);
+            this.Controls.Add(this.LogIn);
+            this.Controls.Add(this.ProfilePanel);
             this.Controls.Add(this.Main);
             this.Controls.Add(this.SignUp);
             this.Controls.Add(this.ForgotPassword);
-            this.Controls.Add(this.LogIn);
-            this.Controls.Add(this.ProfilePanel);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ProfileInterface";

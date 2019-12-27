@@ -185,7 +185,6 @@ namespace Unit_Testing
         [TestMethod]
         public void TestEncryption()
         {
-            byte[] _password;
             string Password = "Merry_Christmas";
             string data1 = "who_lives_in_a_pinapple_under_the_sea";
             string data2 = "";
@@ -273,20 +272,38 @@ namespace Unit_Testing
         {
             string SQLiteFile = Path.Combine("C:\\Users\\alejandro.vera\\source\\repos\\Vera-Alejandro\\BlackJack-Software-Engineering\\Blackjack\\Blackjack", "GameData.sqlite3");
             Database database = new Database(SQLiteFile);
-            Storage.ProfileInfo profile = new Storage.ProfileInfo();
+            Storage.ProfileInfo profile1 = new Storage.ProfileInfo();
+            Storage.ProfileInfo profile2 = new Storage.ProfileInfo();
+            Storage.ProfileInfo profile3 = new Storage.ProfileInfo();
 
-            profile.SetAddress("820 N Washington Ave.");
-            profile.SetCardNumber("69694206969");
-            profile.SetName("Barack Obama");
-            profile.SetPassword("Ass'n'Titties");
-            profile.SetPhone("8472525700");
-            profile.SetUser("MoBama");
+            profile1.SetAddress("820 N Washington Ave.");
+            profile1.SetCardNumber("69694206969");
+            profile1.SetName("Barack Obama");
+            profile1.SetPassword("Ass'n'Titties");
+            profile1.SetPhone("8472525700");
+            profile1.SetUser("MoBama");
+            
+            profile2.SetAddress("somewhere in sweden.");
+            profile2.SetCardNumber("69694206969");
+            profile2.SetName("Pewdiepie");
+            profile2.SetPassword("Coding");
+            profile2.SetPhone("8472525700");
+            profile2.SetUser("pewds");
+
+            profile3.SetAddress("space.");
+            profile3.SetCardNumber("69694206969");
+            profile3.SetName("Baby Yoda");
+            profile3.SetPassword("Programming");
+            profile3.SetPhone("8472525700");
+            profile3.SetUser("BYoda");
 
             try
             {
                 database.Connect();
 
-                database.SaveProfile(profile);
+                database.SaveProfile(profile1);
+                database.SaveProfile(profile2);
+                database.SaveProfile(profile3);
 
                 database.Disconnect();
             }
@@ -308,7 +325,7 @@ namespace Unit_Testing
             {
                 database.Connect();
 
-                returned = database.GetProfileData("Ale");
+                returned = database.GetProfileData("pewds");
 
                 database.Disconnect();
             }
@@ -330,7 +347,7 @@ namespace Unit_Testing
 
             try
             {
-                exists = database.DoesUserExist("ale");
+                exists = database.DoesUserExist("BYoda");
             }
             catch (Exception)
             {

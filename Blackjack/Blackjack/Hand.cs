@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BlackjackGame;
+using SQLite.Storage;
 
 namespace Blackjack
 {
@@ -11,24 +12,20 @@ namespace Blackjack
     {
         private int _handTotal { get; set; }
         private List<Card> _currentHand { get; set; }
-        private int _numCards;
 
         public Hand()
         {
             _currentHand = new List<Card>();
             _handTotal = 0;
-            _numCards = 0;
         }
+        
+        public int GetTotal() => _handTotal;
+        
+        public int GetNumberOfCards() => _currentHand.Count;
 
-        public List<Card> SeeCards()
-        {
-            return _currentHand;
-        }
+        public List<Card> SeeCards() => _currentHand;
 
-        public int GetTotal()
-        {
-            return _handTotal;
-        }
+        public bool HasBusted() => (_handTotal > 21) ? true : false;
 
         public void ClearHand()
         {
@@ -93,16 +90,10 @@ namespace Blackjack
             }
         }
 
-
         public void AddCard(Card NewCard)
         {
             _currentHand.Add(NewCard);
             AddCardValues();
-        }
-
-        public int GetNumberOfCards()
-        {
-            return _currentHand.Count;
         }
 
         public Card GetCard()
@@ -120,12 +111,5 @@ namespace Blackjack
             return _currentHand[0];
         }
 
-        public bool HasBusted()
-        {
-            if (_handTotal < 22)
-                return false;
-            else
-                return true;
-        }
     }
 }

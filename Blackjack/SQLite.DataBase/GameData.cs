@@ -2,15 +2,14 @@
 
 namespace SQLite.Storage
 {
-    [Serializable]
     public class GameData
     {
-        public int MoneyBet { get; private set; }
+        public int MoneyBet { get; set; }
         private int _moneyWon { get; set; }
         private int _moneyLost { get; set; }
         private int _moneyLeftOver { get; set; }
-        public int MostMoneymade { get; private set; }
-        public int MostMoneyLost { get; private set; }
+        public int MostMoneyMade { get; internal set; }
+        public int MostMoneyLost { get; internal set; }
 
         public GameData()
         {
@@ -19,7 +18,7 @@ namespace SQLite.Storage
             _moneyLost = 0;
             _moneyLeftOver = 0;
             MostMoneyLost = 0;
-            MostMoneymade = 0;
+            MostMoneyMade = 0;
         }
 
         public GameData(int MoneyBet, int MoneyWon, int MoneyLost, int MoneyLeftOver)
@@ -29,20 +28,30 @@ namespace SQLite.Storage
             _moneyLost = MoneyLost;
             _moneyLeftOver = MoneyLeftOver;
 
-            if(_moneyWon > MostMoneymade) { MostMoneymade = _moneyWon; }
+            if (_moneyWon > MostMoneyMade) { MostMoneyMade = _moneyWon; }
 
-            if(_moneyLost > MostMoneyLost) { MostMoneyLost = _moneyLost; }
+            if (_moneyLost < MostMoneyLost) { MostMoneyLost = _moneyLost; }
         }
 
-        public int GetMoneyLeftOver() { return _moneyLeftOver; }
+        public void SetMoneyWon(int Winnings)
+        {
+            _moneyWon = Winnings;
+            MostMoneyMade = (_moneyWon > MostMoneyMade) ? _moneyWon : MostMoneyMade;
 
-        public int GetMoneyBet() { return MoneyBet; }
+        }
 
-        public int GetMoneyWon() { return _moneyWon; }
+        public void SetMoneyLost(int CashLost)
+        {
+            _moneyLost = CashLost;
+            MostMoneyLost = (_moneyLost < MostMoneyLost) ? _moneyLost : MostMoneyLost; 
+        }
 
-        public int GetMoneyLost() { return _moneyLost; }
-
+        public int SetMoneyLeftOver(int LeftOver) => _moneyLeftOver = LeftOver;
         
+        public int GetMoneyLeftOver() => _moneyLeftOver; 
 
+        public int GetMoneyWon() => _moneyWon; 
+
+        public int GetMoneyLost() => _moneyLost; 
     }
 }

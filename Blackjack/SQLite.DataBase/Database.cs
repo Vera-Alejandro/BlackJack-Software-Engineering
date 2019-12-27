@@ -127,11 +127,11 @@ namespace SQLite
 
             SQLiteParameter[] parameters =
             {
-                new SQLiteParameter(@"MoneyBet", gameData.GetMoneyBet()),
+                new SQLiteParameter(@"MoneyBet", gameData.MoneyBet),
                 new SQLiteParameter(@"MoneyWon", gameData.GetMoneyWon()),
                 new SQLiteParameter(@"MoneyLost", gameData.GetMoneyLost()),
                 new SQLiteParameter(@"MoneyLeftOver", gameData.GetMoneyLeftOver()),
-                new SQLiteParameter(@"MostMoneyMade", gameData.MostMoneymade),
+                new SQLiteParameter(@"MostMoneyMade", gameData.MostMoneyMade),
                 new SQLiteParameter(@"MostMoneyLost", gameData.MostMoneyLost),
             };
             _insertCmd.Parameters.AddRange(parameters);

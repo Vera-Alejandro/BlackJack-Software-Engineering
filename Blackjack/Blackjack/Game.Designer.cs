@@ -66,6 +66,7 @@
             this.ResetButton = new System.Windows.Forms.Button();
             this.OnePlayerButton = new System.Windows.Forms.Button();
             this.ThreePlayerButton = new System.Windows.Forms.Button();
+            this.ActiveUser = new System.Windows.Forms.Label();
             this.DealerHand.SuspendLayout();
             this.PlayerHand.SuspendLayout();
             this.BettingPanel.SuspendLayout();
@@ -143,9 +144,9 @@
             // 
             this.DealerHand.Controls.Add(this.DealerCount);
             this.DealerHand.Controls.Add(this.DCName);
-            this.DealerHand.Location = new System.Drawing.Point(98, 123);
+            this.DealerHand.Location = new System.Drawing.Point(12, 111);
             this.DealerHand.Name = "DealerHand";
-            this.DealerHand.Size = new System.Drawing.Size(450, 410);
+            this.DealerHand.Size = new System.Drawing.Size(547, 552);
             this.DealerHand.TabIndex = 5;
             this.DealerHand.Visible = false;
             // 
@@ -187,9 +188,9 @@
             this.PlayerHand.Controls.Add(this.Hit);
             this.PlayerHand.Controls.Add(this.PlayerCount);
             this.PlayerHand.Controls.Add(this.PCName);
-            this.PlayerHand.Location = new System.Drawing.Point(611, 123);
+            this.PlayerHand.Location = new System.Drawing.Point(572, 111);
             this.PlayerHand.Name = "PlayerHand";
-            this.PlayerHand.Size = new System.Drawing.Size(524, 476);
+            this.PlayerHand.Size = new System.Drawing.Size(547, 552);
             this.PlayerHand.TabIndex = 6;
             this.PlayerHand.Visible = false;
             // 
@@ -261,6 +262,7 @@
             this.PlayerCash.TabIndex = 5;
             this.PlayerCash.Text = "$500.00";
             this.PlayerCash.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PlayerCash.TextChanged += new System.EventHandler(this.PlayerCash_TextChanged);
             // 
             // Cash
             // 
@@ -337,7 +339,7 @@
             this.TwoPlayerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TwoPlayerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TwoPlayerButton.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.TwoPlayerButton.Location = new System.Drawing.Point(10, 21);
+            this.TwoPlayerButton.Location = new System.Drawing.Point(14, 22);
             this.TwoPlayerButton.Name = "TwoPlayerButton";
             this.TwoPlayerButton.Size = new System.Drawing.Size(206, 50);
             this.TwoPlayerButton.TabIndex = 22;
@@ -525,16 +527,16 @@
             this.BettingPanel.Controls.Add(this.BetTwentyFive);
             this.BettingPanel.Controls.Add(this.BetHundred);
             this.BettingPanel.Controls.Add(this.BetFifty);
-            this.BettingPanel.Location = new System.Drawing.Point(29, 569);
+            this.BettingPanel.Location = new System.Drawing.Point(12, 669);
             this.BettingPanel.Name = "BettingPanel";
-            this.BettingPanel.Size = new System.Drawing.Size(1058, 125);
+            this.BettingPanel.Size = new System.Drawing.Size(1107, 125);
             this.BettingPanel.TabIndex = 19;
             this.BettingPanel.Visible = false;
             // 
             // TitleImage
             // 
             this.TitleImage.Image = global::Blackjack.Properties.Resources.BackJack_Title;
-            this.TitleImage.Location = new System.Drawing.Point(8, 11);
+            this.TitleImage.Location = new System.Drawing.Point(12, 12);
             this.TitleImage.Name = "TitleImage";
             this.TitleImage.Size = new System.Drawing.Size(218, 72);
             this.TitleImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -547,7 +549,7 @@
             this.ProfileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProfileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.ProfileButton.ForeColor = System.Drawing.Color.White;
-            this.ProfileButton.Location = new System.Drawing.Point(236, 12);
+            this.ProfileButton.Location = new System.Drawing.Point(240, 13);
             this.ProfileButton.Name = "ProfileButton";
             this.ProfileButton.Size = new System.Drawing.Size(72, 33);
             this.ProfileButton.TabIndex = 6;
@@ -562,7 +564,7 @@
             this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.SaveButton.ForeColor = System.Drawing.Color.White;
-            this.SaveButton.Location = new System.Drawing.Point(236, 51);
+            this.SaveButton.Location = new System.Drawing.Point(240, 52);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(72, 33);
             this.SaveButton.TabIndex = 20;
@@ -577,7 +579,7 @@
             this.ResetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ResetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ResetButton.ForeColor = System.Drawing.Color.White;
-            this.ResetButton.Location = new System.Drawing.Point(330, 23);
+            this.ResetButton.Location = new System.Drawing.Point(334, 24);
             this.ResetButton.Name = "ResetButton";
             this.ResetButton.Size = new System.Drawing.Size(178, 50);
             this.ResetButton.TabIndex = 21;
@@ -592,7 +594,7 @@
             this.OnePlayerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OnePlayerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OnePlayerButton.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.OnePlayerButton.Location = new System.Drawing.Point(10, 20);
+            this.OnePlayerButton.Location = new System.Drawing.Point(14, 21);
             this.OnePlayerButton.Name = "OnePlayerButton";
             this.OnePlayerButton.Size = new System.Drawing.Size(206, 50);
             this.OnePlayerButton.TabIndex = 23;
@@ -607,7 +609,7 @@
             this.ThreePlayerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ThreePlayerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ThreePlayerButton.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.ThreePlayerButton.Location = new System.Drawing.Point(10, 23);
+            this.ThreePlayerButton.Location = new System.Drawing.Point(14, 24);
             this.ThreePlayerButton.Name = "ThreePlayerButton";
             this.ThreePlayerButton.Size = new System.Drawing.Size(206, 50);
             this.ThreePlayerButton.TabIndex = 24;
@@ -616,12 +618,23 @@
             this.ThreePlayerButton.Visible = false;
             this.ThreePlayerButton.Click += new System.EventHandler(this.ThreePlayerButton_Click);
             // 
+            // ActiveUser
+            // 
+            this.ActiveUser.AutoSize = true;
+            this.ActiveUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.ActiveUser.Location = new System.Drawing.Point(563, 24);
+            this.ActiveUser.Name = "ActiveUser";
+            this.ActiveUser.Size = new System.Drawing.Size(58, 22);
+            this.ActiveUser.TabIndex = 25;
+            this.ActiveUser.Text = "label1";
+            // 
             // Blackjack
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.ClientSize = new System.Drawing.Size(1131, 806);
+            this.Controls.Add(this.ActiveUser);
             this.Controls.Add(this.TitleImage);
             this.Controls.Add(this.OnePlayerButton);
             this.Controls.Add(this.ResetButton);
@@ -696,6 +709,7 @@
         private System.Windows.Forms.Button TwoPlayerButton;
         private System.Windows.Forms.Button ThreePlayerButton;
         private System.Windows.Forms.Button OnePlayerButton;
+        private System.Windows.Forms.Label ActiveUser;
     }
 }
 

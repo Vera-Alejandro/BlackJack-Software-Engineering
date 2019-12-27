@@ -21,7 +21,6 @@ namespace BlackjackGame
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
-        private const double START_CASH = 500.00;
 
         [DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
@@ -41,15 +40,19 @@ namespace BlackjackGame
 
         ProfileInterface profileForm = new ProfileInterface();
         private string SQLiteFile =
-            Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName, "GameData.sqlite3");
+            Path.Combine(
+                Directory.GetParent(
+                    Directory.GetParent(
+                        Directory.GetCurrentDirectory()
+                    ).FullName
+                ).FullName, 
+            "GameData.sqlite3");
 
         private bool gameStarted = false;
         private bool roundStarted = false;
         private bool restartAvailable = false;
         private bool splitAvailable = false;
         private bool splitHandDone = false;
-
-        private string RunningPath = AppDomain.CurrentDomain.BaseDirectory;
 
         private GameInstance thisGame = new GameInstance();
 
@@ -58,8 +61,12 @@ namespace BlackjackGame
         private List<PictureBox> splitCardPictures1 = new List<PictureBox>();
         private List<PictureBox> splitCardPictures2 = new List<PictureBox>();
 
+        public Dictionary<int, string> Players { get; internal set; }
+        public string CurrentUser { set { ActiveUser.Text = value; } }
+
+
         private double playerCash;
-        private int currentPlayer;
+        private int currentPlayer = 0;
         private int numPlayers;
 
         public Blackjack()
@@ -71,7 +78,6 @@ namespace BlackjackGame
         {
             CenterToScreen();
             TitleImage.Visible = true;
-            //StartButton.Visible = true;
             InsuranceButton.Visible = false;
             SplitButton.Visible = false;
             SCName.Visible = false;
@@ -80,6 +86,7 @@ namespace BlackjackGame
             TwoPlayerButton.Visible = true;
             ThreePlayerButton.Visible = true;
 
+            Players = new Dictionary<int, string>();
             Sound jazzSound = new Sound("jazz.mp3");
             jazzSound.Play();
         }
@@ -101,7 +108,7 @@ namespace BlackjackGame
 
         private void Blackjack_SizeChanged(object sender, EventArgs e)
         {
-            if (gameStarted == false)
+            if (!gameStarted)
             {
                 TitleImage.Location = new Point((Width / 2) - (TitleImage.Width / 2), (Height / 2) - (TitleImage.Height / 2));
                 //StartButton.Location = new Point((Width / 2) - (StartButton.Width / 2), (Height / 2) - (StartButton.Height / 2) + ((StartButton.Height / 2) + (TitleImage.Height / 2) + 12));
@@ -142,6 +149,7 @@ namespace BlackjackGame
             for (int i = 0; i < players; i++)
             {
                 thisGame.AddPlayer(); //add a player to the game
+                Players.Add(players + 1, "guest");
             }
 
             playerCash = thisGame.GetCash(currentPlayer);
@@ -559,6 +567,7 @@ namespace BlackjackGame
             profileForm.Show();
 
         }
+
         private void DisplayCards(bool dealerFaceDown)
         {
 
@@ -794,13 +803,10 @@ namespace BlackjackGame
             Card testcard2 = new Card(Card.CardValue.Four, Card.SuiteType.Clubs);
             Card testcard3 = new Card(Card.CardValue.Five, Card.SuiteType.Hearts);
             Card testcard4 = new Card(Card.CardValue.Five, Card.SuiteType.Spades);
-            dealerHand.AddCard(dealingDeck.GetCard());
-            dealerHand.AddCard(dealingDeck.GetCard());
-            //dealerHand.AddCard(testcard1);
-            //dealerHand.AddCard(testcard2);
 
-            //playerHand.AddCard(testcard3);
-            //playerHand.AddCard(testcard4);
+            dealerHand.AddCard(dealingDeck.GetCard());
+            dealerHand.AddCard(dealingDeck.GetCard());
+
             playerHand.AddCard(dealingDeck.GetCard());
             playerHand.AddCard(dealingDeck.GetCard());
 
@@ -809,7 +815,7 @@ namespace BlackjackGame
             Card p2Card = playerHand.SeeCards()[1];
 
             DisplayCards(true);
-            if (thisGame.GetInsuranceAvailaible() == true)
+            if (thisGame.GetInsuranceAvailaible())
             {
                 InsuranceButton.Visible = true;
             }
@@ -902,9 +908,14 @@ namespace BlackjackGame
             Database StorageDB = new Database(SQLiteFile);
             StorageDB.Connect();
 
-            StorageDB.SaveGameState(thisGame., )
+            //StorageDB.SaveGameState(thisGame.GetGameData(currentPlayer), )
 
             StorageDB.Disconnect();
+        }
+
+        private void PlayerCash_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

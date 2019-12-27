@@ -138,6 +138,7 @@
             this.ActiveLogin.Size = new System.Drawing.Size(60, 24);
             this.ActiveLogin.TabIndex = 11;
             this.ActiveLogin.Text = "Guest";
+            this.ActiveLogin.TextChanged += new System.EventHandler(this.ActiveLogin_TextChanged);
             // 
             // LoginButton
             // 
@@ -861,11 +862,11 @@
             this.BackColor = System.Drawing.SystemColors.InfoText;
             this.ClientSize = new System.Drawing.Size(300, 375);
             this.Controls.Add(this.Close);
-            this.Controls.Add(this.LogIn);
-            this.Controls.Add(this.ProfilePanel);
             this.Controls.Add(this.Main);
             this.Controls.Add(this.SignUp);
             this.Controls.Add(this.ForgotPassword);
+            this.Controls.Add(this.LogIn);
+            this.Controls.Add(this.ProfilePanel);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ProfileInterface";

@@ -165,24 +165,6 @@ namespace Unit_Testing
         }
         
         [TestMethod]
-        public void DatabaseCreationTest()
-        {
-            try
-            {
-                Database testdb = new Database(SQLiteFile);
-
-                testdb.Connect();
-
-                testdb.Disconnect();
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-                Assert.Fail();
-            }
-        }
-
-        [TestMethod]
         public void TestEncryption()
         {
             string Password = "Merry_Christmas";
@@ -245,6 +227,26 @@ namespace Unit_Testing
             Assert.AreEqual(data1, data2);
         }
 
+        //Database Tests
+
+        [TestMethod]
+        public void DatabaseCreationTest()
+        {
+            try
+            {
+                Database testdb = new Database(SQLiteFile);
+
+                testdb.Connect();
+
+                testdb.Disconnect();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                Assert.Fail();
+            }
+        }
+
         [TestMethod]
         public void SQLStorageTesting()
         {
@@ -265,7 +267,6 @@ namespace Unit_Testing
                 Assert.Fail();
             }
         }
-
 
         [TestMethod]
         public void TestingSQLiteProfileSave()

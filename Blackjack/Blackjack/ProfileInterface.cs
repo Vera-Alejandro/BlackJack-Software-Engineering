@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using SQLite;
@@ -15,8 +7,12 @@ namespace Blackjack
 {
 	public partial class ProfileInterface : Form
 	{
-		string fileLoc = Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName, "GameData.sqlite3");
-		string TheUsername;
+		internal string fileLoc = Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName, "GameData.sqlite3");
+		public string GlobalUserName { get { return ActiveLogin.Text; } set {  value = TheUsername; } }
+
+		internal string TheUsername;
+		private int UsersLoggedIn = 0;
+
 		public ProfileInterface()
 		{
 			InitializeComponent();
@@ -33,15 +29,7 @@ namespace Blackjack
 		}
 		private void SignUpButton_Click(object sender, EventArgs e)
 		{
-			InfoUserLabel.Visible = false;
-			ProfileInfoUser.Visible = false;
-			NameInfoLabel.Visible = false;
-			ProfileInfoName.Visible = false;
-			PhoneInfoLabel.Visible = false;
-			ProfileInfoPhone.Visible = false;
-			AddressInfoLabel.Visible = false;
-			ProfileInfoAddress.Visible = false;
-			ChangeButton.Visible = false;
+			ProfilePanel.Visible = false;
 
 			Main.Visible = false;
 
@@ -95,6 +83,7 @@ namespace Blackjack
 					if (PassTextBox.Text == pass)
 					{
 						ActiveLogin.Text = UserTextBox.Text;
+						
 						MenuButton_Click(sender, e);
 					}
 				}
@@ -195,7 +184,7 @@ namespace Blackjack
 
 			bool contains = database.DoesUserExist(TheUsername);
 
-			if (contains == true)
+			if (contains)
 			{
 				CheckButton.Visible = false;
 				ForgotUserTextBox.Visible = false;
@@ -217,7 +206,7 @@ namespace Blackjack
 			Database database = new Database(fileLoc);
 			bool contains = database.DoesUserExist(TheUsername);
 
-			if (contains == true)
+			if (contains)
 			{
 				database.Connect();
 
@@ -288,6 +277,11 @@ namespace Blackjack
 			{
 				LoginConfirm_Click(null, null);
 			}
+		}
+
+		private void ActiveLogin_TextChanged(object sender, EventArgs e)
+		{
+			TheUsername = ActiveLogin.Text; 
 		}
 	}
 }

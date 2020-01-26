@@ -1,13 +1,11 @@
 ﻿using SQLite.Storage;
 using Storage;
-using System;
 using System.Data;
 using System.Data.SQLite;
 using System.Diagnostics;
 using System.IO;
 using Dapper;
 using System.Linq;
-using System.Collections.Generic;
 
 namespace SQLite
 {
@@ -222,15 +220,11 @@ namespace SQLite
 
         public bool DoesUserExist(string UserName)
         {
-            _fileConnection.Open();
+            if (_fileConnection.State != ConnectionState.Open) { _fileConnection.Open(); }
 
             int count = _fileConnection.ExecuteScalar<int>(string.Format(
                         "SELECT COUNT(1) as 'Count' FROM MasterProfile WHERE Username = '{0}'",
                         UserName));
-
-            _fileConnection.Close();
-
-
 
             return (count >= 1) ? true: false;
         }

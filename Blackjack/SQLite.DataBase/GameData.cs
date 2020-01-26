@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SQLite.Storage
+﻿namespace SQLite.Storage
 {
     public class GameData
     {

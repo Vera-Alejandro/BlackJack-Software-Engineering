@@ -47,6 +47,7 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="SQLitePCLRaw.core, Version=2.0.2.669, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
       <HintPath>..\packages\SQLitePCLRaw.core.2.0.2\lib\netstandard2.0\SQLitePCLRaw.core.dll</HintPath>
     </Reference>
@@ -79,6 +80,7 @@
     <Reference Include="System.Security.Cryptography.ProtectedData, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.Cryptography.ProtectedData.4.7.0\lib\net461\System.Security.Cryptography.ProtectedData.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -301,6 +303,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Card Back.png" />
+    <Content Include="Resources\CloseButton.png" />
+    <Content Include="Resources\Minimize.png" />
+    <Content Include="Resources\Resize.png" />
     <Content Include="Resources\sounds\card_placed_down.wav" />
     <Content Include="Resources\sounds\card_riffle.wav" />
     <Content Include="Resources\sounds\card_slap.wav" />

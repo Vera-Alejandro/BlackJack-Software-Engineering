@@ -8,6 +8,21 @@
         Title="MainWindow" Height="800" Width="1130" Background="Black" BorderBrush="Black" WindowStyle="None" ResizeMode="NoResize">
 
     <Grid Background="Black">
+        <!--Betting Stack Panel-->
+        <StackPanel VerticalAlignment="Bottom" Height="125" Margin="10,10">
+            <TextBlock Text="Bet" Foreground="White" FontSize="20" Margin="25,20" Width="75" HorizontalAlignment="Left" TextAlignment="Center"/>
+            <Button x:Name="BetAllButton" Foreground="White" BorderBrush="White" Background="Black" Height="35" Width="75" HorizontalAlignment="Left" Margin="25,-35" Content="Bet All" FontSize="18"/>
+            <Button x:Name="BetOneButton" Foreground="White" BorderBrush="White" Background="Black" Height="35" Width="75" HorizontalAlignment="Right" Margin="0,-35,825,-35" Content="$1" FontSize="18"/>
+            <Button x:Name="BetFiveButton" Foreground="White" BorderBrush="White" Background="Black" Height="35" Width="75" HorizontalAlignment="Right" Margin="0,-35,725,-35" Content="$5" FontSize="18"/>
+            <Button x:Name="BetTenButton" Foreground="White" BorderBrush="White" Background="Black" Height="35" Width="75" HorizontalAlignment="Right" Margin="0,-35,625,-35" Content="$10" FontSize="18"/>
+            <Button x:Name="BetTwentyFiveButton" Foreground="White" BorderBrush="White" Background="Black" Height="35" Width="75" HorizontalAlignment="Right" Margin="0,-35,525,-35" Content="$25" FontSize="18"/>
+            <Button x:Name="BetFiftyButton" Foreground="White" BorderBrush="White" Background="Black" Height="35" Width="75" HorizontalAlignment="Right" Margin="0,-35,425,-35" Content="$50" FontSize="18"/>
+            <Button x:Name="BetOneHundredButton" Foreground="White" BorderBrush="White" Background="Black" Height="35" Width="75" HorizontalAlignment="Right" Margin="0,-35,325,-35" Content="$100" FontSize="18"/>
+            <Button x:Name="BetTwoHundredFiftyButton" Foreground="White" BorderBrush="White" Background="Black" Height="35" Width="75" HorizontalAlignment="Right" Margin="0,-35,225,-35" Content="$250" FontSize="18"/>
+            <Button x:Name="BetFiveHundredButton" Foreground="White" BorderBrush="White" Background="Black" Height="35" Width="75" HorizontalAlignment="Right" Margin="0,-35,125,-35" Content="$500" FontSize="18"/>
+            <Button x:Name="BetOneThousandButton" Foreground="White" BorderBrush="White" Background="Black" Height="35" Width="75" HorizontalAlignment="Right" Margin="0,-35,25,-35" Content="$1,000" FontSize="18"/>
+        </StackPanel>
+
         <Image Source="Resources/BackJack Title.png" Width="220"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Height="70"/>
         <TextBlock x:Name="Output" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="700,50" Foreground="White" FontSize="18"/>
 
@@ -23,7 +38,7 @@
                     <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Resize.png"/>
                 </Button.Background>
             </Button>
-            <Button Name="CloseButton" Width="25" Height="25" BorderBrush="Black" Click="CloseButton_Click">
+            <Button x:Name="CloseButton" Width="25" Height="25" BorderBrush="Black" Click="CloseButton_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/CloseButton.png"/>
                 </Button.Background>
@@ -38,21 +53,20 @@
 
         <!--Dealer Panel-->
         <StackPanel Margin="10,100" HorizontalAlignment="Left" Width="550" Height="550" VerticalAlignment="Top">
-            <TextBlock x:Name="DealerCountTitle" Foreground="White" FontSize="18" HorizontalAlignment="Left" ><Run Text="Dealer Count: "/>
-                <InlineUIContainer>
+            <TextBlock x:Name="DealerCountTitle" Foreground="White" FontSize="18" HorizontalAlignment="Left" ><Run Text="Dealer Count: "/><Run Text=" "/><InlineUIContainer>
                     <TextBlock x:Name="DealerCount" Foreground="White" Text="0" FontSize="18" VerticalAlignment="Bottom" />
                 </InlineUIContainer></TextBlock>
         </StackPanel>
 
         <!--Player Panel-->
         <StackPanel Margin="0,100,10,0" Height="550" Width="550" VerticalAlignment="Top" HorizontalAlignment="Right">
-            <TextBlock x:Name="PlayerCountTitle" Foreground="White" FontSize="18" HorizontalAlignment="Left" ><Run Text="Player Count: "/>
-                <InlineUIContainer>
+            <TextBlock x:Name="PlayerCountTitle" Foreground="White" FontSize="18" HorizontalAlignment="Left" ><Run Text="Player Count: "/><Run Text=" "/><InlineUIContainer>
                     <TextBlock x:Name="PlayerCount" Foreground="White" Text="0" FontSize="18" VerticalAlignment="Bottom" Margin="0,0,250,0"/>
-                </InlineUIContainer>
+                </InlineUIContainer><Run Text=" "/><InlineUIContainer>
                     <TextBlock x:Name="PlayerCashTitle" Foreground="White" Text="Cash: $" FontSize="18" TextAlignment="Right"/>
+                </InlineUIContainer><Run Text=" "/><InlineUIContainer>
                     <TextBlock x:Name="PlayerCash" Foreground="White" Text="500" FontSize="18" />
-            </TextBlock>
+                </InlineUIContainer></TextBlock>
             <StackPanel Orientation="Horizontal" Margin="0,475,0,0" Width="550">
                 <Button x:Name="HitButton" Content="Hit" FontSize="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="Black" BorderBrush="White" Foreground="White" Height="50" Width="75" Margin="35,0,35,0" Click="HitButton_Click"/>
                 <Button x:Name="StayButton" Content="Stay" FontSize="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="Black" BorderBrush="White" Foreground="White" Height="50" Width="75" Margin="0,0,35,0" Click="StayButton_Click"/>
@@ -60,12 +74,8 @@
                 <Button x:Name="SplitButton" Content="Split" FontSize="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="Black" BorderBrush="White" Foreground="White" Height="50" Width="75" Click="SplitButton_Click"/>
             </StackPanel>
         </StackPanel>
-        
+
         <!--Betting Stack Panel-->
-        <StackPanel VerticalAlignment="Bottom" Height="125" Margin="10,10">
-            <TextBlock Text="Bet" Foreground="White" FontSize="18" Margin="30,20" Width="50" HorizontalAlignment="Left"/>
-            
-        </StackPanel>
 
     </Grid>
 </Window>

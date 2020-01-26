@@ -36,5 +36,25 @@ namespace BlackJack2
 
         private void MinButton_Click(object sender, RoutedEventArgs e)
             => WindowState = WindowState.Minimized;
+
+        private void HitButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void StayButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void InsuranceButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SplitButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BlackJack2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1100" Background="Black" BorderBrush="Black" WindowStyle="None" ResizeMode="NoResize">
+        Title="MainWindow" Height="800" Width="1130" Background="Black" BorderBrush="Black" WindowStyle="None" ResizeMode="NoResize">
 
     <Grid Background="Black">
         <Image Source="Resources/BackJack Title.png" Width="220"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Height="70"/>
+        <TextBlock x:Name="Output" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="700,50" Foreground="White" FontSize="18"/>
 
         <!--Top Right Buttons-->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10">
@@ -33,6 +34,37 @@
         <StackPanel Margin="245,10" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Button x:Name="ProfileButton" Height="30" Width="100" Margin="0,0,0,10" Content="Profile" Foreground="White" BorderBrush="White" Background="Black" FontSize="20"/>
             <Button x:Name="SaveButton" Height="30" Width="100" Content="Save" BorderBrush="White" Background="Black" Foreground="White" FontSize="20"/>
+        </StackPanel>
+
+        <!--Dealer Panel-->
+        <StackPanel Margin="10,100" HorizontalAlignment="Left" Width="550" Height="550" VerticalAlignment="Top">
+            <TextBlock x:Name="DealerCountTitle" Foreground="White" FontSize="18" HorizontalAlignment="Left" ><Run Text="Dealer Count: "/>
+                <InlineUIContainer>
+                    <TextBlock x:Name="DealerCount" Foreground="White" Text="0" FontSize="18" VerticalAlignment="Bottom" />
+                </InlineUIContainer></TextBlock>
+        </StackPanel>
+
+        <!--Player Panel-->
+        <StackPanel Margin="0,100,10,0" Height="550" Width="550" VerticalAlignment="Top" HorizontalAlignment="Right">
+            <TextBlock x:Name="PlayerCountTitle" Foreground="White" FontSize="18" HorizontalAlignment="Left" ><Run Text="Player Count: "/>
+                <InlineUIContainer>
+                    <TextBlock x:Name="PlayerCount" Foreground="White" Text="0" FontSize="18" VerticalAlignment="Bottom" Margin="0,0,250,0"/>
+                </InlineUIContainer>
+                    <TextBlock x:Name="PlayerCashTitle" Foreground="White" Text="Cash: $" FontSize="18" TextAlignment="Right"/>
+                    <TextBlock x:Name="PlayerCash" Foreground="White" Text="500" FontSize="18" />
+            </TextBlock>
+            <StackPanel Orientation="Horizontal" Margin="0,475,0,0" Width="550">
+                <Button x:Name="HitButton" Content="Hit" FontSize="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="Black" BorderBrush="White" Foreground="White" Height="50" Width="75" Margin="35,0,35,0" Click="HitButton_Click"/>
+                <Button x:Name="StayButton" Content="Stay" FontSize="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="Black" BorderBrush="White" Foreground="White" Height="50" Width="75" Margin="0,0,35,0" Click="StayButton_Click"/>
+                <Button x:Name="InsuranceButton" Content="Insurance" FontSize="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="Black" BorderBrush="White" Foreground="White" Height="50" Width="150" Margin="0,0,35,0" Click="InsuranceButton_Click"/>
+                <Button x:Name="SplitButton" Content="Split" FontSize="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="Black" BorderBrush="White" Foreground="White" Height="50" Width="75" Click="SplitButton_Click"/>
+            </StackPanel>
+        </StackPanel>
+        
+        <!--Betting Stack Panel-->
+        <StackPanel VerticalAlignment="Bottom" Height="125" Margin="10,10">
+            <TextBlock Text="Bet" Foreground="White" FontSize="18" Margin="30,20" Width="50" HorizontalAlignment="Left"/>
+            
         </StackPanel>
 
     </Grid>

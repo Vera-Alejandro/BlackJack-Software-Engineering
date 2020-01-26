@@ -104,7 +104,7 @@
             this.Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Close.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.Close.Location = new System.Drawing.Point(266, 9);
+            this.Close.Location = new System.Drawing.Point(1005, 9);
             this.Close.Margin = new System.Windows.Forms.Padding(0);
             this.Close.Name = "Close";
             this.Close.Size = new System.Drawing.Size(25, 34);
@@ -701,7 +701,7 @@
             this.Main.Controls.Add(this.ActiveLogin);
             this.Main.Controls.Add(this.LoginButton);
             this.Main.Controls.Add(this.SignUpButton);
-            this.Main.Location = new System.Drawing.Point(0, 0);
+            this.Main.Location = new System.Drawing.Point(0, 397);
             this.Main.Name = "Main";
             this.Main.Size = new System.Drawing.Size(300, 375);
             this.Main.TabIndex = 93;
@@ -716,7 +716,7 @@
             this.LogIn.Controls.Add(this.ForgotButton);
             this.LogIn.Controls.Add(this.LoginConfirm);
             this.LogIn.Controls.Add(this.LogIn_Menu);
-            this.LogIn.Location = new System.Drawing.Point(0, 0);
+            this.LogIn.Location = new System.Drawing.Point(686, 397);
             this.LogIn.Name = "LogIn";
             this.LogIn.Size = new System.Drawing.Size(300, 375);
             this.LogIn.TabIndex = 94;
@@ -767,7 +767,7 @@
             this.SignUp.Controls.Add(this.AddressSignUpLabel);
             this.SignUp.Controls.Add(this.CardInfoSignUpTextBox);
             this.SignUp.Controls.Add(this.CardInfoSignUpLabel);
-            this.SignUp.Location = new System.Drawing.Point(0, 0);
+            this.SignUp.Location = new System.Drawing.Point(360, 397);
             this.SignUp.Name = "SignUp";
             this.SignUp.Size = new System.Drawing.Size(300, 375);
             this.SignUp.TabIndex = 95;
@@ -802,7 +802,7 @@
             this.ForgotPassword.Controls.Add(this.CheckButton);
             this.ForgotPassword.Controls.Add(this.ForgotPhoneButton);
             this.ForgotPassword.Controls.Add(this.NewPasswordButton);
-            this.ForgotPassword.Location = new System.Drawing.Point(0, 0);
+            this.ForgotPassword.Location = new System.Drawing.Point(360, 0);
             this.ForgotPassword.Name = "ForgotPassword";
             this.ForgotPassword.Size = new System.Drawing.Size(300, 375);
             this.ForgotPassword.TabIndex = 96;
@@ -860,7 +860,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InfoText;
-            this.ClientSize = new System.Drawing.Size(300, 375);
+            this.ClientSize = new System.Drawing.Size(1039, 793);
             this.Controls.Add(this.Close);
             this.Controls.Add(this.Main);
             this.Controls.Add(this.SignUp);

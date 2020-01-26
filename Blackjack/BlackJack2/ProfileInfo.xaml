@@ -1,0 +1,32 @@
+﻿<Window x:Class="BlackJack2.ProfileInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BlackJack2"
+        mc:Ignorable="d"
+        Title="ProfileInfo" Height="375" Width="300" Background="Black" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <TextBlock Text="Profile Information" Margin="0,25"/>
+        <TextBlock Text="UserName" Margin="0,75,0,0" FontSize="18"/>
+        <TextBlock x:Name="UserName" FontSize="15" Margin="0,100,0,0" Text="UserName goes here"/>
+        <TextBlock Text="Name" Margin="0,125,0,0" FontSize="18"/>
+        <TextBlock x:Name="Name" FontSize="15" Margin="0,150,0,0" Text="Name goes here"/>
+        <TextBlock Text="Phone" Margin="0,175,0,0" FontSize="18"/>
+        <TextBlock x:Name="Phone" FontSize="15" Margin="0,200,0,0" Text="Phone Number goes here"/>
+        <TextBlock Text="Address" Margin="0,225,0,0" FontSize="18"/>
+        <TextBlock x:Name="Address" FontSize="15" Margin="0,250,0,0" Text="Address goes here"/>
+
+        <Button  Style="{StaticResource MenuButton}" Height="25" Width="75" Margin="50,0,0,15" HorizontalAlignment="Left"/>
+        <Button Height="25" Width="75" Margin="0,35,50,15" Content="Change"/>
+    </Grid>
+</Window>

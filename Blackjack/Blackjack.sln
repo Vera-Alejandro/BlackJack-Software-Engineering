@@ -11,7 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Storage", "SQLite.DataBase\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackJack2", "BlackJack2\BlackJack2.csproj", "{0C0FC986-3790-4718-9336-B4761F364F41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackJack.v3", "BlackJack.v3\BlackJack.v3.csproj", "{BA0D735E-2EEC-45EB-8870-6EE0A520601A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlackJack.v3", "BlackJack.v3\BlackJack.v3.csproj", "{BA0D735E-2EEC-45EB-8870-6EE0A520601A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blackjack.GamePlay", "Blackjack.GamePlay\Blackjack.GamePlay.csproj", "{82E5D4ED-EB0E-4A65-A621-5717A07FC2A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blackjack.Data", "Blackjack.Data\Blackjack.Data.csproj", "{3E7C0400-B091-4C78-A076-BFA2F82768EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{BA0D735E-2EEC-45EB-8870-6EE0A520601A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA0D735E-2EEC-45EB-8870-6EE0A520601A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA0D735E-2EEC-45EB-8870-6EE0A520601A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82E5D4ED-EB0E-4A65-A621-5717A07FC2A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82E5D4ED-EB0E-4A65-A621-5717A07FC2A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82E5D4ED-EB0E-4A65-A621-5717A07FC2A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82E5D4ED-EB0E-4A65-A621-5717A07FC2A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E7C0400-B091-4C78-A076-BFA2F82768EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E7C0400-B091-4C78-A076-BFA2F82768EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E7C0400-B091-4C78-A076-BFA2F82768EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E7C0400-B091-4C78-A076-BFA2F82768EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

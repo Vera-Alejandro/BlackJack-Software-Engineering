@@ -7,6 +7,17 @@ namespace BlackjackGame
 {
     public class Deck
     {
+
+        /*---------------------------------------------------------------------------------
+
+
+                        --this version is no longer in use--
+
+
+        ---------------------------------------------------------------------------------*/
+
+
+
         List<Card> _cards { get; set; }
 
         public Deck()

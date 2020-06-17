@@ -1,33 +1,25 @@
-﻿using System.Drawing;
+﻿using Blackjack.GamePlay.Enums;
 
-namespace BlackjackGame
+namespace Blackjack.GamePlay
 {
     public class Card
     {
-
-        /*---------------------------------------------------------------------------------
-         
-
-                                --this version is no longer in use--
-         
-
-        ---------------------------------------------------------------------------------*/
-
-
+                //FIND A REPLACEMENT FOR IMAGES IN .NETCORE 3.1
+        //private Image _cardImg { get; set; }
+        //private Image _cardBack { get; set; }
+        
         private CardValue _value { get; set; }
-        private SuiteType _suit {get; set;}
-        private Image _cardImg { get; set; }
-
-        private Image _cardBack { get; set; }
+        private SuiteType _suit { get; set; }
         private bool _beenUsed { get; set; }
 
-        public Card(CardValue Value, SuiteType Suit)
+        public Card( CardValue Value, SuiteType Suit )
         {
             _value = Value;
             _suit = Suit;
             _beenUsed = false;
 
             #region Set Card Image
+            /*
 
             switch (Value)
             {
@@ -254,78 +246,28 @@ namespace BlackjackGame
                     break;
             }
             _cardBack = global::Blackjack.Properties.Resources.Card_Back;
+             */
             #endregion
         }
 
-        public CardValue GetCardValue()
-        {
-            return _value;
-        }
+        public CardValue GetCardValue( ) => _value;
 
-        public void SetCardValue(CardValue Value)
-        {
-            _value = Value;
-        }
+        public void SetCardValue( CardValue Value ) => _value = Value;
 
-        public SuiteType GetSuiteType()
-        {
-            return _suit;
-        }
+        public SuiteType SuiteType => _suit;
 
-        public void SetSuitType(SuiteType Suit)
-        {
-            _suit = Suit;
-        }
+        public void SetSuitType( SuiteType Suit ) => _suit = Suit;
 
-        public bool GetUsedValue()
-        {
-            return _beenUsed;
-        }
+        public bool UsedValue => _beenUsed;
 
-        public void SetUsedValue(bool SetCase)
-        {
-            _beenUsed = SetCase;
-        }
+        public void SetUsedValue( bool SetCase ) => _beenUsed = SetCase;
 
-        public Image GetImage()
-        {
-            return _cardImg;
-        }
+        public SuiteType SuiteType1 => _suit;
 
-        public Image GetBackImage()
-        {
-            return _cardBack;
-        }
+        //public Image Image => _cardImg;
 
-        public void SetImage(Image CardImage)
-        {
-            _cardImg = CardImage;
-        }
+        //public Image BackImage => _cardBack;
 
-        public enum SuiteType
-        {
-            Hearts,
-            Clubs,
-            Spades,
-            Diamonds
-        }
-
-        public enum CardValue
-        { 
-            Ace,
-            Two,
-            Three,
-            Four, 
-            Five, 
-            Six,
-            Seven,
-            Eight,
-            Nine, 
-            Ten, 
-            Jack, 
-            Queen,
-            King        
-        }
-
+        //public void SetImage( Image CardImage ) => _cardImg = CardImage;
     }
 }

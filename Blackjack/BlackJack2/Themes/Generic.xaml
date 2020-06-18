@@ -4,7 +4,7 @@
     xmlns:local="clr-namespace:BlackJack2">
 
 
-    <Style TargetType="{x:Type local:Styles}">
+    <!--<Style TargetType="{x:Type local:Styles}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:Styles}">
@@ -15,5 +15,5 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
 </ResourceDictionary>

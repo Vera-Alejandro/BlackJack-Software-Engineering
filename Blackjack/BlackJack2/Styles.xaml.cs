@@ -22,7 +22,7 @@ namespace BlackJack2
     {
         public Styles()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
     }
 }

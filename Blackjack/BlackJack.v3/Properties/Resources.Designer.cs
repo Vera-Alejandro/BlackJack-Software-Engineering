@@ -73,16 +73,6 @@ namespace BlackJack.v3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Card_Back {
-            get {
-                object obj = ResourceManager.GetObject("Card_Back", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         internal static byte[] CloseButton {
             get {
                 object obj = ResourceManager.GetObject("CloseButton", resourceCulture);

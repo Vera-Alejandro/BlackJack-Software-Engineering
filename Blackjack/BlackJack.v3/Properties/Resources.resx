@@ -121,9 +121,6 @@
   <data name="BackJack_Title" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BackJack Title.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Card_Back" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Card Back.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="CloseButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CloseButton.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

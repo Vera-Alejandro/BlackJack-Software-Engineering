@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Blackjack.Data
+﻿namespace Blackjack.Data
 {
     public class GameData
     {
-
-                    //THERE IS A GOOD CHANCE THAT iM GOING TO REWRITE THIS
-
-
         public int MoneyBet { get; set; }
         private int _moneyWon { get; set; }
         private int _moneyLost { get; set; }

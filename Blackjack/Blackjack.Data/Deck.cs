@@ -1,9 +1,9 @@
-﻿using Blackjack.GamePlay.Enums;
+﻿using Blackjack.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Blackjack.GamePlay
+namespace Blackjack.Data
 {
     public class Deck
     {

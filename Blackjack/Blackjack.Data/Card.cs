@@ -1,6 +1,6 @@
-﻿using Blackjack.GamePlay.Enums;
+﻿using Blackjack.Data.Enums;
 
-namespace Blackjack.GamePlay
+namespace Blackjack.Data
 {
     public class Card
     {

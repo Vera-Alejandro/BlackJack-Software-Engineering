@@ -10,35 +10,45 @@ namespace Blackjack.GamePlay
     {
         private Deck _deck;
         private Hand _dealerHand;
+
         private List<Hand> _players;
         private List<Hand> _splitHands;
+        
+        private List<bool> _hasSplit;
+        private List<bool> _insuranceWin;
+        
+        private List<double> _playerBets;
+        private List<double> _playerCash;
+        private List<double> _insuranceBets;
+        
         private List<GameResult> _splitResults;
         private List<GameResult> _playerResults;
-        private List<double> _playerBets;
-        private List<double> _insuranceBets;
-        private bool _insuranceAvailiable;
-        private List<bool> _insuranceWin;
-        private List<bool> _hasSplit;
-        private List<double> _playerCash;
+
         private List<GameData> _gameData { get; set; }
+        public bool _insuranceAvailiable { get; set; } = false;
 
         const double DEFAULT_CASH = 500;
 
         public GameInstance( )
         {
-            _insuranceAvailiable = false;
-            _insuranceWin = new List<bool>();
-            _hasSplit = new List<bool>();
             _deck = new Deck();
             _dealerHand = new Hand();
+
             _players = new List<Hand>();
             _splitHands = new List<Hand>();
-            _playerResults = new List<GameResult>();
-            _splitResults = new List<GameResult>();
+            
+            _hasSplit = new List<bool>();
+            _insuranceWin = new List<bool>();
+            
             _playerBets = new List<double>();
-            _insuranceBets = new List<double>();
             _playerCash = new List<double>();
+            _insuranceBets = new List<double>();
+            
+            _splitResults = new List<GameResult>();
+            _playerResults = new List<GameResult>();
+            
             _gameData = new List<GameData>();
+            
             _deck.Shuffle();
         }
 
@@ -57,22 +67,31 @@ namespace Blackjack.GamePlay
 
         public void AddPlayer( )
         {
+            _playerBets.Add( 0 );
+            _hasSplit.Add( false );
+            _splitResults.Add( 0 );
+            _insuranceBets.Add( 0 );
+            _playerResults.Add( 0 );
+            _insuranceWin.Add( false );
             _players.Add( new Hand() );
             _splitHands.Add( new Hand() );
             _gameData.Add( new GameData() );
-            _hasSplit.Add( false );
-            _playerResults.Add( 0 );
-            _splitResults.Add( 0 );
-            _playerBets.Add( 0 );
-            _insuranceBets.Add( 0 );
-            _insuranceWin.Add( false );
             _playerCash.Add( DEFAULT_CASH );
+        }
+
+        /// <summary>
+        /// By Default ".Start()" creates a single player game
+        /// </summary>
+        public void Start()
+        {
+            AddPlayer();
         }
 
         public Hand GetPlayerHand( int playerNumber )
         {
+            //indexing starts at 0 normally but "player 1" is more intuitive so I mean....
             _gameData[playerNumber - 1].SetMoneyLeftOver( _players[playerNumber - 1].GetTotal() );
-            return _players[playerNumber - 1]; //indexing starts at 0 normally but "player 1" is more intuitive so I mean....
+            return _players[playerNumber - 1]; 
         }
 
         public Hand GetSplitHand( int playerNumber )

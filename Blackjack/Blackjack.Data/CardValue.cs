@@ -1,4 +1,4 @@
-﻿namespace Blackjack.GamePlay.Enums
+﻿namespace Blackjack.Data.Enums
 {
     public enum CardValue
     {

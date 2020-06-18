@@ -22,7 +22,7 @@
             <Button x:Name="BetOneThousandButton" Foreground="White" BorderBrush="White" Background="Black" Height="35" Width="75" HorizontalAlignment="Right" Margin="0,-35,25,-35" Content="$1,000" FontSize="18"/>
         </StackPanel>
 
-        <Image Source="Resources/BackJack Title.png" Width="220"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Height="70"/>
+        <Image Source="/Resources/BackJack Title.png" Width="220"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Height="70"/>
         <TextBlock x:Name="Output" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="700,50" Foreground="White" FontSize="18"/>
 
         <!--Top Right Buttons-->

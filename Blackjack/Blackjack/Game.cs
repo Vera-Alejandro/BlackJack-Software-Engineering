@@ -69,6 +69,8 @@ namespace BlackjackGame
             InitializeComponent();
         }
 
+        #region Form Functions
+
         private void Blackjack_Load(object sender, EventArgs e)
         {
             CenterToScreen();
@@ -116,6 +118,8 @@ namespace BlackjackGame
                 TitleImage.Location = new Point(12, 12);
             }
         }
+    
+        #endregion
 
         private void Start_Game(int players)
         {

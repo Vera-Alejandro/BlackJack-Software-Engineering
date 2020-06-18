@@ -1,5 +1,5 @@
 ﻿using Blackjack.Data;
-using Blackjack.GamePlay.Enums;
+using Blackjack.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -80,7 +80,7 @@ namespace Blackjack.GamePlay
         }
 
         /// <summary>
-        /// By Default ".Start()" creates a single player game
+        /// By Default this creates single player game
         /// </summary>
         public void Start()
         {
@@ -106,6 +106,12 @@ namespace Blackjack.GamePlay
         public Deck GetDeck( ) => _deck;
 
         public double GetCash( int playerNumber ) => _playerCash[playerNumber - 1];
+       
+        /// <summary>
+        /// Gets Player 0 Cash 
+        /// </summary>
+        /// <returns> returns double </returns>
+        public double GetCash( ) => _playerCash[0];
 
         public void SetCash( int playerNumber, double cash ) => _playerCash[playerNumber - 1] = cash;
 

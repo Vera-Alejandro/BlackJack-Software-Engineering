@@ -1,5 +1,8 @@
 ﻿using Blackjack.GamePlay;
+using System;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace BlackJack.v3
 {
@@ -40,6 +43,16 @@ namespace BlackJack.v3
         {
             CurrentGame = new GameInstance();
             Output.Text = "A New game has begun.";
+            GenerateImages();
         }
+
+        private void GenerateImages( )
+        {
+            Image cardDisplay = new Image();
+
+        }
+
+        private void PlayerCash_Loaded( object sender, RoutedEventArgs e )
+            => PlayerCash.Text = CurrentGame.GetCash().ToString();
     }
 }

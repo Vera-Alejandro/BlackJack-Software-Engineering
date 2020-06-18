@@ -1,13 +1,14 @@
 ﻿using Blackjack.Data.Enums;
+using System.Windows.Media.Imaging;
 
 namespace Blackjack.Data
 {
     public class Card
     {
-                //FIND A REPLACEMENT FOR IMAGES IN .NETCORE 3.1
-        //private Image _cardImg { get; set; }
-        //private Image _cardBack { get; set; }
-        
+        //FIND A REPLACEMENT FOR IMAGES IN .NETCORE 3.1
+        private BitmapImage _cardImg { get; set; }
+        private BitmapImage _cardBack { get; set; }
+
         private CardValue _value { get; set; }
         private SuiteType _suit { get; set; }
         private bool _beenUsed { get; set; }
@@ -264,10 +265,10 @@ namespace Blackjack.Data
 
         public SuiteType SuiteType1 => _suit;
 
-        //public Image Image => _cardImg;
+        public BitmapImage Image => _cardImg;
 
-        //public Image BackImage => _cardBack;
+        public BitmapImage BackImage => _cardBack;
 
-        //public void SetImage( Image CardImage ) => _cardImg = CardImage;
+        public void SetImage( BitmapImage CardImage ) => _cardImg = CardImage;
     }
 }

@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using Blackjack.Data;
+﻿using Blackjack.Data;
 using Blackjack.Data.Enums;
+using System.Collections.Generic;
 
 namespace Blackjack.GamePlay
 {

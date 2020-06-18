@@ -5,6 +5,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\BackJack Title.png" />
+    <None Remove="Resources\Card Back.png" />
+    <None Remove="Resources\CloseButton.png" />
+    <None Remove="Resources\Minimize.png" />
+    <None Remove="Resources\Resize.png" />
+    <None Remove="Resources\sounds\card_placed_down.wav" />
+    <None Remove="Resources\sounds\card_riffle.wav" />
+    <None Remove="Resources\sounds\card_slap.wav" />
+    <None Remove="Resources\sounds\dealing_one_card.wav" />
+    <None Remove="Resources\sounds\dealing_several_cards.wav" />
+    <None Remove="Resources\sounds\jazz.mp3" />
+    <None Remove="Resources\sounds\overhand_shuffle.wav" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.WindowsDesktop.App"/>
+	</ItemGroup>
+	
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.5" />
   </ItemGroup>
 
@@ -12,6 +31,35 @@
     <Reference Include="PresentationCore">
       <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\PresentationCore.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\BackJack Title.png" />
+    <Resource Include="Resources\Card Back.png" />
+    <Resource Include="Resources\CloseButton.png" />
+    <Resource Include="Resources\Resize.png" />
+    <Resource Include="Resources\sounds\card_placed_down.wav" />
+    <Resource Include="Resources\sounds\card_riffle.wav" />
+    <Resource Include="Resources\sounds\card_slap.wav" />
+    <Resource Include="Resources\sounds\dealing_one_card.wav" />
+    <Resource Include="Resources\sounds\dealing_several_cards.wav" />
+    <Resource Include="Resources\sounds\jazz.mp3" />
+    <Resource Include="Resources\sounds\overhand_shuffle.wav" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

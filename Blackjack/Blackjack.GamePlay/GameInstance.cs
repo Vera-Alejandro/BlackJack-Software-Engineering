@@ -50,6 +50,7 @@ namespace Blackjack.GamePlay
             _gameData = new List<GameData>();
 
             _deck.Shuffle();
+            AddPlayer();
         }
 
         public GameInstance( int playerCount )

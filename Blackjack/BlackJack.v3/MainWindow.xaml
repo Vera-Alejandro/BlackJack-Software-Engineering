@@ -63,7 +63,7 @@
             </InlineUIContainer><Run Text=" "/><InlineUIContainer>
                 <TextBlock x:Name="PlayerCashTitle" Foreground="White" Text="Cash: $" FontSize="18" TextAlignment="Right"/>
             </InlineUIContainer><Run Text=" "/><InlineUIContainer>
-                <TextBlock x:Name="PlayerCash" Foreground="White" Text="500" FontSize="18" Loaded="PlayerCash_Loaded" />
+                <TextBlock x:Name="PlayerCash" Foreground="White" Text="500" FontSize="18" />
             </InlineUIContainer></TextBlock>
             <StackPanel Orientation="Horizontal" Margin="0,475,0,0" Width="550">
                 <Button x:Name="HitButton" Content="Hit" FontSize="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="Black" BorderBrush="White" Foreground="White" Height="50" Width="75" Margin="35,0,35,0" Click="HitButton_Click"/>

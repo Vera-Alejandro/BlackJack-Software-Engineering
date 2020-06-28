@@ -1,4 +1,5 @@
 ﻿using Blackjack.Data.Enums;
+
 using System;
 using System.IO;
 using System.Windows.Media;
@@ -34,8 +35,9 @@ namespace Blackjack.Data
             _value = Value;
             _suit = Suit;
             _beenUsed = false;
-
+          
             foreach (var suit in Enum.GetValues( typeof( SuiteType ) ))
+
             {
                 foreach (var value in Enum.GetValues( typeof( CardValue ) ))
                 {
@@ -66,6 +68,7 @@ namespace Blackjack.Data
             => _cardImg;
 
         public string BackImagePath
+
             => _cardBack;
 
         public void SetImage( string CardImage ) => _cardImg = CardImage;

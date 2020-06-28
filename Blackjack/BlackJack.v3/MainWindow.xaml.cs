@@ -1,8 +1,6 @@
 ﻿using Blackjack.GamePlay;
-using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Imaging;
 
 namespace BlackJack.v3
 {
@@ -22,7 +20,7 @@ namespace BlackJack.v3
         private void ReSizeButton_Click( object sender, RoutedEventArgs e )
             => WindowState = (WindowState == WindowState.Maximized) ? WindowState.Normal : WindowState.Maximized;
 
-        private void CloseButton_Click( object sender, RoutedEventArgs e ) 
+        private void CloseButton_Click( object sender, RoutedEventArgs e )
             => Close();
 
         private void MinButton_Click( object sender, RoutedEventArgs e )
@@ -39,7 +37,7 @@ namespace BlackJack.v3
 
         }
 
-        public void StartGame()
+        public void StartGame( )
         {
             CurrentGame = new GameInstance();
             Output.Text = "A New game has begun.";

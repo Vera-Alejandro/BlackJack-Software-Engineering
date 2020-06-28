@@ -1,12 +1,9 @@
-﻿using System.Security.Cryptography.X509Certificates;
-using System.Text;
-
-namespace Blackjack.Data
+﻿namespace Blackjack.Data
 {
     public class ProfileInfo
     {
 
-                        //SUBJECT TO CHANGE
+        //SUBJECT TO CHANGE
 
         private const string encrypt_pass = "Merry_Christmas";
         public int ID { get; set; }

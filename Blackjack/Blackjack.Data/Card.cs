@@ -62,15 +62,13 @@ namespace Blackjack.Data
 
         public SuiteType SuiteType1 => _suit;
 
-        //public BitmapImage Image
-        //    => _cardImg;
+        public string ImagePath
+            => _cardImg;
 
-        //public BitmapImage BackImage
-        //    => _cardBack;
+        public string BackImagePath
+            => _cardBack;
 
-        //public void SetImage( BitmapImage CardImage ) => _cardImg = CardImage;
+        public void SetImage( string CardImage ) => _cardImg = CardImage;
 
-        internal BitmapImage ConvertToBitmapImage( byte[] ImageBytes )
-            => (BitmapImage)(BitmapSource)new ImageSourceConverter().ConvertFrom( ImageBytes );
     }
 }

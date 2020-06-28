@@ -44,6 +44,7 @@ namespace BlackJack.v3
             CurrentGame = new GameInstance();
             Output.Text = "A New game has begun.";
             GenerateImages();
+            UpdateCash();
         }
 
         private void GenerateImages( )
@@ -52,7 +53,7 @@ namespace BlackJack.v3
 
         }
 
-        private void PlayerCash_Loaded( object sender, RoutedEventArgs e )
-            => PlayerCash.Text = CurrentGame.GetCash().ToString();
+        private void UpdateCash()
+           => PlayerCash.Text = CurrentGame.GetCash().ToString();
     }
 }

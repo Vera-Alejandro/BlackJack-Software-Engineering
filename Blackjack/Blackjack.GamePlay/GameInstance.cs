@@ -13,14 +13,14 @@ namespace Blackjack.GamePlay
 
         private List<Hand> _players;
         private List<Hand> _splitHands;
-        
+
         private List<bool> _hasSplit;
         private List<bool> _insuranceWin;
-        
+
         private List<double> _playerBets;
         private List<double> _playerCash;
         private List<double> _insuranceBets;
-        
+
         private List<GameResult> _splitResults;
         private List<GameResult> _playerResults;
 
@@ -36,17 +36,17 @@ namespace Blackjack.GamePlay
 
             _players = new List<Hand>();
             _splitHands = new List<Hand>();
-            
+
             _hasSplit = new List<bool>();
             _insuranceWin = new List<bool>();
-            
+
             _playerBets = new List<double>();
             _playerCash = new List<double>();
             _insuranceBets = new List<double>();
-            
+
             _splitResults = new List<GameResult>();
             _playerResults = new List<GameResult>();
-            
+
             _gameData = new List<GameData>();
 
             _deck.Shuffle();
@@ -83,7 +83,7 @@ namespace Blackjack.GamePlay
         /// <summary>
         /// By Default this creates single player game
         /// </summary>
-        public void Start()
+        public void Start( )
         {
             AddPlayer();
         }
@@ -92,7 +92,7 @@ namespace Blackjack.GamePlay
         {
             //indexing starts at 0 normally but "player 1" is more intuitive so I mean....
             _gameData[playerNumber - 1].SetMoneyLeftOver( _players[playerNumber - 1].GetTotal() );
-            return _players[playerNumber - 1]; 
+            return _players[playerNumber - 1];
         }
 
         public Hand GetSplitHand( int playerNumber )
@@ -107,7 +107,7 @@ namespace Blackjack.GamePlay
         public Deck GetDeck( ) => _deck;
 
         public double GetCash( int playerNumber ) => _playerCash[playerNumber - 1];
-       
+
         /// <summary>
         /// Gets Player 0 Cash 
         /// </summary>

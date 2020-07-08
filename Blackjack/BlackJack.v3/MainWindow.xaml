@@ -57,7 +57,7 @@
         </StackPanel>
 
         <!--Player Panel-->
-        <StackPanel Margin="0,100,10,0" Height="550" Width="550" VerticalAlignment="Top" HorizontalAlignment="Right">
+        <StackPanel x:Name="PlayerBettingPanel" Margin="0,100,10,0" Height="550" Width="550" VerticalAlignment="Top" HorizontalAlignment="Right">
             <TextBlock x:Name="PlayerCountTitle" Foreground="White" FontSize="18" HorizontalAlignment="Left" ><Run Text="Player Count: "/><Run Text=" "/><InlineUIContainer>
                 <TextBlock x:Name="PlayerCount" Foreground="White" Text="0" FontSize="18" VerticalAlignment="Bottom" Margin="0,0,250,0"/>
             </InlineUIContainer><Run Text=" "/><InlineUIContainer>
@@ -65,6 +65,8 @@
             </InlineUIContainer><Run Text=" "/><InlineUIContainer>
                 <TextBlock x:Name="PlayerCash" Foreground="White" Text="500" FontSize="18" />
             </InlineUIContainer></TextBlock>
+            <Image Source="C:\Users\AlejandroVera-Gonzal\OneDrive - Dakota State University\repos\Vera-Alejandro\BlackJack-Software-Engineering\Blackjack\Blackjack\Resources\Card Back.png"
+               Height="350" Width="240" Margin="0,90,160,0"/>
             <StackPanel Orientation="Horizontal" Margin="0,475,0,0" Width="550">
                 <Button x:Name="HitButton" Content="Hit" FontSize="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="Black" BorderBrush="White" Foreground="White" Height="50" Width="75" Margin="35,0,35,0" Click="HitButton_Click"/>
                 <Button x:Name="StayButton" Content="Stay" FontSize="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="Black" BorderBrush="White" Foreground="White" Height="50" Width="75" Margin="0,0,35,0" Click="StayButton_Click"/>
@@ -74,7 +76,6 @@
         </StackPanel>
 
         <TextBlock x:Name="Output" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="250,50" FontSize="15"/>
-
         <!--Betting Stack Panel-->
 
     </Grid>

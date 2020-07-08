@@ -49,21 +49,22 @@ namespace BlackJack.v3
 
         private void GenerateImages()
         {
-            Image displayImg = new Image();
-            BitmapImage img = new BitmapImage();
+            //Image displayImg = new Image();
+            BitmapImage bitmap = new BitmapImage();
 
-            img.BeginInit();
-            img.UriSource = new Uri(@"C:\Users\AlejandroVera-Gonzal\OneDrive - Dakota State University\repos\Vera-Alejandro\BlackJack-Software-Engineering\Blackjack\Blackjack\Resources\Card Back.png");
-            img.EndInit();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(@"C:\Users\AlejandroVera-Gonzal\Pictures\card.png");
+            bitmap.EndInit();
+
 
             displayImg.BindingGroup = new System.Windows.Data.BindingGroup();
             displayImg.IsEnabled = true;
             displayImg.Margin = new Thickness(0, 90, 160, 0);
             displayImg.Height = 350;
             displayImg.Width= 240;
-            displayImg.Source = img;
+            displayImg.Source = bitmap;
 
-            PlayerBettingPanel.Children.Add(displayImg);
+            //PlayerBettingPanel.Children.Add(displayImg);
         }
 
         private void UpdateCash()

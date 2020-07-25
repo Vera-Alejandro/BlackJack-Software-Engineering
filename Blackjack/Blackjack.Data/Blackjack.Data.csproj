@@ -20,11 +20,11 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<FrameworkReference Include="Microsoft.WindowsDesktop.App"/>
+		<FrameworkReference Include="Microsoft.WindowsDesktop.App" />
 	</ItemGroup>
 	
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.6" />
   </ItemGroup>
 
   <ItemGroup>

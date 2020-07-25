@@ -53,7 +53,7 @@ namespace BlackJack.v3
             BitmapImage bitmap = new BitmapImage();
 
             bitmap.BeginInit();
-            bitmap.UriSource = new Uri(@"C:\Users\AlejandroVera-Gonzal\Pictures\card.png");
+            bitmap.UriSource = new Uri(@"A:\Temp\Card Back.png");
             bitmap.EndInit();
 
 
